@@ -51,7 +51,7 @@ test('synthetic microphone records a real container and leaves the transcript ed
     await testInfo.attach('synthetic-recording',{body:Buffer.from(await file.arrayBuffer()),contentType:file.type});
     await route.fulfill({json:{rawTranscript:'Rahajeng   semeng.',normalizedTranscript:'Rahajeng semeng.'}});
   });
-  await page.goto('/');
+  await page.goto('/desa');
   const support=await capabilities(page,testInfo);
   test.skip(support.recorder!=='function'||support.audioContext!=='function','This host browser build has no MediaRecorder/AudioContext. No recording or native-device pass is claimed.');
   await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
@@ -77,7 +77,7 @@ test('audio failure recovers to real WAV playback and animated speaking state',a
     if(requests===1)return route.fulfill({status:503,json:{error:'Audio sementara tidak tersedia. Coba lagi.'}});
     return route.fulfill({contentType:'audio/wav',body:toneWav()});
   });
-  await page.goto('/');
+  await page.goto('/desa');
   const support=await capabilities(page,testInfo);
   test.skip(support.audioContext!=='function','This host browser build has no Web Audio API; real playback/analyser integration cannot be validated here.');
   await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
@@ -91,7 +91,7 @@ test('audio failure recovers to real WAV playback and animated speaking state',a
 });
 
 test('each advertised recorder codec produces playable synthetic audio',async({page},testInfo)=>{
-  await mediaApp(page);await page.goto('/');
+  await mediaApp(page);await page.goto('/desa');
   const support=await capabilities(page,testInfo);
   test.skip(support.recorder!=='function'||support.audioContext!=='function','This host browser build exposes no recorder/Web Audio codecs. This is not an iOS compatibility pass.');
   await page.evaluate(()=>{
@@ -139,7 +139,7 @@ test('each advertised recorder codec produces playable synthetic audio',async({p
 test('unavailable microphone APIs keep manual typing available',async({page})=>{
   await mediaApp(page);
   await page.addInitScript(()=>Object.defineProperty(navigator,'mediaDevices',{configurable:true,value:undefined}));
-  await page.goto('/');await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
+  await page.goto('/desa');await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
   await page.getByRole('button',{name:'Mulai merekam',exact:true}).click();
   await expect(page.locator('.composer [role="alert"]')).toContainText('Gunakan mode ketik');
   await page.getByRole('button',{name:'Ketik',exact:true}).click();

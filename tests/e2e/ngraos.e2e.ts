@@ -44,7 +44,7 @@ test('real demo API: welcome → map → lesson → persisted resume, without pa
   await context.setExtraHTTPHeaders({'x-forwarded-for':'playwright-'+crypto.randomUUID()});
   let ownsDemo=false;
   try {
-    await page.goto('/');
+    await page.goto('/desa');
     await expect(page.getByRole('heading',{name:'Ayo latihan Basa Bali.'})).toBeVisible();
     await expect(page.getByRole('region',{name:'Peta interaktif Desa Kenderan'})).toBeVisible();
     await noOverflow(page);
@@ -102,7 +102,7 @@ test('microphone denial falls back to typing and a failed turn can be retried sa
     app.setSession({...app.getSession(),turns:[turn],completedObjectives:['warung:greet']});
     await route.fulfill({json:{session:app.getSession(),turn}});
   });
-  await page.goto('/');
+  await page.goto('/desa');
   await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
   await page.getByRole('button',{name:'Mulai merekam',exact:true}).click();
   await expect(page.locator('.composer [role="alert"]')).toContainText('Izin mikrofon belum diberikan');
@@ -123,12 +123,12 @@ test('microphone denial falls back to typing and a failed turn can be retried sa
 
 test('locked locations, English settings, reload and responsive navigation work',async({page},testInfo)=>{
   await quietAudio(page);await mockApp(page);
-  await page.goto('/');
+  await page.goto('/desa');
   await page.getByRole('button',{name:'Kos Bu Komang, terkunci',exact:true}).click();
   await expect(page.getByRole('button',{name:'Selesaikan lokasi sebelumnya',exact:true})).toBeDisabled();
   await page.getByRole('button',{name:'Buka profil',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Pengaturan'})).toBeVisible();
-  await page.locator('.setting-row').filter({hasText:'Bahasa antarmuka'}).getByRole('button',{name:'ID',exact:true}).click();
+  await page.getByRole('button',{name:'Bahasa antarmuka',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Settings'})).toBeVisible();
   await expect(page.getByRole('heading',{name:'Learning experience'})).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang','en');
@@ -137,7 +137,7 @@ test('locked locations, English settings, reload and responsive navigation work'
   await page.reload();
   await expect(page.getByRole('heading',{name:'Let’s practise Balinese.'})).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang','en');
-  const menu=page.getByRole('button',{name:'Buka menu',exact:true});
+  const menu=page.getByRole('button',{name:'Open menu',exact:true});
   if(await menu.isVisible())await menu.click();
   await page.getByRole('button',{name:'Village album',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Village album'})).toBeVisible();

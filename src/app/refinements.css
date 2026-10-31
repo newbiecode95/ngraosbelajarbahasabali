@@ -442,6 +442,44 @@ button:disabled {
 .voice-bars {
   opacity: calc(0.5 + var(--voice-level) * 0.5);
 }
+/* Secondary information still needs to be legible, including language notes. */
+.correction-before,
+.correction-after,
+.correction-item p,
+.advisory,
+.hint-box {
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.correction-before { color: #80654b; }
+.correction-after { color: #496738; }
+.correction-item p, .advisory { color: #73633a; }
+.correction-item a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 12px;
+  color: #6f5b2b;
+}
+.correction-card summary, .listen-btn, .hint-btn, .report-btn {
+  min-height: 44px;
+}
+.report-btn { min-width: 44px; }
+.send-button { width: 46px; height: 46px; }
+.search-count {
+  color: var(--muted);
+  font-size: 13px;
+  margin: -8px 0 20px;
+}
+.setting-toggle[aria-checked="true"] {
+  background: var(--green);
+  color: #fff;
+}
+.setting-toggle { flex-shrink: 0; }
+.main-content:focus { outline: none; }
+.mobile-brand .brand-mark { display: none; }
+.sidebar { overflow-y: auto; overscroll-behavior: contain; }
 @media (max-width: 1180px) and (min-width: 761px) {
   .sidebar {
     width: 190px;
@@ -519,8 +557,13 @@ button:disabled {
     min-height: calc(100svh - 144px);
   }
   .topbar-right {
-    gap: 8px;
+    gap: 6px;
   }
+  .topbar-left { gap: 8px; }
+  .mobile-brand .brand { font-size: 23px; }
+  .topbar .stat-pill.streak { display: none; }
+  .topbar .avatar { width: 36px; height: 36px; }
+  .topbar .icon-btn, .topbar .language-btn { min-width: 44px; min-height: 44px; }
   .breadcrumb {
     display: none;
   }
@@ -866,6 +909,38 @@ button:disabled {
     gap: 12px;
     max-width: none;
   }
+  .main-content:has(> .lesson-flow) {
+    min-height: 0;
+    padding-block: 12px;
+  }
+  .lesson-flow {
+    height: calc(var(--lesson-viewport, 100dvh) - 88px);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .lesson-flow .lesson-heading { flex-shrink: 0; }
+  .lesson-flow .play-grid { flex: 1; min-height: 0; }
+  .lesson-flow .scene-panel {
+    height: clamp(96px, 15dvh, 126px);
+    min-height: 0;
+    flex-shrink: 0;
+  }
+  .lesson-flow .scene-npc { height: 100%; }
+  .lesson-flow .conversation-panel {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+  .lesson-flow .conversation-history { min-height: 0; }
+  .lesson-flow .composer { max-height: 65%; min-height: 0; flex-shrink: 1; overflow-y: auto; }
+  .lesson-flow.keyboard-open .scene-panel,
+  .lesson-flow.keyboard-open .mission-track-items,
+  .lesson-flow.keyboard-open .lesson-saved,
+  .lesson-flow.keyboard-open .composer-disclosure { display: none; }
+  .lesson-flow.keyboard-open .mission-tracker { padding-block: 8px; }
+  .lesson-flow.keyboard-open .lesson-heading { margin-bottom: 8px; }
+  .lesson-flow.keyboard-open .lesson-heading .text-link { min-height: 32px; }
   .scene-panel {
     height: 140px;
     min-height: 140px;
@@ -943,12 +1018,13 @@ button:disabled {
     padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
   .composer-disclosure {
-    font-size: 10px;
+    font-size: 11px;
     margin-top: 6px;
   }
   .voice-review {
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 6px;
+    min-height: 40px;
   }
   .voice-composer {
     padding: 10px 0;
@@ -958,7 +1034,7 @@ button:disabled {
     font-size: 13px;
   }
   .voice-composer p {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.5;
   }
   .record-button {
@@ -1024,8 +1100,10 @@ button:disabled {
     padding-inline: 10px;
   }
   .topbar-right {
-    gap: 3px;
+    gap: 2px;
   }
+  .mobile-brand .brand { font-size: 21px; }
+  .topbar-left { gap: 4px; }
   .mission-copy > p {
     padding-right: 66px;
   }
@@ -1057,4 +1135,15 @@ button:disabled {
 }
 html[data-reduced="true"] .scene-npc.speaking .npc-state {
   box-shadow: 0 0 0 3px #659d7a18;
+}
+@media (max-width: 760px) and (max-height: 650px) {
+  .lesson-flow .scene-panel { height: 80px; }
+  .lesson-flow .scene-title { padding: 10px 16px; }
+  .lesson-flow .scene-title h1 { font-size: 20px; margin-top: 4px; }
+  .lesson-flow .mission-tracker { padding-block: 10px; }
+  .lesson-flow .mission-track-items { flex-wrap: nowrap; overflow-x: auto; }
+  .lesson-flow .mission-track-items > span { flex-shrink: 0; }
+  .lesson-flow .conversation-history { padding: 10px 12px; }
+  .lesson-flow .composer-disclosure { display: none; }
+  .lesson-flow .composer-tools { margin-bottom: 10px; }
 }

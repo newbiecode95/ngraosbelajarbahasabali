@@ -86,15 +86,32 @@ export function LessonPlayer({
   );
   const bottom = useRef<HTMLDivElement | null>(null),
     attempt = useRef<{ id: string; text: string } | null>(null);
+  const conversationView = useRef<HTMLDivElement | null>(null);
   const completed = lesson.objectives.every((o) =>
     session.completedObjectives.includes(o.id),
   );
+  const isConversation = session.status !== "completed" && !session.quiz?.length;
 
   useEffect(() => {
     const history = bottom.current?.parentElement;
     if (history)
-      history.scrollTo({ top: history.scrollHeight, behavior: "smooth" });
+      history.scrollTo({ top: history.scrollHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.reduced === "true" ? "instant" : "smooth" });
   }, [session.turns.length, busy]);
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    const update = () => {
+      const height = viewport?.height || window.innerHeight;
+      conversationView.current?.style.setProperty("--lesson-viewport", `${height}px`);
+      conversationView.current?.classList.toggle("keyboard-open", height < 500);
+    };
+    update();
+    viewport?.addEventListener("resize", update);
+    window.addEventListener("resize", update);
+    return () => {
+      viewport?.removeEventListener("resize", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [isConversation]);
   useEffect(() => {
     if (recorder.failures >= 2) setMode("text");
   }, [recorder.failures]);
@@ -261,7 +278,7 @@ export function LessonPlayer({
       />
     );
   return (
-    <>
+    <div className="lesson-flow" ref={conversationView}>
       <div className="lesson-heading">
         <button
           className="text-link"
@@ -414,7 +431,7 @@ export function LessonPlayer({
           <div className="mission-tracker">
             <div>
               <span className="eyebrow">
-                {t("MISI KECILMU", "YOUR LITTLE MISSIONS")}
+                {t("TARGET PERCAKAPAN", "CONVERSATION GOALS")}
               </span>
               <strong>
                 {session.completedObjectives.length}/{lesson.objectives.length}
@@ -582,8 +599,8 @@ export function LessonPlayer({
                 <small>
                   {completed
                     ? t(
-                        "Menyiapkan kuis dari ceritamu…",
-                        "Preparing a quiz from your story…",
+                        "Menyiapkan kuis dari percakapanmu…",
+                        "Preparing a quiz from your conversation…",
                       )
                     : t(
                         `${lesson.npc} sedang berpikir…`,
@@ -632,6 +649,7 @@ export function LessonPlayer({
                   <div className="input-mode">
                     <button
                       className={mode === "voice" ? "active" : ""}
+                      aria-pressed={mode === "voice"}
                       onClick={() => setMode("voice")}
                       disabled={
                         recorder.recording || recorder.transcribing || busy
@@ -642,6 +660,7 @@ export function LessonPlayer({
                     </button>
                     <button
                       className={mode === "text" ? "active" : ""}
+                      aria-pressed={mode === "text"}
                       onClick={() => setMode("text")}
                       disabled={recorder.recording}
                     >
@@ -836,7 +855,7 @@ export function LessonPlayer({
           )}
         </Modal>
       ) : null}
-    </>
+    </div>
   );
 }
 function ShieldSmall() {
@@ -955,7 +974,7 @@ function QuizPlayer({
         <span className="label-pill">{t("KUIS LATIHAN", "PRACTICE QUIZ")}</span>
       </div>
       <div className="quiz-progress">
-        <div>
+        <div role="progressbar" aria-label={t("Soal selesai", "Questions completed")} aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={index}>
           <span style={{ width: `${(index / questions.length) * 100}%` }} />
         </div>
         <strong>
@@ -998,6 +1017,7 @@ function QuizPlayer({
               <button
                 key={`${option}-${i}`}
                 className={answers[q.id] === option ? "selected" : ""}
+                aria-pressed={answers[q.id] === option}
                 onClick={() => setAnswers({ ...answers, [q.id]: option })}
               >
                 <span>{String.fromCharCode(65 + i)}</span>

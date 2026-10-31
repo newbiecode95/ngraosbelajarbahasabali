@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useId, useRef, type ReactNode } from "react";
 import { X, LoaderCircle, Sparkles, Star, Sprout } from "lucide-react";
 export function Brand({ small = false }: { small?: boolean }) {
   return (
@@ -46,6 +46,7 @@ export function Modal({
   wide?: boolean;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
   useEffect(() => {
     const d = dialog.current;
     d?.showModal();
@@ -54,6 +55,7 @@ export function Modal({
   return (
     <dialog
       ref={dialog}
+      aria-labelledby={titleId}
       className={`modal ${wide ? "wide" : ""}`}
       onCancel={(e) => {
         e.preventDefault();
@@ -65,7 +67,7 @@ export function Modal({
     >
       <div className="modal-inner">
         <div className="modal-header">
-          <h2>{title}</h2>
+          <h2 id={titleId}>{title}</h2>
           <button className="icon-btn" aria-label="Tutup" onClick={onClose}>
             <X size={21} />
           </button>

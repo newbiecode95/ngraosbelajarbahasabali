@@ -2,6 +2,8 @@
 
 An interactive Balinese language adventure in **Desa Kenderan**, deployed with Docker at **https://ngraos.docker.anatera.app**. Four connected encounters take the player from a first greeting to a complete conversation: Warung Men Sari, Kos Bu Komang, Pasar Pagi, and the chapter boss.
 
+The home page now opens with a cinematic welcome screen. Select **Mulai** to enter `/desa`; refreshing the village keeps you inside the app. See [welcome screen verification and art credits](docs/welcome/README.md).
+
 ## Implemented experience
 
 - Illustrated 2.5D village with interactive locations, four character portraits, ambient sound, audio-reactive speaking indicators, keyboard navigation and reduced motion.
@@ -51,3 +53,5 @@ The database is authoritative for turns, objective evidence, errors, quizzes and
 See [operations](docs/operations.md) for source deployment, TLS routing, model checks, daily backups, restore verification, administrator access and rollback. See [verification](docs/verification.md) for measured results and limitations. Images and procedural ambience are documented in [asset credits](docs/assets.md).
 
 No public registration of a third-party hosting service is required. Everything runs in the dedicated `/opt/ngraos` Docker stack on the home server. Future scope (later chapters, spaced repetition and social features) is intentionally outside this release.
+Current UI audit and responsive fixes: [docs/ui-review/README.md](docs/ui-review/README.md).
+

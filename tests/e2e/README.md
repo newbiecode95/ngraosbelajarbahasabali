@@ -1,4 +1,10 @@
-# Browser acceptance update — gameplay and UI revision
+# Browser acceptance update — responsive UI and welcome
+
+Release `20261031-v3.1-responsive`: **37 passed, 8 skipped, 0 failed** against public HTTPS. The new checks cover menu background isolation and focus return, accessible setting states, preserved preferences, dictionary empty-state recovery, and composer visibility at 320 × 568, 390 × 667, 390 × 844 and a 390 × 380 reduced viewport. Four skips concern absent Windows WebKit media APIs; four avoid duplicate viewport matrices. All 39 unit/PostgreSQL tests and the production Docker build passed. See [the current audit](../../docs/ui-review/README.md) and [welcome notes](../../docs/welcome/README.md).
+
+The following results are historical.
+
+# Gameplay and UI revision
 
 Latest run: **21 passed, 6 skipped, 0 failed** across desktop Chromium, mobile Chromium, and Windows WebKit. Four skips concern unavailable Windows WebKit media APIs; two skip duplicate execution of the six-width layout matrix in other projects. TypeScript and the production build pass.
 

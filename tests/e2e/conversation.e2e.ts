@@ -13,7 +13,7 @@ test('voice sends after silence, auto-plays the final reply, and lets the learne
     if(path.endsWith('/quiz')){quiz++;return route.fulfill({status:503,json:{error:'Quiz fixture ends here.'}});}
     return route.fulfill({status:503,json:{error:'Unmatched test request'}});
   });
-  await page.goto('/');const hasMedia=await page.evaluate(()=>typeof AudioContext==='function'&&typeof MediaRecorder==='function');test.skip(!hasMedia,'The Windows WebKit port has no capture/Web Audio APIs.');
+  await page.goto('/desa');const hasMedia=await page.evaluate(()=>typeof AudioContext==='function'&&typeof MediaRecorder==='function');test.skip(!hasMedia,'The Windows WebKit port has no capture/Web Audio APIs.');
   await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
   await expect(page.locator('.scene-npc')).toHaveClass(/speaking/);
   await expect(page.locator('.scene-npc')).not.toHaveClass(/speaking/);

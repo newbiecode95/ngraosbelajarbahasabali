@@ -30,3 +30,5 @@ Final Pak Wayan prompt:
 The quiet stream/wind atmosphere is synthesized locally with Web Audio noise and a low-pass filter. It starts after a user interaction, fades while in a conversation, and follows mute and document visibility. It contains no recorded player speech. NPC voices are explicitly disclosed as AI generated.
 
 DM Sans Variable and Outfit Variable are bundled through `@fontsource-variable` packages with their included open-font license files. Lucide provides the interface icons under its ISC license. Learning-text attribution and share-alike terms are separate; see `src/content/README.md`.
+
+The welcome screen adds an illustrated gateway in `public/images/welcome-kenderan.webp` and a smaller mobile variant. Generation prompt and credits: [welcome/artwork.md](welcome/artwork.md).

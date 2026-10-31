@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/outfit";
+import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource/cormorant-garamond/latin-600-italic.css";
 import "./globals.css";
 import "./refinements.css";
+import "./welcome.css";
 export const metadata: Metadata = {
   title: "Ngraos! — Dari Tamiu jadi Nyama",
   description:
@@ -13,6 +16,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  interactiveWidget: "resizes-content",
   themeColor: "#f7f8f2",
 };
 export default function RootLayout({

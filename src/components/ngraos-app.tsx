@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useState, useRef, useId } from "react";
 import {
   Map,
   BookOpen,
@@ -70,7 +70,10 @@ export function NgraosApp() {
     [error, setError] = useState(""),
     [toast, setToast] = useState("");
   const [smallScreen, setSmallScreen] = useState(false);
+  const [preferencesLoaded, setPreferencesLoaded] = useState(false);
   const navigation = useRef<HTMLElement | null>(null);
+  const menuButton = useRef<HTMLButtonElement | null>(null);
+  const content = useRef<HTMLElement | null>(null);
   useEffect(() => {
     const mq = window.matchMedia("(max-width:760px)");
     const update = () => {
@@ -83,17 +86,20 @@ export function NgraosApp() {
   }, []);
   useEffect(() => {
     if (!mobileMenu) return;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     navigation.current?.querySelector("button")?.focus();
     const escape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileMenu(false);
-        document
-          .querySelector<HTMLButtonElement>('[aria-label="Buka menu"]')
-          ?.focus();
+        requestAnimationFrame(() => menuButton.current?.focus());
       }
     };
     document.addEventListener("keydown", escape);
-    return () => document.removeEventListener("keydown", escape);
+    return () => {
+      document.body.style.overflow = overflow;
+      document.removeEventListener("keydown", escape);
+    };
   }, [mobileMenu]);
   function chooseLocation(id: LevelId) {
     setSelected(id);
@@ -101,10 +107,10 @@ export function NgraosApp() {
       requestAnimationFrame(() =>
         document
           .querySelector(".mission-panel")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" }),
+          ?.scrollIntoView({ behavior: reduced ? "instant" : "smooth", block: "start" }),
       );
   }
-  useAmbience(muted, Boolean(session));
+  useAmbience(!preferencesLoaded || muted, Boolean(session));
   const t = (id: string, en: string) => (locale === "id" ? id : en);
   const refresh = useCallback(async () => {
     try {
@@ -122,23 +128,28 @@ export function NgraosApp() {
   }, []);
   useEffect(() => {
     void refresh();
-    const stored = localStorage.getItem("ngraos-preferences");
-    if (stored)
-      try {
+    try {
+      const stored = localStorage.getItem("ngraos-preferences");
+      if (stored) {
         const value = JSON.parse(stored);
         setMuted(Boolean(value.muted));
         setReduced(Boolean(value.reduced));
         if (value.locale === "en") setLocale("en");
-      } catch {}
+      }
+    } catch {}
+    setPreferencesLoaded(true);
   }, [refresh]);
   useEffect(() => {
+    if (!preferencesLoaded) return;
     document.documentElement.lang = locale;
     document.documentElement.dataset.reduced = String(reduced);
-    localStorage.setItem(
-      "ngraos-preferences",
-      JSON.stringify({ muted, reduced, locale }),
-    );
-  }, [muted, reduced, locale]);
+    try {
+      localStorage.setItem(
+        "ngraos-preferences",
+        JSON.stringify({ muted, reduced, locale }),
+      );
+    } catch {}
+  }, [muted, reduced, locale, preferencesLoaded]);
   useEffect(() => {
     if (!toast) return;
     const timer = setTimeout(() => setToast(""), 5000);
@@ -234,6 +245,7 @@ export function NgraosApp() {
     setSession(null);
     setMobileMenu(false);
     setError("");
+    requestAnimationFrame(() => content.current?.focus({ preventScroll: true }));
   }
   const nav = [
     { id: "map" as const, icon: Map, label: t("Petualangan", "Adventure") },
@@ -258,6 +270,8 @@ export function NgraosApp() {
       className={`app-shell ${session ? "in-lesson" : ""} ${reduced ? "reduce-motion" : ""}`}
     >
       <aside
+        id="village-navigation"
+        aria-label={t("Menu desa", "Village menu")}
         ref={navigation}
         onKeyDown={(e) => {
           if (!smallScreen || !mobileMenu || e.key !== "Tab") return;
@@ -289,8 +303,8 @@ export function NgraosApp() {
           </button>
           <button
             className="icon-btn mobile-only"
-            onClick={() => setMobileMenu(false)}
-            aria-label="Tutup menu"
+            onClick={() => { setMobileMenu(false); requestAnimationFrame(() => menuButton.current?.focus()); }}
+            aria-label={t("Tutup menu", "Close menu")}
           >
             <X />
           </button>
@@ -327,7 +341,7 @@ export function NgraosApp() {
               {t("Mulai dari satu sapaan.", "Start with a greeting.")}
             </span>
           </div>
-          <button className="nav-item" onClick={() => navigate("profile")}>
+          <button className={`nav-item ${screen === "profile" && !session ? "active" : ""}`} aria-current={screen === "profile" && !session ? "page" : undefined} onClick={() => navigate("profile")}>
             <Settings size={20} />
             {t("Pengaturan", "Settings")}
           </button>
@@ -350,20 +364,26 @@ export function NgraosApp() {
       {mobileMenu ? (
         <button
           className="sidebar-scrim"
-          aria-label="Tutup menu"
-          onClick={() => setMobileMenu(false)}
+          aria-hidden="true"
+          tabIndex={-1}
+          onClick={() => { setMobileMenu(false); requestAnimationFrame(() => menuButton.current?.focus()); }}
         />
       ) : null}
-      <div className="main-shell">
+      <div className="main-shell" inert={smallScreen && mobileMenu}>
         <header className="topbar">
           <div className="topbar-left">
             <button
+              ref={menuButton}
               className="icon-btn mobile-only"
               onClick={() => setMobileMenu(true)}
               aria-expanded={mobileMenu}
-              aria-label="Buka menu"
+              aria-controls="village-navigation"
+              aria-label={t("Buka menu", "Open menu")}
             >
               <Menu />
+            </button>
+            <button className="mobile-brand mobile-only unstyled" onClick={() => navigate("map")} aria-label={t("Ngraos beranda", "Ngraos home")}>
+              <Brand small />
             </button>
             <span className="breadcrumb">
               {t("Desa Kenderan", "Kenderan Village")}
@@ -377,7 +397,7 @@ export function NgraosApp() {
             </span>
           </div>
           <div className="topbar-right">
-            <span className="stat-pill streak">
+            <span className="stat-pill streak" aria-label={`${player?.streak || 0} ${t("hari berturut-turut", "day streak")}`}>
               <Flame size={17} />
               {player?.streak || 0}
               <span>{t("hari", "days")}</span>
@@ -390,7 +410,7 @@ export function NgraosApp() {
             <button
               className="language-btn"
               onClick={changeLocale}
-              aria-label="Change language"
+              aria-label={t("Switch to English", "Ganti ke Bahasa Indonesia")}
             >
               <Globe2 size={16} />
               {locale.toUpperCase()}
@@ -398,7 +418,8 @@ export function NgraosApp() {
             <button
               className="icon-btn sound-btn"
               onClick={() => setMuted(!muted)}
-              aria-label={muted ? "Aktifkan suara" : "Matikan suara"}
+              aria-pressed={!muted}
+              aria-label={muted ? t("Aktifkan suara", "Enable sound") : t("Matikan suara", "Mute sound")}
             >
               {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
             </button>
@@ -419,7 +440,7 @@ export function NgraosApp() {
             )}
           </div>
         </header>
-        <main className="main-content" id="main-content">
+        <main ref={content} tabIndex={-1} className="main-content" id="main-content">
           {error ? (
             <div className="error-banner" role="alert">
               {error}
@@ -533,6 +554,7 @@ export function NgraosApp() {
                             key={l.id}
                             className={`map-marker marker-${l.id} ${selected === l.id ? "selected" : ""} ${unlocked(l.id) ? "available" : "locked"}`}
                             onClick={() => chooseLocation(l.id)}
+                            aria-pressed={selected === l.id}
                             aria-label={`${l.title}, ${unlocked(l.id) ? t("terbuka", "unlocked") : t("terkunci", "locked")}`}
                           >
                             <span className="marker-dot">
@@ -577,7 +599,7 @@ export function NgraosApp() {
                         </span>
                         <span>
                           <span className="legend-dot pale" />
-                          {t("Segera terbuka", "Coming your way")}
+                          {t("Selesaikan lokasi sebelumnya", "Complete the previous location")}
                         </span>
                         <span className="map-bottom-end">
                           <Sprout size={14} />
@@ -743,8 +765,8 @@ export function NgraosApp() {
                               "Pick up your last conversation right where you left off.",
                             )
                           : t(
-                              "Selesaikan satu latihan untuk memulai streak harian.",
-                              "Complete a lesson to start your daily streak.",
+                              player?.streak ? "Selesaikan satu latihan lagi untuk menambah XP." : "Selesaikan satu latihan untuk memulai streak harian.",
+                              player?.streak ? "Complete another lesson to earn more XP." : "Complete a lesson to start your daily streak.",
                             )}
                       </p>
                     </div>
@@ -956,12 +978,12 @@ export function NgraosApp() {
               [
                 t("Pilih tempat", "Pick a place"),
                 t(
-                  "Temui warga dan lihat tiga misi kecilmu.",
-                  "Meet a neighbour and discover three little missions.",
+                  "Temui warga dan lihat target percakapannya.",
+                  "Meet a neighbour and check your conversation goals.",
                 ),
               ],
               [
-                t("Bicara dengan nyaman", "Speak at your pace"),
+                t("Bicara atau ketik", "Speak or type"),
                 t(
                   "Tekan mikrofon dan bicara. Setelah jeda, ucapan dikirim dan balasan diputar otomatis. Kamu juga bisa mengetik.",
                   "Tap the microphone and speak. After a pause, your words are sent and the reply plays automatically. Typing is also available.",
@@ -970,8 +992,8 @@ export function NgraosApp() {
               [
                 t("Belajar dari percakapanmu", "Learn from your conversation"),
                 t(
-                  "Lihat koreksi dengan sumber, lalu selesaikan kuis personal.",
-                  "Explore sourced corrections, then finish your personal quiz.",
+                  "Lihat catatan bahasa dan sumbernya, lalu kerjakan kuis dari percakapanmu.",
+                  "Read the language notes and their sources, then take a quiz based on your conversation.",
                 ),
               ],
               [
@@ -1187,8 +1209,8 @@ function Sources({ locale }: { locale: Locale }) {
         eyebrow={t("BELAJAR DENGAN RUJUKAN", "LEARNING WITH REFERENCES")}
         title={t("Kamus & sumber belajar", "Dictionary & learning sources")}
         description={t(
-          "Kenali materi yang menemani percakapanmu. Disusun dan diperiksa dengan AI, bukan validasi ahli.",
-          "Meet the material behind your conversations. Prepared and reviewed with AI, not expert validation.",
+          "Cari arti kata dan lihat sumber materi Ngraos. Materi disusun dan diperiksa dengan AI; belum diperiksa ahli bahasa.",
+          "Find word meanings and sources used in Ngraos. Material is prepared and reviewed with AI; it has not been reviewed by a language expert.",
         )}
       />
       <div className="sources-intro">
@@ -1216,9 +1238,17 @@ function Sources({ locale }: { locale: Locale }) {
           )}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          aria-label="Cari kamus"
+          aria-label={t("Cari kamus", "Search dictionary")}
         />
       </div>
+      <p className="search-count" role="status">
+        {search.trim() ? t(`${filtered.length} kata ditemukan`, `${filtered.length} words found`) : t("Cari dalam bahasa Bali, Indonesia, atau Inggris.", "Search in Balinese, Indonesian, or English.")}
+      </p>
+      {!filtered.length ? (
+        <EmptyState title={t("Kata belum ditemukan", "No matching words")} description={t("Coba ejaan lain atau cari artinya dalam bahasa Indonesia.", "Try a different spelling or search for its meaning in English.")}>
+          <button className="btn subtle" onClick={() => setSearch("")}>{t("Lihat semua kata", "Show all words")}</button>
+        </EmptyState>
+      ) : null}
       <div className="dictionary-grid">
         {filtered.slice(0, 60).map((entry) => (
           <article className="dictionary-entry" key={entry.id}>
@@ -1399,6 +1429,7 @@ function Profile({
             )}
             onClick={onMute}
             value={muted ? t("Mati", "Off") : t("Aktif", "On")}
+            checked={!muted}
           />
           <Setting
             title={t("Kurangi animasi", "Reduce motion")}
@@ -1408,6 +1439,7 @@ function Profile({
             )}
             onClick={onReduce}
             value={reduced ? t("Aktif", "On") : t("Mati", "Off")}
+            checked={reduced}
           />
           <p className="note">
             {t(
@@ -1468,19 +1500,23 @@ function Setting({
   detail,
   onClick,
   value,
+  checked,
 }: {
   title: string;
   detail: string;
   onClick: () => void;
   value: string;
+  checked?: boolean;
 }) {
+  const labelId = useId();
+  const detailId = useId();
   return (
     <div className="setting-row">
       <div>
-        <strong>{title}</strong>
-        <p>{detail}</p>
+        <strong id={labelId}>{title}</strong>
+        <p id={detailId}>{detail}</p>
       </div>
-      <button className="setting-toggle" onClick={onClick}>
+      <button className="setting-toggle" onClick={onClick} aria-labelledby={labelId} aria-describedby={detailId} role={checked === undefined ? undefined : "switch"} aria-checked={checked}>
         {value}
       </button>
     </div>
