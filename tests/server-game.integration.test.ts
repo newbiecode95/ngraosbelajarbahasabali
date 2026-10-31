@@ -63,4 +63,13 @@ describe.skipIf(!enabled)('database concurrency and ownership',()=>{
     expect(usage.rows).toHaveLength(1);expect(usage.rows[0].metadata.costUsd).toBe(0.01);
     expect((await query('SELECT name FROM players WHERE id=$1',[actor.id])).rows[0].name).toBe('Integration test');
   });
+  it('recovers a valid greeting missed in an older turn, while excluding NPC-only evidence',async()=>{
+    const session=await startSession(other,'warung');
+    const old={id:randomUUID(),playerText:'Om swastiastu, Bu.',reply:'Tiang pamit.',translation:{id:'Saya pamit.',en:'Goodbye.'},corrections:[],objectiveIds:[],assessed:false,createdAt:new Date().toISOString()};
+    await query('UPDATE game_sessions SET turns=$2 WHERE id=$1',[session.id,JSON.stringify([old])]);
+    vi.mocked(roleplay).mockResolvedValueOnce({reply:'Nggih.',translation:{id:'Ya.',en:'Yes.'},corrections:[],objectiveEvidence:[{objectiveId:'warung:greet',quote:'Om swastiastu'},{objectiveId:'warung:farewell',quote:'Tiang pamit'}]});
+    const result=await addTurn(other,session.id,{id:randomUUID(),text:'Tiang nunas teh.'});
+    expect(result.session.completedObjectives).toContain('warung:greet');
+    expect(result.session.completedObjectives).not.toContain('warung:farewell');
+  });
 });

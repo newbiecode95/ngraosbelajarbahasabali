@@ -70,7 +70,7 @@ export function AdminPanel({ locale }: { locale: Locale }) {
             <ShieldCheck size={14} />
             {t("PANEL PENGELOLA", "ADMINISTRATION")}
           </div>
-          <h1>{t("Desa di balik layar.", "Behind the village.")}</h1>
+          <h1>{t("Kelola Ngraos", "Manage Ngraos")}</h1>
           <p>
             {t(
               "Materi, laporan pemain, dan penggunaan layanan.",

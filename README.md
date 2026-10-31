@@ -1,12 +1,12 @@
 # Ngraos! — Dari Tamiu jadi Nyama
 
-An interactive Balinese language adventure, deployed with Docker at **https://ngraos.docker.anatera.app**. Four connected encounters take the player from a first greeting to a complete conversation: Warung Men Sari, Kos Bu Komang, Pasar Pagi, and the chapter boss.
+An interactive Balinese language adventure in **Desa Kenderan**, deployed with Docker at **https://ngraos.docker.anatera.app**. Four connected encounters take the player from a first greeting to a complete conversation: Warung Men Sari, Kos Bu Komang, Pasar Pagi, and the chapter boss.
 
 ## Implemented experience
 
-- Illustrated 2.5D village with interactive locations, four character portraits, ambient sound, audio-reactive character animation, keyboard navigation and reduced motion.
+- Illustrated 2.5D village with interactive locations, four character portraits, ambient sound, audio-reactive speaking indicators, keyboard navigation and reduced motion.
 - Indonesian/English interface, email/password accounts, isolated resettable guest demos, saved sessions, and account deletion.
-- Tap-to-record audio with editable transcript confirmation; typing is always available. Browser recordings are normalized with FFmpeg and deleted after processing. No pronunciation score is invented.
+- Tap-to-record audio that ends after a speech pause, sends automatically, and plays NPC replies. Transcript review is optional; typing is always available. Browser recordings are normalized with FFmpeg and deleted after processing. No pronunciation score is invented.
 - OpenRouter roleplay, source-grounded corrections, three authored objectives per location, five-question quizzes with traceable mistake/reinforcement origins, and server-controlled scoring.
 - Atomic reward events, best stars, XP, WITA streaks, unlocks and Album Desa cards. Retry and concurrent-tab protection is enforced in PostgreSQL.
 - Searchable sourced learning material, privacy disclosure, reports, and an access-controlled admin panel for material availability, reports, model configuration and usage.

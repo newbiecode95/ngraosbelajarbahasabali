@@ -58,14 +58,16 @@ systemctl status ngraos-backup.timer --no-pager
 
 Confirm microphone permission, recording, transcript correction, NPC playback, quiz completion and progress persistence through the public HTTPS site. `/api/health` verifies backend readiness; it is not proof of speech quality or complete lesson behavior. Never send personal recordings or API credentials to Telegram notifications.
 
-## Verified release: 20261031-v1.1
+## Verified release: 20261031-v2.2-ux
 
 On 31 October 2026, this release passed Docker production build, migration and 285-entry seed, public HTTPS health, nonroot runtime/FFmpeg checks, and a scan confirming no environment files in the runtime image. A post-release database backup passed its checksum and restored successfully into a disposable database; the verification database was removed afterward. The daily backup timer is active.
 
-The final `20261031-v1.1` patch adds bounded streamed JSON input. Its public smoke check rejected an approximately 40 KB streamed request without a declared `Content-Length` with HTTP 413. The final deployment backup is `backups/ngraos-20261031T142436Z.dump`, with a verified checksum. Database restore verification was completed on the preceding release; this patch does not change the schema.
+The final `20261031-v2.2-ux` patch adds bounded streamed JSON input. Its public smoke check rejected an approximately 40 KB streamed request without a declared `Content-Length` with HTTP 413. The final deployment backup is `backups/ngraos-20261031T142436Z.dump`, with a verified checksum. Database restore verification was completed on the preceding release; this patch does not change the schema.
 
 The public production probe passed synthetic WebM/Opus and MP4/AAC upload, real transcription, transcript confirmation, saved turn and protected WAV playback. Ten sequential reply samples had a 2.711-second median and 4.608-second p90. The two transcription samples took 3.610 and 3.132 seconds, slightly above the 3-second target. This is not a concurrent AI load test or verification of physical phone microphones and native-speaker accuracy. Detailed evidence is maintained in `docs/verification/production-audio.json`.
 
 A separate production test completed 20 simultaneous real-AI journeys through session, conversation, quiz, completion and refresh, with 20 unique rewards and no failed HTTP attempts or retries. Reply median was 5.072 seconds and p90 was 7.415 seconds, above the 6-second target under that load. Fixtures were removed afterward. See `docs/verification/production-load.json` and the final delivery summary in `docs/verification.md`; performance targets that were missed are retained as limitations.
 
 Run database test files serially against the shared development database. The local SSH tunnel helper uses an accept backlog of 128 for burst connections; restart an older helper process to activate this setting after confirming no tests or development requests are using it. Production database connections do not use the SSH tunnel.
+
+Gameplay/UI revision 20261031-v2.2-ux: Desa Kenderan, natural conversation history, automatic voice send/playback, still portraits and responsive layout. Current evidence is in docs/gameplay-audit/README.md. Original latency samples remain historical.

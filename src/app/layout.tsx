@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/outfit";
 import "./globals.css";
+import "./refinements.css";
 export const metadata: Metadata = {
   title: "Ngraos! — Dari Tamiu jadi Nyama",
   description:

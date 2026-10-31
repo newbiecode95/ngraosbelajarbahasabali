@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-31T14:50:12.533Z",
+  "environment": "http://localhost:3000",
+  "turns": [
+    {
+      "text": "Om swastiastu, Bu. Ada teh hangat?",
+      "reply": "Om swastiastu. Wenten teh anget. Pacang nganggen gula?",
+      "translation": "Om swastiastu. Ada teh hangat. Mau pakai gula?",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 4565
+    },
+    {
+      "text": "Tiang nunas teh siki.",
+      "reply": "Nggih, teh anget siki. Ngajengang, tiang siapang rumiyin.",
+      "translation": "Baik, satu teh hangat. Silakan, saya siapkan dulu.",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 4101
+    },
+    {
+      "text": "Berapa harganya, Bu?",
+      "reply": "Ajin teh anget niki limang tali rupiah.",
+      "translation": "Harga teh hangat ini lima ribu rupiah.",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 3713
+    },
+    {
+      "text": "Suksma, Bu.",
+      "reply": "Nggih, suksma. Ngajengang teh angetipun.",
+      "translation": "Ya, terima kasih. Silakan menikmati teh hangatnya.",
+      "objectives": [
+        "warung:greet",
+        "warung:thank"
+      ],
+      "corrections": [],
+      "milliseconds": 3505
+    },
+    {
+      "text": "Tiang pamit.",
+      "reply": "Nggih, suksma. Rahajeng margi!",
+      "translation": "Baik, terima kasih. Selamat jalan!",
+      "objectives": [
+        "warung:greet",
+        "warung:thank",
+        "warung:farewell"
+      ],
+      "corrections": [],
+      "milliseconds": 2218
+    }
+  ],
+  "checks": {
+    "greetingAccepted": true,
+    "allObjectives": true,
+    "quiz": true,
+    "noAnswerLeak": true
+  }
+}

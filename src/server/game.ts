@@ -50,7 +50,8 @@ export async function addTurn(actor:ActorRow,sessionId:string,input:z.infer<type
       ...c,supported:correctionIsSupported(c,entryMap.get(c.sourceId)),
     }));
     // Author-written evidence is the authority. Model-proposed objectives never grant completion alone.
-    const objectiveIds=objectiveMatches(lesson,input.text).filter(id=>output.objectiveEvidence.some(e=>e.objectiveId===id&&normalize(e.quote)&&phraseIn(input.text,e.quote)&&lesson.objectives.find(o=>o.id===id)!.evidence.some(phrase=>phraseIn(e.quote,phrase))));
+    const playerUtterances=[input.text,...session.turns.map(turn=>turn.playerText)];
+    const objectiveIds=lesson.objectives.map(o=>o.id).filter(id=>!session.completed_objectives.includes(id)&&output.objectiveEvidence.some(e=>e.objectiveId===id&&normalize(e.quote)&&playerUtterances.some(text=>phraseIn(text,e.quote))&&objectiveMatches(lesson,e.quote).includes(id)));
     const assessed=objectiveIds.length>0||corrections.some(c=>c.supported)||entries.some(e=>phraseIn(input.text,e.bali));
     const turn:Turn={id:input.id,playerText:input.text,rawTranscript:input.rawTranscript,reply:output.reply,translation:output.translation,corrections,objectiveIds,assessed,createdAt:new Date().toISOString()};
     const completed=[...new Set([...session.completed_objectives,...objectiveIds])];
@@ -97,6 +98,24 @@ export function validateQuestions(drafts:QuizDraft[],entries:CorpusEntry[],mista
     };
   });
 }
+// A checked, source-derived exercise remains available if generated quiz JSON
+// fails validation twice. No learner error is invented and no answer is leaked.
+export function buildPracticeQuiz(entries:CorpusEntry[],mistakes:{id:string;correction:{correct:string;sourceId:string}}[]) {
+  const usable=entries.filter(e=>!phraseIn(e.indonesia,e.bali)&&!phraseIn(e.english,e.bali));
+  const order=usable.find(e=>e.bali.trim().split(/\s+/).length>=2);
+  if(usable.length<4||!order)throw new AppError(503,'CONTENT_NOT_READY','Latihan sedang disiapkan. Coba lagi sebentar.',true);
+  const drafts:QuizDraft[]=Array.from({length:5},(_,index)=>{
+    const mistake=mistakes.length&&index<4?mistakes[index%mistakes.length]:undefined;
+    const entry=(mistake?entries.find(e=>e.id===mistake.correction.sourceId):index===4?order:usable[index%usable.length])!;
+    const answer=mistake?.correction.correct||entry.bali;
+    const type=index===4?'order':index%2===0?'choice':'repeat';
+    return {type,sourceId:entry.id,mistakeId:mistake?.id||null,answer,
+      prompt:type==='repeat'?{id:'Dengarkan lalu ulangi kalimatnya.',en:'Listen, then repeat the phrase.'}:type==='order'?{id:`Susun ungkapan dengan arti: ${entry.indonesia}`,en:`Arrange the phrase meaning: ${entry.english}`}:{id:`Pilih ungkapan dengan arti: ${entry.indonesia}`,en:`Choose the phrase meaning: ${entry.english}`},
+      options:type==='choice'?[answer,...usable.filter(e=>normalize(e.bali)!==normalize(answer)).map(e=>e.bali).filter((v,i,a)=>a.findIndex(x=>normalize(x)===normalize(v))===i).slice(0,3)]:[],
+    };
+  });
+  return validateQuestions(drafts,entries,mistakes);
+}
 export async function prepareQuiz(actor:ActorRow,sessionId:string) {
   return transaction(async client=>{
     const session=await ownedSession(sessionId,actor.id,client,true);
@@ -111,7 +130,7 @@ export async function prepareQuiz(actor:ActorRow,sessionId:string) {
     let quiz:PrivateQuestion[]|undefined;
     for(let attempt=0;attempt<2;attempt++) {
       try {const output=await generateQuiz({lesson,entries:selected,mistakes:mistakeRows.rows,playerId:actor.id,db:client});quiz=validateQuestions(output.questions,selected,mistakeRows.rows);break;}
-      catch(error){if(attempt===1||!(error instanceof AppError)||!['AI_INVALID_OUTPUT','INVALID_QUIZ','INVALID_QUIZ_SOURCE','INVALID_QUIZ_ANSWER','INVALID_QUIZ_CHOICES','INVALID_QUIZ_ORDER'].includes(error.code))throw error;}
+      catch(error){if(!(error instanceof AppError)||!['AI_INVALID_OUTPUT','INVALID_QUIZ','INVALID_QUIZ_SOURCE','INVALID_QUIZ_ANSWER','INVALID_QUIZ_CHOICES','INVALID_QUIZ_ORDER'].includes(error.code))throw error;if(attempt===1)quiz=buildPracticeQuiz(selected,mistakeRows.rows);}
     }
     const result=await client.query<SessionRow>("UPDATE game_sessions SET status='quiz',quiz=$2,updated_at=now() WHERE id=$1 RETURNING *",[session.id,JSON.stringify(quiz)]);
     return sessionView(result.rows[0]);

@@ -6,7 +6,26 @@ export function phraseIn(text:string,phrase:string) {
   const t=` ${normalize(text)} `;const p=normalize(phrase);return Boolean(p && t.includes(` ${p} `));
 }
 export function objectiveMatches(lesson:Lesson,text:string) {
-  return lesson.objectives.filter(objective=>objective.evidence.some(evidence=>phraseIn(text,evidence))).map(objective=>objective.id);
+  // Evaluate the communicative act. Example phrases are not mandatory passwords.
+  const value=normalize(text);
+  const variants:Record<string,RegExp>={
+    greet:/\b(?:om swastiastu|swastiastu|rahajeng (?:semeng|wengi|rauh|tengai|sanja))\b/u,
+    thank:/\b(?:suksma|suksema)\b/u,
+    farewell:/\b(?:tiang|titiang)\s+(?:[\p{L}]+\s+){0,2}pamit\b/u,
+    name:/\b(?:wastan|wasta|adan|aran)\s+(?:titiang|tiang|icang)\s+\p{L}+/u,
+    origin:/\b(?:titiang|tiang)\s+(?:saking|uli)\s+\p{L}+/u,
+    work:/\b(?:titiang|tiang)\s+(?:mekarya|makarya)\b/u,
+    price:/\b(?:aji|ajine|aji ne)\s+(?:kuda|kudang)\b/u,
+    quantity:/^(?=.*\b(?:biu|poh|juwuk)\b)(?=.*\b(?:siki|kalih|telu|tetelu|pat|papat|lima|enem|pitu|kutus|sia|dasa|\d+)\b)/u,
+    bargain:/\b(?:dados|prasida)\s+(?:kirang|[\p{L}\s\d]+tali)\b/u,
+  };
+  return lesson.objectives.filter(objective=>{
+    if(objective.evidence.some(evidence=>phraseIn(text,evidence)))return true;
+    const act=objective.id.split(':')[1];
+    if(act==='introduce')return variants.name.test(value)||variants.origin.test(value);
+    if(act==='shop')return variants.price.test(value)||variants.quantity.test(value);
+    return Boolean(variants[act]?.test(value));
+  }).map(objective=>objective.id);
 }
 export function calculateStars(turns:Turn[],hintsUsed:number,complete:boolean) {
   if(!complete) return 0;

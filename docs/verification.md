@@ -1,3 +1,11 @@
+# Gameplay and UI revision — 20261031-v2.2-ux
+
+The current revision adds natural contextual dialogue, flexible objective matching, automatic voice submission/playback, still character portraits, clearer copy, Desa Kenderan, and consistent responsive layouts. **39/39 unit/database tests**, **21 browser tests** passed; six browser cases were skipped as documented. All four lessons passed real-provider conversation and quiz probes. See the [audit report](gameplay-audit/README.md) and its conversation transcripts for current evidence.
+
+The benchmarks and deployment checks below describe the original release, retained as historical evidence; they are not new performance measurements for the revised dialogue prompt.
+
+---
+
 # Release verification — 2026-10-31
 
 Release **20261031-v1.1** is deployed at **https://ngraos.docker.anatera.app** after the final input-size hardening patch. This report separates application behavior, provider integration, language consistency and physical-device validation.

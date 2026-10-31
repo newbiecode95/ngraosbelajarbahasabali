@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import {
   Map,
   BookOpen,
@@ -36,6 +36,7 @@ import { corpus } from "@/content/corpus";
 import type { GameSession, Lesson, LevelId, Locale, Player } from "@/lib/types";
 import { api, json } from "@/lib/client-api";
 import { Brand, EmptyState, Modal, Spinner, Stars } from "./ui";
+import { primeSpeechAudio } from "./use-audio";
 import { LessonPlayer } from "./lesson-player";
 import { useAmbience } from "./use-ambience";
 import { AdminPanel } from "./admin-panel";
@@ -68,6 +69,41 @@ export function NgraosApp() {
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [toast, setToast] = useState("");
+  const [smallScreen, setSmallScreen] = useState(false);
+  const navigation = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width:760px)");
+    const update = () => {
+      setSmallScreen(mq.matches);
+      if (!mq.matches) setMobileMenu(false);
+    };
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (!mobileMenu) return;
+    navigation.current?.querySelector("button")?.focus();
+    const escape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenu(false);
+        document
+          .querySelector<HTMLButtonElement>('[aria-label="Buka menu"]')
+          ?.focus();
+      }
+    };
+    document.addEventListener("keydown", escape);
+    return () => document.removeEventListener("keydown", escape);
+  }, [mobileMenu]);
+  function chooseLocation(id: LevelId) {
+    setSelected(id);
+    if (smallScreen)
+      requestAnimationFrame(() =>
+        document
+          .querySelector(".mission-panel")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" }),
+      );
+  }
   useAmbience(muted, Boolean(session));
   const t = (id: string, en: string) => (locale === "id" ? id : en);
   const refresh = useCallback(async () => {
@@ -133,6 +169,7 @@ export function NgraosApp() {
       }
   }
   async function begin(l: Lesson) {
+    primeSpeechAudio();
     if (!player) {
       setAuth(true);
       return;
@@ -162,6 +199,7 @@ export function NgraosApp() {
     }
   }
   async function resume() {
+    primeSpeechAudio();
     if (!player?.activeSessionId) return;
     setBusy(true);
     try {
@@ -191,6 +229,7 @@ export function NgraosApp() {
     }
   }
   function navigate(value: Screen) {
+    window.scrollTo({ top: 0, behavior: "instant" });
     setScreen(value);
     setSession(null);
     setMobileMenu(false);
@@ -215,8 +254,31 @@ export function NgraosApp() {
     },
   ];
   return (
-    <div className={`app-shell ${reduced ? "reduce-motion" : ""}`}>
-      <aside className={`sidebar ${mobileMenu ? "open" : ""}`}>
+    <div
+      className={`app-shell ${session ? "in-lesson" : ""} ${reduced ? "reduce-motion" : ""}`}
+    >
+      <aside
+        ref={navigation}
+        onKeyDown={(e) => {
+          if (!smallScreen || !mobileMenu || e.key !== "Tab") return;
+          const buttons = Array.from(
+            navigation.current?.querySelectorAll<HTMLButtonElement>(
+              "button:not(:disabled)",
+            ) || [],
+          );
+          const first = buttons[0],
+            last = buttons.at(-1);
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last?.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first?.focus();
+          }
+        }}
+        inert={smallScreen && !mobileMenu}
+        className={`sidebar ${mobileMenu ? "open" : ""}`}
+      >
         <div className="sidebar-brand">
           <button
             className="unstyled"
@@ -241,6 +303,7 @@ export function NgraosApp() {
           {nav.map((item) => (
             <button
               key={item.id}
+              aria-current={screen === item.id && !session ? "page" : undefined}
               className={`nav-item ${screen === item.id && !session ? "active" : ""}`}
               onClick={() => navigate(item.id)}
             >
@@ -256,17 +319,12 @@ export function NgraosApp() {
           <div className="journey-note">
             <Flower2 size={28} />
             <p>
-              {t("Sedikit setiap hari,", "A little every day,")}
+              {t("Latihan singkat,", "A short practice,")}
               <br />
-              <strong>
-                {t("makin dekat di hati.", "closer to the heart.")}
-              </strong>
+              <strong>{t("setiap hari.", "every day.")}</strong>
             </p>
             <span>
-              {t(
-                "Belajar tanpa takut salah.",
-                "A safe place to make mistakes.",
-              )}
+              {t("Mulai dari satu sapaan.", "Start with a greeting.")}
             </span>
           </div>
           <button className="nav-item" onClick={() => navigate("profile")}>
@@ -285,7 +343,7 @@ export function NgraosApp() {
           </button>
           <div className="sidebar-footer">
             <span className="online-dot" />{" "}
-            {t("Dibuat dengan rasa, di Bali", "Made with heart, in Bali")}
+            {t("Belajar Basa Bali", "Learn Balinese")}
           </div>
         </div>
       </aside>
@@ -302,12 +360,13 @@ export function NgraosApp() {
             <button
               className="icon-btn mobile-only"
               onClick={() => setMobileMenu(true)}
+              aria-expanded={mobileMenu}
               aria-label="Buka menu"
             >
               <Menu />
             </button>
             <span className="breadcrumb">
-              {t("Desa Jepun", "Jepun Village")}
+              {t("Desa Kenderan", "Kenderan Village")}
               <ChevronRight size={14} />
               <strong>
                 {session
@@ -414,13 +473,13 @@ export function NgraosApp() {
                         <span /> {t("BABAK 01 · RAUH", "CHAPTER 01 · RAUH")}
                       </div>
                       <h1>
-                        {t("Langkah kecil,", "Little steps,")}{" "}
-                        <em>{t("cerita baru.", "new stories.")}</em>
+                        {t("Ayo latihan", "Let’s practise")}{" "}
+                        <em>{t("Basa Bali.", "Balinese.")}</em>
                       </h1>
                       <p>
                         {t(
-                          "Desa baru. Wajah baru. Satu sapaan bisa jadi awal segalanya.",
-                          "A new village. New faces. One greeting can be the start of everything.",
+                          "Pilih lokasi, temui warga, dan mulai percakapan.",
+                          "Choose a location, meet a neighbour, and start talking.",
                         )}
                       </p>
                     </div>
@@ -441,22 +500,19 @@ export function NgraosApp() {
                     <section
                       className="village-panel"
                       aria-label={t(
-                        "Peta interaktif Desa Jepun",
-                        "Interactive Jepun Village map",
+                        "Peta interaktif Desa Kenderan",
+                        "Interactive Kenderan Village map",
                       )}
                     >
                       <div className="map-topline">
                         <span className="map-title">
                           <span className="online-dot" />
-                          {t("DESA JEPUN", "JEPUN VILLAGE")}
+                          {t("DESA KENDERAN", "KENDERAN VILLAGE")}
                         </span>
                         <span className="map-weather">
                           ☀{" "}
                           <span>
-                            {t(
-                              "Hari yang baik untuk menyapa",
-                              "A lovely day to say hello",
-                            )}
+                            {t("Pagi di Kenderan", "Morning in Kenderan")}
                           </span>
                         </span>
                       </div>
@@ -476,7 +532,7 @@ export function NgraosApp() {
                           <button
                             key={l.id}
                             className={`map-marker marker-${l.id} ${selected === l.id ? "selected" : ""} ${unlocked(l.id) ? "available" : "locked"}`}
-                            onClick={() => setSelected(l.id)}
+                            onClick={() => chooseLocation(l.id)}
                             aria-label={`${l.title}, ${unlocked(l.id) ? t("terbuka", "unlocked") : t("terkunci", "locked")}`}
                           >
                             <span className="marker-dot">
@@ -509,8 +565,8 @@ export function NgraosApp() {
                         </span>
                         <span className="map-caption">
                           {t(
-                            "Setiap sudut punya cerita. Temukan ceritamu.",
-                            "Every corner has a story. Find yours.",
+                            "Pilih penanda untuk melihat lokasi.",
+                            "Select a marker to explore a location.",
                           )}
                         </span>
                       </div>
@@ -613,8 +669,8 @@ export function NgraosApp() {
                         <p className="mission-footnote">
                           <ShieldCheck size={13} />
                           {t(
-                            "Tidak ada nyawa. Tidak perlu takut salah.",
-                            "No lives to lose. No fear of mistakes.",
+                            "Bisa dengan suara atau ketikan.",
+                            "Speak or type. Your choice.",
                           )}
                         </p>
                       </div>
@@ -622,16 +678,11 @@ export function NgraosApp() {
                   </div>
                   <section className="path-section">
                     <div className="section-heading">
-                      <h2>
-                        {t(
-                          "Kenali tetangga barumu",
-                          "Meet your new neighbours",
-                        )}
-                      </h2>
+                      <h2>{t("Tempat latihan", "Practice locations")}</h2>
                       <span>
                         {t(
-                          "Satu percakapan lebih dekat",
-                          "One conversation closer",
+                          "Empat lokasi untuk pemula",
+                          "Four beginner locations",
                         )}
                         <ArrowUpRight size={16} />
                       </span>
@@ -679,13 +730,10 @@ export function NgraosApp() {
                     <div>
                       <h3>
                         {player?.activeSessionId
-                          ? t(
-                              "Ceritamu belum selesai.",
-                              "Your story continues.",
-                            )
+                          ? t("Lanjutkan latihanmu.", "Continue your lesson.")
                           : t(
-                              "Lima menit hari ini, satu langkah lebih dekat.",
-                              "Five minutes today. One step closer.",
+                              "Punya lima menit? Ayo latihan.",
+                              "Have five minutes? Let’s practise.",
                             )}
                       </h3>
                       <p>
@@ -695,8 +743,8 @@ export function NgraosApp() {
                               "Pick up your last conversation right where you left off.",
                             )
                           : t(
-                              "Bangun kebiasaan kecil. Selesaikan satu sesi untuk menyalakan streak-mu.",
-                              "Build a little habit. Finish a session to start your streak.",
+                              "Selesaikan satu latihan untuk memulai streak harian.",
+                              "Complete a lesson to start your daily streak.",
                             )}
                       </p>
                     </div>
@@ -718,14 +766,11 @@ export function NgraosApp() {
               {screen === "album" ? (
                 <>
                   <PageTitle
-                    eyebrow={t(
-                      "KENANGAN DARI DESA",
-                      "MEMORIES FROM THE VILLAGE",
-                    )}
-                    title={t("Bukan sekadar kata.", "More than words.")}
+                    eyebrow={t("KOLEKSI KARTU", "CARD COLLECTION")}
+                    title={t("Album Desa", "Village album")}
                     description={t(
-                      "Setiap pertemuan membuka cerita kecil tentang kehidupan di Bali.",
-                      "Every encounter opens a little story about life in Bali.",
+                      "Kartu yang kamu dapatkan setelah menyelesaikan setiap lokasi.",
+                      "Cards you earn by completing each location.",
                     )}
                   />
                   <div className="album-grid">
@@ -775,10 +820,10 @@ export function NgraosApp() {
                 <>
                   <PageTitle
                     eyebrow={t("DARI TAMIU JADI NYAMA", "FROM GUEST TO FAMILY")}
-                    title={t("Perjalananmu berarti.", "Your journey matters.")}
+                    title={t("Progres belajar", "Your progress")}
                     description={t(
-                      "Setiap sapaan adalah kemajuan. Pelan-pelan, kamu akan merasa di rumah.",
-                      "Every greeting is progress. Little by little, you will feel at home.",
+                      "Lihat bintang, XP, dan lokasi yang sudah kamu selesaikan.",
+                      "See your stars, XP, and completed locations.",
                     )}
                   />
                   <div className="journey-summary">
@@ -862,8 +907,8 @@ export function NgraosApp() {
           <Brand small />
           <span>
             {t(
-              "Bahasa mendekatkan. Cerita menghubungkan.",
-              "Language brings us closer. Stories connect us.",
+              "Latihan Basa Bali di Desa Kenderan.",
+              "Practise Balinese in Kenderan Village.",
             )}
           </span>
           <button onClick={() => navigate("sources")}>
@@ -894,8 +939,8 @@ export function NgraosApp() {
             await refresh();
             setToast(
               t(
-                "Rahajeng rauh! Selamat datang di Desa Jepun.",
-                "Rahajeng rauh! Welcome to Jepun Village.",
+                "Rahajeng rauh! Selamat datang di Desa Kenderan.",
+                "Rahajeng rauh! Welcome to Kenderan Village.",
               ),
             );
           }}
@@ -903,10 +948,7 @@ export function NgraosApp() {
       ) : null}
       {help ? (
         <Modal
-          title={t(
-            "Satu sapaan, satu petualangan.",
-            "One greeting, one adventure.",
-          )}
+          title={t("Cara bermain", "How to play")}
           onClose={() => setHelp(false)}
         >
           <div className="help-steps">
@@ -921,8 +963,8 @@ export function NgraosApp() {
               [
                 t("Bicara dengan nyaman", "Speak at your pace"),
                 t(
-                  "Rekam suaramu atau ketik. Periksa transkrip sebelum mengirim.",
-                  "Record your voice or type. Confirm the transcript before sending.",
+                  "Tekan mikrofon dan bicara. Setelah jeda, ucapan dikirim dan balasan diputar otomatis. Kamu juga bisa mengetik.",
+                  "Tap the microphone and speak. After a pause, your words are sent and the reply plays automatically. Typing is also available.",
                 ),
               ],
               [
@@ -933,7 +975,7 @@ export function NgraosApp() {
                 ),
               ],
               [
-                t("Bawa pulang ceritanya", "Take the story with you"),
+                t("Simpan progresmu", "Save your progress"),
                 t(
                   "Kumpulkan bintang, buka album, dan lanjutkan ke tetangga berikutnya.",
                   "Earn stars, open album stories, and meet your next neighbour.",
@@ -1027,8 +1069,8 @@ function AuthModal({
     <Modal title={t("Rahajeng rauh!", "Rahajeng rauh!")} onClose={onClose}>
       <p className="modal-intro">
         {t(
-          "Ada cerita yang menunggumu di Desa Jepun.",
-          "A story is waiting for you in Jepun Village.",
+          "Masuk untuk menyimpan progres, atau coba dulu dengan demo.",
+          "Sign in to save your progress, or try the demo first.",
         )}
       </p>
       <div className="segmented">
@@ -1114,7 +1156,7 @@ function AuthModal({
             <>
               {mode === "login"
                 ? t("Masuk ke desa", "Enter the village")
-                : t("Mulai petualanganku", "Start my adventure")}
+                : t("Mulai belajar", "Start learning")}
               <ArrowRight size={17} />
             </>
           )}
@@ -1143,7 +1185,7 @@ function Sources({ locale }: { locale: Locale }) {
     <>
       <PageTitle
         eyebrow={t("BELAJAR DENGAN RUJUKAN", "LEARNING WITH REFERENCES")}
-        title={t("Ada sumber di balik kata.", "Every word has a source.")}
+        title={t("Kamus & sumber belajar", "Dictionary & learning sources")}
         description={t(
           "Kenali materi yang menemani percakapanmu. Disusun dan diperiksa dengan AI, bukan validasi ahli.",
           "Meet the material behind your conversations. Prepared and reviewed with AI, not expert validation.",
@@ -1152,9 +1194,7 @@ function Sources({ locale }: { locale: Locale }) {
       <div className="sources-intro">
         <ShieldCheck size={28} />
         <div>
-          <h3>
-            {t("Terbuka tentang cara kami belajar", "Open about how we learn")}
-          </h3>
+          <h3>{t("Tentang materi", "About the material")}</h3>
           <p>
             {t(
               "Entri kamus menyimpan tautan sumber dan lisensi. Contoh percakapan dibuat untuk pembelajaran. Saran tanpa dukungan sumber tidak mengurangi bintangmu.",
@@ -1213,7 +1253,7 @@ function Sources({ locale }: { locale: Locale }) {
         </p>
       ) : null}
       <section className="privacy-card">
-        <h2>{t("Privasi, singkatnya.", "Privacy, simply.")}</h2>
+        <h2>{t("Privasi", "Privacy")}</h2>
         <p>
           {t(
             "Ngraos menyimpan akun, transkrip, koreksi, dan progres untuk melanjutkan pembelajaran. Rekaman diproses sementara, lalu dibuang. OpenRouter meneruskan permintaan ke penyedia model; retensi layanan mengikuti kebijakan mereka. Suara karakter dibuat AI. Anda dapat menghapus akun dan riwayat melalui Pengaturan.",
@@ -1295,11 +1335,11 @@ function Profile({
   return (
     <>
       <PageTitle
-        eyebrow={t("RUANG PRIBADIMU", "YOUR PERSONAL SPACE")}
-        title={t("Nyaman dengan caramu.", "Make yourself at home.")}
+        eyebrow={t("PROFIL & PREFERENSI", "PROFILE & PREFERENCES")}
+        title={t("Pengaturan", "Settings")}
         description={t(
-          "Atur pengalaman belajar agar terasa pas untukmu.",
-          "Make your learning experience feel right for you.",
+          "Ubah profil, bahasa, suara, dan animasi.",
+          "Change your profile, language, audio, and motion settings.",
         )}
       />
       <div className="settings-grid">

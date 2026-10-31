@@ -55,6 +55,7 @@ test('synthetic microphone records a real container and leaves the transcript ed
   const support=await capabilities(page,testInfo);
   test.skip(support.recorder!=='function'||support.audioContext!=='function','This host browser build has no MediaRecorder/AudioContext. No recording or native-device pass is claimed.');
   await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
+  await page.getByLabel('Periksa transkrip sebelum dikirim').check();
   await page.getByRole('button',{name:'Mulai merekam',exact:true}).click();
   await expect(page.getByRole('button',{name:'Selesai merekam',exact:true})).toBeVisible();
   await page.waitForFunction(()=>((window as typeof window & {__fixtureAudio?:AudioContext}).__fixtureAudio?.currentTime??0)>0.8);
@@ -80,11 +81,10 @@ test('audio failure recovers to real WAV playback and animated speaking state',a
   const support=await capabilities(page,testInfo);
   test.skip(support.audioContext!=='function','This host browser build has no Web Audio API; real playback/analyser integration cannot be validated here.');
   await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
-  await page.getByRole('button',{name:'Dengarkan',exact:true}).click();
   await expect(page.locator('.audio-notice')).toContainText('Audio sementara tidak tersedia');
   await page.getByRole('button',{name:'Dengarkan',exact:true}).click();
   await expect(page.locator('.scene-npc')).toHaveClass(/speaking/);
-  await page.waitForFunction(()=>Number((document.querySelector('.scene-npc') as HTMLElement)?.style.getPropertyValue('--mouth'))>0,{},{timeout:5000});
+  await page.waitForFunction(()=>Number((document.querySelector('.scene-npc') as HTMLElement)?.style.getPropertyValue('--voice-level'))>0,{},{timeout:5000});
   await expect(page.locator('.scene-npc')).not.toHaveClass(/speaking/,{timeout:8000});
   await expect(page.getByRole('button',{name:'Dengarkan',exact:true})).toBeEnabled();
   expect(requests).toBe(2);

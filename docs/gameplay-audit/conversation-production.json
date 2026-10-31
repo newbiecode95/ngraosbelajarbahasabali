@@ -1,0 +1,66 @@
+{
+  "lessons": [],
+  "date": "2026-10-31T14:59:01.483Z",
+  "environment": "https://ngraos.docker.anatera.app",
+  "turns": [
+    {
+      "text": "Om swastiastu, Bu. Ada teh hangat?",
+      "reply": "Om swastiastu. Wenten teh anget. Pacang pesen asiki?",
+      "translation": "Om swastiastu. Ada teh hangat. Mau pesan satu?",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 6878
+    },
+    {
+      "text": "Tiang nunas teh siki.",
+      "reply": "Nggih, teh anget siki. Ragané seneng manis utawi tawar?",
+      "translation": "Baik, satu teh hangat. Anda suka manis atau tawar?",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 5300
+    },
+    {
+      "text": "Berapa harganya, Bu?",
+      "reply": "Aji teh anget siki limang tali rupiah, nggih.",
+      "translation": "Harga satu teh hangat lima ribu rupiah, ya.",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 4123
+    },
+    {
+      "text": "Suksma, Bu.",
+      "reply": "Nggih, sami-sami. Teh angetné mangkin tiang siapang.",
+      "translation": "Ya, sama-sama. Teh hangatnya sekarang saya siapkan.",
+      "objectives": [
+        "warung:greet",
+        "warung:thank"
+      ],
+      "corrections": [],
+      "milliseconds": 4688
+    },
+    {
+      "text": "Tiang pamit.",
+      "reply": "Nggih, margi becik. Suksma sampun rauh.",
+      "translation": "Baik, hati-hati di jalan. Terima kasih sudah datang.",
+      "objectives": [
+        "warung:greet",
+        "warung:thank",
+        "warung:farewell"
+      ],
+      "corrections": [],
+      "milliseconds": 2966
+    }
+  ],
+  "checks": {
+    "greetingAccepted": true,
+    "allObjectives": true,
+    "quiz": true,
+    "noAnswerLeak": true
+  }
+}

@@ -1,16 +1,30 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api, RequestError } from "@/lib/client-api";
+import { createVoiceActivity } from "@/lib/voice-activity";
 import type { LevelId } from "@/lib/types";
 export function useRecorder(
   levelId: LevelId,
   onTranscript: (raw: string, normalized: string) => void,
+  autoStop = false,
 ) {
   const [recording, setRecording] = useState(false),
     [transcribing, setTranscribing] = useState(false),
     [error, setError] = useState(""),
     [failures, setFailures] = useState(0),
     [seconds, setSeconds] = useState(0);
+  const callback = useRef(onTranscript);
+  callback.current = onTranscript;
+  const capture = useRef<AudioContext | null>(null),
+    activityTimer = useRef<ReturnType<typeof setInterval> | null>(null),
+    pending = useRef(false),
+    request = useRef<AbortController | null>(null);
+  const endAnalysis = () => {
+    if (activityTimer.current) clearInterval(activityTimer.current);
+    activityTimer.current = null;
+    void capture.current?.close().catch(() => {});
+    capture.current = null;
+  };
   const recorder = useRef<MediaRecorder | null>(null),
     stream = useRef<MediaStream | null>(null),
     timer = useRef<ReturnType<typeof setInterval> | null>(null),
@@ -19,6 +33,8 @@ export function useRecorder(
     alive.current = true;
     return () => {
       alive.current = false;
+      endAnalysis();
+      request.current?.abort();
       if (recorder.current?.state === "recording") {
         recorder.current.onstop = null;
         recorder.current.stop();
@@ -31,11 +47,14 @@ export function useRecorder(
     if (recorder.current?.state === "recording") recorder.current.stop();
   }, []);
   async function start() {
+    if (pending.current || recording || transcribing) return;
+    pending.current = true;
     setError("");
     if (!navigator.mediaDevices?.getUserMedia) {
       setError(
         "Mikrofon memerlukan HTTPS dan browser yang mendukung. Gunakan mode ketik.",
       );
+      pending.current = false;
       return;
     }
     try {
@@ -63,6 +82,7 @@ export function useRecorder(
         if (e.data.size) chunks.push(e.data);
       };
       rec.onstop = async () => {
+        endAnalysis();
         media.getTracks().forEach((t) => t.stop());
         if (timer.current) clearInterval(timer.current);
         if (!alive.current) return;
@@ -82,9 +102,13 @@ export function useRecorder(
           const result = await api<{
             rawTranscript: string;
             normalizedTranscript: string;
-          }>("/api/transcribe", { method: "POST", body: data });
+          }>("/api/transcribe", {
+            method: "POST",
+            body: data,
+            signal: (request.current = new AbortController()).signal,
+          });
           if (alive.current) {
-            onTranscript(result.rawTranscript, result.normalizedTranscript);
+            callback.current(result.rawTranscript, result.normalizedTranscript);
             setFailures(0);
           }
         } catch (e) {
@@ -93,9 +117,45 @@ export function useRecorder(
             setFailures((n) => n + 1);
           }
         } finally {
+          pending.current = false;
           if (alive.current) setTranscribing(false);
         }
       };
+      if (autoStop)
+        try {
+          const ac = new AudioContext();
+          capture.current = ac;
+          await ac.resume();
+          const analyser = ac.createAnalyser();
+          analyser.fftSize = 1024;
+          ac.createMediaStreamSource(media).connect(analyser);
+          const data = new Float32Array(analyser.fftSize),
+            activity = createVoiceActivity(),
+            began = performance.now();
+          activityTimer.current = setInterval(() => {
+            analyser.getFloatTimeDomainData(data);
+            const state = activity(
+              Math.sqrt(data.reduce((sum, v) => sum + v * v, 0) / data.length),
+              performance.now() - began,
+            );
+            if (state === "finished") stop();
+            if (state === "silent") {
+              rec.onstop = () => {
+                media.getTracks().forEach((t) => t.stop());
+                endAnalysis();
+                if (timer.current) clearInterval(timer.current);
+                pending.current = false;
+                setRecording(false);
+                setError(
+                  "Belum terdengar suara. Tekan mikrofon untuk mencoba lagi.",
+                );
+              };
+              stop();
+            }
+          }, 50);
+        } catch {
+          /* Manual stop remains available on browsers without Web Audio. */
+        }
       rec.start();
       setSeconds(0);
       setRecording(true);
@@ -107,6 +167,8 @@ export function useRecorder(
       }, 1000);
     } catch (e) {
       stream.current?.getTracks().forEach((t) => t.stop());
+      endAnalysis();
+      pending.current = false;
       setError(
         e instanceof DOMException && e.name === "NotAllowedError"
           ? "Izin mikrofon belum diberikan. Izinkan di browser atau gunakan mode ketik."
@@ -127,6 +189,14 @@ export function useRecorder(
     stop,
     clearError: () => setError(""),
   };
+}
+let playbackContext: AudioContext | null = null;
+export function primeSpeechAudio() {
+  try {
+    if (!playbackContext || playbackContext.state === "closed")
+      playbackContext = new AudioContext();
+    void playbackContext.resume().catch(() => {});
+  } catch {}
 }
 export function useSpeech(muted: boolean) {
   const [speaking, setSpeaking] = useState(false),
@@ -150,13 +220,12 @@ export function useSpeech(muted: boolean) {
     if (frame.current) cancelAnimationFrame(frame.current);
     setSpeaking(false);
     setLoading(false);
-    avatarRef.current?.style.setProperty("--mouth", "0");
+    avatarRef.current?.style.setProperty("--voice-level", "0");
   }, []);
   const unlock = useCallback(() => {
     try {
-      if (!audioContext.current || audioContext.current.state === "closed")
-        audioContext.current = new AudioContext();
-      void audioContext.current.resume().catch(() => {});
+      primeSpeechAudio();
+      audioContext.current = playbackContext;
     } catch {}
   }, []);
   useEffect(() => {
@@ -166,7 +235,7 @@ export function useSpeech(muted: boolean) {
       document.removeEventListener("pointerdown", unlock);
       document.removeEventListener("keydown", unlock);
       stop();
-      void audioContext.current?.close().catch(() => {});
+      // Keep the gesture-unlocked context available to the next lesson.
       audioContext.current = null;
     };
   }, [stop, unlock]);
@@ -186,7 +255,7 @@ export function useSpeech(muted: boolean) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-        signal: abort.signal,
+        signal: AbortSignal.any([abort.signal, AbortSignal.timeout(45000)]),
       });
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
@@ -218,7 +287,7 @@ export function useSpeech(muted: boolean) {
         analyser.getByteFrequencyData(data);
         const volume = data.reduce((s, x) => s + x, 0) / data.length / 128;
         avatarRef.current?.style.setProperty(
-          "--mouth",
+          "--voice-level",
           String(Math.min(1, volume * 2)),
         );
         frame.current = requestAnimationFrame(tick);

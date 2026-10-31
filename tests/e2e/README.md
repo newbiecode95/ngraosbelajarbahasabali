@@ -1,3 +1,17 @@
+# Browser acceptance update — gameplay and UI revision
+
+Latest run: **21 passed, 6 skipped, 0 failed** across desktop Chromium, mobile Chromium, and Windows WebKit. Four skips concern unavailable Windows WebKit media APIs; two skip duplicate execution of the six-width layout matrix in other projects. TypeScript and the production build pass.
+
+New acceptance tests demonstrate a real synthetic microphone stream ending after silence, automatic transcript submission, automatic WAV playback, exactly one opening audio request, still character portraits, and the final reply completing before the learner opens the quiz. Review-before-send remains optional and is tested separately. No private microphone or paid AI is used by browser fixtures.
+
+The layout matrix covers 320, 390, 760, 768, 1024 and 1440 pixels for map, sources, album, profile and navigation. Phone conversation controls, error recovery, source search and quiz states also inherit the revised shared layout. Physical iOS/Android microphone behavior is not certified by these tests.
+
+Run `npm run test:e2e` against an existing dev server. Real-demo fixtures use isolated test IP identities on localhost to avoid exhausting another developer's demo bucket; public rate limits remain in place.
+
+The implementation audit and current screenshots are in [docs/gameplay-audit](../../docs/gameplay-audit/README.md). Previous implementation results follow for historical context.
+
+---
+
 # Browser acceptance results
 
 Last verified: **2026-10-31**, Windows host, Playwright **1.64.1**, local app at `http://localhost:3000` with the real PostgreSQL database.

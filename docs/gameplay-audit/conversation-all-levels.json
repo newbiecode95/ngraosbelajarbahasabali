@@ -1,0 +1,179 @@
+{
+  "lessons": [
+    {
+      "levelId": "kos",
+      "turns": [
+        {
+          "text": "Wastan tiang Ayu.",
+          "reply": "Seneng kenal sareng Ayu. Ayu saking dija?",
+          "translation": "Senang berkenalan dengan Ayu. Ayu berasal dari mana?",
+          "objectives": [
+            "kos:name"
+          ],
+          "corrections": []
+        },
+        {
+          "text": "Tiang saking Ubud.",
+          "reply": "O, Ayu saking Ubud. Ayu mangkin mekarya ring dija?",
+          "translation": "Oh, Ayu dari Ubud. Ayu sekarang bekerja di mana?",
+          "objectives": [
+            "kos:name",
+            "kos:origin"
+          ],
+          "corrections": []
+        },
+        {
+          "text": "Tiang mekarya ring Denpasar.",
+          "reply": "Inggih, Ayu mekarya ring Denpasar. Ayu ka kantor nganggo motor?",
+          "translation": "Baik, Ayu bekerja di Denpasar. Ayu ke kantor naik motor?",
+          "objectives": [
+            "kos:name",
+            "kos:origin",
+            "kos:work"
+          ],
+          "corrections": []
+        }
+      ]
+    },
+    {
+      "levelId": "pasar",
+      "turns": [
+        {
+          "text": "Om swastiastu. Aji kuda biune?",
+          "reply": "Om swastiastu. Biu niki ajiné dua tali siki. Ngajeng biu kuda?",
+          "translation": "Om swastiastu. Pisang ini harganya dua ribu rupiah satu buah. Mau berapa pisang?",
+          "objectives": [
+            "pasar:price"
+          ],
+          "corrections": []
+        },
+        {
+          "text": "Tiang nunas kalih biu.",
+          "reply": "Inggih, biu kalih, ajiné patang tali. Niki biuné.",
+          "translation": "Baik, dua pisang, harganya empat ribu rupiah. Ini pisangnya.",
+          "objectives": [
+            "pasar:price",
+            "pasar:quantity"
+          ],
+          "corrections": []
+        },
+        {
+          "text": "Dados kirang?",
+          "reply": "Dados, telung tali manten biu kalih niki.",
+          "translation": "Boleh, tiga ribu saja untuk dua pisang ini.",
+          "objectives": [
+            "pasar:price",
+            "pasar:quantity",
+            "pasar:bargain"
+          ],
+          "corrections": []
+        }
+      ]
+    },
+    {
+      "levelId": "boss",
+      "turns": [
+        {
+          "text": "Om swastiastu, Pak. Wastan tiang Ayu.",
+          "reply": "Om swastiastu, Ayu. Ayu jagi numbas napi ring pasar?",
+          "translation": "Om swastiastu, Ayu. Ayu mau membeli apa di pasar?",
+          "objectives": [
+            "boss:greet",
+            "boss:introduce"
+          ],
+          "corrections": []
+        },
+        {
+          "text": "Tiang saking Ubud.",
+          "reply": "Oh, saking Ubud, Ayu. Jagi numbas biu, poh, utawi juwuk?",
+          "translation": "Oh, dari Ubud, Ayu. Mau membeli pisang, mangga, atau jeruk?",
+          "objectives": [
+            "boss:greet",
+            "boss:introduce"
+          ],
+          "corrections": []
+        },
+        {
+          "text": "Tiang nunas kalih biu. Aji kuda?",
+          "reply": "Nggih, Ayu. Biu kalih ajinipun Rp4.000.",
+          "translation": "Baik, Ayu. Dua pisang harganya Rp4.000.",
+          "objectives": [
+            "boss:greet",
+            "boss:introduce",
+            "boss:shop"
+          ],
+          "corrections": []
+        }
+      ]
+    }
+  ],
+  "date": "2026-10-31T14:53:51.714Z",
+  "environment": "http://localhost:3000",
+  "turns": [
+    {
+      "text": "Om swastiastu, Bu. Ada teh hangat?",
+      "reply": "Om swastiastu. Wenten teh anget. Pacang pesen siki?",
+      "translation": "Om swastiastu. Ada teh hangat. Mau pesan satu?",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 5526
+    },
+    {
+      "text": "Tiang nunas teh siki.",
+      "reply": "Nggih, teh anget siki. Mangda, niki tehnipun.",
+      "translation": "Baik, satu teh hangat. Silakan, ini tehnya.",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 4391
+    },
+    {
+      "text": "Berapa harganya, Bu?",
+      "reply": "Aji teh anget niki limang tali rupiah.",
+      "translation": "Harga teh hangat ini lima ribu rupiah.",
+      "objectives": [
+        "warung:greet"
+      ],
+      "corrections": [],
+      "milliseconds": 3946
+    },
+    {
+      "text": "Suksma, Bu.",
+      "reply": "Nggih, suksma. Mangda nginem teh angetipun.",
+      "translation": "Ya, terima kasih. Silakan minum teh hangatnya.",
+      "objectives": [
+        "warung:greet",
+        "warung:thank"
+      ],
+      "corrections": [],
+      "milliseconds": 3900
+    },
+    {
+      "text": "Tiang pamit.",
+      "reply": "Nggih, suksma. Rahajeng margi!",
+      "translation": "Baik, terima kasih. Selamat jalan!",
+      "objectives": [
+        "warung:greet",
+        "warung:thank",
+        "warung:farewell"
+      ],
+      "corrections": [],
+      "milliseconds": 2269
+    }
+  ],
+  "checks": {
+    "greetingAccepted": true,
+    "allObjectives": true,
+    "quiz": true,
+    "noAnswerLeak": true,
+    "kosObjectives": true,
+    "kosQuiz": true,
+    "pasarObjectives": true,
+    "pasarQuiz": true,
+    "bossObjectives": true,
+    "bossQuiz": true
+  }
+}

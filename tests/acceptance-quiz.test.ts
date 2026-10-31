@@ -1,11 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { corpus } from '../src/content/corpus';
-import { sessionView, validateQuestions } from '../src/server/game';
+import { sessionView, validateQuestions, buildPracticeQuiz } from '../src/server/game';
 import { correctionIsSupported } from '../src/server/rules';
 import type { QuizDraft } from '../src/server/openrouter';
 
 const phrase=corpus.find(entry=>entry.id==='phrase:warung-01')!;
 const thanks=corpus.find(entry=>entry.id==='phrase:warung-07')!;
+it('provides five checked exercises after malformed model quizzes, without inventing mistakes',()=>{
+  const entries=corpus.filter(e=>e.status!=='draft'&&e.levelIds.includes('warung'));
+  const reinforcement=buildPracticeQuiz(entries,[]);
+  expect(reinforcement).toHaveLength(5);expect(reinforcement.every(q=>q.reinforcement)).toBe(true);
+  const personalized=buildPracticeQuiz(entries,[{id:'real-error',correction:{correct:thanks.bali,sourceId:thanks.id}}]);
+  expect(personalized.filter(q=>q.mistakeId==='real-error')).toHaveLength(4);
+  expect(new Set(personalized.map(q=>q.type)).size).toBe(3);
+});
 function draft(type:QuizDraft['type'],answer:string,sourceId:string):QuizDraft {
   return {type,answer,sourceId,mistakeId:null,prompt:{id:'Pilih ungkapan yang sesuai.',en:'Choose the matching expression.'},options:type==='choice'?[answer,'Tiang pamit.','Wastan titiang Ayu.','Aji kuda niki?']:[]};
 }

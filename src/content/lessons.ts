@@ -3,7 +3,7 @@ import type { Lesson, LevelId } from '../lib/types';
 export const lessons: Lesson[] = [
   {
     id:'warung',number:1,title:'Warung Men Sari',npc:'Men Sari',voice:'Kore',color:'#EA8C55',
-    subtitle:{id:'Sapaan kecil, cerita baru',en:'Small greetings, new stories'},
+    subtitle:{id:'Sapaan, terima kasih, dan pamit',en:'Greetings, thanks, and goodbyes'},
     role:{id:'Pemilik warung',en:'Warung owner'},
     description:{id:'Singgah di warung Men Sari. Sapa dengan hangat, ucapkan terima kasih, lalu pamit sebelum melanjutkan perjalanan.',en:'Stop at Men Sari’s warung. Say hello, thank her, and say goodbye before your next adventure.'},
     objectives:[
@@ -17,7 +17,7 @@ export const lessons: Lesson[] = [
   },
   {
     id:'kos',number:2,title:'Kos Bu Komang',npc:'Bu Komang',voice:'Aoede',color:'#649A7D',
-    subtitle:{id:'Kenalan dengan tetangga baru',en:'Meet your new neighbour'},
+    subtitle:{id:'Nama, asal, dan pekerjaan',en:'Name, hometown, and work'},
     role:{id:'Pemilik kos',en:'Boarding-house host'},
     description:{id:'Bu Komang ingin mengenal penghuni barunya. Ceritakan nama, daerah asal, dan tempat kamu bekerja.',en:'Bu Komang would like to know her new resident. Introduce your name, where you are from, and where you work.'},
     objectives:[
@@ -31,7 +31,7 @@ export const lessons: Lesson[] = [
   },
   {
     id:'pasar',number:3,title:'Pasar Pagi',npc:'Pak Made',voice:'Puck',color:'#D6AC49',
-    subtitle:{id:'Pilih buah, mulai percakapan',en:'Pick some fruit, start a conversation'},
+    subtitle:{id:'Harga, jumlah, dan tawar-menawar',en:'Prices, quantities, and bargaining'},
     role:{id:'Penjual buah',en:'Fruit seller'},
     description:{id:'Keranjang buah menanti di pasar. Tanyakan harga, sebutkan jumlah yang kamu mau, lalu coba meminta harga lebih rendah.',en:'A basket of fruit awaits at the market. Ask the price, say how many you would like, and try asking for a lower price.'},
     objectives:[
@@ -45,7 +45,7 @@ export const lessons: Lesson[] = [
   },
   {
     id:'boss',number:4,title:'Petualangan Terakhir',npc:'Pak Wayan',voice:'Charon',color:'#8B83B7',
-    subtitle:{id:'Satukan semua yang kamu pelajari',en:'Bring everything you learned together'},
+    subtitle:{id:'Percakapan tanpa petunjuk',en:'A conversation without hints'},
     role:{id:'Tetangga di pasar',en:'Neighbour at the market'},
     description:{id:'Bertemu Pak Wayan dalam satu percakapan utuh. Mulai dengan sapaan, perkenalkan diri, lalu ajak berbincang tentang belanja buah.',en:'Meet Pak Wayan in one complete conversation. Start with a greeting, introduce yourself, and talk about buying fruit.'},
     objectives:[

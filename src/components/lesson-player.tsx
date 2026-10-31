@@ -70,36 +70,44 @@ export function LessonPlayer({
     [report, setReport] = useState<string | null>(null),
     [reportText, setReportText] = useState(""),
     [reportDone, setReportDone] = useState(false),
-    [reportBusy, setReportBusy] = useState(false);
+    [reportBusy, setReportBusy] = useState(false),
+    [reviewVoice, setReviewVoice] = useState(false);
+  const sending = useRef(false);
   const speech = useSpeech(muted);
-  const recorder = useRecorder(lesson.id, (r, n) => {
-    setRaw(r);
-    setDraft(n);
-  });
+  const recorder = useRecorder(
+    lesson.id,
+    (r, n) => {
+      if (reviewVoice) {
+        setRaw(r);
+        setDraft(n);
+      } else void sendTurn(n, r);
+    },
+    true,
+  );
   const bottom = useRef<HTMLDivElement | null>(null),
-    attempt = useRef<{ id: string; text: string } | null>(null),
-    autoQuiz = useRef(false);
+    attempt = useRef<{ id: string; text: string } | null>(null);
   const completed = lesson.objectives.every((o) =>
     session.completedObjectives.includes(o.id),
   );
-  const latest = session.turns.at(-1);
+
   useEffect(() => {
-    bottom.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    const history = bottom.current?.parentElement;
+    if (history)
+      history.scrollTo({ top: history.scrollHeight, behavior: "smooth" });
   }, [session.turns.length, busy]);
   useEffect(() => {
     if (recorder.failures >= 2) setMode("text");
   }, [recorder.failures]);
   useEffect(() => {
-    if (
-      completed &&
-      !session.quiz &&
-      session.status !== "completed" &&
-      !autoQuiz.current
-    ) {
-      autoQuiz.current = true;
-      void startQuiz();
-    }
-  }, [completed, session.quiz, session.status]);
+    const timer = setTimeout(() => {
+      if (!session.turns.length && !session.quiz && !muted)
+        void speech.play({ sessionId: session.id, phraseId: "opening" });
+    }, 0);
+    return () => {
+      clearTimeout(timer);
+      speech.stop();
+    };
+  }, [session.id]);
   async function startQuiz() {
     setBusy(true);
     setError("");
@@ -118,19 +126,26 @@ export function LessonPlayer({
   }
   async function send(e?: React.FormEvent) {
     e?.preventDefault();
-    if (!draft.trim() || busy) return;
+    await sendTurn(draft, raw);
+  }
+  async function sendTurn(text: string, rawTranscript = "") {
+    text = text.trim();
+    if (!text || sending.current) return;
+    sending.current = true;
+    setDraft(text);
+    setRaw(rawTranscript);
     setBusy(true);
     setError("");
     speech.stop();
-    if (!attempt.current || attempt.current.text !== draft.trim())
-      attempt.current = { id: crypto.randomUUID(), text: draft.trim() };
+    if (!attempt.current || attempt.current.text !== text)
+      attempt.current = { id: crypto.randomUUID(), text };
     try {
       const data = await api<{ session: GameSession; turn: Turn }>(
         `/api/sessions/${session.id}/turns`,
         json({
           id: attempt.current.id,
-          text: draft.trim(),
-          rawTranscript: raw || undefined,
+          text,
+          rawTranscript: rawTranscript || undefined,
         }),
       );
       onSession(data.session);
@@ -145,6 +160,7 @@ export function LessonPlayer({
         e instanceof Error ? e.message : "Percakapan tersendat. Coba lagi.",
       );
     } finally {
+      sending.current = false;
       setBusy(false);
     }
   }
@@ -190,16 +206,9 @@ export function LessonPlayer({
         <span className="result-flower">
           <Flower2 size={46} />
         </span>
-        <div className="eyebrow">
-          {t("SATU CERITA BARU TERSIMPAN", "A NEW STORY TO REMEMBER")}
-        </div>
+        <div className="eyebrow">{t("LATIHAN SELESAI", "LESSON COMPLETE")}</div>
         <h1>{t("Suksma, Nyama!", "Suksma, Nyama!")}</h1>
-        <p>
-          {t(
-            "Kamu sudah selangkah lebih dekat dengan desa ini.",
-            "You are one step closer to feeling at home in the village.",
-          )}
-        </p>
+        <p>{t("Progresmu sudah disimpan.", "Your progress has been saved.")}</p>
         <Stars count={session.result.stars} size={42} />
         <div className="result-stats">
           <div>
@@ -289,15 +298,10 @@ export function LessonPlayer({
           </div>
           <div
             ref={speech.avatarRef}
-            className={`scene-npc ${speech.speaking ? "speaking" : ""} ${recorder.recording ? "listening" : ""} ${busy ? "thinking" : ""}`}
+            className={`scene-npc ${speech.speaking ? "speaking" : ""} ${recorder.recording ? "listening" : ""} ${busy || speech.loading ? "thinking" : ""}`}
           >
             <img src={portraits[lesson.id]} alt={lesson.npc} />
-            <img
-              className="npc-mouth-layer"
-              src={portraits[lesson.id]}
-              alt=""
-              aria-hidden="true"
-            />
+
             <span className="npc-state">
               {speech.speaking ? (
                 <>
@@ -313,10 +317,14 @@ export function LessonPlayer({
                   <Mic size={14} />
                   {t("Mendengarkanmu", "Listening to you")}
                 </>
-              ) : busy ? (
+              ) : recorder.transcribing || speech.loading || busy ? (
                 <>
                   <LoaderCircle size={14} className="spin" />
-                  {t("Sebentar, ya…", "One moment…")}
+                  {recorder.transcribing
+                    ? t("Memahami ucapan…", "Transcribing…")
+                    : speech.loading
+                      ? t("Menyiapkan suara…", "Preparing audio…")
+                      : t("Memikirkan jawaban…", "Thinking…")}
                 </>
               ) : (
                 <>
@@ -512,10 +520,7 @@ export function LessonPlayer({
                       <details className="correction-card">
                         <summary>
                           <Lightbulb size={15} />
-                          {t(
-                            "Sedikit bekal untukmu",
-                            "A little learning takeaway",
-                          )}
+                          {t("Catatan bahasa", "Language note")}
                           <span>{turn.corrections.length}</span>
                           <ChevronDown size={14} />
                         </summary>
@@ -561,6 +566,14 @@ export function LessonPlayer({
                 </div>
               </div>
             ))}
+            {busy && draft ? (
+              <div className="message player-message pending-message">
+                <div className="message-bubble">
+                  <p>{draft}</p>
+                  <small>{t("Mengirim…", "Sending…")}</small>
+                </div>
+              </div>
+            ) : null}
             {busy ? (
               <div className="thinking-bubble">
                 <span />
@@ -601,14 +614,14 @@ export function LessonPlayer({
                 <Check size={21} />
                 <span>
                   {t(
-                    "Misi selesai! Saatnya mengingat kembali.",
-                    "Mission complete! Let’s make it stick.",
+                    "Misi selesai. Lanjutkan ke kuis saat siap.",
+                    "Mission complete. Continue to the quiz when ready.",
                   )}
                 </span>
                 <button
                   className="btn primary"
                   onClick={startQuiz}
-                  disabled={busy}
+                  disabled={busy || speech.loading || speech.speaking}
                 >
                   {busy ? <Spinner /> : t("Buka kuis", "Open quiz")}
                 </button>
@@ -620,7 +633,9 @@ export function LessonPlayer({
                     <button
                       className={mode === "voice" ? "active" : ""}
                       onClick={() => setMode("voice")}
-                      disabled={recorder.recording}
+                      disabled={
+                        recorder.recording || recorder.transcribing || busy
+                      }
                     >
                       <Mic size={14} />
                       {t("Bicara", "Speak")}
@@ -649,56 +664,69 @@ export function LessonPlayer({
                     </span>
                   )}
                 </div>
-                {mode === "voice" && !draft ? (
-                  <div className="voice-composer">
-                    <button
-                      className={`record-button ${recorder.recording ? "recording" : ""}`}
-                      onClick={() => {
-                        speech.stop();
-                        recorder.recording
-                          ? recorder.stop()
-                          : void recorder.start();
-                      }}
-                      disabled={busy || recorder.transcribing}
-                      aria-label={
-                        recorder.recording
-                          ? t("Selesai merekam", "Stop recording")
-                          : t("Mulai merekam", "Start recording")
-                      }
-                    >
-                      {recorder.transcribing ? (
-                        <Spinner />
-                      ) : recorder.recording ? (
-                        <Square size={21} fill="currentColor" />
-                      ) : (
-                        <Mic size={24} />
+                {mode === "voice" && (!draft || busy) ? (
+                  <div className="voice-mode-panel">
+                    <label className="voice-review">
+                      <input
+                        type="checkbox"
+                        checked={reviewVoice}
+                        onChange={(e) => setReviewVoice(e.target.checked)}
+                      />
+                      {t(
+                        "Periksa transkrip sebelum dikirim",
+                        "Review transcript before sending",
                       )}
-                    </button>
-                    <div>
-                      <strong>
-                        {recorder.recording
-                          ? `${t("Sedang merekam", "Recording")} · ${recorder.seconds}s`
-                          : recorder.transcribing
+                    </label>
+                    <div className="voice-composer">
+                      <button
+                        className={`record-button ${recorder.recording ? "recording" : ""}`}
+                        onClick={() => {
+                          speech.stop();
+                          recorder.recording
+                            ? recorder.stop()
+                            : void recorder.start();
+                        }}
+                        disabled={busy || recorder.transcribing}
+                        aria-label={
+                          recorder.recording
+                            ? t("Selesai merekam", "Stop recording")
+                            : t("Mulai merekam", "Start recording")
+                        }
+                      >
+                        {recorder.transcribing ? (
+                          <Spinner />
+                        ) : recorder.recording ? (
+                          <Square size={21} fill="currentColor" />
+                        ) : (
+                          <Mic size={24} />
+                        )}
+                      </button>
+                      <div>
+                        <strong>
+                          {recorder.recording
+                            ? `${t("Sedang merekam", "Recording")} · ${recorder.seconds}s`
+                            : recorder.transcribing
+                              ? t(
+                                  "Mendengarkan rekamanmu…",
+                                  "Transcribing your recording…",
+                                )
+                              : t(
+                                  "Tekan, lalu mulai bicara",
+                                  "Tap, then start speaking",
+                                )}
+                        </strong>
+                        <p>
+                          {recorder.recording
                             ? t(
-                                "Mendengarkan rekamanmu…",
-                                "Transcribing your recording…",
+                                "Kirim otomatis setelah jeda. Tekan lagi untuk selesai lebih cepat.",
+                                "Sends after a pause. Tap again to finish sooner.",
                               )
                             : t(
-                                "Tekan, lalu mulai bicara",
-                                "Tap, then start speaking",
+                                "Ucapan langsung dikirim dan balasan diputar otomatis.",
+                                "Your words are sent and replies play automatically.",
                               )}
-                      </strong>
-                      <p>
-                        {recorder.recording
-                          ? t(
-                              "Tekan lagi setelah selesai. Maksimal 30 detik.",
-                              "Tap again when done. Up to 30 seconds.",
-                            )
-                          : t(
-                              "Tidak perlu sempurna. Coba saja dulu.",
-                              "It does not have to be perfect. Give it a try.",
-                            )}
-                      </p>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -878,8 +906,17 @@ function QuizPlayer({
         );
       } catch {}
   }, [session.id, index, answers, typed, selectedWords]);
+  useEffect(() => {
+    if (q.type === "repeat" && !muted)
+      void speech.play({ sessionId: session.id, phraseId: q.id });
+    return () => speech.stop();
+  }, [q.id]);
   async function next() {
-    if (!current.trim()) return;
+    if (
+      !current.trim() ||
+      (q.type === "order" && selectedWords.length !== q.words?.length)
+    )
+      return;
     const result = { ...answers, [q.id]: current };
     setAnswers(result);
     speech.stop();
@@ -915,9 +952,7 @@ function QuizPlayer({
           <ArrowLeft size={17} />
           {t("Kembali ke desa", "Back to village")}
         </button>
-        <span className="label-pill">
-          {t("KUIS CERITAMU", "YOUR STORY QUIZ")}
-        </span>
+        <span className="label-pill">{t("KUIS LATIHAN", "PRACTICE QUIZ")}</span>
       </div>
       <div className="quiz-progress">
         <div>
@@ -1084,8 +1119,8 @@ function QuizPlayer({
         <div className="quiz-footer">
           <span>
             {t(
-              "Salah itu bagian dari belajar.",
-              "Mistakes are part of learning.",
+              "Jawab semua soal untuk melihat hasil.",
+              "Answer every question to see your results.",
             )}
           </span>
           <button
@@ -1093,6 +1128,8 @@ function QuizPlayer({
             onClick={next}
             disabled={
               !current.trim() ||
+              (q.type === "order" &&
+                selectedWords.length !== q.words?.length) ||
               busy ||
               recorder.recording ||
               recorder.transcribing

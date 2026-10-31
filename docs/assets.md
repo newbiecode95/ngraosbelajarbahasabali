@@ -4,13 +4,13 @@ The original images were generated for Ngraos with the built-in OpenAI image-gen
 
 | Asset | Purpose | Published file |
 |---|---|---|
-| Desa Jepun | Village navigation and layered scene background | `public/images/desa-bali.webp` |
+| Desa Kenderan | Village navigation and layered scene background | `public/images/desa-bali.webp` |
 | Men Sari | Warung character | `public/images/sari.webp` |
 | Bu Komang | Guesthouse character | `public/images/komang.webp` |
 | Pak Made | Market character | `public/images/pedagang.webp` |
 | Pak Wayan | Chapter boss / village elder | `public/images/wayan.webp` |
 
-The original generated PNGs remain in the user's Codex generated-images directory. The application uses the smaller WebP files, with transparent NPC backgrounds. Image generation created static paintings; CSS supplies cloud drift, character states, object interactions and mouth-layer movement driven by audio amplitude. This is a 2.5D layered interface, not a fully navigable 3D world or phoneme-level facial rig.
+The original generated PNGs remain in the user's Codex generated-images directory. The application uses the smaller WebP files, with transparent NPC backgrounds. Image generation created static paintings; CSS supplies cloud drift, character states, object interactions and a speaking badge driven by audio amplitude, while the painted character remains still. This is a 2.5D layered interface, not a fully navigable 3D world or phoneme-level facial rig.
 
 ## Generation prompts
 

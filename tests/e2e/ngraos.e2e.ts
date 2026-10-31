@@ -41,11 +41,12 @@ async function mockApp(page:Page) {
 
 test('real demo API: welcome → map → lesson → persisted resume, without paid AI',async({page,context},testInfo)=>{
   await quietAudio(page);
+  await context.setExtraHTTPHeaders({'x-forwarded-for':'playwright-'+crypto.randomUUID()});
   let ownsDemo=false;
   try {
     await page.goto('/');
-    await expect(page.getByRole('heading',{name:'Langkah kecil, cerita baru.'})).toBeVisible();
-    await expect(page.getByRole('region',{name:'Peta interaktif Desa Jepun'})).toBeVisible();
+    await expect(page.getByRole('heading',{name:'Ayo latihan Basa Bali.'})).toBeVisible();
+    await expect(page.getByRole('region',{name:'Peta interaktif Desa Kenderan'})).toBeVisible();
     await noOverflow(page);
     await screenshot(page,testInfo,'welcome-map');
     await page.getByRole('button',{name:'Mulai ngobrol',exact:true}).click();
@@ -53,7 +54,7 @@ test('real demo API: welcome → map → lesson → persisted resume, without pa
     await expect(dialog.getByRole('heading',{name:'Rahajeng rauh!'})).toBeVisible();
     await dialog.getByLabel('Nama panggilan').fill('Playwright Tamiu');
     const demoResponse=page.waitForResponse(response=>response.url().endsWith('/api/demo')&&response.request().method()==='POST');
-    await dialog.getByRole('button',{name:'Mulai petualanganku'}).click();
+    await dialog.getByRole('button',{name:'Mulai belajar'}).click();
     expect((await demoResponse).ok()).toBe(true);ownsDemo=true;
     const demoPlayer=(await (await context.request.get('/api/player')).json()).player as Player;
     expect(demoPlayer.name).toBe('Playwright Tamiu');expect(demoPlayer.locale).toBe('id');
@@ -126,19 +127,19 @@ test('locked locations, English settings, reload and responsive navigation work'
   await page.getByRole('button',{name:'Kos Bu Komang, terkunci',exact:true}).click();
   await expect(page.getByRole('button',{name:'Selesaikan lokasi sebelumnya',exact:true})).toBeDisabled();
   await page.getByRole('button',{name:'Buka profil',exact:true}).click();
-  await expect(page.getByRole('heading',{name:'Nyaman dengan caramu.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Pengaturan'})).toBeVisible();
   await page.locator('.setting-row').filter({hasText:'Bahasa antarmuka'}).getByRole('button',{name:'ID',exact:true}).click();
-  await expect(page.getByRole('heading',{name:'Make yourself at home.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Settings'})).toBeVisible();
   await expect(page.getByRole('heading',{name:'Learning experience'})).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang','en');
   await noOverflow(page);
   await screenshot(page,testInfo,'english-settings');
   await page.reload();
-  await expect(page.getByRole('heading',{name:'Little steps, new stories.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Let’s practise Balinese.'})).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang','en');
   const menu=page.getByRole('button',{name:'Buka menu',exact:true});
   if(await menu.isVisible())await menu.click();
   await page.getByRole('button',{name:'Village album',exact:true}).click();
-  await expect(page.getByRole('heading',{name:'More than words.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Village album'})).toBeVisible();
   await noOverflow(page);
 });

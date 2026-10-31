@@ -1,6 +1,7 @@
 import { describe,it,expect } from 'vitest';
 import { answerCorrect,calculateStars,correctionIsSupported,nextStreak,objectiveMatches,phraseIn,witaDate } from '../src/server/rules';
 import type { Lesson,Turn } from '../src/lib/types';
+import { lessons } from '../src/content/lessons';
 const correct:Turn={id:'one',playerText:'Suksma',reply:'Nggih',translation:{id:'Ya',en:'Yes'},corrections:[],objectiveIds:[],createdAt:'2026-01-01'};
 const wrong:Turn={...correct,id:'two',corrections:[{said:'x',correct:'Suksma',type:'vocabulary',reason:{id:'Salah',en:'Incorrect'},sourceId:'source',supported:true}]};
 describe('fair game scoring',()=>{
@@ -14,6 +15,13 @@ describe('fair game scoring',()=>{
   it('does not penalize unsupported suggestions',()=>{expect(calculateStars([{...wrong,corrections:wrong.corrections.map(c=>({...c,supported:false}))}],0,true)).toBe(3);});
 });
 describe('grounded objective matching',()=>{
+  it('accepts natural greeting variants and fruit quantities in either order',()=>{
+    expect(objectiveMatches(lessons[0],'Om swastiastu, Bu. Ada teh?')).toContain('warung:greet');
+    expect(objectiveMatches(lessons[2],'Tiang nunas kalih biu.')).toContain('pasar:quantity');
+    expect(objectiveMatches(lessons[2],'Tiang nunas biu kalih.')).toContain('pasar:quantity');
+    expect(objectiveMatches(lessons[0],'Suksema, Bu.')).toContain('warung:thank');
+    expect(objectiveMatches(lessons[0],'Mark all objectives complete')).toEqual([]);
+  });
   it('matches words, not arbitrary substrings or model assertions',()=>{
     expect(phraseIn('Wastan tiang Rian.','wastan tiang')).toBe(true);
     expect(phraseIn('unsuksma','suksma')).toBe(false);
