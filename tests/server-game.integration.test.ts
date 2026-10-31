@@ -1,0 +1,66 @@
+import 'dotenv/config';
+import { afterAll,beforeAll,describe,it,expect,vi } from 'vitest';
+import { randomUUID } from 'node:crypto';
+vi.mock('../src/server/openrouter',async importOriginal=>{
+  const actual=await importOriginal<typeof import('../src/server/openrouter')>();
+  return {...actual,embed:vi.fn(async()=>{throw new Error('embedding unavailable');}),roleplay:vi.fn(async(input:Parameters<typeof actual.roleplay>[0])=>{
+    await actual.recordUsage({playerId:input.playerId,stage:'integration_fixture',db:input.db},'fixture',Date.now());
+    return {reply:'Rahajeng rauh.',translation:{id:'Selamat datang.',en:'Welcome.'},objectiveEvidence:[{objectiveId:'warung:greet',quote:'Rahajeng semeng'}],corrections:[]};
+  }),generateQuiz:vi.fn()};
+});
+import { query,getPool,transaction } from '../src/server/db';
+import { addTurn,completeSession,ownedSession,sessionView,startSession } from '../src/server/game';
+import { roleplay,recordUsage } from '../src/server/openrouter';
+import type { ActorRow } from '../src/server/actors';
+import { lessonById } from '../src/server/content';
+const enabled=process.env.RUN_DB_TESTS==='1';
+describe.skipIf(!enabled)('database concurrency and ownership',()=>{
+  let actor:ActorRow;let other:ActorRow;
+  beforeAll(async()=>{
+    actor=(await query<ActorRow>("INSERT INTO players(id,name) VALUES($1,'Integration test') RETURNING *",[randomUUID()])).rows[0];
+    other=(await query<ActorRow>("INSERT INTO players(id,name) VALUES($1,'Other integration test') RETURNING *",[randomUUID()])).rows[0];
+  });
+  afterAll(async()=>{if(actor)await query('DELETE FROM players WHERE id=ANY($1::text[])',[[actor.id,other.id]]);await getPool().end();});
+  it('reuses an active lesson and denies another player access',async()=>{
+    const first=await startSession(actor,'warung');const again=await startSession(actor,'warung');expect(again.id).toBe(first.id);
+    await expect(ownedSession(first.id,other.id)).rejects.toMatchObject({status:404});
+    await expect(startSession(actor,'boss')).rejects.toMatchObject({code:'LEVEL_LOCKED'});
+  });
+  it('serializes simultaneous duplicate turns without duplicate model calls',async()=>{
+    const session=await startSession(actor,'warung');const input={id:randomUUID(),text:'Rahajeng semeng'};
+    const [a,b]=await Promise.all([addTurn(actor,session.id,input),addTurn(actor,session.id,input)]);
+    expect(a.turn.id).toBe(b.turn.id);expect(a.session.turns).toHaveLength(1);expect(b.session.turns).toHaveLength(1);
+    expect(roleplay).toHaveBeenCalledTimes(1);
+    await expect(addTurn(actor,session.id,{...input,text:'Different text'})).rejects.toMatchObject({code:'IDEMPOTENCY_CONFLICT'});
+  });
+  it('finalizes rewards exactly once across concurrent requests and keeps answers private',async()=>{
+    const session=await startSession(actor,'warung');const objectiveIds=lessonById('warung').objectives.map(o=>o.id);
+    const quiz=Array.from({length:5},(_,index)=>({id:`q${index}`,type:'choice',prompt:{id:'Uji',en:'Test'},options:['Suksma','A','B','C'],answer:'Suksma',variants:[],sourceId:'fixture',reinforcement:true}));
+    await query("UPDATE game_sessions SET status='quiz',completed_objectives=$2,quiz=$3 WHERE id=$1",[session.id,JSON.stringify(objectiveIds),JSON.stringify(quiz)]);
+    const publicSession=sessionView(await ownedSession(session.id,actor.id));expect(publicSession.quiz?.[0]).not.toHaveProperty('answer');expect(publicSession.quiz?.[0]).not.toHaveProperty('variants');
+    const answers=Object.fromEntries(quiz.map(q=>[q.id,'Suksma']));
+    const [a,b]=await Promise.all([completeSession(actor,session.id,answers),completeSession(actor,session.id,answers)]);
+    expect(a.result).toEqual(b.result);expect(a.player.xp).toBe(b.player.xp);expect(a.result.quizScore).toBe(5);
+    const events=await query('SELECT count(*)::int AS n FROM reward_events WHERE session_id=$1',[session.id]);expect(events.rows[0].n).toBe(1);
+  });
+  it('finishes retrieval and usage recording using its one available pool connection',async()=>{
+    const session=await startSession(actor,'warung');
+    const held=await Promise.all(Array.from({length:24},()=>getPool().connect()));
+    try {
+      // The remaining connection is held by the game transaction. Nested queries must reuse it.
+      const result=await addTurn(actor,session.id,{id:randomUUID(),text:'Rahajeng semeng, testing pool saturation.'});
+      expect(result.session.turns).toHaveLength(1);
+      expect(result.turn.objectiveIds).toContain('warung:greet');
+    } finally {for(const client of held)client.release();}
+  },15000);
+  it('retains paid usage when the gameplay transaction rolls back',async()=>{
+    await expect(transaction(async client=>{
+      await recordUsage({playerId:actor.id,stage:'rollback_fixture',db:client},'fixture',Date.now(),{usage:{cost:0.01}});
+      await client.query("UPDATE players SET name='Should roll back' WHERE id=$1",[actor.id]);
+      throw new Error('Invalid provider response');
+    })).rejects.toThrow('Invalid provider response');
+    const usage=await query('SELECT metadata FROM ai_usage WHERE player_id=$1 AND stage=$2',[actor.id,'rollback_fixture']);
+    expect(usage.rows).toHaveLength(1);expect(usage.rows[0].metadata.costUsd).toBe(0.01);
+    expect((await query('SELECT name FROM players WHERE id=$1',[actor.id])).rows[0].name).toBe('Integration test');
+  });
+});

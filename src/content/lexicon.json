@@ -1,0 +1,4002 @@
+[
+  {
+    "id": "wikt:en-dasa-ban-num-5EMrqpCB",
+    "bali": "dasa",
+    "indonesia": "sepuluh",
+    "english": "ten",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/dasa#Balinese",
+    "sourceTitle": "Wiktionary contributors: dasa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-dua-ban-num-P8TM~nRY",
+    "bali": "dua",
+    "indonesia": "dua",
+    "english": "two",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/dua#Balinese",
+    "sourceTitle": "Wiktionary contributors: dua (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kalih-ban-num-P8TM~nRY",
+    "bali": "kalih",
+    "indonesia": "dua",
+    "english": "two",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kalih#Balinese",
+    "sourceTitle": "Wiktionary contributors: kalih (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kutus-ban-num-wZXS2HVi",
+    "bali": "kutus",
+    "indonesia": "delapan",
+    "english": "eight",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kutus#Balinese",
+    "sourceTitle": "Wiktionary contributors: kutus (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-lima-ban-num-IisL1R~O",
+    "bali": "lima",
+    "indonesia": "lima",
+    "english": "five",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/lima#Balinese",
+    "sourceTitle": "Wiktionary contributors: lima (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-patpat-ban-num-BO-vCA9a",
+    "bali": "patpat",
+    "indonesia": "empat",
+    "english": "four",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/patpat#Balinese",
+    "sourceTitle": "Wiktionary contributors: patpat (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-siki-ban-num-dpLDrTVA",
+    "bali": "siki",
+    "indonesia": "satu",
+    "english": "one",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/siki#Balinese",
+    "sourceTitle": "Wiktionary contributors: siki (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-adan-ban-noun-gqNTf~Db",
+    "bali": "adan",
+    "indonesia": "nama",
+    "english": "name",
+    "category": "noun",
+    "register": "media",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/adan#Balinese",
+    "sourceTitle": "Wiktionary contributors: adan (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-becik-ban-adj-dw5gdiTW",
+    "bali": "becik",
+    "indonesia": "baik; bagus",
+    "english": "good",
+    "category": "adj",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/becik#Balinese",
+    "sourceTitle": "Wiktionary contributors: becik (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-lan-ban-conj-g~QnT7Wd",
+    "bali": "lan",
+    "indonesia": "dan",
+    "english": "and (used to connect two similar words, phrases, et cetera)",
+    "category": "conj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/lan#Balinese",
+    "sourceTitle": "Wiktionary contributors: lan (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-niki-ban-det-HreWAkEe",
+    "bali": "niki",
+    "indonesia": "ini",
+    "english": "this",
+    "category": "det",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/niki#Balinese",
+    "sourceTitle": "Wiktionary contributors: niki (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-punika-ban-det-Z0vxFtCi",
+    "bali": "punika",
+    "indonesia": "itu",
+    "english": "that, those",
+    "category": "det",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/punika#Balinese",
+    "sourceTitle": "Wiktionary contributors: punika (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-rahajeng-ban-adj-bd5d80eD",
+    "bali": "rahajeng",
+    "indonesia": "selamat, sejahtera",
+    "english": "safety, protection from danger, risk, or injury",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Wiktionary contributors: rahajeng (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ring-ban-prep-ryREXIcJ",
+    "bali": "ring",
+    "indonesia": "di, pada",
+    "english": "in, at",
+    "category": "prep",
+    "register": "basa alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Wiktionary contributors: ring (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-tiang-ban-pron-QtscG1eb",
+    "bali": "tiang",
+    "indonesia": "saya, aku",
+    "english": "I, me",
+    "category": "pron",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/tiang#Balinese",
+    "sourceTitle": "Wiktionary contributors: tiang (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-titiang-ban-pron-QtscG1eb",
+    "bali": "titiang",
+    "indonesia": "saya",
+    "english": "I, me",
+    "category": "pron",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/titiang#Balinese",
+    "sourceTitle": "Wiktionary contributors: titiang (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-tusing-ban-adv-M5j6g3eJ",
+    "bali": "tusing",
+    "indonesia": "tidak, bukan",
+    "english": "no, not",
+    "category": "adv",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/tusing#Balinese",
+    "sourceTitle": "Wiktionary contributors: tusing (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wédang-ban-noun-NykNdKxN",
+    "bali": "wédang",
+    "indonesia": "kopi",
+    "english": "coffee",
+    "category": "noun",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/w%C3%A9dang#Balinese",
+    "sourceTitle": "Wiktionary contributors: wédang (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-aji-ban-noun-19gkoAvj",
+    "bali": "aji",
+    "indonesia": "harga, nilai",
+    "english": "price, value, worth",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/aji#Balinese",
+    "sourceTitle": "Wiktionary contributors: aji (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-anyar-ban-adj-EVB6Di9e",
+    "bali": "anyar",
+    "indonesia": "baru",
+    "english": "new",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/anyar#Balinese",
+    "sourceTitle": "Wiktionary contributors: anyar (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-baas-ban-noun-VViIQcNn",
+    "bali": "baas",
+    "indonesia": "beras",
+    "english": "uncooked rice",
+    "category": "noun",
+    "register": "andap",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/baas#Balinese",
+    "sourceTitle": "Wiktionary contributors: baas (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bapa-ban-noun-iKGIHwAl",
+    "bali": "bapa",
+    "indonesia": "ayah, bapak",
+    "english": "father",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bapa#Balinese",
+    "sourceTitle": "Wiktionary contributors: bapa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-beli-ban-verb-fi7Tk9Ul",
+    "bali": "beli",
+    "indonesia": "beli, membeli",
+    "english": "to buy",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/beli#Balinese",
+    "sourceTitle": "Wiktionary contributors: beli (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-biu-ban-noun-tJPUg2Sv",
+    "bali": "biu",
+    "indonesia": "pisang",
+    "english": "banana",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/biu#Balinese",
+    "sourceTitle": "Wiktionary contributors: biu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-jalan-ban-noun-NiooSVLT",
+    "bali": "jalan",
+    "indonesia": "jalan",
+    "english": "road",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/jalan#Balinese",
+    "sourceTitle": "Wiktionary contributors: jalan (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-karya-ban-noun-AOE-169V",
+    "bali": "karya",
+    "indonesia": "pekerjaan, karya",
+    "english": "work",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/karya#Balinese",
+    "sourceTitle": "Wiktionary contributors: karya (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-pasar-ban-noun-sqnndvjn",
+    "bali": "pasar",
+    "indonesia": "pasar",
+    "english": "market, bazaar",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/pasar#Balinese",
+    "sourceTitle": "Wiktionary contributors: pasar (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-peken-ban-noun-5NaT0k5k",
+    "bali": "peken",
+    "indonesia": "pasar",
+    "english": "market",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/peken#Balinese",
+    "sourceTitle": "Wiktionary contributors: peken (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-puniki-ban-det-dxILiGLF",
+    "bali": "puniki",
+    "indonesia": "ini",
+    "english": "this, these",
+    "category": "det",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/puniki#Balinese",
+    "sourceTitle": "Wiktionary contributors: puniki (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-rauh-ban-verb-InxwJN6G",
+    "bali": "rauh",
+    "indonesia": "datang, tiba",
+    "english": "to come",
+    "category": "verb",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rauh#Balinese",
+    "sourceTitle": "Wiktionary contributors: rauh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-teka-ban-verb-InxwJN6G",
+    "bali": "teka",
+    "indonesia": "datang",
+    "english": "to come",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/teka#Balinese",
+    "sourceTitle": "Wiktionary contributors: teka (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wasta-ban-noun-gqNTf~Db",
+    "bali": "wasta",
+    "indonesia": "nama",
+    "english": "name",
+    "category": "noun",
+    "register": "alus sor",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wasta#Balinese",
+    "sourceTitle": "Wiktionary contributors: wasta (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-woh-ban-noun-kglSaqph",
+    "bali": "woh",
+    "indonesia": "buah",
+    "english": "fruit",
+    "category": "noun",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/woh#Balinese",
+    "sourceTitle": "Wiktionary contributors: woh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ada-ban-verb-JebJC0XP",
+    "bali": "ada",
+    "indonesia": "ada",
+    "english": "to be, exist",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ada#Balinese",
+    "sourceTitle": "Wiktionary contributors: ada (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-anak-ban-noun-OKgeh-eW",
+    "bali": "anak",
+    "indonesia": "orang",
+    "english": "person",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/anak#Balinese",
+    "sourceTitle": "Wiktionary contributors: anak (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nyén-ban-pron-btAzcUC9",
+    "bali": "nyén",
+    "indonesia": "siapa",
+    "english": "who",
+    "category": "pron",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ny%C3%A9n#Balinese",
+    "sourceTitle": "Wiktionary contributors: nyén (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-demen-ban-adj-w8f5MVj2",
+    "bali": "demen",
+    "indonesia": "suka, gemar",
+    "english": "fond",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/demen#Balinese",
+    "sourceTitle": "Wiktionary contributors: demen (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nguda-ban-adj-27qSHOIF",
+    "bali": "nguda",
+    "indonesia": "muda",
+    "english": "young",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nguda#Balinese",
+    "sourceTitle": "Wiktionary contributors: nguda (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sampun-ban-adv-6lM5bK68",
+    "bali": "sampun",
+    "indonesia": "sudah",
+    "english": "already",
+    "category": "adv",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sampun#Balinese",
+    "sourceTitle": "Wiktionary contributors: sampun (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-uma-ban-noun-784xi04M",
+    "bali": "uma",
+    "indonesia": "sawah",
+    "english": "sawah",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/uma#Balinese",
+    "sourceTitle": "Wiktionary contributors: uma (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-asta-ban-num-wZXS2HVi",
+    "bali": "asta",
+    "indonesia": "delapan",
+    "english": "eight",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/asta#Balinese",
+    "sourceTitle": "Wiktionary contributors: asta (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-empat-ban-num-BO-vCA9a",
+    "bali": "empat",
+    "indonesia": "empat",
+    "english": "four",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/empat#Balinese",
+    "sourceTitle": "Wiktionary contributors: empat (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-enem-ban-num-RHeNgjZe",
+    "bali": "enem",
+    "indonesia": "enam",
+    "english": "six",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/enem#Balinese",
+    "sourceTitle": "Wiktionary contributors: enem (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-karo-ban-num-P8TM~nRY",
+    "bali": "karo",
+    "indonesia": "dua",
+    "english": "two",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/karo#Balinese",
+    "sourceTitle": "Wiktionary contributors: karo (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-rua-ban-num-P8TM~nRY",
+    "bali": "rua",
+    "indonesia": "dua",
+    "english": "two",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rua#Balinese",
+    "sourceTitle": "Wiktionary contributors: rua (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sa-ban-num-dpLDrTVA",
+    "bali": "sa",
+    "indonesia": "satu",
+    "english": "one",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sa#Balinese",
+    "sourceTitle": "Wiktionary contributors: sa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-siya-ban-num-7c2OcBot",
+    "bali": "siya",
+    "indonesia": "sembilan",
+    "english": "nine",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/siya#Balinese",
+    "sourceTitle": "Wiktionary contributors: siya (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ané-ban-pron-1yWuHnS5",
+    "bali": "ané",
+    "indonesia": "yang",
+    "english": "that, which",
+    "category": "pron",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/an%C3%A9#Balinese",
+    "sourceTitle": "Wiktionary contributors: ané (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bes-ban-conj-OHd1t-8t",
+    "bali": "bes",
+    "indonesia": "terlalu",
+    "english": "too (as in too hard, too much etc.)",
+    "category": "conj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bes#Balinese",
+    "sourceTitle": "Wiktionary contributors: bes (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-cai-ban-pron-uwNHpGjZ",
+    "bali": "cai",
+    "indonesia": "kamu",
+    "english": "you",
+    "category": "pron",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/cai#Balinese",
+    "sourceTitle": "Wiktionary contributors: cai (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-cenik-ban-adj-~OPJa5AZ",
+    "bali": "cenik",
+    "indonesia": "kecil",
+    "english": "small, little",
+    "category": "adj",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/cenik#Balinese",
+    "sourceTitle": "Wiktionary contributors: cenik (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-iratu-ban-pron-uwNHpGjZ",
+    "bali": "iratu",
+    "indonesia": "Anda, Beliau",
+    "english": "you",
+    "category": "pron",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/iratu#Balinese",
+    "sourceTitle": "Wiktionary contributors: iratu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-jagi-ban-adv-~oitX5x7",
+    "bali": "jagi",
+    "indonesia": "akan, hendak",
+    "english": "to will, intend to, want to (future marker)",
+    "category": "adv",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/jagi#Balinese",
+    "sourceTitle": "Wiktionary contributors: jagi (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-munggah-ban-verb-wDNawXWY",
+    "bali": "munggah",
+    "indonesia": "naik",
+    "english": "go up; raise; rise; lift; climb",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/munggah#Balinese",
+    "sourceTitle": "Wiktionary contributors: munggah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nika-ban-det-jn~AI2r0",
+    "bali": "nika",
+    "indonesia": "itu",
+    "english": "that",
+    "category": "det",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nika#Balinese",
+    "sourceTitle": "Wiktionary contributors: nika (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ragané-ban-pron-uwNHpGjZ",
+    "bali": "ragané",
+    "indonesia": "Anda",
+    "english": "you",
+    "category": "pron",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ragan%C3%A9#Balinese",
+    "sourceTitle": "Wiktionary contributors: ragané (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-adeg-adeg-ban-noun-dogNRmhX",
+    "bali": "adeg-adeg",
+    "indonesia": "adeg-adeg (tanda pemati konsonan)",
+    "english": "the virama (a diacritic that suppresses the inherent vowel of a given (Balinese) consonant letter)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/adeg-adeg#Balinese",
+    "sourceTitle": "Wiktionary contributors: adeg-adeg (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-akéh-ban-det-ETexXHeX",
+    "bali": "akéh",
+    "indonesia": "banyak",
+    "english": "many",
+    "category": "det",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ak%C3%A9h#Balinese",
+    "sourceTitle": "Wiktionary contributors: akéh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-alit-ban-adj-gduOu7vG",
+    "bali": "alit",
+    "indonesia": "kecil",
+    "english": "small",
+    "category": "adj",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/alit#Balinese",
+    "sourceTitle": "Wiktionary contributors: alit (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-alus-ban-adj-HBpwTVxz",
+    "bali": "alus",
+    "indonesia": "halus, lembut",
+    "english": "fine, soft, small",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/alus#Balinese",
+    "sourceTitle": "Wiktionary contributors: alus (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-aya-ban-adj-zS7rhlBR",
+    "bali": "aya",
+    "indonesia": "besar, agung",
+    "english": "big, large",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/aya#Balinese",
+    "sourceTitle": "Wiktionary contributors: aya (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ayu-ban-adj-dw5gdiTW",
+    "bali": "ayu",
+    "indonesia": "cantik, elok, baik",
+    "english": "good",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ayu#Balinese",
+    "sourceTitle": "Wiktionary contributors: ayu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bahu-ban-adj-nvfMZTpl",
+    "bali": "bahu",
+    "indonesia": "banyak",
+    "english": "many, much",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bahu#Balinese",
+    "sourceTitle": "Wiktionary contributors: bahu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-banjar-ban-noun-UpakPQYj",
+    "bali": "banjar",
+    "indonesia": "banjar (organisasi kemasyarakatan tingkat dusun di Bali)",
+    "english": "banjar (a Balinese village council made up of married men)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/banjar#Balinese",
+    "sourceTitle": "Wiktionary contributors: banjar (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-banyu-ban-noun-D0FoSQ44",
+    "bali": "banyu",
+    "indonesia": "air",
+    "english": "water",
+    "category": "noun",
+    "register": "andap",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/banyu#Balinese",
+    "sourceTitle": "Wiktionary contributors: banyu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-barong-ban-noun-LMoB82bi",
+    "bali": "barong",
+    "indonesia": "barong (makhluk mitologis pelindung dalam tradisi Bali)",
+    "english": "beneficent force of nature which works against evil spirits, embodied in the figure of an animal; sound of the orchestra",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/barong#Balinese",
+    "sourceTitle": "Wiktionary contributors: barong (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bau-ban-adj-EVB6Di9e",
+    "bali": "bau",
+    "indonesia": "baru",
+    "english": "new",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bau#Balinese",
+    "sourceTitle": "Wiktionary contributors: bau (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "draft",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-beleganjur-ban-noun-WkDEpX9a",
+    "bali": "beleganjur",
+    "indonesia": "beleganjur (ansambel gamelan prosesi khas Bali)",
+    "english": "a popular style of gamelan music used in festivals",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/beleganjur#Balinese",
+    "sourceTitle": "Wiktionary contributors: beleganjur (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bendésa-ban-noun-J7LpoZMg",
+    "bali": "bendésa",
+    "indonesia": "bendesa (kepala desa adat)",
+    "english": "cultural village chief",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bend%C3%A9sa#Balinese",
+    "sourceTitle": "Wiktionary contributors: bendésa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-beras-ban-noun-VViIQcNn",
+    "bali": "beras",
+    "indonesia": "beras",
+    "english": "uncooked rice",
+    "category": "noun",
+    "register": "alus mider",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/beras#Balinese",
+    "sourceTitle": "Wiktionary contributors: beras (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-buuk-ban-adj-NSV9jOsn",
+    "bali": "buuk",
+    "indonesia": "lapuk, usang, rusak namun masih dapat digunakan",
+    "english": "worn out, drab, bald, in bad condition or tumbledown state but which can still be used",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/buuk#Balinese",
+    "sourceTitle": "Wiktionary contributors: buuk (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ci-ban-pron-uwNHpGjZ",
+    "bali": "ci",
+    "indonesia": "kamu, engkau (biasanya untuk laki-laki sebaya/akrab)",
+    "english": "you",
+    "category": "pron",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ci#Balinese",
+    "sourceTitle": "Wiktionary contributors: ci (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-dasi-ban-noun-5EMrqpCB",
+    "bali": "dasi",
+    "indonesia": "sepuluh",
+    "english": "ten",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/dasi#Balinese",
+    "sourceTitle": "Wiktionary contributors: dasi (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "draft",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-désa-ban-noun-Bc--KDOB",
+    "bali": "désa",
+    "indonesia": "desa",
+    "english": "village",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/d%C3%A9sa#Balinese",
+    "sourceTitle": "Wiktionary contributors: désa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-dina-ban-noun-lEwn5bl6",
+    "bali": "dina",
+    "indonesia": "hari",
+    "english": "day",
+    "category": "noun",
+    "register": "andap",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/dina#Balinese",
+    "sourceTitle": "Wiktionary contributors: dina (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-dusun-ban-noun-s8wD755G",
+    "bali": "dusun",
+    "indonesia": "dusun, desa, pelosok",
+    "english": "village, rural, countryside",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/dusun#Balinese",
+    "sourceTitle": "Wiktionary contributors: dusun (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-éka-ban-noun-dpLDrTVA",
+    "bali": "éka",
+    "indonesia": "satu, tunggal",
+    "english": "one",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/%C3%A9ka#Balinese",
+    "sourceTitle": "Wiktionary contributors: éka (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-gedé-ban-adj-KiH-bVkq",
+    "bali": "gedé",
+    "indonesia": "besar",
+    "english": "big",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ged%C3%A9#Balinese",
+    "sourceTitle": "Wiktionary contributors: gedé (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ina-ban-noun-ILthafm~",
+    "bali": "ina",
+    "indonesia": "ibu, induk",
+    "english": "mother (female who parents a child, gives birth to a baby, or is pregnant)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ina#Balinese",
+    "sourceTitle": "Wiktionary contributors: ina (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-indra-ban-adj-KiH-bVkq",
+    "bali": "indra",
+    "indonesia": "besar",
+    "english": "big",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/indra#Balinese",
+    "sourceTitle": "Wiktionary contributors: indra (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "draft",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-jero-ban-noun-1uIShmIa",
+    "bali": "jero",
+    "indonesia": "rumah (kediaman bangsawan/golongan triwangsa); dalam",
+    "english": "house",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/jero#Balinese",
+    "sourceTitle": "Wiktionary contributors: jero (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-jeruk-ban-noun-H0uxet1a",
+    "bali": "jeruk",
+    "indonesia": "jeruk",
+    "english": "citrus, lemon, orange",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/jeruk#Balinese",
+    "sourceTitle": "Wiktionary contributors: jeruk (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-jukut-ban-noun-j549mFSQ",
+    "bali": "jukut",
+    "indonesia": "sayur paku (pakis yang dimakan sebagai sayur)",
+    "english": "the common fern, especially when eaten as food",
+    "category": "noun",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/jukut#Balinese",
+    "sourceTitle": "Wiktionary contributors: jukut (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-juwuk-ban-noun-H0uxet1a",
+    "bali": "juwuk",
+    "indonesia": "jeruk",
+    "english": "citrus, lemon, orange",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/juwuk#Balinese",
+    "sourceTitle": "Wiktionary contributors: juwuk (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kaja-ban-noun-LUqXP65e",
+    "bali": "kaja",
+    "indonesia": "arah ke gunung (utara bagi Bali selatan)",
+    "english": "mountainward (direction); towards the mountain (i.e. towards Mount Agung)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kaja#Balinese",
+    "sourceTitle": "Wiktionary contributors: kaja (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kanca-ban-noun-zeSFN8os",
+    "bali": "kanca",
+    "indonesia": "teman, kawan",
+    "english": "friend",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kanca#Balinese",
+    "sourceTitle": "Wiktionary contributors: kanca (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-katah-ban-det-nvfMZTpl",
+    "bali": "katah",
+    "indonesia": "banyak",
+    "english": "many, much",
+    "category": "det",
+    "register": "alus mider",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/katah#Balinese",
+    "sourceTitle": "Wiktionary contributors: katah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kejep-ban-noun-ghy9D4Q0",
+    "bali": "kejep",
+    "indonesia": "kedipan mata atau gerakan alis",
+    "english": "the raising of one's eyes or eyebrows",
+    "category": "noun",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kejep#Balinese",
+    "sourceTitle": "Wiktionary contributors: kejep (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kula-ban-noun-00pWmreq",
+    "bali": "kula",
+    "indonesia": "keluarga, sanak kerabat",
+    "english": "family",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kula#Balinese",
+    "sourceTitle": "Wiktionary contributors: kula (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kulawarga-ban-noun-00pWmreq",
+    "bali": "kulawarga",
+    "indonesia": "keluarga",
+    "english": "family",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kulawarga#Balinese",
+    "sourceTitle": "Wiktionary contributors: kulawarga (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-landep-ban-noun-hkf3MX9v",
+    "bali": "landep",
+    "indonesia": "wuku Landep (wuku kedua dalam kalender Pawukon saat penyucian senjata)",
+    "english": "the second week in the year, when weapons are blessed",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/landep#Balinese",
+    "sourceTitle": "Wiktionary contributors: landep (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-lawar-ban-noun-QkagCA47",
+    "bali": "lawar",
+    "indonesia": "lawar (hidangan tradisional Bali berupa campuran sayur, kelapa parut, dan daging cincang berumbu)",
+    "english": "dish created from a mixture of vegetables, coconut and minced meat mixed with rich herbs and spices",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/lawar#Balinese",
+    "sourceTitle": "Wiktionary contributors: lawar (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-lemah-ban-noun-P-JQJV3i",
+    "bali": "lemah",
+    "indonesia": "siang, siang hari",
+    "english": "day, daytime",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/lemah#Balinese",
+    "sourceTitle": "Wiktionary contributors: lemah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-liu-ban-det-ETexXHeX",
+    "bali": "liu",
+    "indonesia": "banyak",
+    "english": "many",
+    "category": "det",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/liu#Balinese",
+    "sourceTitle": "Wiktionary contributors: liu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-manira-ban-pron-NiIZEmKT",
+    "bali": "manira",
+    "indonesia": "saya, aku (kata ganti orang pertama oleh raja kepada bawahannya)",
+    "english": "I (for a king when speaking to his people)",
+    "category": "pron",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/manira#Balinese",
+    "sourceTitle": "Wiktionary contributors: manira (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-mara-ban-adj-gmZAn6o3",
+    "bali": "mara",
+    "indonesia": "baru, baru saja",
+    "english": "new, recent",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/mara#Balinese",
+    "sourceTitle": "Wiktionary contributors: mara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-marga-ban-noun-NiooSVLT",
+    "bali": "marga",
+    "indonesia": "jalan",
+    "english": "road",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/marga#Balinese",
+    "sourceTitle": "Wiktionary contributors: marga (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-moga-ban-adv-z7i7q9LB",
+    "bali": "moga",
+    "indonesia": "akhirnya, pada akhirnya",
+    "english": "finally, in the end",
+    "category": "adv",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/moga#Balinese",
+    "sourceTitle": "Wiktionary contributors: moga (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nanah-ban-noun-qpUmRbVw",
+    "bali": "nanah",
+    "indonesia": "nanah",
+    "english": "pus (fluid found in regions of infection)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nanah#Balinese",
+    "sourceTitle": "Wiktionary contributors: nanah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nara-ban-noun-D0FoSQ44",
+    "bali": "nara",
+    "indonesia": "air",
+    "english": "water",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nara#Balinese",
+    "sourceTitle": "Wiktionary contributors: nara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nénten-ban-adv-JUu5e1fx",
+    "bali": "nénten",
+    "indonesia": "tidak, bukan",
+    "english": "not",
+    "category": "adv",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/n%C3%A9nten#Balinese",
+    "sourceTitle": "Wiktionary contributors: nénten (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nggih-ban-intj-Otua~msi",
+    "bali": "nggih",
+    "indonesia": "ya, baik (ragam halus)",
+    "english": "yes (when addressing superiors)",
+    "category": "intj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nggih#Balinese",
+    "sourceTitle": "Wiktionary contributors: nggih (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nusa-ban-noun-qaxWgxcI",
+    "bali": "nusa",
+    "indonesia": "pulau",
+    "english": "island (area of land completely surrounded by water)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nusa#Balinese",
+    "sourceTitle": "Wiktionary contributors: nusa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-nyuh-ban-noun-I-vOcsRC",
+    "bali": "nyuh",
+    "indonesia": "kelapa",
+    "english": "coconut",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/nyuh#Balinese",
+    "sourceTitle": "Wiktionary contributors: nyuh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-pala-ban-noun-kglSaqph",
+    "bali": "pala",
+    "indonesia": "buah, hasil bumi",
+    "english": "fruit",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/pala#Balinese",
+    "sourceTitle": "Wiktionary contributors: pala (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-panak-ban-noun-Im-bzRQs",
+    "bali": "panak",
+    "indonesia": "anak",
+    "english": "child (a female or male child, a daughter or son)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/panak#Balinese",
+    "sourceTitle": "Wiktionary contributors: panak (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-payuk-ban-noun-AfMcBCbb",
+    "bali": "payuk",
+    "indonesia": "periuk (terbuat dari tanah liat untuk memasak nasi)",
+    "english": "a rice boiling pot (often made of red clay with a flared top)",
+    "category": "noun",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/payuk#Balinese",
+    "sourceTitle": "Wiktionary contributors: payuk (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-peceng-ban-adj-hthF6GR5",
+    "bali": "peceng",
+    "indonesia": "buta sebelah mata",
+    "english": "blind in one eye, half-blind, sandblind",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/peceng#Balinese",
+    "sourceTitle": "Wiktionary contributors: peceng (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-pelik-ban-noun-UrU~B-0x",
+    "bali": "pelik",
+    "indonesia": "salah satu jenis kartu dalam permainan ceki",
+    "english": "one of the ceki",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/pelik#Balinese",
+    "sourceTitle": "Wiktionary contributors: pelik (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-pénjor-ban-noun-A81pOqsz",
+    "bali": "pénjor",
+    "indonesia": "penjor (bambu hias untuk perayaan keagamaan)",
+    "english": "a bamboo pole decorated with flowers and agricultural produce, stuck in front of a house or temple during important religious occasions.",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/p%C3%A9njor#Balinese",
+    "sourceTitle": "Wiktionary contributors: pénjor (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-poh-ban-noun-aBXzwwA4",
+    "bali": "poh",
+    "indonesia": "mangga",
+    "english": "mango",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/poh#Balinese",
+    "sourceTitle": "Wiktionary contributors: poh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-prabekel-ban-noun-fkUjBPe2",
+    "bali": "prabekel",
+    "indonesia": "perbekel, kepala desa",
+    "english": "head of a village",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/prabekel#Balinese",
+    "sourceTitle": "Wiktionary contributors: prabekel (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-rahina-ban-noun-lEwn5bl6",
+    "bali": "rahina",
+    "indonesia": "hari, siang hari",
+    "english": "day",
+    "category": "noun",
+    "register": "alus mider",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahina#Balinese",
+    "sourceTitle": "Wiktionary contributors: rahina (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-raka-ban-noun-lZ8Tks1L",
+    "bali": "raka",
+    "indonesia": "kakak laki-laki",
+    "english": "elder brother",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/raka#Balinese",
+    "sourceTitle": "Wiktionary contributors: raka (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-rama-ban-noun-iKGIHwAl",
+    "bali": "rama",
+    "indonesia": "ayah, bapak",
+    "english": "father",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rama#Balinese",
+    "sourceTitle": "Wiktionary contributors: rama (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-rungu-ban-verb-jqEb34OJ",
+    "bali": "rungu",
+    "indonesia": "mendengar",
+    "english": "to hear",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rungu#Balinese",
+    "sourceTitle": "Wiktionary contributors: rungu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sanak-ban-noun-G3rAE3Es",
+    "bali": "sanak",
+    "indonesia": "sanak keluarga, kerabat",
+    "english": "family, relatives",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sanak#Balinese",
+    "sourceTitle": "Wiktionary contributors: sanak (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sangga-ban-verb-NurOV2Hj",
+    "bali": "sangga",
+    "indonesia": "menyangga, menopang",
+    "english": "to support, to provide support in order to prevent something being carried from falling.",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sangga#Balinese",
+    "sourceTitle": "Wiktionary contributors: sangga (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sanggah-ban-noun-jx3NehJe",
+    "bali": "sanggah",
+    "indonesia": "sanggah (tempat sembahyang keluarga)",
+    "english": "family shrine in the Balinese house-complex.",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sanggah#Balinese",
+    "sourceTitle": "Wiktionary contributors: sanggah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sara-ban-noun-D0FoSQ44",
+    "bali": "sara",
+    "indonesia": "air",
+    "english": "water",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sara#Balinese",
+    "sourceTitle": "Wiktionary contributors: sara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sata-ban-noun-l~6KN0kG",
+    "bali": "sata",
+    "indonesia": "seratus",
+    "english": "hundred",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sata#Balinese",
+    "sourceTitle": "Wiktionary contributors: sata (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sega-ban-noun-QPXIIU7r",
+    "bali": "sega",
+    "indonesia": "nasi",
+    "english": "cooked rice",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sega#Balinese",
+    "sourceTitle": "Wiktionary contributors: sega (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sengauk-ban-noun-DAGdlNYR",
+    "bali": "sengauk",
+    "indonesia": "nasi kering sisa yang dijemur",
+    "english": "left-over cooked rice that is dried in the sun (usually used as food for pigs)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sengauk#Balinese",
+    "sourceTitle": "Wiktionary contributors: sengauk (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sentana-ban-noun-3cnmaRlC",
+    "bali": "sentana",
+    "indonesia": "anak, keturunan",
+    "english": "child",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sentana#Balinese",
+    "sourceTitle": "Wiktionary contributors: sentana (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-siwa-ban-noun-vEHsPRIF",
+    "bali": "siwa",
+    "indonesia": "guru rohani",
+    "english": "religious teacher",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/siwa#Balinese",
+    "sourceTitle": "Wiktionary contributors: siwa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-sua-ban-noun-3pAi5HNb",
+    "bali": "sua",
+    "indonesia": "diri sendiri",
+    "english": "one's self",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/sua#Balinese",
+    "sourceTitle": "Wiktionary contributors: sua (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-suba-ban-adj-hMm-udre",
+    "bali": "suba",
+    "indonesia": "baik, mujur, membawa keberuntungan",
+    "english": "good, auspicious",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/suba#Balinese",
+    "sourceTitle": "Wiktionary contributors: suba (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-suci-ban-noun-q5DeZReI",
+    "bali": "suci",
+    "indonesia": "hidangan upacara yang lauknya dibuat dari daging bebek",
+    "english": "food whose side dishes are made from duck meat",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/suci#Balinese",
+    "sourceTitle": "Wiktionary contributors: suci (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-swagata-ban-noun-PbqjVgTG",
+    "bali": "swagata",
+    "indonesia": "nama salah satu metrum kakawin",
+    "english": "name of a metre",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/swagata#Balinese",
+    "sourceTitle": "Wiktionary contributors: swagata (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-tahu-ban-verb-Vk7G5aRj",
+    "bali": "tahu",
+    "indonesia": "tahu, mengetahui",
+    "english": "to know",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/tahu#Balinese",
+    "sourceTitle": "Wiktionary contributors: tahu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-tasik-ban-noun-Y0ea1poJ",
+    "bali": "tasik",
+    "indonesia": "garam",
+    "english": "salt",
+    "category": "noun",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/tasik#Balinese",
+    "sourceTitle": "Wiktionary contributors: tasik (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-timpal-ban-noun-zeSFN8os",
+    "bali": "timpal",
+    "indonesia": "teman",
+    "english": "friend",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/timpal#Balinese",
+    "sourceTitle": "Wiktionary contributors: timpal (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-tirta-ban-noun--GU~rsKP",
+    "bali": "tirta",
+    "indonesia": "air suci",
+    "english": "holy water.",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/tirta#Balinese",
+    "sourceTitle": "Wiktionary contributors: tirta (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-toya-ban-noun-D0FoSQ44",
+    "bali": "toya",
+    "indonesia": "air",
+    "english": "water",
+    "category": "noun",
+    "register": "andap",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/toya#Balinese",
+    "sourceTitle": "Wiktionary contributors: toya (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-tum-ban-verb-Dmg-1eCs",
+    "bali": "tum",
+    "indonesia": "memasak dengan dibungkus daun pisang lalu dikukus",
+    "english": "to cook by warping by banana leaf then steamed",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/tum#Balinese",
+    "sourceTitle": "Wiktionary contributors: tum (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-uku-ban-noun-Y0ea1poJ",
+    "bali": "uku",
+    "indonesia": "garam",
+    "english": "salt",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/uku#Balinese",
+    "sourceTitle": "Wiktionary contributors: uku (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "draft",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-unggah-ban-verb-~Q36dXLP",
+    "bali": "unggah",
+    "indonesia": "naik",
+    "english": "to go up, ascend, rise",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/unggah#Balinese",
+    "sourceTitle": "Wiktionary contributors: unggah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-uyah-ban-noun-Y0ea1poJ",
+    "bali": "uyah",
+    "indonesia": "garam",
+    "english": "salt",
+    "category": "noun",
+    "register": "media",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/uyah#Balinese",
+    "sourceTitle": "Wiktionary contributors: uyah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-waca-ban-verb-OQnC8LFq",
+    "bali": "waca",
+    "indonesia": "membaca",
+    "english": "to read",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/waca#Balinese",
+    "sourceTitle": "Wiktionary contributors: waca (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wai-ban-noun-lEwn5bl6",
+    "bali": "wai",
+    "indonesia": "hari",
+    "english": "day",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wai#Balinese",
+    "sourceTitle": "Wiktionary contributors: wai (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wara-ban-noun-lEwn5bl6",
+    "bali": "wara",
+    "indonesia": "hari",
+    "english": "day",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wara#Balinese",
+    "sourceTitle": "Wiktionary contributors: wara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-warih-ban-noun-D0FoSQ44",
+    "bali": "warih",
+    "indonesia": "air",
+    "english": "water",
+    "category": "noun",
+    "register": "alus singgih",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/warih#Balinese",
+    "sourceTitle": "Wiktionary contributors: warih (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wayah-ban-adj-y6BrVzb6",
+    "bali": "wayah",
+    "indonesia": "tua",
+    "english": "old",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wayah#Balinese",
+    "sourceTitle": "Wiktionary contributors: wayah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wésma-ban-noun-1uIShmIa",
+    "bali": "wésma",
+    "indonesia": "rumah",
+    "english": "house",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/w%C3%A9sma#Balinese",
+    "sourceTitle": "Wiktionary contributors: wésma (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wija-ban-noun-28Fg8zCU",
+    "bali": "wija",
+    "indonesia": "bija (beras untuk persembahyangan)",
+    "english": "a kind of ceremonial rice",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wija#Balinese",
+    "sourceTitle": "Wiktionary contributors: wija (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wuwus-ban-verb-TKdixBly",
+    "bali": "wuwus",
+    "indonesia": "berkata",
+    "english": "to speak",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wuwus#Balinese",
+    "sourceTitle": "Wiktionary contributors: wuwus (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-yéh-ban-noun-D0FoSQ44",
+    "bali": "yéh",
+    "indonesia": "air",
+    "english": "water",
+    "category": "noun",
+    "register": "andap",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/y%C3%A9h#Balinese",
+    "sourceTitle": "Wiktionary contributors: yéh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-pratama-ban-num-p5N7ZLjK",
+    "bali": "pratama",
+    "indonesia": "pertama",
+    "english": "first",
+    "category": "num",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/pratama#Balinese",
+    "sourceTitle": "Wiktionary contributors: pratama (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-adi-ban-noun-TRnKT7-F",
+    "bali": "adi",
+    "indonesia": "adik",
+    "english": "sibling (younger person who shares same parents)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/adi#Balinese",
+    "sourceTitle": "Wiktionary contributors: adi (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-apa-ban-pron-dJqywNBs",
+    "bali": "apa",
+    "indonesia": "apa",
+    "english": "what",
+    "category": "pron",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/apa#Balinese",
+    "sourceTitle": "Wiktionary contributors: apa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-baligrafi-ban-noun-Nh8HQSs8",
+    "bali": "baligrafi",
+    "indonesia": "kaligrafi aksara Bali",
+    "english": "calligraphy using the Balinese script, Baligraphy",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/baligrafi#Balinese",
+    "sourceTitle": "Wiktionary contributors: baligrafi (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-basang-ban-noun-1aDZBXTV",
+    "bali": "basang",
+    "indonesia": "perut",
+    "english": "stomach",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/basang#Balinese",
+    "sourceTitle": "Wiktionary contributors: basang (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bébék-ban-noun-LSNw2yRH",
+    "bali": "bébék",
+    "indonesia": "bebek",
+    "english": "duck",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/b%C3%A9b%C3%A9k#Balinese",
+    "sourceTitle": "Wiktionary contributors: bébék (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-énak-ban-adj-WIKG~yki",
+    "bali": "énak",
+    "indonesia": "enak",
+    "english": "delicious (pleasing to taste)",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/%C3%A9nak#Balinese",
+    "sourceTitle": "Wiktionary contributors: énak (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-joh-ban-adj-XFd3wcZt",
+    "bali": "joh",
+    "indonesia": "jauh",
+    "english": "distant",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/joh#Balinese",
+    "sourceTitle": "Wiktionary contributors: joh (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-kija-ban-adv-tIERwQxl",
+    "bali": "kija",
+    "indonesia": "ke mana",
+    "english": "where",
+    "category": "adv",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/kija#Balinese",
+    "sourceTitle": "Wiktionary contributors: kija (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ngélah-ban-verb-tBQeCitX",
+    "bali": "ngélah",
+    "indonesia": "memiliki, mempunyai",
+    "english": "to own, possess (of property)",
+    "category": "verb",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ng%C3%A9lah#Balinese",
+    "sourceTitle": "Wiktionary contributors: ngélah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-pipis-ban-noun-jSrItY6t",
+    "bali": "pipis",
+    "indonesia": "uang",
+    "english": "money",
+    "category": "noun",
+    "register": "medya",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/pipis#Balinese",
+    "sourceTitle": "Wiktionary contributors: pipis (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-siap-ban-noun-gR64G50R",
+    "bali": "siap",
+    "indonesia": "ayam",
+    "english": "chicken",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/siap#Balinese",
+    "sourceTitle": "Wiktionary contributors: siap (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-wit-ban-noun-3Jxe24st",
+    "bali": "wit",
+    "indonesia": "pohon",
+    "english": "tree",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/wit#Balinese",
+    "sourceTitle": "Wiktionary contributors: wit (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-aa-ban-noun-m-dIgDGC",
+    "bali": "aa",
+    "indonesia": "ara (Ficus roxburghii)",
+    "english": "fig (Ficus roxburghii)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/aa#Balinese",
+    "sourceTitle": "Wiktionary contributors: aa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-abut-ban-verb-OFVmd8R8",
+    "bali": "abut",
+    "indonesia": "mencabut",
+    "english": "to pull",
+    "category": "verb",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/abut#Balinese",
+    "sourceTitle": "Wiktionary contributors: abut (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-acara-ban-noun-c2mUm0fv",
+    "bali": "acara",
+    "indonesia": "aturan, tata cara",
+    "english": "rule",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/acara#Balinese",
+    "sourceTitle": "Wiktionary contributors: acara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-adeg-ban-noun-biynGwA5",
+    "bali": "adeg",
+    "indonesia": "perawakan, bentuk tubuh",
+    "english": "form, stature",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/adeg#Balinese",
+    "sourceTitle": "Wiktionary contributors: adeg (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-adri-ban-noun-O4DTj3aG",
+    "bali": "adri",
+    "indonesia": "gunung",
+    "english": "mountain",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/adri#Balinese",
+    "sourceTitle": "Wiktionary contributors: adri (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-agama-ban-noun-ReKFEzuJ",
+    "bali": "agama",
+    "indonesia": "adat kebiasaan, aturan adat",
+    "english": "customs",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/agama#Balinese",
+    "sourceTitle": "Wiktionary contributors: agama (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-agni-ban-noun-3J8osS3R",
+    "bali": "agni",
+    "indonesia": "api",
+    "english": "fire",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/agni#Balinese",
+    "sourceTitle": "Wiktionary contributors: agni (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-airsania-ban-noun-SNInjYTr",
+    "bali": "airsania",
+    "indonesia": "timur laut",
+    "english": "northeast",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/airsania#Balinese",
+    "sourceTitle": "Wiktionary contributors: airsania (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-akah-ban-noun-NZiGAwpi",
+    "bali": "akah",
+    "indonesia": "akar",
+    "english": "root (of plant)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/akah#Balinese",
+    "sourceTitle": "Wiktionary contributors: akah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-aksara-ban-noun-3aq1POQo",
+    "bali": "aksara",
+    "indonesia": "aksara, huruf",
+    "english": "letter (of a writing system)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/aksara#Balinese",
+    "sourceTitle": "Wiktionary contributors: aksara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ala-ban-adj-7cHqcESm",
+    "bali": "ala",
+    "indonesia": "buruk, jahat",
+    "english": "bad, evil",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ala#Balinese",
+    "sourceTitle": "Wiktionary contributors: ala (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-alot-ban-adj-3t4eAAQH",
+    "bali": "alot",
+    "indonesia": "alot, liat",
+    "english": "tough",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/alot#Balinese",
+    "sourceTitle": "Wiktionary contributors: alot (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ambu-ban-noun-FG4gRVIO",
+    "bali": "ambu",
+    "indonesia": "daun enau muda",
+    "english": "young palm leaf",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ambu#Balinese",
+    "sourceTitle": "Wiktionary contributors: ambu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ancut-ban-noun-5SGfejGX",
+    "bali": "ancut",
+    "indonesia": "tempat terpencil",
+    "english": "remote place",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ancut#Balinese",
+    "sourceTitle": "Wiktionary contributors: ancut (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-anda-ban-adj-5bhMifYk",
+    "bali": "anda",
+    "indonesia": "buta",
+    "english": "blind",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/anda#Balinese",
+    "sourceTitle": "Wiktionary contributors: anda (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-angél-ban-adj-xAV2Da-b",
+    "bali": "angél",
+    "indonesia": "lelah, letih",
+    "english": "tired",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ang%C3%A9l#Balinese",
+    "sourceTitle": "Wiktionary contributors: angél (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-angen-ban-noun-PLloqYII",
+    "bali": "angen",
+    "indonesia": "hati, kalbu",
+    "english": "heart",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/angen#Balinese",
+    "sourceTitle": "Wiktionary contributors: angen (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-angga-ban-noun-Iw2DWNyO",
+    "bali": "angga",
+    "indonesia": "tubuh, badan",
+    "english": "body",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/angga#Balinese",
+    "sourceTitle": "Wiktionary contributors: angga (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-angin-ban-noun-m1jmgUWn",
+    "bali": "angin",
+    "indonesia": "angin",
+    "english": "wind",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/angin#Balinese",
+    "sourceTitle": "Wiktionary contributors: angin (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-angklung-ban-noun--85Oiy6x",
+    "bali": "angklung",
+    "indonesia": "angklung",
+    "english": "angklung",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/angklung#Balinese",
+    "sourceTitle": "Wiktionary contributors: angklung (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-angsa-ban-noun-X-RuxPXM",
+    "bali": "angsa",
+    "indonesia": "angsa",
+    "english": "goose, swan",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/angsa#Balinese",
+    "sourceTitle": "Wiktionary contributors: angsa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-arca-ban-noun-wSt8E4xe",
+    "bali": "arca",
+    "indonesia": "arca, patung",
+    "english": "statue",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/arca#Balinese",
+    "sourceTitle": "Wiktionary contributors: arca (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-ari-ban-noun-bZxpv2Lk",
+    "bali": "ari",
+    "indonesia": "adik",
+    "english": "younger sibling",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ari#Balinese",
+    "sourceTitle": "Wiktionary contributors: ari (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-arja-ban-noun-NMFrQk0o",
+    "bali": "arja",
+    "indonesia": "arja (seni drama tari tradisional Bali)",
+    "english": "a Balinese dramatic performance, but often only a dance.",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/arja#Balinese",
+    "sourceTitle": "Wiktionary contributors: arja (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-arta-ban-noun-c5v0hPfx",
+    "bali": "arta",
+    "indonesia": "harta, kekayaan",
+    "english": "wealth",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/arta#Balinese",
+    "sourceTitle": "Wiktionary contributors: arta (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-arya-ban-noun-06YcaERG",
+    "bali": "arya",
+    "indonesia": "bangsawan, arya",
+    "english": "noble",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/arya#Balinese",
+    "sourceTitle": "Wiktionary contributors: arya (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-asana-ban-noun-bMtOFQi2",
+    "bali": "asana",
+    "indonesia": "sikap duduk, asana",
+    "english": "posture (of seating)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/asana#Balinese",
+    "sourceTitle": "Wiktionary contributors: asana (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-asep-ban-noun-BNWIy0G4",
+    "bali": "asep",
+    "indonesia": "asap, dupa",
+    "english": "smoke",
+    "category": "noun",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/asep#Balinese",
+    "sourceTitle": "Wiktionary contributors: asep (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-asrama-ban-adj-12Y5KYkQ",
+    "bali": "asrama",
+    "indonesia": "tanpa usaha",
+    "english": "effortless",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/asrama#Balinese",
+    "sourceTitle": "Wiktionary contributors: asrama (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "draft",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-asu-ban-noun-Pbzq4NJM",
+    "bali": "asu",
+    "indonesia": "anjing",
+    "english": "dog (animal)",
+    "category": "noun",
+    "register": "alus",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/asu#Balinese",
+    "sourceTitle": "Wiktionary contributors: asu (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-atawa-ban-conj-cXVRejcL",
+    "bali": "atawa",
+    "indonesia": "atau",
+    "english": "or",
+    "category": "conj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/atawa#Balinese",
+    "sourceTitle": "Wiktionary contributors: atawa (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-awak-ban-noun-Iw2DWNyO",
+    "bali": "awak",
+    "indonesia": "badan, tubuh, diri",
+    "english": "body",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/awak#Balinese",
+    "sourceTitle": "Wiktionary contributors: awak (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-awan-ban-noun-VmgQELdT",
+    "bali": "awan",
+    "indonesia": "awan",
+    "english": "cloud",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/awan#Balinese",
+    "sourceTitle": "Wiktionary contributors: awan (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-awar-awar-ban-noun-32tS04v0",
+    "bali": "awar-awar",
+    "indonesia": "awar-awar (sejenis pohon ara)",
+    "english": "fig tree",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/awar-awar#Balinese",
+    "sourceTitle": "Wiktionary contributors: awar-awar (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-awatara-ban-noun-vSzu22XY",
+    "bali": "awatara",
+    "indonesia": "penjelmaan, awatara",
+    "english": "incarnation",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/awatara#Balinese",
+    "sourceTitle": "Wiktionary contributors: awatara (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-baah-ban-adj-6NJUhBNQ",
+    "bali": "baah",
+    "indonesia": "bengkak dan meradang, bernanah",
+    "english": "swollen and red or festering, inflamed (of a wound)",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/baah#Balinese",
+    "sourceTitle": "Wiktionary contributors: baah (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-baat-ban-adj-PtOwYYdp",
+    "bali": "baat",
+    "indonesia": "berat",
+    "english": "heavy, weighty",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/baat#Balinese",
+    "sourceTitle": "Wiktionary contributors: baat (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-babi-ban-noun-YJUQwWe~",
+    "bali": "babi",
+    "indonesia": "babi",
+    "english": "pig (mammal of genus Sus)",
+    "category": "noun",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/babi#Balinese",
+    "sourceTitle": "Wiktionary contributors: babi (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bagia-ban-adj-SJ9xnK35",
+    "bali": "bagia",
+    "indonesia": "bahagia",
+    "english": "happy",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bagia#Balinese",
+    "sourceTitle": "Wiktionary contributors: bagia (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "wikt:en-bagus-ban-adj-tUJtWlr3",
+    "bali": "bagus",
+    "indonesia": "tampan, bagus",
+    "english": "handsome (agreeable to the eye or to correct taste)",
+    "category": "adj",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/bagus#Balinese",
+    "sourceTitle": "Wiktionary contributors: bagus (Balinese)",
+    "sourceRevision": "Kaikki snapshot SHA-256 0add0fe8ca293693b050a8f152dffe903ac0328ef3209b3285cd5c8edbb8c1c9",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  }
+]

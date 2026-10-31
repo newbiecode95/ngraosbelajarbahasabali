@@ -1,0 +1,989 @@
+{
+  "fact:suksma": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Suksma",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:pamit": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Pamit",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:kuda": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Kuda",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:saking": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Saking",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:nunas": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Nunas",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:dados": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Dados",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:kirang": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Kirang",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:tali": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Tali",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:wastan": {
+    "kind": "reference-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://basaibubali.org/Wastan",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:mekarya": {
+    "kind": "source-example-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:semeng": {
+    "kind": "source-example-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:wengi": {
+    "kind": "source-example-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "fact:pisan": {
+    "kind": "source-example-fact",
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "referenceCheckedAt": "2026-10-31",
+    "referenceUrl": "https://en.wiktionary.org/wiki/becik#Balinese",
+    "changes": "Short original factual teaching note; no extended source expression or media reproduced."
+  },
+  "phrase:warung-01": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-02": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:wengi"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-03": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-04": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:wengi"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-05": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-06": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:wengi",
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-07": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:thank",
+    "supportingIds": [
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-08": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:thank",
+    "supportingIds": [
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-09": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:thank",
+    "supportingIds": [
+      "fact:suksma",
+      "fact:pisan"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-10": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:thank",
+    "supportingIds": [
+      "fact:suksma",
+      "wikt:en-nggih-ban-intj-Otua~msi"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-11": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:thank",
+    "supportingIds": [
+      "fact:suksma",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:pamit"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-12": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:thank",
+    "supportingIds": [
+      "fact:suksma",
+      "fact:pisan"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-13": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:farewell",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "fact:pamit"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-14": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:farewell",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "fact:pamit"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-15": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:farewell",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "fact:pamit"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-16": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:farewell",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "fact:pamit"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-17": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:farewell",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "fact:pamit",
+      "wikt:en-nggih-ban-intj-Otua~msi"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:warung-18": {
+    "kind": "authored-variant",
+    "objectiveId": "warung:farewell",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "fact:pamit",
+      "fact:suksma",
+      "fact:pisan"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-01": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:name",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-02": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:name",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-03": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:name",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-04": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:name",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-05": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:name",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-06": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:name",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-07": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:origin",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-08": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:origin",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-09": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:origin",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-10": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:origin",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-11": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:origin",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-12": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:origin",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-13": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:work",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:mekarya",
+      "wikt:en-ring-ban-prep-ryREXIcJ"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-14": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:work",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:mekarya",
+      "wikt:en-ring-ban-prep-ryREXIcJ"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-15": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:work",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:mekarya",
+      "wikt:en-ring-ban-prep-ryREXIcJ"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-16": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:work",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:mekarya",
+      "wikt:en-ring-ban-prep-ryREXIcJ"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-17": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:work",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:mekarya",
+      "wikt:en-ring-ban-prep-ryREXIcJ"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:kos-18": {
+    "kind": "authored-variant",
+    "objectiveId": "kos:work",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:mekarya",
+      "wikt:en-ring-ban-prep-ryREXIcJ"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-01": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:price",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-niki-ban-det-HreWAkEe"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-02": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:price",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-puniki-ban-det-dxILiGLF"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-03": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:price",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-biu-ban-noun-tJPUg2Sv",
+      "wikt:en-niki-ban-det-HreWAkEe"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-04": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:price",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-poh-ban-noun-aBXzwwA4",
+      "wikt:en-niki-ban-det-HreWAkEe"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-05": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:price",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-juwuk-ban-noun-H0uxet1a",
+      "wikt:en-niki-ban-det-HreWAkEe"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-06": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:price",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-nyuh-ban-noun-I-vOcsRC",
+      "wikt:en-niki-ban-det-HreWAkEe"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-07": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:quantity",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-biu-ban-noun-tJPUg2Sv",
+      "wikt:en-siki-ban-num-dpLDrTVA"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-08": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:quantity",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-biu-ban-noun-tJPUg2Sv",
+      "wikt:en-kalih-ban-num-P8TM~nRY"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-09": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:quantity",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-poh-ban-noun-aBXzwwA4",
+      "wikt:en-siki-ban-num-dpLDrTVA"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-10": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:quantity",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-poh-ban-noun-aBXzwwA4",
+      "wikt:en-kalih-ban-num-P8TM~nRY"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-11": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:quantity",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-juwuk-ban-noun-H0uxet1a",
+      "wikt:en-siki-ban-num-dpLDrTVA"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-12": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:quantity",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-juwuk-ban-noun-H0uxet1a",
+      "wikt:en-kalih-ban-num-P8TM~nRY"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-13": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:bargain",
+    "supportingIds": [
+      "fact:dados",
+      "fact:kirang"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-14": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:bargain",
+    "supportingIds": [
+      "fact:dados",
+      "fact:kirang",
+      "wikt:en-nggih-ban-intj-Otua~msi"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-15": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:bargain",
+    "supportingIds": [
+      "fact:dados",
+      "fact:kirang",
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "wikt:en-niki-ban-det-HreWAkEe"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-16": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:bargain",
+    "supportingIds": [
+      "fact:dados",
+      "fact:kirang",
+      "wikt:en-lima-ban-num-IisL1R~O",
+      "fact:tali"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-17": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:bargain",
+    "supportingIds": [
+      "fact:dados",
+      "fact:kirang",
+      "wikt:en-dasa-ban-num-5EMrqpCB",
+      "fact:tali"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:pasar-18": {
+    "kind": "authored-variant",
+    "objectiveId": "pasar:bargain",
+    "supportingIds": [
+      "fact:dados",
+      "fact:kirang",
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-01": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-02": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-03": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-04": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-05": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-06": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:greet",
+    "supportingIds": [
+      "wikt:en-rahajeng-ban-adj-bd5d80eD",
+      "fact:semeng",
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-07": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:introduce",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-08": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:introduce",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-09": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:introduce",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-10": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:introduce",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-11": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:introduce",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-12": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:introduce",
+    "supportingIds": [
+      "fact:wastan",
+      "wikt:en-titiang-ban-pron-QtscG1eb",
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:saking"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-13": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:shop",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-biu-ban-noun-tJPUg2Sv",
+      "wikt:en-niki-ban-det-HreWAkEe",
+      "fact:dados",
+      "fact:kirang"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-14": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:shop",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-biu-ban-noun-tJPUg2Sv",
+      "wikt:en-kalih-ban-num-P8TM~nRY",
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-15": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:shop",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-poh-ban-noun-aBXzwwA4",
+      "wikt:en-niki-ban-det-HreWAkEe",
+      "fact:dados",
+      "fact:kirang"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-16": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:shop",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-poh-ban-noun-aBXzwwA4",
+      "wikt:en-kalih-ban-num-P8TM~nRY",
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-17": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:shop",
+    "supportingIds": [
+      "wikt:en-aji-ban-noun-19gkoAvj",
+      "fact:kuda",
+      "wikt:en-juwuk-ban-noun-H0uxet1a",
+      "wikt:en-niki-ban-det-HreWAkEe",
+      "fact:dados",
+      "fact:kirang"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  },
+  "phrase:boss-18": {
+    "kind": "authored-variant",
+    "objectiveId": "boss:shop",
+    "supportingIds": [
+      "wikt:en-tiang-ban-pron-QtscG1eb",
+      "fact:nunas",
+      "wikt:en-juwuk-ban-noun-H0uxet1a",
+      "wikt:en-kalih-ban-num-P8TM~nRY",
+      "fact:suksma"
+    ],
+    "authoredBy": "Ngraos content preparation (AI-assisted)",
+    "expertValidated": false,
+    "changes": "Original practice sentence assembled from linked lexical facts or adapted from a Wiktionary example; proper names and places are practice substitutions. Source pages do not attest this complete sentence."
+  }
+}

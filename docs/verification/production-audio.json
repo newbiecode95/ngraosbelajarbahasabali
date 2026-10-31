@@ -1,0 +1,66 @@
+{
+  "stage": "production_report",
+  "date": "2026-10-31T14:18:29.336Z",
+  "environment": "https://ngraos.docker.anatera.app",
+  "audio": [
+    {
+      "input": "audio/webm",
+      "inputBytes": 20449,
+      "transcriptMilliseconds": 3610,
+      "transcriptTargetMet": false,
+      "rawTranscriptPreserved": true,
+      "confirmedTranscriptStored": true,
+      "turnMilliseconds": 2704,
+      "replyWav": true,
+      "replyBytes": 174764
+    },
+    {
+      "input": "audio/mp4",
+      "inputBytes": 21375,
+      "transcriptMilliseconds": 3132,
+      "transcriptTargetMet": false,
+      "rawTranscriptPreserved": true,
+      "confirmedTranscriptStored": true,
+      "turnMilliseconds": 6283,
+      "replyWav": true,
+      "replyBytes": 397484
+    }
+  ],
+  "turnMilliseconds": [
+    4715,
+    4608,
+    3934,
+    2511,
+    2636,
+    2452,
+    2638,
+    2907,
+    2507,
+    2783
+  ],
+  "limits": {
+    "transcriptTargetMilliseconds": 3000,
+    "replyP90TargetMilliseconds": 6000
+  },
+  "notes": [
+    "Synthetic TTS audio converted with ffmpeg; this does not verify physical Android/iOS microphones or native-speaker accuracy.",
+    "One session, sequential requests; this is not a concurrent live-AI load percentile."
+  ],
+  "replyLatency": {
+    "sampleSize": 10,
+    "medianMilliseconds": 2710.5,
+    "p90NearestRankMilliseconds": 4608,
+    "targetMet": true
+  },
+  "temporaryDemoDeleted": true,
+  "temporaryAudioDeleted": true,
+  "httpAccountChecks": {
+    "signup": true,
+    "signin": true,
+    "signoutInvalidatesSession": true,
+    "accountDeletion": true,
+    "crossAccountSessionReadStatus": 404,
+    "nonAdminStatus": 403,
+    "temporaryAccountsDeleted": true
+  }
+}

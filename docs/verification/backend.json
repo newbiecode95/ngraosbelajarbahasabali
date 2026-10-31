@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-31",
+  "environment": "Local Windows Next.js development server; PostgreSQL on home server through SSH tunnel; real OpenRouter API unless explicitly mocked",
+  "credentials": "No credentials or user data are included in this report.",
+  "database": {
+    "migration": "passed",
+    "seedCandidates": 285,
+    "eligibleEmbeddedEntries": 280,
+    "embeddingDimensions": 1536
+  },
+  "modelChecks": {
+    "catalog": "all six configured tasks available",
+    "structuredOutput": "passed",
+    "primaryTtsWav": "passed",
+    "fallbackTtsWav": "passed"
+  },
+  "syntheticAudioRoundtrip": {
+    "source": "Suksma.",
+    "transcript": "Suksema",
+    "interpretation": "Audio integration works; this is not a native-speaker accuracy evaluation and the spelling difference requires transcript confirmation."
+  },
+  "liveGameplay": {
+    "provider": "OpenRouter",
+    "roleplayModel": "openai/gpt-6.1-sol",
+    "reasoningEffort": "low",
+    "levels": [
+      {
+        "id": "warung",
+        "objectivesCompleted": 3,
+        "quizQuestions": 5,
+        "questionTypes": [
+          "choice",
+          "repeat",
+          "choice",
+          "choice",
+          "order"
+        ],
+        "questionsFromActualMistake": 4,
+        "stars": 1,
+        "xp": 170,
+        "unlocked": "kos",
+        "idempotentCompletion": true,
+        "turnMilliseconds": [
+          6948,
+          5679,
+          3557
+        ],
+        "quizMilliseconds": 6849
+      },
+      {
+        "id": "kos",
+        "objectivesCompleted": 3,
+        "quizQuestions": 5,
+        "questionTypes": [
+          "choice",
+          "order",
+          "repeat",
+          "choice",
+          "order"
+        ],
+        "questionsFromActualMistake": 0,
+        "stars": 3,
+        "xp": 180,
+        "unlocked": "pasar",
+        "idempotentCompletion": true,
+        "turnMilliseconds": [
+          4084,
+          3330,
+          3417
+        ],
+        "quizMilliseconds": 5530
+      },
+      {
+        "id": "pasar",
+        "objectivesCompleted": 3,
+        "quizQuestions": 5,
+        "questionTypes": [
+          "choice",
+          "order",
+          "repeat",
+          "choice",
+          "order"
+        ],
+        "questionsFromActualMistake": 0,
+        "stars": 3,
+        "xp": 180,
+        "unlocked": "boss",
+        "idempotentCompletion": true,
+        "turnMilliseconds": [
+          5439,
+          5224,
+          3306
+        ],
+        "quizMilliseconds": 5568
+      },
+      {
+        "id": "boss",
+        "objectivesCompleted": 3,
+        "quizQuestions": 5,
+        "questionTypes": [
+          "choice",
+          "order",
+          "repeat",
+          "choice",
+          "order"
+        ],
+        "questionsFromActualMistake": 0,
+        "stars": 3,
+        "xp": 180,
+        "idempotentCompletion": true,
+        "turnMilliseconds": [
+          3976,
+          3702,
+          6870
+        ],
+        "quizMilliseconds": 5290
+      }
+    ],
+    "turnLatency": {
+      "sampleSize": 12,
+      "medianMilliseconds": 4030,
+      "p90NearestRankMilliseconds": 6870,
+      "targetMilliseconds": 6000,
+      "targetMet": false,
+      "note": "Includes local retrieval and SSH database access. This is a small development sample, not a production load percentile."
+    },
+    "testDataCleanup": "Temporary demonstration player and linked gameplay rows removed after test."
+  },
+  "httpAccountChecks": {
+    "signup": true,
+    "signin": true,
+    "signoutInvalidatesSession": true,
+    "accountDeletion": true,
+    "crossAccountSessionReadStatus": 404,
+    "nonAdminStatus": 403,
+    "temporaryAccountsDeleted": true
+  },
+  "automatedChecks": [
+    {
+      "command": "vitest run tests/server-rules.test.ts tests/server-audio.test.ts tests/server-security.test.ts",
+      "passed": 15
+    },
+    {
+      "command": "RUN_DB_TESTS=1 vitest run tests/server-game.integration.test.ts",
+      "passed": 5,
+      "ai": "mocked",
+      "database": "real PostgreSQL",
+      "extraRegressionChecks": [
+        "Turn retrieval and usage complete with 24 of 25 pool connections held",
+        "Paid usage survives a failed gameplay transaction without changing player data"
+      ]
+    },
+    {
+      "command": "RUN_DB_TESTS=1 vitest run tests/server-auth.integration.test.ts",
+      "passed": 1,
+      "database": "real PostgreSQL"
+    },
+    {
+      "command": "tsc --noEmit",
+      "result": "passed"
+    }
+  ],
+  "latencyOptimizationCheck": {
+    "changes": [
+      "Exact canonical phrases use local source retrieval without embedding hop",
+      "OpenRouter provider sort by latency"
+    ],
+    "allFourLevelsCompleted": true,
+    "sampleSize": 12,
+    "turnMilliseconds": [
+      7265,
+      3656,
+      2131,
+      4116,
+      3955,
+      3757,
+      4645,
+      5126,
+      2396,
+      2350,
+      8205,
+      4380
+    ],
+    "medianMilliseconds": 4035.5,
+    "p90NearestRankMilliseconds": 7265,
+    "targetMilliseconds": 6000,
+    "targetMet": false,
+    "note": "Provider response variability remains. Production measurement is separate."
+  },
+  "remainingVerification": [
+    "Actual Android Chrome and iOS Safari microphone testing",
+    "Transcription target <=3s: measured 3.132s and 3.610s in production",
+    "Reply p90 <=6s under 20 concurrent real-AI sessions: corrected acceptance run measured 7.415s; sequential run measured 4.608s"
+  ],
+  "productionReport": "production-audio.json",
+  "productionLoadReport": "production-load.json"
+}

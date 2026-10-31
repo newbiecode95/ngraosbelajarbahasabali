@@ -1,0 +1,249 @@
+[
+  {
+    "id": "fact:suksma",
+    "bali": "suksma",
+    "indonesia": "Ungkapan terima kasih",
+    "english": "Expression of thanks",
+    "register": "mider",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "BASAibu reference: suksma",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:pamit",
+    "bali": "pamit",
+    "indonesia": "Meminta izin untuk pergi; pamit",
+    "english": "To take leave",
+    "register": "alus sor",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "BASAibu reference: pamit",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:kuda",
+    "bali": "kuda",
+    "indonesia": "Berapa (kata tanya jumlah atau harga)",
+    "english": "Question word for quantity or price",
+    "register": "mider",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "BASAibu reference: kuda",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:saking",
+    "bali": "saking",
+    "indonesia": "Dari (menunjukkan asal)",
+    "english": "From; marks origin",
+    "register": "alus mider",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "BASAibu reference: saking",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:nunas",
+    "bali": "nunas",
+    "indonesia": "Meminta; memohon",
+    "english": "To request",
+    "register": "alus sor",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "BASAibu reference: nunas",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:dados",
+    "bali": "dados",
+    "indonesia": "Boleh; bisa",
+    "english": "Can or may, depending on context",
+    "register": "unknown",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "BASAibu reference: dados",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:kirang",
+    "bali": "kirang",
+    "indonesia": "Kurang; lebih sedikit",
+    "english": "Less; lacking",
+    "register": "andap",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kirang",
+    "sourceTitle": "BASAibu reference: kirang",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:tali",
+    "bali": "tali",
+    "indonesia": "Ribu (dalam hitungan bilangan)",
+    "english": "Thousand, in number expressions",
+    "register": "andap",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Tali",
+    "sourceTitle": "BASAibu reference: tali",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:wastan",
+    "bali": "wastan",
+    "indonesia": "Nama",
+    "english": "Name, followed by its bearer",
+    "register": "alus sor",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "BASAibu reference: wastan",
+    "license": "Original factual teaching note; linked reference retains copyright",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:mekarya",
+    "bali": "mekarya",
+    "indonesia": "Bekerja",
+    "english": "To work",
+    "register": "unknown",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Wiktionary source example: mekarya",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:semeng",
+    "bali": "semeng",
+    "indonesia": "Pagi",
+    "english": "Morning, in a greeting",
+    "register": "unknown",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Wiktionary source example: semeng",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:wengi",
+    "bali": "wengi",
+    "indonesia": "Malam",
+    "english": "Evening or night, in a greeting",
+    "register": "unknown",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Wiktionary source example: wengi",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "fact:pisan",
+    "bali": "pisan",
+    "indonesia": "Sangat; sekali",
+    "english": "Very; an intensifier",
+    "register": "unknown",
+    "category": "teaching-note",
+    "levelIds": [
+      "warung",
+      "kos",
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/becik#Balinese",
+    "sourceTitle": "Wiktionary source example: pisan",
+    "license": "CC-BY-SA-4.0",
+    "status": "ai-reviewed",
+    "variants": []
+  }
+]

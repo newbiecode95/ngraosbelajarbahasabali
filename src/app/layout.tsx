@@ -1,0 +1,32 @@
+import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/dm-sans";
+import "@fontsource-variable/outfit";
+import "./globals.css";
+export const metadata: Metadata = {
+  title: "Ngraos! — Dari Tamiu jadi Nyama",
+  description:
+    "Belajar Basa Bali lewat petualangan suara. Masuk ke desa, temui warga, dan mulai cerita pertamamu.",
+  applicationName: "Ngraos!",
+  robots: { index: true, follow: true },
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f7f8f2",
+};
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="id">
+      <body>
+        <a className="skip-link" href="#main-content">
+          Langsung ke konten
+        </a>
+        {children}
+      </body>
+    </html>
+  );
+}

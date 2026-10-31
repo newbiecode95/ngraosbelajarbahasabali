@@ -1,0 +1,964 @@
+{
+  "date": "2026-10-31T14:22:25.579Z",
+  "environment": "https://ngraos.docker.anatera.app",
+  "concurrentSessions": 20,
+  "realAi": true,
+  "transport": "Public HTTPS API",
+  "provider": "OpenRouter",
+  "fixtureSetup": "Isolated demo actors inserted directly to avoid the public demo IP bucket; gameplay uses normal authenticated API routes.",
+  "attempts": [
+    {
+      "player": 17,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 113,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 18,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 345,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 20,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1321,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 16,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1338,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 5,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1343,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 12,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1354,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 15,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1359,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 7,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1365,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 1,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1397,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 2,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1395,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 6,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1397,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 8,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1396,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 13,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1398,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 14,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1423,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 19,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1603,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 11,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 1681,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 9,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 2266,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 4,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 2309,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 10,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 2373,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 3,
+      "stage": "start",
+      "attempt": 1,
+      "milliseconds": 2702,
+      "status": 201,
+      "ok": true
+    },
+    {
+      "player": 4,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 3832,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 9,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 3896,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 12,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 3908,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 15,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4012,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 18,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4069,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 2,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4110,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 17,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4178,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 14,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4226,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 19,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4365,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 6,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4416,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 11,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4435,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 1,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4465,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 7,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4549,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 13,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4749,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 20,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4815,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 8,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 4942,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 10,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 5053,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 5,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 5062,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 3,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 5120,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 16,
+      "stage": "turn",
+      "attempt": 1,
+      "milliseconds": 5435,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 18,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 4969,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 7,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5416,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 6,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5450,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 15,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5452,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 16,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5452,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 10,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5573,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 17,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5570,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 11,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5593,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 8,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5709,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 13,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5725,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 2,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5759,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 9,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5809,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 19,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5814,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 20,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5820,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 5,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5830,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 1,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 5892,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 4,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 6005,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 12,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 6033,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 14,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 6477,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 3,
+      "stage": "quiz",
+      "attempt": 1,
+      "milliseconds": 6900,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 9,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 67,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 9,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 81,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 3,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 407,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 3,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 420,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 2,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 424,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 10,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 429,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 8,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 430,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 6,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 432,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 1,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 433,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 4,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 432,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 2,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 432,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 10,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 431,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 5,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 432,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 8,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 432,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 1,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 436,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 7,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 434,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 4,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 436,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 7,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 436,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 6,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 770,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 15,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1229,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 13,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1263,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 20,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1270,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 17,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1270,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 11,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1277,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 13,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1277,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 12,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1278,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 18,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1277,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 20,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1278,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 18,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1279,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 19,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1279,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 17,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1283,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 15,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1283,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 16,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1295,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 5,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1399,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 19,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1552,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 12,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 1621,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 16,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 1703,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 14,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 2326,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 11,
+      "stage": "complete",
+      "attempt": 1,
+      "milliseconds": 2382,
+      "status": 200,
+      "ok": true
+    },
+    {
+      "player": 14,
+      "stage": "complete_replay",
+      "attempt": 1,
+      "milliseconds": 4742,
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "phaseMilliseconds": {
+    "start": 2727,
+    "conversation": 5439,
+    "quiz": 6902,
+    "complete_with_concurrent_replay": 4745,
+    "refresh": 0
+  },
+  "successfulPlayers": 0,
+  "failures": [
+    {
+      "player": 1,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 2,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 3,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 4,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 5,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 6,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 7,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 8,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 9,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 10,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 11,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 12,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 13,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 14,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 15,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 16,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 17,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 18,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 19,
+      "error": "Concurrent completion changed result or XP"
+    },
+    {
+      "player": 20,
+      "error": "Concurrent completion changed result or XP"
+    }
+  ],
+  "initialFailures": [],
+  "totalFailedAttempts": 0,
+  "retryAttempts": 0,
+  "turnLatency": {
+    "sampleSize": 20,
+    "minimumMilliseconds": 3832,
+    "medianMilliseconds": 4425.5,
+    "p90NearestRankMilliseconds": 5062,
+    "maximumMilliseconds": 5435
+  },
+  "quizLatency": {
+    "sampleSize": 20,
+    "minimumMilliseconds": 4969,
+    "medianMilliseconds": 5742,
+    "p90NearestRankMilliseconds": 6033,
+    "maximumMilliseconds": 6900
+  },
+  "databaseChecks": {
+    "actors": 20,
+    "completedSessions": 20,
+    "distinctRewardEvents": 20,
+    "singleSessionAndRewardPerPlayer": true,
+    "xpMatchesStoredReward": true,
+    "albumAndStarsPersisted": true,
+    "publicAnswerKeysLeaked": false
+  },
+  "usage": [
+    {
+      "stage": "embedding",
+      "model": "text-embedding-3-large",
+      "provider": "OpenAI",
+      "requests": 20,
+      "input_tokens": "320",
+      "output_tokens": "0",
+      "reported_cost_usd": 0.0000416
+    },
+    {
+      "stage": "quiz",
+      "model": "openai/gpt-6.1-sol",
+      "provider": "OpenAI",
+      "requests": 20,
+      "input_tokens": "20400",
+      "output_tokens": "8900",
+      "reported_cost_usd": 0.1298
+    },
+    {
+      "stage": "roleplay",
+      "model": "openai/gpt-6.1-sol",
+      "provider": "OpenAI",
+      "requests": 20,
+      "input_tokens": "39480",
+      "output_tokens": "2306",
+      "reported_cost_usd": 0.0318524
+    }
+  ],
+  "passed": false,
+  "notes": [
+    "Retries use the same turn idempotency key; response latencies include public HTTPS and system time.",
+    "Quiz latency may include the built-in single output repair. Detailed usage counts retain provider requests that failed validation.",
+    "Reported costs only; not a claim of native-speaker linguistic accuracy."
+  ],
+  "temporaryFixturesDeleted": true,
+  "harnessIssue": "Initial harness compared JSON.stringify of first/replayed results. PostgreSQL jsonb serializes keys in a different order; final harness uses structural equality. No HTTP request failed, and independent database checks showed exactly one reward per completed session. This run is retained transparently; production-load.json contains the corrected rerun."
+}

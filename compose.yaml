@@ -1,0 +1,87 @@
+name: ngraos
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ngraos
+      POSTGRES_DB: ngraos
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the private server .env}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:55432:5432"
+    networks: [private, database_access]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ngraos -d ngraos"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    mem_limit: 1g
+    cpus: 1.0
+    logging: &logs
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+
+  migrate:
+    image: ngraos-migrate:${NGRAOS_RELEASE:-local}
+    build: {context: ., target: migrate}
+    profiles: [tools]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://ngraos:${POSTGRES_PASSWORD}@db:5432/ngraos
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [private, outbound]
+    mem_limit: 768m
+    cpus: 1.0
+    logging: *logs
+
+  app:
+    image: ngraos:${NGRAOS_RELEASE:-local}
+    build: {context: ., target: runner}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+      DATABASE_URL: postgresql://ngraos:${POSTGRES_PASSWORD}@db:5432/ngraos
+      BETTER_AUTH_URL: https://ngraos.docker.anatera.app
+      NEXT_PUBLIC_APP_URL: https://ngraos.docker.anatera.app
+      MEDIA_CACHE_DIR: /app/data/audio
+    depends_on:
+      db: {condition: service_healthy}
+    volumes:
+      - media:/app/data
+    ports:
+      - "127.0.0.1:3022:3000"
+    networks: [private, coolify]
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: coolify
+      traefik.http.routers.ngraos.entrypoints: http
+      traefik.http.routers.ngraos.rule: Host(`ngraos.docker.anatera.app`)
+      traefik.http.services.ngraos.loadbalancer.server.port: "3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    mem_limit: 1536m
+    cpus: 2.0
+    security_opt: [no-new-privileges:true]
+    logging: *logs
+
+volumes:
+  postgres:
+  media:
+
+networks:
+  private: {internal: true}
+  database_access:
+  outbound:
+  coolify: {external: true}

@@ -1,0 +1,1208 @@
+[
+  {
+    "id": "phrase:warung-01",
+    "bali": "Rahajeng semeng.",
+    "indonesia": "Selamat pagi.",
+    "english": "Good morning.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-02",
+    "bali": "Rahajeng wengi.",
+    "indonesia": "Selamat malam.",
+    "english": "Good evening.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-03",
+    "bali": "Rahajeng semeng, Men Sari.",
+    "indonesia": "Selamat pagi, Men Sari.",
+    "english": "Good morning, Men Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-04",
+    "bali": "Rahajeng wengi, Men Sari.",
+    "indonesia": "Selamat malam, Men Sari.",
+    "english": "Good evening, Men Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-05",
+    "bali": "Rahajeng semeng. Suksma.",
+    "indonesia": "Selamat pagi. Terima kasih.",
+    "english": "Good morning. Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-06",
+    "bali": "Rahajeng wengi. Suksma.",
+    "indonesia": "Selamat malam. Terima kasih.",
+    "english": "Good evening. Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-07",
+    "bali": "Suksma.",
+    "indonesia": "Terima kasih.",
+    "english": "Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-08",
+    "bali": "Suksma, Men Sari.",
+    "indonesia": "Terima kasih, Men Sari.",
+    "english": "Thank you, Men Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-09",
+    "bali": "Suksma pisan.",
+    "indonesia": "Terima kasih banyak.",
+    "english": "Thank you very much.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-10",
+    "bali": "Nggih, suksma.",
+    "indonesia": "Ya, terima kasih.",
+    "english": "Yes, thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-11",
+    "bali": "Suksma. Tiang pamit.",
+    "indonesia": "Terima kasih. Saya pamit.",
+    "english": "Thank you. I will take my leave.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-12",
+    "bali": "Suksma pisan, Men Sari.",
+    "indonesia": "Terima kasih banyak, Men Sari.",
+    "english": "Thank you very much, Men Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Suksma",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-13",
+    "bali": "Tiang pamit.",
+    "indonesia": "Saya pamit.",
+    "english": "I will take my leave.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-14",
+    "bali": "Titiang pamit.",
+    "indonesia": "Saya mohon pamit.",
+    "english": "I will take my leave.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-15",
+    "bali": "Tiang pamit, Men Sari.",
+    "indonesia": "Saya pamit, Men Sari.",
+    "english": "I will take my leave, Men Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-16",
+    "bali": "Titiang pamit, Men Sari.",
+    "indonesia": "Saya mohon pamit, Men Sari.",
+    "english": "I will take my leave, Men Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-17",
+    "bali": "Nggih, tiang pamit.",
+    "indonesia": "Baik, saya pamit.",
+    "english": "All right, I will take my leave.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:warung-18",
+    "bali": "Tiang pamit. Suksma pisan.",
+    "indonesia": "Saya pamit. Terima kasih banyak.",
+    "english": "I will take my leave. Thank you very much.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "warung",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Pamit",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-01",
+    "bali": "Wastan titiang Ayu.",
+    "indonesia": "Nama saya Ayu.",
+    "english": "My name is Ayu.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-02",
+    "bali": "Wastan titiang Rian.",
+    "indonesia": "Nama saya Rian.",
+    "english": "My name is Rian.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-03",
+    "bali": "Wastan titiang Made.",
+    "indonesia": "Nama saya Made.",
+    "english": "My name is Made.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-04",
+    "bali": "Wastan titiang Sari.",
+    "indonesia": "Nama saya Sari.",
+    "english": "My name is Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-05",
+    "bali": "Wastan titiang Wayan.",
+    "indonesia": "Nama saya Wayan.",
+    "english": "My name is Wayan.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-06",
+    "bali": "Wastan titiang Komang.",
+    "indonesia": "Nama saya Komang.",
+    "english": "My name is Komang.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-07",
+    "bali": "Tiang saking Denpasar.",
+    "indonesia": "Saya dari Denpasar.",
+    "english": "I am from Denpasar.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-08",
+    "bali": "Tiang saking Ubud.",
+    "indonesia": "Saya dari Ubud.",
+    "english": "I am from Ubud.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-09",
+    "bali": "Tiang saking Jimbaran.",
+    "indonesia": "Saya dari Jimbaran.",
+    "english": "I am from Jimbaran.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-10",
+    "bali": "Tiang saking Singaraja.",
+    "indonesia": "Saya dari Singaraja.",
+    "english": "I am from Singaraja.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-11",
+    "bali": "Tiang saking Karangasem.",
+    "indonesia": "Saya dari Karangasem.",
+    "english": "I am from Karangasem.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-12",
+    "bali": "Tiang saking Tabanan.",
+    "indonesia": "Saya dari Tabanan.",
+    "english": "I am from Tabanan.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Saking",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-13",
+    "bali": "Tiang mekarya ring Denpasar.",
+    "indonesia": "Saya bekerja di Denpasar.",
+    "english": "I work in Denpasar.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-14",
+    "bali": "Tiang mekarya ring Ubud.",
+    "indonesia": "Saya bekerja di Ubud.",
+    "english": "I work in Ubud.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-15",
+    "bali": "Tiang mekarya ring Jimbaran.",
+    "indonesia": "Saya bekerja di Jimbaran.",
+    "english": "I work in Jimbaran.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-16",
+    "bali": "Tiang mekarya ring Singaraja.",
+    "indonesia": "Saya bekerja di Singaraja.",
+    "english": "I work in Singaraja.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-17",
+    "bali": "Tiang mekarya ring Karangasem.",
+    "indonesia": "Saya bekerja di Karangasem.",
+    "english": "I work in Karangasem.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:kos-18",
+    "bali": "Tiang mekarya ring Tabanan.",
+    "indonesia": "Saya bekerja di Tabanan.",
+    "english": "I work in Tabanan.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "kos",
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/ring#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-01",
+    "bali": "Aji kuda niki?",
+    "indonesia": "Berapa harga ini?",
+    "english": "How much is this?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-02",
+    "bali": "Aji kuda puniki?",
+    "indonesia": "Berapa harga ini?",
+    "english": "How much is this?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-03",
+    "bali": "Aji kuda biu niki?",
+    "indonesia": "Berapa harga pisang ini?",
+    "english": "How much is these bananas?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-04",
+    "bali": "Aji kuda poh niki?",
+    "indonesia": "Berapa harga mangga ini?",
+    "english": "How much is this mango?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-05",
+    "bali": "Aji kuda juwuk niki?",
+    "indonesia": "Berapa harga jeruk ini?",
+    "english": "How much is these oranges?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-06",
+    "bali": "Aji kuda nyuh niki?",
+    "indonesia": "Berapa harga kelapa ini?",
+    "english": "How much is this coconut?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-07",
+    "bali": "Tiang nunas biu siki.",
+    "indonesia": "Saya minta satu pisang.",
+    "english": "I would like one banana.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-08",
+    "bali": "Tiang nunas biu kalih.",
+    "indonesia": "Saya minta dua pisang.",
+    "english": "I would like two bananas.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-09",
+    "bali": "Tiang nunas poh siki.",
+    "indonesia": "Saya minta satu mangga.",
+    "english": "I would like one mango.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-10",
+    "bali": "Tiang nunas poh kalih.",
+    "indonesia": "Saya minta dua mangga.",
+    "english": "I would like two mangos.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-11",
+    "bali": "Tiang nunas juwuk siki.",
+    "indonesia": "Saya minta satu jeruk.",
+    "english": "I would like one orange.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-12",
+    "bali": "Tiang nunas juwuk kalih.",
+    "indonesia": "Saya minta dua jeruk.",
+    "english": "I would like two oranges.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-13",
+    "bali": "Dados kirang?",
+    "indonesia": "Boleh kurang?",
+    "english": "Could it be less?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-14",
+    "bali": "Dados kirang, nggih?",
+    "indonesia": "Boleh kurang, ya?",
+    "english": "Could you lower the price, please?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-15",
+    "bali": "Aji niki dados kirang?",
+    "indonesia": "Harga ini boleh kurang?",
+    "english": "Could this price be lower?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-16",
+    "bali": "Dados lima tali?",
+    "indonesia": "Boleh lima ribu?",
+    "english": "Could it be five thousand?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-17",
+    "bali": "Dados dasa tali?",
+    "indonesia": "Boleh sepuluh ribu?",
+    "english": "Could it be ten thousand?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:pasar-18",
+    "bali": "Dados kirang? Suksma.",
+    "indonesia": "Boleh kurang? Terima kasih.",
+    "english": "Could it be less? Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "pasar",
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Dados",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-01",
+    "bali": "Rahajeng semeng. Wastan titiang Ayu.",
+    "indonesia": "Selamat pagi. Nama saya Ayu.",
+    "english": "Good morning. My name is Ayu.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-02",
+    "bali": "Rahajeng semeng. Wastan titiang Rian.",
+    "indonesia": "Selamat pagi. Nama saya Rian.",
+    "english": "Good morning. My name is Rian.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-03",
+    "bali": "Rahajeng semeng. Wastan titiang Made.",
+    "indonesia": "Selamat pagi. Nama saya Made.",
+    "english": "Good morning. My name is Made.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-04",
+    "bali": "Rahajeng semeng. Wastan titiang Sari.",
+    "indonesia": "Selamat pagi. Nama saya Sari.",
+    "english": "Good morning. My name is Sari.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-05",
+    "bali": "Rahajeng semeng. Wastan titiang Wayan.",
+    "indonesia": "Selamat pagi. Nama saya Wayan.",
+    "english": "Good morning. My name is Wayan.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-06",
+    "bali": "Rahajeng semeng. Wastan titiang Komang.",
+    "indonesia": "Selamat pagi. Nama saya Komang.",
+    "english": "Good morning. My name is Komang.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://en.wiktionary.org/wiki/rahajeng#Balinese",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-07",
+    "bali": "Wastan titiang Ayu. Tiang saking Denpasar.",
+    "indonesia": "Nama saya Ayu. Saya dari Denpasar.",
+    "english": "My name is Ayu. I am from Denpasar.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-08",
+    "bali": "Wastan titiang Rian. Tiang saking Ubud.",
+    "indonesia": "Nama saya Rian. Saya dari Ubud.",
+    "english": "My name is Rian. I am from Ubud.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-09",
+    "bali": "Wastan titiang Made. Tiang saking Jimbaran.",
+    "indonesia": "Nama saya Made. Saya dari Jimbaran.",
+    "english": "My name is Made. I am from Jimbaran.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-10",
+    "bali": "Wastan titiang Sari. Tiang saking Singaraja.",
+    "indonesia": "Nama saya Sari. Saya dari Singaraja.",
+    "english": "My name is Sari. I am from Singaraja.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-11",
+    "bali": "Wastan titiang Wayan. Tiang saking Karangasem.",
+    "indonesia": "Nama saya Wayan. Saya dari Karangasem.",
+    "english": "My name is Wayan. I am from Karangasem.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-12",
+    "bali": "Wastan titiang Komang. Tiang saking Tabanan.",
+    "indonesia": "Nama saya Komang. Saya dari Tabanan.",
+    "english": "My name is Komang. I am from Tabanan.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Wastan",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-13",
+    "bali": "Aji kuda biu niki? Dados kirang?",
+    "indonesia": "Berapa harga pisang ini? Boleh kurang?",
+    "english": "How much are these bananas? Could it be less?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-14",
+    "bali": "Tiang nunas biu kalih. Suksma.",
+    "indonesia": "Saya minta dua pisang. Terima kasih.",
+    "english": "I would like two bananas. Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-15",
+    "bali": "Aji kuda poh niki? Dados kirang?",
+    "indonesia": "Berapa harga mangga ini? Boleh kurang?",
+    "english": "How much are these mangoes? Could it be less?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-16",
+    "bali": "Tiang nunas poh kalih. Suksma.",
+    "indonesia": "Saya minta dua mangga. Terima kasih.",
+    "english": "I would like two mangoes. Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-17",
+    "bali": "Aji kuda juwuk niki? Dados kirang?",
+    "indonesia": "Berapa harga jeruk ini? Boleh kurang?",
+    "english": "How much are these oranges? Could it be less?",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Kuda",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  },
+  {
+    "id": "phrase:boss-18",
+    "bali": "Tiang nunas juwuk kalih. Suksma.",
+    "indonesia": "Saya minta dua jeruk. Terima kasih.",
+    "english": "I would like two oranges. Thank you.",
+    "category": "phrase",
+    "register": "unknown",
+    "levelIds": [
+      "boss"
+    ],
+    "sourceUrl": "https://basaibubali.org/Nunas",
+    "sourceTitle": "Ngraos authored practice; lexical references linked in provenance",
+    "license": "CC-BY-SA-4.0 (authored/adapted practice; references retain their own licenses)",
+    "status": "ai-reviewed",
+    "variants": []
+  }
+]
