@@ -75,9 +75,12 @@ export interface GameSession {
   turns: Turn[];
   completedObjectives: string[];
   hintsUsed: number;
+  revealedHints?: string[];
+  quizResponses?: Record<string, QuizResponse>;
   quiz?: QuizQuestion[];
   result?: SessionResult;
 }
+export interface QuizResponse { answer: string; correct: boolean; expectedAnswer: string }
 export interface SessionResult {
   stars: number;
   xp: number;
@@ -85,6 +88,8 @@ export interface SessionResult {
   quizTotal: number;
   newAlbum: boolean;
   unlockedLevel?: LevelId;
+  mistakesPracticed?: number;
+  mistakesMastered?: number;
 }
 export interface Player {
   id: string;

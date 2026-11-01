@@ -26,7 +26,7 @@ test('mobile menu isolates the background, restores focus, and settings expose n
   await expect(page.getByRole('switch', { name: 'Kurangi animasi' })).toBeChecked();
   await page.getByRole('switch', { name: 'Suara & suasana desa' }).click();
   await expect(page.getByRole('switch', { name: 'Suara & suasana desa' })).toBeChecked();
-  await page.getByRole('button', { name: 'Sumber & privasi', exact: true }).click();
+  await page.getByRole('button', { name: 'Kosakata', exact: true }).click();
   await page.getByRole('searchbox', { name: 'Cari kamus' }).fill('zzzz-no-match');
   await expect(page.getByText('Kata belum ditemukan', { exact: true })).toBeVisible();
   await expect(page.getByRole('status')).toHaveText('0 kata ditemukan');

@@ -10,6 +10,7 @@ export const gameSessions = pgTable('game_sessions', {
   id: text('id').primaryKey(), playerId: text('player_id').notNull().references(()=>players.id,{onDelete:'cascade'}), levelId: text('level_id').notNull(), status: text('status').notNull().default('active'),
   turns: jsonb('turns').$type<Turn[]>().notNull().default([]), completedObjectives: jsonb('completed_objectives').$type<string[]>().notNull().default([]), hintsUsed: integer('hints_used').notNull().default(0),
   quiz: jsonb('quiz'), result: jsonb('result').$type<SessionResult>(), createdAt: timestamp('created_at',{withTimezone:true}).notNull().defaultNow(), updatedAt: timestamp('updated_at',{withTimezone:true}).notNull().defaultNow(),
+  revealedHints: jsonb('revealed_hints').$type<string[]>().notNull().default([]), quizAnswers: jsonb('quiz_answers').$type<Record<string,{answer:string;correct:boolean}>>().notNull().default({}),
 });
 export const corpusEntries = pgTable('corpus_entries', {
   id: text('id').primaryKey(), entry: jsonb('entry').$type<CorpusEntry>().notNull(), embedding: vector('embedding'), embeddingModel: text('embedding_model'), enabled: boolean('enabled').notNull().default(true), updatedAt: timestamp('updated_at',{withTimezone:true}).notNull().defaultNow(),

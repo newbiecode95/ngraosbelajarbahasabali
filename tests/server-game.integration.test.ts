@@ -9,7 +9,7 @@ vi.mock('../src/server/openrouter',async importOriginal=>{
   }),generateQuiz:vi.fn(),repairReply:vi.fn()};
 });
 import { query,getPool,transaction } from '../src/server/db';
-import { addTurn,completeSession,ownedSession,repairTurnReply,sessionView,startSession } from '../src/server/game';
+import { addTurn,checkQuizAnswer,completeSession,ownedSession,repairTurnReply,sessionView,startSession,useHint } from '../src/server/game';
 import { roleplay,recordUsage,repairReply } from '../src/server/openrouter';
 import type { ActorRow } from '../src/server/actors';
 import { lessonById } from '../src/server/content';
@@ -77,6 +77,32 @@ describe.skipIf(!enabled)('database concurrency and ownership',()=>{
     for(const key of ['status','completed_objectives','hints_used','quiz','result'] as const)expect(after[key]).toEqual(before[key]);
     expect((await query('SELECT count(*)::int AS n FROM reward_events WHERE session_id=$1',[session.id])).rows[0].n).toBe(0);
   });
+  it('reveals a complete sourced hint only once, even across concurrent requests and refresh',async()=>{
+    const session=await startSession(actor,'warung');
+    const before=await ownedSession(session.id,actor.id);
+    await expect(useHint(other,session.id,'warung:thank')).rejects.toMatchObject({status:404});
+    const [a,b]=await Promise.all([useHint(actor,session.id,'warung:thank'),useHint(actor,session.id,'warung:thank')]);
+    expect(a.hint).toBe('Suksma.');expect(b.hint).toBe('Suksma.');
+    const after=await ownedSession(session.id,actor.id);
+    expect(after.hints_used).toBe(before.hints_used+1);expect(after.revealed_hints).toContain('warung:thank');
+    expect(sessionView(after).revealedHints).toContain('warung:thank');
+    await expect(useHint(actor,session.id,'invalid')).rejects.toMatchObject({code:'INVALID_OBJECTIVE'});
+  });
+  it('saves immediate quiz feedback once, hides unchecked answers, and scores the first saved answer',async()=>{
+    const session=await startSession(actor,'warung');
+    const quiz=[{id:'checked-q',type:'choice' as const,prompt:{id:'Pilih',en:'Choose'},options:['Suksma.','Tiang pamit.'],answer:'Suksma.',variants:[],sourceId:'phrase:warung-07',reinforcement:true}];
+    await query("UPDATE game_sessions SET status='quiz',quiz=$2,completed_objectives=$3 WHERE id=$1",[session.id,JSON.stringify(quiz),JSON.stringify(lessonById('warung').objectives.map(item=>item.id))]);
+    expect(sessionView(await ownedSession(session.id,actor.id)).quizResponses).toEqual({});
+    await expect(checkQuizAnswer(other,session.id,'checked-q','Suksma.')).rejects.toMatchObject({status:404});
+    const first=await checkQuizAnswer(actor,session.id,'checked-q','Tiang pamit.');
+    expect(first.session.quizResponses?.['checked-q']).toEqual({answer:'Tiang pamit.',correct:false,expectedAnswer:'Suksma.'});
+    const retried=await checkQuizAnswer(actor,session.id,'checked-q','Suksma.');
+    expect(retried.session.quizResponses).toEqual(first.session.quizResponses);
+    const result=await completeSession(actor,session.id,{'checked-q':'Suksma.'});
+    expect(result.result.quizScore).toBe(0);
+    await expect(checkQuizAnswer(actor,session.id,'unknown','Suksma.')).rejects.toMatchObject({status:404});
+    expect((await query('SELECT count(*)::int AS n FROM reward_events WHERE session_id=$1',[session.id])).rows[0].n).toBe(1);
+  });
   it('recovers a valid greeting missed in an older turn, while excluding NPC-only evidence',async()=>{
     const session=await startSession(other,'warung');
     const old={id:randomUUID(),playerText:'Om swastiastu, Bu.',reply:'Tiang pamit.',translation:{id:'Saya pamit.',en:'Goodbye.'},corrections:[],objectiveIds:[],assessed:false,createdAt:new Date().toISOString()};
@@ -85,5 +111,15 @@ describe.skipIf(!enabled)('database concurrency and ownership',()=>{
     const result=await addTurn(other,session.id,{id:randomUUID(),text:'Tiang nunas teh.'});
     expect(result.session.completedObjectives).toContain('warung:greet');
     expect(result.session.completedObjectives).not.toContain('warung:farewell');
+  });
+  it('counts unique mistakes mastered only when all questions for that mistake are correct',async()=>{
+    const session=await startSession(actor,'warung');
+    const quiz=Array.from({length:5},(_,i)=>({id:`mastery-${i}`,type:'choice',prompt:{id:'Pilih',en:'Choose'},options:['Suksma.','Tiang pamit.'],answer:'Suksma.',variants:[],sourceId:'phrase:warung-07',reinforcement:i===4,...(i<4?{mistakeId:i<2?'mistake-a':'mistake-b'}:{})}));
+    await query("UPDATE game_sessions SET status='quiz',quiz=$2,completed_objectives=$3 WHERE id=$1",[session.id,JSON.stringify(quiz),JSON.stringify(lessonById('warung').objectives.map(o=>o.id))]);
+    const answers=Object.fromEntries(quiz.map((q,i)=>[q.id,i===1?'Tiang pamit.':'Suksma.']));
+    const result=await completeSession(actor,session.id,answers);
+    expect(result.result.quizScore).toBe(4);
+    expect(result.result.mistakesPracticed).toBe(2);
+    expect(result.result.mistakesMastered).toBe(1);
   });
 });

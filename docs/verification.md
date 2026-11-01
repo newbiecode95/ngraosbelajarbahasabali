@@ -1,3 +1,7 @@
+# Guided gameplay — 20261101-v4-guided-gameplay
+
+The latest task adds persistent step instructions and optional sourced phrase examples, the mobile learning path, immediate saved quiz feedback, and direct next/replay. TypeScript and **53 unit/PostgreSQL checks** passed. Current browser, deployment and visual evidence is in [guided gameplay verification](gameplay-guide/README.md); the [visual QA report](../design-qa.md) compares all four supplied mockup screens. Results below are historical measurements, not fresh load or latency guarantees.
+
 # Gameplay and UI revision — 20261031-v2.2-ux
 
 The current revision adds natural contextual dialogue, flexible objective matching, automatic voice submission/playback, still character portraits, clearer copy, Desa Kenderan, and consistent responsive layouts. **39/39 unit/database tests**, **21 browser tests** passed; six browser cases were skipped as documented. All four lessons passed real-provider conversation and quiz probes. See the [audit report](gameplay-audit/README.md) and its conversation transcripts for current evidence.

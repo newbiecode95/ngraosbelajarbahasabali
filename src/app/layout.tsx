@@ -5,6 +5,7 @@ import "@fontsource/cormorant-garamond/latin-600.css";
 import "@fontsource/cormorant-garamond/latin-600-italic.css";
 import "./globals.css";
 import "./refinements.css";
+import "./gameplay.css";
 import "./welcome.css";
 export const metadata: Metadata = {
   title: "Ngraos! — Dari Tamiu jadi Nyama",

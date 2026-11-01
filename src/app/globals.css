@@ -1129,6 +1129,7 @@ button svg {
   font-weight: 600;
 }
 .modal {
+  margin: auto;
   border: 1px solid #e1e7d8;
   background: #fffefa;
   border-radius: 22px;

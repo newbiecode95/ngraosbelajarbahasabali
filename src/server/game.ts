@@ -7,12 +7,14 @@ import { AppError, requireValue } from './errors';
 import { eligibleEntries, lessonById, levelOrder, retrieve } from './content';
 import { generateQuiz, repairReply, roleplay, type QuizDraft } from './openrouter';
 import { publicTurn, replyNeedsRepair } from '../lib/learning-text';
+import { currentMission, missionGuides } from '../content/guidance';
 import { answerCorrect, calculateStars, correctionIsSupported, nextStreak, normalize, objectiveMatches, phraseIn, witaDate } from './rules';
 import { type ActorRow, playerView } from './actors';
 export interface PrivateQuestion extends QuizQuestion {answer:string;variants:string[]}
-export interface SessionRow {id:string;player_id:string;level_id:LevelId;status:GameSession['status'];turns:Turn[];completed_objectives:string[];hints_used:number;quiz:PrivateQuestion[]|null;result:SessionResult|null}
+export interface SessionRow {id:string;player_id:string;level_id:LevelId;status:GameSession['status'];turns:Turn[];completed_objectives:string[];hints_used:number;revealed_hints?:string[];quiz_answers?:Record<string,{answer:string;correct:boolean}>;quiz:PrivateQuestion[]|null;result:SessionResult|null}
 export function sessionView(row:SessionRow):GameSession {
-  return {id:row.id,levelId:row.level_id,status:row.status,turns:row.turns.map(publicTurn),completedObjectives:row.completed_objectives,hintsUsed:row.hints_used,quiz:row.quiz?.map(({answer,variants,...q})=>q),result:row.result||undefined};
+  const quizResponses=Object.fromEntries(Object.entries(row.quiz_answers||{}).flatMap(([id,value])=>{const question=row.quiz?.find(q=>q.id===id);return question?[[id,{...value,expectedAnswer:question.answer}]]:[];}));
+  return {id:row.id,levelId:row.level_id,status:row.status,turns:row.turns.map(publicTurn),completedObjectives:row.completed_objectives,hintsUsed:row.hints_used,revealedHints:row.revealed_hints||[],quizResponses,quiz:row.quiz?.map(({answer,variants,...q})=>q),result:row.result||undefined};
 }
 export async function ownedSession(id:string,playerId:string,client?:PoolClient,lock=false):Promise<SessionRow> {
   const sql=`SELECT * FROM game_sessions WHERE id=$1 AND player_id=$2${lock?' FOR UPDATE':''}`;
@@ -76,15 +78,33 @@ export async function repairTurnReply(actor:ActorRow,sessionId:string,turnId:str
     return {session:sessionView(row),turn:publicTurn(updated)};
   });
 }
-export async function useHint(actor:ActorRow,sessionId:string) {
+export async function useHint(actor:ActorRow,sessionId:string,objectiveId?:string) {
   return transaction(async client=>{
     const session=await ownedSession(sessionId,actor.id,client,true);const lesson=lessonById(session.level_id);
     if(session.level_id==='boss')throw new AppError(400,'NO_BOSS_HINTS','Tantangan ini tidak memakai petunjuk jawaban.');
     if(session.status!=='active')throw new AppError(409,'SESSION_NOT_ACTIVE','Percakapan sudah selesai.');
-    const next=lesson.objectives.find(o=>!session.completed_objectives.includes(o.id));
+    const next=objectiveId?lesson.objectives.find(o=>o.id===objectiveId):currentMission(lesson,session.completed_objectives);
+    if(objectiveId&&!next)throw new AppError(400,'INVALID_OBJECTIVE','Target percakapan tidak tersedia.');
     if(!next) return {hint:actor.locale==='en'?'Your mission is complete. Continue to the quiz.':'Misi sudah selesai. Lanjutkan ke kuis.',session:sessionView(session)};
-    const result=await client.query<SessionRow>('UPDATE game_sessions SET hints_used=hints_used+1,updated_at=now() WHERE id=$1 RETURNING *',[session.id]);
-    return {hint:`${next.title[actor.locale]}: ${next.evidence[0]}`,session:sessionView(result.rows[0])};
+    const phraseId=missionGuides[next.id]?.phraseId;
+    const entry=(await eligibleEntries(session.level_id,client)).find(e=>e.id===phraseId);
+    if(!entry)throw new AppError(503,'HINT_UNAVAILABLE','Contoh ucapan belum tersedia. Silakan coba lagi.',true);
+    if((session.revealed_hints||[]).includes(next.id)||session.completed_objectives.includes(next.id))return {hint:entry.bali,hintObjectiveId:next.id,session:sessionView(session)};
+    const result=await client.query<SessionRow>('UPDATE game_sessions SET hints_used=hints_used+1,revealed_hints=$2,updated_at=now() WHERE id=$1 RETURNING *',[session.id,JSON.stringify([...(session.revealed_hints||[]),next.id])]);
+    return {hint:entry.bali,hintObjectiveId:next.id,session:sessionView(result.rows[0])};
+  });
+}
+export async function checkQuizAnswer(actor:ActorRow,sessionId:string,questionId:string,answer:string) {
+  return transaction(async client=>{
+    const session=await ownedSession(sessionId,actor.id,client,true);
+    const question=requireValue(session.quiz?.find(q=>q.id===questionId),'QUESTION_NOT_FOUND');
+    const existing=session.quiz_answers?.[questionId];
+    if(existing)return {session:sessionView(session)};
+    if(session.status!=='quiz')throw new AppError(409,'QUIZ_REQUIRED','Kuis ini sudah selesai.');
+    const correct=answerCorrect(answer,question.answer,question.type==='repeat'?question.variants:[]);
+    const responses={...session.quiz_answers,[questionId]:{answer,correct}};
+    const row=(await client.query<SessionRow>('UPDATE game_sessions SET quiz_answers=$2,updated_at=now() WHERE id=$1 RETURNING *',[session.id,JSON.stringify(responses)])).rows[0];
+    return {session:sessionView(row)};
   });
 }
 function shuffle<T>(values:T[]) {
@@ -159,6 +179,7 @@ export async function completeSession(actor:ActorRow,sessionId:string,answers:Re
     const session=await ownedSession(sessionId,actor.id,client,true);
     if(session.result)return {session:sessionView(session),result:session.result,player:await playerView({...current,email:actor.email,emailVerified:actor.emailVerified},client)};
     if(session.status!=='quiz'||!session.quiz)throw new AppError(409,'QUIZ_REQUIRED','Selesaikan kuis sebelum menerima hadiah.');
+    answers={...answers,...Object.fromEntries(Object.entries(session.quiz_answers||{}).map(([id,value])=>[id,value.answer]))};
     if(session.quiz.some(q=>!answers[q.id]?.trim())||Object.keys(answers).some(id=>!session.quiz!.some(q=>q.id===id)))throw new AppError(400,'QUIZ_INCOMPLETE','Jawab semua soal sebelum melanjutkan.');
     const lesson=lessonById(session.level_id);const score=session.quiz.filter(q=>answerCorrect(answers[q.id],q.answer,q.type==='repeat'?q.variants:[])).length;
     const stars=calculateStars(session.turns,session.hints_used,lesson.objectives.every(o=>session.completed_objectives.includes(o.id)));
@@ -168,7 +189,9 @@ export async function completeSession(actor:ActorRow,sessionId:string,answers:Re
     const newStars={...current.stars,[session.level_id]:Math.max(stars,current.stars[session.level_id]||0)};
     const albums=[...new Set([...current.albums,session.level_id])];
     const next=levelOrder[levelOrder.indexOf(session.level_id)+1];
-    const result:SessionResult={stars,xp,quizScore:score,quizTotal:session.quiz.length,newAlbum:!current.albums.includes(session.level_id),...(firstClear&&next?{unlockedLevel:next}:{})};
+    const practiced=[...new Set(session.quiz.flatMap(q=>q.mistakeId?[q.mistakeId]:[]))];
+    const mastered=practiced.filter(id=>session.quiz!.filter(q=>q.mistakeId===id).every(q=>answerCorrect(answers[q.id],q.answer,q.type==='repeat'?q.variants:[]))).length;
+    const result:SessionResult={stars,xp,quizScore:score,quizTotal:session.quiz.length,mistakesPracticed:practiced.length,mistakesMastered:mastered,newAlbum:!current.albums.includes(session.level_id),...(firstClear&&next?{unlockedLevel:next}:{})};
     const event=await client.query('INSERT INTO reward_events(id,player_id,session_id,xp) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id',[`complete:${session.id}`,actor.id,session.id,xp]);
     if(!event.rows.length)throw new AppError(409,'REWARD_ALREADY_RECORDED','Hadiah sudah tercatat. Muat ulang progres Anda.');
     const date=witaDate();const streak=nextStreak(current.last_active_date,current.streak,date);

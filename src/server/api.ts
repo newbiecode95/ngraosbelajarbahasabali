@@ -6,7 +6,7 @@ import { corpusEntries } from './schema';
 import { cookieValue, createDemo, demoCookie, DEMO_COOKIE, findActor, playerView, requireActor, requireAdmin, type ActorRow } from './actors';
 import { boundedFormData, jsonBody, ok, rateLimit, requestIdentity, route } from './http';
 import { AppError, requireValue } from './errors';
-import { addTurn, completeSession, ownedSession, prepareQuiz, repairTurnReply, sessionView, startSession, turnInput, useHint } from './game';
+import { addTurn, checkQuizAnswer, completeSession, ownedSession, prepareQuiz, repairTurnReply, sessionView, startSession, turnInput, useHint } from './game';
 import { eligibleEntries, lessonById } from './content';
 import { cachedSpeech, normalizeRecording } from './audio';
 import { transcribe } from './openrouter';
@@ -45,14 +45,15 @@ async function handle(request:Request) {
     const {levelId}=z.object({levelId:levelSchema}).parse(await jsonBody(request));
     return ok({session:await startSession(actor,levelId)},201);
   }
-  const sessionMatch=/^sessions\/([^/]+)(?:\/(turns|hint|quiz|complete|repair-reply))?$/.exec(path);
+  const sessionMatch=/^sessions\/([^/]+)(?:\/(turns|hint|quiz|complete|repair-reply|answer))?$/.exec(path);
   if(sessionMatch) {
     const actor=await requireActor(request);const id=idSchema.parse(sessionMatch[1]);const action=sessionMatch[2];
     if(!action&&method==='GET')return ok({session:sessionView(await ownedSession(id,actor.id))});
     if(method!=='POST')throw new AppError(405,'METHOD_NOT_ALLOWED','Metode tidak tersedia.');
     if(action==='turns'){const body=turnInput.parse(await jsonBody(request));await rateLimit(`turn:${actor.id}`,20);return ok(await addTurn(actor,id,body));}
     if(action==='repair-reply'){const body=z.object({turnId:idSchema}).parse(await jsonBody(request));await rateLimit(`repair:${actor.id}`,8);return ok(await repairTurnReply(actor,id,body.turnId));}
-    if(action==='hint'){await rateLimit(`hint:${actor.id}`,15);return ok(await useHint(actor,id));}
+    if(action==='hint'){const body=z.object({objectiveId:z.string().max(100).optional()}).parse(await jsonBody(request));await rateLimit(`hint:${actor.id}`,15);return ok(await useHint(actor,id,body.objectiveId));}
+    if(action==='answer'){const body=z.object({questionId:z.string().min(1).max(200),answer:z.string().trim().min(1).max(1000)}).parse(await jsonBody(request));await rateLimit(`answer:${actor.id}`,30);return ok(await checkQuizAnswer(actor,id,body.questionId,body.answer));}
     if(action==='quiz'){await rateLimit(`quiz:${actor.id}`,8);return ok({session:await prepareQuiz(actor,id)});}
     if(action==='complete'){const body=z.object({answers:z.record(z.string(),z.string().max(1000))}).parse(await jsonBody(request));return ok(await completeSession(actor,id,body.answers));}
   }
@@ -73,7 +74,7 @@ async function handle(request:Request) {
       else if(body.phraseId==='opening')text=lessonById(levelId).opening;
       else {
         const question=session.quiz?.find(q=>q.id===body.phraseId);
-        if(question && question.type==='repeat') {text=question.answer;safeToCache=!question.mistakeId;}
+        if(question && (question.type==='repeat'||session.quiz_answers?.[question.id])) {text=question.answer;safeToCache=!question.mistakeId;}
       }
     } else if(body.levelId) {levelId=body.levelId;if(body.phraseId==='opening')text=lessonById(levelId).opening;}
     else throw new AppError(400,'SPEECH_CONTEXT_REQUIRED','Pilih percakapan sebelum memutar suara.');

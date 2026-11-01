@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS game_sessions (
  created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS game_sessions_player_idx ON game_sessions(player_id,updated_at DESC);
+ALTER TABLE game_sessions ADD COLUMN IF NOT EXISTS revealed_hints jsonb NOT NULL DEFAULT '[]';
+ALTER TABLE game_sessions ADD COLUMN IF NOT EXISTS quiz_answers jsonb NOT NULL DEFAULT '{}';
 CREATE TABLE IF NOT EXISTS corpus_entries (
  id text PRIMARY KEY, entry jsonb NOT NULL, embedding vector(1536), embedding_model text,
  enabled boolean NOT NULL DEFAULT true, updated_at timestamptz NOT NULL DEFAULT now()

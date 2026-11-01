@@ -23,10 +23,15 @@ import {
   LoaderCircle,
   X,
 } from "lucide-react";
+import { MissionGuide } from "./mission-guide";
+import { PracticeQuiz } from "./practice-quiz";
+import { LessonResult } from "./lesson-result";
+import { currentMission } from "@/content/guidance";
 import { lessons } from "@/content/lessons";
 import { corpus } from "@/content/corpus";
 import type {
   GameSession,
+  LevelId,
   Locale,
   Player,
   QuizQuestion,
@@ -51,6 +56,10 @@ export function LessonPlayer({
   onExit,
   onPlayer,
   onSpeaking,
+  onNext,
+  onReplay,
+  navigationBusy,
+  onToggleMute,
 }: {
   session: GameSession;
   onSession: (s: GameSession) => void;
@@ -60,6 +69,10 @@ export function LessonPlayer({
   onExit: () => void;
   onPlayer: (p: Player) => void;
   onSpeaking?: (speaking: boolean) => void;
+  onNext: (level: LevelId) => void;
+  onReplay: () => void;
+  navigationBusy: boolean;
+  onToggleMute: () => void;
 }) {
   const lesson = lessons.find((l) => l.id === session.levelId)!;
   const t = (a: string, b: string) => (locale === "id" ? a : b);
@@ -68,7 +81,8 @@ export function LessonPlayer({
     [mode, setMode] = useState<"voice" | "text">("voice"),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
-    [hint, setHint] = useState(""),
+    [guidanceNotice, setGuidanceNotice] = useState(""),
+    [needsDirection, setNeedsDirection] = useState(false),
     [selectedObject, setSelectedObject] = useState(""),
     [report, setReport] = useState<string | null>(null),
     [reportText, setReportText] = useState(""),
@@ -94,7 +108,8 @@ export function LessonPlayer({
   const completed = lesson.objectives.every((o) =>
     session.completedObjectives.includes(o.id),
   );
-  const isConversation = session.status !== "completed" && !session.quiz?.length;
+  const isConversation =
+    session.status !== "completed" && !session.quiz?.length;
   useEffect(() => {
     onSpeaking?.(speech.speaking);
     return () => onSpeaking?.(false);
@@ -103,13 +118,23 @@ export function LessonPlayer({
   useEffect(() => {
     const history = bottom.current?.parentElement;
     if (history)
-      history.scrollTo({ top: history.scrollHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.reduced === "true" ? "instant" : "smooth" });
+      history.scrollTo({
+        top: history.scrollHeight,
+        behavior:
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+          document.documentElement.dataset.reduced === "true"
+            ? "instant"
+            : "smooth",
+      });
   }, [session.turns.length, busy]);
   useEffect(() => {
     const viewport = window.visualViewport;
     const update = () => {
       const height = viewport?.height || window.innerHeight;
-      conversationView.current?.style.setProperty("--lesson-viewport", `${height}px`);
+      conversationView.current?.style.setProperty(
+        "--lesson-viewport",
+        `${height}px`,
+      );
       conversationView.current?.classList.toggle("keyboard-open", height < 500);
     };
     update();
@@ -176,7 +201,24 @@ export function LessonPlayer({
       onSession(data.session);
       setDraft("");
       setRaw("");
-      setHint("");
+      const newlyDone = lesson.objectives.filter(
+        (item) =>
+          data.session.completedObjectives.includes(item.id) &&
+          !session.completedObjectives.includes(item.id),
+      );
+      const next = currentMission(lesson, data.session.completedObjectives);
+      setNeedsDirection(!newlyDone.length && Boolean(next));
+      setGuidanceNotice(
+        newlyDone.length
+          ? t(
+              `Selesai: ${newlyDone.map((item) => item.title.id).join(", ")}.${next ? ` Berikutnya: ${next.title.id}.` : " Semua target tercapai."}`,
+              `Completed: ${newlyDone.map((item) => item.title.en).join(", ")}.${next ? ` Up next: ${next.title.en}.` : " All goals completed."}`,
+            )
+          : t(
+              "Target ini belum tercapai. Coba jawab sesuai arahan di atas.",
+              "This goal is still open. Try responding to the directions above.",
+            ),
+      );
       attempt.current = null;
       if (!muted)
         void speech.play({ sessionId: session.id, turnId: data.turn.id });
@@ -189,22 +231,6 @@ export function LessonPlayer({
       setBusy(false);
     }
   }
-  async function getHint() {
-    setBusy(true);
-    setError("");
-    try {
-      const data = await api<{ hint: string; session: GameSession }>(
-        `/api/sessions/${session.id}/hint`,
-        json({}),
-      );
-      setHint(data.hint);
-      onSession(data.session);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Petunjuk tidak tersedia.");
-    } finally {
-      setBusy(false);
-    }
-  }
   async function repairReply(turnId: string) {
     if (busy) return;
     setBusy(true);
@@ -212,10 +238,20 @@ export function LessonPlayer({
     setError("");
     speech.stop();
     try {
-      const data = await api<{ session: GameSession }>(`/api/sessions/${session.id}/repair-reply`, json({ turnId }));
+      const data = await api<{ session: GameSession }>(
+        `/api/sessions/${session.id}/repair-reply`,
+        json({ turnId }),
+      );
       onSession(data.session);
     } catch (e) {
-      setError(e instanceof Error ? e.message : t("Balasan belum dapat diperbaiki. Coba lagi.", "Reply repair is unavailable. Try again."));
+      setError(
+        e instanceof Error
+          ? e.message
+          : t(
+              "Balasan belum dapat diperbaiki. Coba lagi.",
+              "Reply repair is unavailable. Try again.",
+            ),
+      );
     } finally {
       setBusy(false);
       setRepairingTurn(null);
@@ -243,62 +279,25 @@ export function LessonPlayer({
   }
   if (session.status === "completed" && session.result)
     return (
-      <div className="result-card">
-        <span className="result-flower">
-          <Flower2 size={46} />
-        </span>
-        <div className="eyebrow">{t("LATIHAN SELESAI", "LESSON COMPLETE")}</div>
-        <h1>{t("Suksma, Nyama!", "Suksma, Nyama!")}</h1>
-        <p>{t("Progresmu sudah disimpan.", "Your progress has been saved.")}</p>
-        <Stars count={session.result.stars} size={42} />
-        <div className="result-stats">
-          <div>
-            <Sparkles size={21} />
-            <strong>+{session.result.xp}</strong>
-            <span>XP</span>
-          </div>
-          <div>
-            <Check size={21} />
-            <strong>
-              {session.result.quizScore}/{session.result.quizTotal}
-            </strong>
-            <span>{t("Jawaban benar", "Correct answers")}</span>
-          </div>
-          <div>
-            <BookOpen size={21} />
-            <strong>{session.result.newAlbum ? "+1" : "✓"}</strong>
-            <span>{t("Kartu budaya", "Culture card")}</span>
-          </div>
-        </div>
-        <div className="result-album">
-          <Flower2 size={30} />
-          <div>
-            <small>{t("DARI ALBUM DESA", "FROM YOUR VILLAGE ALBUM")}</small>
-            <h3>{lesson.album.title[locale]}</h3>
-            <p>{lesson.album.text[locale]}</p>
-          </div>
-        </div>
-        <button className="btn primary" onClick={onDone}>
-          {t("Kembali ke desa", "Back to the village")}
-          <ArrowRight size={18} />
-        </button>
-        <span className="note">
-          {t(
-            "Progres dan bintang terbaikmu sudah disimpan.",
-            "Your progress and best stars have been saved.",
-          )}
-        </span>
-      </div>
+      <LessonResult
+        session={session}
+        locale={locale}
+        busy={navigationBusy}
+        onNext={onNext}
+        onReplay={onReplay}
+        onDone={onDone}
+      />
     );
   if (session.quiz && session.quiz.length)
     return (
-      <QuizPlayer
+      <PracticeQuiz
         session={session}
         onSession={onSession}
         onPlayer={onPlayer}
         locale={locale}
         muted={muted}
         onExit={onExit}
+        onToggleMute={onToggleMute}
       />
     );
   return (
@@ -452,41 +451,25 @@ export function LessonPlayer({
           ) : null}
         </section>
         <section className="conversation-panel">
-          <details className="mission-tracker">
-            <summary>
-              <span className="eyebrow">
-                {completed ? t("Semua target tercapai", "All goals completed") : t("Target percakapan", "Conversation goals")}
-              </span>
-              <strong>
-                {session.completedObjectives.length}/{lesson.objectives.length}
-              </strong>
-              <ChevronDown size={16} />
-            </summary>
-            <div className="mission-track-items">
-              {lesson.objectives.map((o) => (
-                <span
-                  key={o.id}
-                  className={
-                    session.completedObjectives.includes(o.id) ? "done" : ""
-                  }
-                >
-                  {session.completedObjectives.includes(o.id) ? (
-                    <Check size={12} />
-                  ) : (
-                    <span />
-                  )}
-                  {o.title[locale]}
-                </span>
-              ))}
-            </div>
-            <div className="track-line">
-              <span
-                style={{
-                  width: `${(session.completedObjectives.length / lesson.objectives.length) * 100}%`,
-                }}
-              />
-            </div>
-          </details>
+          <MissionGuide
+            lesson={lesson}
+            session={session}
+            locale={locale}
+            muted={muted}
+            disabled={busy || recorder.recording || recorder.transcribing}
+            onSession={onSession}
+            onOpen={speech.stop}
+            notice={guidanceNotice}
+            showNotice={needsDirection}
+            onExample={(text) => {
+              setMode("text");
+              setRaw("");
+              setDraft(text);
+              requestAnimationFrame(() =>
+                document.getElementById("player-text")?.focus(),
+              );
+            }}
+          />
           <div className="conversation-history" role="log" aria-live="polite">
             <div className="message npc-message">
               <div className="message-avatar">{lesson.npc.slice(0, 1)}</div>
@@ -515,114 +498,146 @@ export function LessonPlayer({
             </div>
             {session.turns.map((turn) => {
               const unavailable = replyNeedsRepair(turn);
-              const readableCorrections = turn.corrections.filter(correctionIsReadable);
+              const readableCorrections =
+                turn.corrections.filter(correctionIsReadable);
               return (
-              <div className="turn-group" key={turn.id}>
-                <div className="message player-message">
-                  <div>
-                    <span className="speaker-name">{t("Kamu", "You")}</span>
-                    <div className="message-bubble">
-                      <p>{turn.playerText}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="message npc-message">
-                  <div className="message-avatar">{lesson.npc.slice(0, 1)}</div>
-                  <div>
-                    <span className="speaker-name">{lesson.npc}</span>
-                    <div className={`message-bubble ${unavailable ? "reply-recovery" : ""}`}>
-                      {unavailable ? (
-                        <>
-                          <p>{t("Balasan ini perlu diperbaiki.", "This reply needs a correction.")}</p>
-                          <span className="translation">{t("Ada tulisan yang tidak sesuai. Perbaiki balasan untuk membacanya.", "Unexpected writing was found. Repair the reply to read it.")}</span>
-                          <button className="btn subtle" onClick={() => void repairReply(turn.id)} disabled={busy}>
-                            {repairingTurn === turn.id ? <Spinner /> : <RotateCcw size={16} />}
-                            {t("Perbaiki balasan", "Repair reply")}
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                      <p>{turn.reply}</p>
-                      <span className="translation">
-                        {turn.translation[locale]}
-                      </span>
-                      <div className="message-actions">
-                        <button
-                          className="listen-btn"
-                          onClick={() =>
-                            speech.play({
-                              sessionId: session.id,
-                              turnId: turn.id,
-                            })
-                          }
-                          disabled={speech.loading || muted}
-                        >
-                          <Volume2 size={14} />
-                          {t("Dengarkan", "Listen")}
-                        </button>
-                        <button
-                          className="report-btn"
-                          onClick={() => {
-                            setReport(turn.id);
-                            setReportDone(false);
-                          }}
-                          aria-label={t("Laporkan jawaban", "Report response")}
-                        >
-                          <Flag size={12} />
-                        </button>
+                <div className="turn-group" key={turn.id}>
+                  <div className="message player-message">
+                    <div>
+                      <span className="speaker-name">{t("Kamu", "You")}</span>
+                      <div className="message-bubble">
+                        <p>{turn.playerText}</p>
                       </div>
-                        </>
-                      )}
                     </div>
-                    {readableCorrections.length ? (
-                      <details className="correction-card">
-                        <summary>
-                          <Lightbulb size={15} />
-                          {t("Catatan bahasa", "Language note")}
-                          <span>{readableCorrections.length}</span>
-                          <ChevronDown size={14} />
-                        </summary>
-                        {readableCorrections.map((c, i) => {
-                          const source = corpus.find(
-                            (e) => e.id === c.sourceId,
-                          );
-                          return (
-                            <div
-                              className="correction-item"
-                              key={`${c.sourceId}-${i}`}
+                  </div>
+                  <div className="message npc-message">
+                    <div className="message-avatar">
+                      {lesson.npc.slice(0, 1)}
+                    </div>
+                    <div>
+                      <span className="speaker-name">{lesson.npc}</span>
+                      <div
+                        className={`message-bubble ${unavailable ? "reply-recovery" : ""}`}
+                      >
+                        {unavailable ? (
+                          <>
+                            <p>
+                              {t(
+                                "Balasan ini perlu diperbaiki.",
+                                "This reply needs a correction.",
+                              )}
+                            </p>
+                            <span className="translation">
+                              {t(
+                                "Ada tulisan yang tidak sesuai. Perbaiki balasan untuk membacanya.",
+                                "Unexpected writing was found. Repair the reply to read it.",
+                              )}
+                            </span>
+                            <button
+                              className="btn subtle"
+                              onClick={() => void repairReply(turn.id)}
+                              disabled={busy}
                             >
-                              <div className="correction-before">{c.said}</div>
-                              <div className="correction-after">
-                                <Check size={13} />
-                                {c.correct}
-                              </div>
-                              <p>{c.reason[locale]}</p>
-                              {!c.supported ? (
-                                <span className="advisory">
-                                  {t(
-                                    "Saran AI · tidak memengaruhi bintang",
-                                    "AI suggestion · does not affect stars",
-                                  )}
-                                </span>
-                              ) : null}
-                              {source ? (
-                                <a
-                                  href={source.sourceUrl}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                >
-                                  {source.sourceTitle}
-                                  <ExternalLink size={11} />
-                                </a>
-                              ) : null}
+                              {repairingTurn === turn.id ? (
+                                <Spinner />
+                              ) : (
+                                <RotateCcw size={16} />
+                              )}
+                              {t("Perbaiki balasan", "Repair reply")}
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <p>{turn.reply}</p>
+                            <span className="translation">
+                              {turn.translation[locale]}
+                            </span>
+                            <div className="message-actions">
+                              <button
+                                className="listen-btn"
+                                onClick={() =>
+                                  speech.play({
+                                    sessionId: session.id,
+                                    turnId: turn.id,
+                                  })
+                                }
+                                disabled={speech.loading || muted}
+                              >
+                                <Volume2 size={14} />
+                                {t("Dengarkan", "Listen")}
+                              </button>
+                              <button
+                                className="report-btn"
+                                onClick={() => {
+                                  setReport(turn.id);
+                                  setReportDone(false);
+                                }}
+                                aria-label={t(
+                                  "Laporkan jawaban",
+                                  "Report response",
+                                )}
+                              >
+                                <Flag size={12} />
+                              </button>
                             </div>
-                          );
-                        })}
-                      </details>
-                    ) : null}
+                          </>
+                        )}
+                      </div>
+                      {readableCorrections.length ? (
+                        <details
+                          className="correction-card"
+                          open={turn.id === session.turns.at(-1)?.id}
+                        >
+                          <summary>
+                            <Lightbulb size={15} />
+                            {t("Catatan bahasa", "Language note")}
+                            <span>{readableCorrections.length}</span>
+                            <ChevronDown size={14} />
+                          </summary>
+                          {readableCorrections.map((c, i) => {
+                            const source = corpus.find(
+                              (e) => e.id === c.sourceId,
+                            );
+                            return (
+                              <div
+                                className="correction-item"
+                                key={`${c.sourceId}-${i}`}
+                              >
+                                <div className="correction-before">
+                                  {c.said}
+                                </div>
+                                <div className="correction-after">
+                                  <Check size={13} />
+                                  {c.correct}
+                                </div>
+                                <p>{c.reason[locale]}</p>
+                                {!c.supported ? (
+                                  <span className="advisory">
+                                    {t(
+                                      "Saran AI · tidak memengaruhi bintang",
+                                      "AI suggestion · does not affect stars",
+                                    )}
+                                  </span>
+                                ) : null}
+                                {source ? (
+                                  <a
+                                    href={source.sourceUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    title={source.sourceTitle}
+                                  >
+                                    {t("Lihat sumber", "View source")}
+                                    <ExternalLink size={11} />
+                                  </a>
+                                ) : null}
+                              </div>
+                            );
+                          })}
+                        </details>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
-              </div>
               );
             })}
             {busy && draft && !repairingTurn ? (
@@ -639,15 +654,17 @@ export function LessonPlayer({
                 <span />
                 <span />
                 <small>
-                  {repairingTurn ? t("Memperbaiki balasan…", "Repairing reply…") : completed
-                    ? t(
-                        "Menyiapkan kuis dari percakapanmu…",
-                        "Preparing a quiz from your conversation…",
-                      )
-                    : t(
-                        `${lesson.npc} sedang berpikir…`,
-                        `${lesson.npc} is thinking…`,
-                      )}
+                  {repairingTurn
+                    ? t("Memperbaiki balasan…", "Repairing reply…")
+                    : completed
+                      ? t(
+                          "Menyiapkan kuis dari percakapanmu…",
+                          "Preparing a quiz from your conversation…",
+                        )
+                      : t(
+                          `${lesson.npc} sedang berpikir…`,
+                          `${lesson.npc} is thinking…`,
+                        )}
                 </small>
               </div>
             ) : null}
@@ -662,20 +679,11 @@ export function LessonPlayer({
             {speech.error ? (
               <p className="audio-notice">{speech.error}</p>
             ) : null}
-            {hint ? (
-              <div className="hint-box">
-                <Lightbulb size={16} />
-                <span>{hint}</span>
-              </div>
-            ) : null}
             {completed ? (
               <div className="mission-complete">
                 <Check size={21} />
                 <span>
-                  {t(
-                    "Percakapan selesai.",
-                    "Conversation complete.",
-                  )}
+                  {t("Percakapan selesai.", "Conversation complete.")}
                 </span>
                 <button
                   className="btn primary"
@@ -710,20 +718,11 @@ export function LessonPlayer({
                       {t("Ketik", "Type")}
                     </button>
                   </div>
-                  {lesson.id !== "boss" ? (
-                    <button
-                      className="hint-btn"
-                      onClick={getHint}
-                      disabled={busy}
-                    >
-                      <Lightbulb size={14} />
-                      {t("Petunjuk", "Hint")}
-                    </button>
-                  ) : (
+                  {lesson.id === "boss" ? (
                     <span className="boss-label">
-                      {t("Tanpa petunjuk", "No hints")}
+                      {t("Tanpa contoh ucapan", "No example hints")}
                     </span>
-                  )}
+                  ) : null}
                 </div>
                 {mode === "voice" && (!draft || busy) ? (
                   <div className="voice-mode-panel">
@@ -902,314 +901,4 @@ export function LessonPlayer({
 }
 function ShieldSmall() {
   return <span className="tiny-dot" />;
-}
-function QuizPlayer({
-  session,
-  onSession,
-  onPlayer,
-  locale,
-  muted,
-  onExit,
-}: {
-  session: GameSession;
-  onSession: (s: GameSession) => void;
-  onPlayer: (p: Player) => void;
-  locale: Locale;
-  muted: boolean;
-  onExit: () => void;
-}) {
-  const questions = session.quiz!;
-  const [index, setIndex] = useState(0),
-    [answers, setAnswers] = useState<Record<string, string>>({}),
-    [selectedWords, setSelectedWords] = useState<number[]>([]),
-    [typed, setTyped] = useState(""),
-    [busy, setBusy] = useState(false),
-    [error, setError] = useState("");
-  const t = (a: string, b: string) => (locale === "id" ? a : b);
-  const q = questions[index];
-  const speech = useSpeech(muted);
-  const recorder = useRecorder(session.levelId, (_r, n) => setTyped(n));
-  const current =
-    q.type === "order"
-      ? selectedWords.map((i) => q.words?.[i]).join(" ")
-      : q.type === "repeat"
-        ? typed
-        : answers[q.id] || "";
-
-  const restored = useRef(false);
-  useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem("ngraos-quiz-" + session.id);
-      if (saved) {
-        const value = JSON.parse(saved);
-        if (
-          Number.isInteger(value.index) &&
-          value.index >= 0 &&
-          value.index < questions.length
-        ) {
-          setIndex(value.index);
-          setAnswers(value.answers || {});
-          setTyped(value.typed || "");
-          setSelectedWords(
-            Array.isArray(value.selectedWords) ? value.selectedWords : [],
-          );
-        }
-      }
-    } catch {}
-    restored.current = true;
-  }, [session.id, questions.length]);
-  useEffect(() => {
-    if (restored.current)
-      try {
-        sessionStorage.setItem(
-          "ngraos-quiz-" + session.id,
-          JSON.stringify({ index, answers, typed, selectedWords }),
-        );
-      } catch {}
-  }, [session.id, index, answers, typed, selectedWords]);
-  useEffect(() => {
-    if (q.type === "repeat" && !muted)
-      void speech.play({ sessionId: session.id, phraseId: q.id });
-    return () => speech.stop();
-  }, [q.id]);
-  async function next() {
-    if (
-      !current.trim() ||
-      (q.type === "order" && selectedWords.length !== q.words?.length)
-    )
-      return;
-    const result = { ...answers, [q.id]: current };
-    setAnswers(result);
-    speech.stop();
-    if (index < questions.length - 1) {
-      setIndex(index + 1);
-      setSelectedWords([]);
-      setTyped("");
-      setError("");
-      return;
-    }
-    setBusy(true);
-    setError("");
-    try {
-      const data = await api<{ session: GameSession; player: Player }>(
-        `/api/sessions/${session.id}/complete`,
-        json({ answers: result }),
-      );
-      sessionStorage.removeItem("ngraos-quiz-" + session.id);
-      onSession(data.session);
-      onPlayer(data.player);
-    } catch (e) {
-      setError(
-        e instanceof Error ? e.message : "Hasil belum tersimpan. Coba lagi.",
-      );
-    } finally {
-      setBusy(false);
-    }
-  }
-  return (
-    <div className="quiz-container">
-      <div className="lesson-heading">
-        <button className="text-link" onClick={onExit}>
-          <ArrowLeft size={17} />
-          {t("Kembali ke desa", "Back to village")}
-        </button>
-        <span className="label-pill">{t("KUIS LATIHAN", "PRACTICE QUIZ")}</span>
-      </div>
-      <div className="quiz-progress">
-        <div role="progressbar" aria-label={t("Soal selesai", "Questions completed")} aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={index}>
-          <span style={{ width: `${(index / questions.length) * 100}%` }} />
-        </div>
-        <strong>
-          {index + 1}
-          <span> / {questions.length}</span>
-        </strong>
-      </div>
-      <section className="quiz-card">
-        <span className={`quiz-type-icon ${q.type}`}>
-          {q.type === "choice" ? (
-            <Sparkles size={29} />
-          ) : q.type === "order" ? (
-            <BookOpen size={29} />
-          ) : (
-            <Volume2 size={29} />
-          )}
-        </span>
-        <div className="eyebrow">
-          {q.reinforcement
-            ? t("LATIHAN PENGUATAN", "A LITTLE REINFORCEMENT")
-            : t("DARI PERCAKAPANMU", "FROM YOUR CONVERSATION")}
-        </div>
-        <h1>{q.prompt[locale]}</h1>
-        <p className="quiz-instruction">
-          {q.type === "choice"
-            ? t("Pilih jawaban yang paling tepat.", "Choose the best answer.")
-            : q.type === "order"
-              ? t(
-                  "Ketuk kata untuk menyusun kalimat. Ketuk lagi untuk mengembalikan.",
-                  "Tap words to build the sentence. Tap them again to undo.",
-                )
-              : t(
-                  "Dengarkan lalu ucapkan atau ketik kembali.",
-                  "Listen, then repeat by speaking or typing.",
-                )}
-        </p>
-        {q.type === "choice" ? (
-          <div className="quiz-options">
-            {q.options?.map((option, i) => (
-              <button
-                key={`${option}-${i}`}
-                className={answers[q.id] === option ? "selected" : ""}
-                aria-pressed={answers[q.id] === option}
-                onClick={() => setAnswers({ ...answers, [q.id]: option })}
-              >
-                <span>{String.fromCharCode(65 + i)}</span>
-                {option}
-                {answers[q.id] === option ? <Check size={20} /> : null}
-              </button>
-            ))}
-          </div>
-        ) : null}
-        {q.type === "order" ? (
-          <>
-            <div
-              className="word-answer"
-              aria-label={t("Kalimat tersusun", "Your sentence")}
-            >
-              {selectedWords.length ? (
-                selectedWords.map((wordIndex, i) => (
-                  <button
-                    key={`${wordIndex}-${i}`}
-                    onClick={() =>
-                      setSelectedWords(selectedWords.filter((_, n) => i !== n))
-                    }
-                  >
-                    {q.words?.[wordIndex]}
-                  </button>
-                ))
-              ) : (
-                <span>
-                  {t("Susun kalimatmu di sini…", "Build your sentence here…")}
-                </span>
-              )}
-            </div>
-            <div className="word-bank">
-              {q.words?.map((word, i) => (
-                <button
-                  key={`${word}-${i}`}
-                  disabled={selectedWords.includes(i)}
-                  onClick={() => setSelectedWords([...selectedWords, i])}
-                >
-                  {word}
-                </button>
-              ))}
-            </div>
-          </>
-        ) : null}
-        {q.type === "repeat" ? (
-          <div className="repeat-question">
-            <button
-              className="btn audio-play"
-              onClick={() =>
-                speech.play({ sessionId: session.id, phraseId: q.id })
-              }
-              disabled={speech.loading || muted}
-            >
-              {speech.loading ? <Spinner /> : <Volume2 size={22} />}{" "}
-              {t("Dengarkan kalimat", "Listen to the phrase")}
-            </button>
-            {muted ? (
-              <p className="note">
-                {t(
-                  "Suara dimatikan. Aktifkan dari tombol suara di atas.",
-                  "Sound is muted. Enable it using the sound button above.",
-                )}
-              </p>
-            ) : null}
-            <details className="repeat-transcript">
-              <summary>
-                {t(
-                  "Lihat teks untuk aksesibilitas",
-                  "Show text for accessibility",
-                )}
-              </summary>
-              <p>{q.target}</p>
-            </details>
-            <div className="repeat-input">
-              <button
-                className={`record-button ${recorder.recording ? "recording" : ""}`}
-                onClick={() => {
-                  speech.stop();
-                  recorder.recording ? recorder.stop() : void recorder.start();
-                }}
-                disabled={recorder.transcribing}
-                aria-label={
-                  recorder.recording ? "Stop recording" : "Start recording"
-                }
-              >
-                {recorder.transcribing ? (
-                  <Spinner />
-                ) : recorder.recording ? (
-                  <Square size={18} />
-                ) : (
-                  <Mic size={21} />
-                )}
-              </button>
-              <input
-                value={typed}
-                onChange={(e) => setTyped(e.target.value)}
-                placeholder={t(
-                  "Hasil ucapanmu, atau ketik di sini…",
-                  "Your transcript, or type here…",
-                )}
-                aria-label={t("Jawaban ulang-ucap", "Repeat answer")}
-              />
-            </div>
-            <p className="note">
-              {t(
-                "Periksa transkrip sebelum melanjutkan. Pelafalan tidak dinilai.",
-                "Check the transcript before continuing. Pronunciation is not scored.",
-              )}
-            </p>
-          </div>
-        ) : null}
-        {error || recorder.error ? (
-          <p className="inline-error" role="alert">
-            {error || recorder.error}
-          </p>
-        ) : null}
-        {speech.error ? <p className="audio-notice">{speech.error}</p> : null}
-        <div className="quiz-footer">
-          <span>
-            {t(
-              "Jawab semua soal untuk melihat hasil.",
-              "Answer every question to see your results.",
-            )}
-          </span>
-          <button
-            className="btn primary"
-            onClick={next}
-            disabled={
-              !current.trim() ||
-              (q.type === "order" &&
-                selectedWords.length !== q.words?.length) ||
-              busy ||
-              recorder.recording ||
-              recorder.transcribing
-            }
-          >
-            {busy ? (
-              <Spinner />
-            ) : (
-              <>
-                {index === questions.length - 1
-                  ? t("Lihat hasil", "See results")
-                  : t("Lanjutkan", "Continue")}
-                <ArrowRight size={17} />
-              </>
-            )}
-          </button>
-        </div>
-      </section>
-    </div>
-  );
 }

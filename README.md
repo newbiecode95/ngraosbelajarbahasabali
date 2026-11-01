@@ -10,6 +10,7 @@ The home page now opens with a cinematic welcome screen. Select **Mulai** to ent
 - Indonesian/English interface, email/password accounts, isolated resettable guest demos, saved sessions, and account deletion.
 - Tap-to-record audio that ends after a speech pause, sends automatically, and plays NPC replies. Transcript review is optional; typing is always available. Browser recordings are normalized with FFmpeg and deleted after processing. No pronunciation score is invented.
 - OpenRouter roleplay, source-grounded corrections, three authored objectives per location, five-question quizzes with traceable mistake/reinforcement origins, and server-controlled scoring.
+- Visible task directions, optional saved phrase examples, a mobile learning path, immediate saved quiz feedback, and direct next/replay actions. See [guided gameplay and mockup comparisons](docs/gameplay-guide/README.md).
 - Atomic reward events, best stars, XP, WITA streaks, unlocks and Album Desa cards. Retry and concurrent-tab protection is enforced in PostgreSQL.
 - Searchable sourced learning material, privacy disclosure, reports, and an access-controlled admin panel for material availability, reports, model configuration and usage.
 

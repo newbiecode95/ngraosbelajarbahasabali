@@ -44,7 +44,7 @@ export const lessons: Lesson[] = [
     album:{title:{id:'Obrolan di pasar',en:'Market conversations'},text:{id:'Biu berarti pisang dan poh berarti mangga. Siki dan kalih menyatakan satu dan dua dalam contoh latihan ini. Saat berbelanja, jumlah dan harga memberi banyak kesempatan untuk berlatih percakapan singkat.',en:'Biu means banana and poh means mango. Siki and kalih express one and two in these practice examples. Quantities and prices create opportunities for short conversations while shopping.'}},
   },
   {
-    id:'boss',number:4,title:'Petualangan Terakhir',npc:'Pak Wayan',voice:'Charon',color:'#8B83B7',
+    id:'boss',number:4,title:'Hari Pertama di Desa',npc:'Pak Wayan',voice:'Charon',color:'#8B83B7',
     subtitle:{id:'Percakapan tanpa petunjuk',en:'A conversation without hints'},
     role:{id:'Tetangga di pasar',en:'Neighbour at the market'},
     description:{id:'Bertemu Pak Wayan dalam satu percakapan utuh. Mulai dengan sapaan, perkenalkan diri, lalu ajak berbincang tentang belanja buah.',en:'Meet Pak Wayan in one complete conversation. Start with a greeting, introduce yourself, and talk about buying fruit.'},

@@ -40,6 +40,7 @@ import { Brand, EmptyState, Modal, Spinner, Stars } from "./ui";
 import { primeSpeechAudio } from "./use-audio";
 import { LessonPlayer } from "./lesson-player";
 import { useAmbience } from "./use-ambience";
+import { ProgressPath } from "./progress-path";
 import { AdminPanel } from "./admin-panel";
 type Screen = "map" | "album" | "journey" | "sources" | "profile" | "admin";
 const iconByLevel = {
@@ -73,6 +74,7 @@ export function NgraosApp() {
   const [smallScreen, setSmallScreen] = useState(false);
   const [characterSpeaking, setCharacterSpeaking] = useState(false);
   const [preferencesLoaded, setPreferencesLoaded] = useState(false);
+  const locationChosen = useRef(false);
   const navigation = useRef<HTMLElement | null>(null);
   const menuButton = useRef<HTMLButtonElement | null>(null);
   const content = useRef<HTMLElement | null>(null);
@@ -104,12 +106,14 @@ export function NgraosApp() {
     };
   }, [mobileMenu]);
   function chooseLocation(id: LevelId) {
+    locationChosen.current = true;
     setSelected(id);
     if (smallScreen)
       requestAnimationFrame(() =>
-        document
-          .querySelector(".mission-panel")
-          ?.scrollIntoView({ behavior: reduced ? "instant" : "smooth", block: "start" }),
+        document.querySelector(`[data-level-id="${id}"]`)?.scrollIntoView({
+          behavior: reduced ? "instant" : "smooth",
+          block: "start",
+        }),
       );
   }
   useAmbience(!preferencesLoaded || muted, Boolean(session));
@@ -121,7 +125,13 @@ export function NgraosApp() {
       );
       setPlayer(data.player);
       setAiReady(data.aiReady);
-      if (data.player) setLocale(data.player.locale);
+      if (data.player) {
+        setLocale(data.player.locale);
+        if (!locationChosen.current)
+          setSelected(
+            lessons.find((item) => !data.player!.stars[item.id])?.id || "boss",
+          );
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Tidak terhubung.");
     } finally {
@@ -247,7 +257,9 @@ export function NgraosApp() {
     setSession(null);
     setMobileMenu(false);
     setError("");
-    requestAnimationFrame(() => content.current?.focus({ preventScroll: true }));
+    requestAnimationFrame(() =>
+      content.current?.focus({ preventScroll: true }),
+    );
   }
   const nav = [
     { id: "map" as const, icon: Map, label: t("Petualangan", "Adventure") },
@@ -269,7 +281,7 @@ export function NgraosApp() {
   ];
   return (
     <div
-      className={`app-shell ${session ? "in-lesson" : ""} ${reduced ? "reduce-motion" : ""}`}
+      className={`app-shell ${session ? "in-lesson" : ""} ${session?.status === "quiz" ? "in-quiz" : ""} ${session?.status === "completed" ? "in-results" : ""} ${!session && screen === "map" ? "on-map" : ""} ${reduced ? "reduce-motion" : ""}`}
     >
       <aside
         id="village-navigation"
@@ -305,7 +317,10 @@ export function NgraosApp() {
           </button>
           <button
             className="icon-btn mobile-only"
-            onClick={() => { setMobileMenu(false); requestAnimationFrame(() => menuButton.current?.focus()); }}
+            onClick={() => {
+              setMobileMenu(false);
+              requestAnimationFrame(() => menuButton.current?.focus());
+            }}
             aria-label={t("Tutup menu", "Close menu")}
           >
             <X />
@@ -343,7 +358,11 @@ export function NgraosApp() {
               {t("Mulai dari satu sapaan.", "Start with a greeting.")}
             </span>
           </div>
-          <button className={`nav-item ${screen === "profile" && !session ? "active" : ""}`} aria-current={screen === "profile" && !session ? "page" : undefined} onClick={() => navigate("profile")}>
+          <button
+            className={`nav-item ${screen === "profile" && !session ? "active" : ""}`}
+            aria-current={screen === "profile" && !session ? "page" : undefined}
+            onClick={() => navigate("profile")}
+          >
             <Settings size={20} />
             {t("Pengaturan", "Settings")}
           </button>
@@ -368,7 +387,10 @@ export function NgraosApp() {
           className="sidebar-scrim"
           aria-hidden="true"
           tabIndex={-1}
-          onClick={() => { setMobileMenu(false); requestAnimationFrame(() => menuButton.current?.focus()); }}
+          onClick={() => {
+            setMobileMenu(false);
+            requestAnimationFrame(() => menuButton.current?.focus());
+          }}
         />
       ) : null}
       <div className="main-shell" inert={smallScreen && mobileMenu}>
@@ -377,20 +399,42 @@ export function NgraosApp() {
             <button
               ref={menuButton}
               className="icon-btn mobile-only"
-              onClick={() => session ? navigate("map") : setMobileMenu(true)}
+              onClick={() => (session ? navigate("map") : setMobileMenu(true))}
               aria-expanded={session ? undefined : mobileMenu}
               aria-controls={session ? undefined : "village-navigation"}
-              aria-label={session ? t("Kembali ke desa", "Back to village") : t("Buka menu", "Open menu")}
+              aria-label={
+                session
+                  ? t("Kembali ke desa", "Back to village")
+                  : t("Buka menu", "Open menu")
+              }
             >
               {session ? <ArrowLeft /> : <Menu />}
             </button>
             {session ? (
-              <div className={`conversation-identity mobile-only ${characterSpeaking ? "speaking" : ""}`}>
+              <div
+                className={`conversation-identity mobile-only ${characterSpeaking ? "speaking" : ""}`}
+              >
                 <img src={artByLevel[session.levelId]} alt="" />
-                <div><strong>{lessons.find(l=>l.id===session.levelId)?.npc}{characterSpeaking ? <span className="speaking-indicator" role="status">{t("Berbicara", "Speaking")}</span> : null}</strong><h1>{lessons.find(l=>l.id===session.levelId)?.title}</h1></div>
+                <div>
+                  <strong>
+                    {lessons.find((l) => l.id === session.levelId)?.npc}
+                    {characterSpeaking ? (
+                      <span className="speaking-indicator" role="status">
+                        {t("Berbicara", "Speaking")}
+                      </span>
+                    ) : null}
+                  </strong>
+                  <h1>
+                    {lessons.find((l) => l.id === session.levelId)?.title}
+                  </h1>
+                </div>
               </div>
             ) : (
-              <button className="mobile-brand mobile-only unstyled" onClick={() => navigate("map")} aria-label={t("Ngraos beranda", "Ngraos home")}>
+              <button
+                className="mobile-brand mobile-only unstyled"
+                onClick={() => navigate("map")}
+                aria-label={t("Ngraos beranda", "Ngraos home")}
+              >
                 <Brand small />
               </button>
             )}
@@ -406,7 +450,10 @@ export function NgraosApp() {
             </span>
           </div>
           <div className="topbar-right">
-            <span className="stat-pill streak" aria-label={`${player?.streak || 0} ${t("hari berturut-turut", "day streak")}`}>
+            <span
+              className="stat-pill streak"
+              aria-label={`${player?.streak || 0} ${t("hari berturut-turut", "day streak")}`}
+            >
               <Flame size={17} />
               {player?.streak || 0}
               <span>{t("hari", "days")}</span>
@@ -428,7 +475,11 @@ export function NgraosApp() {
               className="icon-btn sound-btn"
               onClick={() => setMuted(!muted)}
               aria-pressed={!muted}
-              aria-label={muted ? t("Aktifkan suara", "Enable sound") : t("Matikan suara", "Mute sound")}
+              aria-label={
+                muted
+                  ? t("Aktifkan suara", "Enable sound")
+                  : t("Matikan suara", "Mute sound")
+              }
             >
               {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
             </button>
@@ -449,7 +500,12 @@ export function NgraosApp() {
             )}
           </div>
         </header>
-        <main ref={content} tabIndex={-1} className="main-content" id="main-content">
+        <main
+          ref={content}
+          tabIndex={-1}
+          className="main-content"
+          id="main-content"
+        >
           {error ? (
             <div className="error-banner" role="alert">
               {error}
@@ -479,11 +535,20 @@ export function NgraosApp() {
           ) : null}
           {session ? (
             <LessonPlayer
+              key={session.id}
               session={session}
               onSession={setSession}
               locale={locale}
               muted={muted}
               onSpeaking={setCharacterSpeaking}
+              navigationBusy={busy}
+              onToggleMute={() => setMuted(!muted)}
+              onNext={(id) =>
+                void begin(lessons.find((item) => item.id === id)!)
+              }
+              onReplay={() =>
+                void begin(lessons.find((item) => item.id === session.levelId)!)
+              }
               onDone={async () => {
                 setSession(null);
                 await refresh();
@@ -527,6 +592,15 @@ export function NgraosApp() {
                       <span>{t("lokasi dijelajahi", "places explored")}</span>
                     </div>
                   </section>
+                  <ProgressPath
+                    player={player}
+                    selected={selected}
+                    locale={locale}
+                    busy={busy || !ready}
+                    onSelect={chooseLocation}
+                    onStart={(l) => void begin(l)}
+                    onResume={() => void resume()}
+                  />
                   <div className="adventure-grid">
                     <section
                       className="village-panel"
@@ -535,90 +609,103 @@ export function NgraosApp() {
                         "Interactive Kenderan Village map",
                       )}
                     >
-                      <div className="map-topline">
-                        <span className="map-title">
-                          <span className="online-dot" />
-                          {t("DESA KENDERAN", "KENDERAN VILLAGE")}
-                        </span>
-                        <span className="map-weather">
-                          ☀{" "}
-                          <span>
-                            {t("Pagi di Kenderan", "Morning in Kenderan")}
+                      <details className="map-disclosure" open={!smallScreen}>
+                        <summary>
+                          <Map size={18} />
+                          {t(
+                            "Lihat peta Desa Kenderan",
+                            "See the Kenderan Village map",
+                          )}
+                          <ChevronRight size={16} />
+                        </summary>
+                        <div className="map-topline">
+                          <span className="map-title">
+                            <span className="online-dot" />
+                            {t("DESA KENDERAN", "KENDERAN VILLAGE")}
                           </span>
-                        </span>
-                      </div>
-                      <div className="village-map">
-                        <img
-                          className="village-art"
-                          src="/images/desa-bali.webp"
-                          alt={t(
-                            "Ilustrasi desa Bali dengan warung, rumah kos, pasar, dan aliran sungai",
-                            "Illustrated Balinese village with a warung, guesthouse, market, and stream",
-                          )}
-                          fetchPriority="high"
-                        />
-                        <div className="map-cloud cloud-one" />
-                        <div className="map-cloud cloud-two" />
-                        {lessons.map((l, i) => (
-                          <button
-                            key={l.id}
-                            className={`map-marker marker-${l.id} ${selected === l.id ? "selected" : ""} ${unlocked(l.id) ? "available" : "locked"}`}
-                            onClick={() => chooseLocation(l.id)}
-                            aria-pressed={selected === l.id}
-                            aria-label={`${l.title}, ${unlocked(l.id) ? t("terbuka", "unlocked") : t("terkunci", "locked")}`}
-                          >
-                            <span className="marker-dot">
-                              {unlocked(l.id) ? (
-                                player?.stars[l.id] ? (
-                                  <Check size={19} />
+                          <span className="map-weather">
+                            ☀{" "}
+                            <span>
+                              {t("Pagi di Kenderan", "Morning in Kenderan")}
+                            </span>
+                          </span>
+                        </div>
+                        <div className="village-map">
+                          <img
+                            className="village-art"
+                            src="/images/desa-bali.webp"
+                            alt={t(
+                              "Ilustrasi desa Bali dengan warung, rumah kos, pasar, dan aliran sungai",
+                              "Illustrated Balinese village with a warung, guesthouse, market, and stream",
+                            )}
+                            fetchPriority="high"
+                          />
+                          <div className="map-cloud cloud-one" />
+                          <div className="map-cloud cloud-two" />
+                          {lessons.map((l, i) => (
+                            <button
+                              key={l.id}
+                              className={`map-marker marker-${l.id} ${selected === l.id ? "selected" : ""} ${unlocked(l.id) ? "available" : "locked"}`}
+                              onClick={() => chooseLocation(l.id)}
+                              aria-pressed={selected === l.id}
+                              aria-label={`${l.title}, ${unlocked(l.id) ? t("terbuka", "unlocked") : t("terkunci", "locked")}`}
+                            >
+                              <span className="marker-dot">
+                                {unlocked(l.id) ? (
+                                  player?.stars[l.id] ? (
+                                    <Check size={19} />
+                                  ) : (
+                                    i + 1
+                                  )
                                 ) : (
-                                  i + 1
-                                )
-                              ) : (
-                                <LockKeyhole size={15} />
-                              )}
-                            </span>
-                            <span className="marker-label">
-                              {l.title}
-                              {selected === l.id ? (
-                                <ChevronRight size={13} />
-                              ) : null}
-                            </span>
-                            {selected === l.id ? (
-                              <span className="marker-here">
-                                {t("Jelajahi di sini", "Explore here")}
+                                  <LockKeyhole size={15} />
+                                )}
                               </span>
-                            ) : null}
-                          </button>
-                        ))}
-                        <span className="map-compass">
-                          <Compass size={33} strokeWidth={1.2} />
-                          <small>U</small>
-                        </span>
-                        <span className="map-caption">
-                          {t(
-                            "Pilih penanda untuk melihat lokasi.",
-                            "Select a marker to explore a location.",
-                          )}
-                        </span>
-                      </div>
-                      <div className="map-bottom">
-                        <span>
-                          <span className="legend-dot green" />
-                          {t("Siap dijelajahi", "Ready to explore")}
-                        </span>
-                        <span>
-                          <span className="legend-dot pale" />
-                          {t("Selesaikan lokasi sebelumnya", "Complete the previous location")}
-                        </span>
-                        <span className="map-bottom-end">
-                          <Sprout size={14} />
-                          {t(
-                            "Petualanganmu dimulai di sini",
-                            "Your adventure starts here",
-                          )}
-                        </span>
-                      </div>
+                              <span className="marker-label">
+                                {l.title}
+                                {selected === l.id ? (
+                                  <ChevronRight size={13} />
+                                ) : null}
+                              </span>
+                              {selected === l.id ? (
+                                <span className="marker-here">
+                                  {t("Jelajahi di sini", "Explore here")}
+                                </span>
+                              ) : null}
+                            </button>
+                          ))}
+                          <span className="map-compass">
+                            <Compass size={33} strokeWidth={1.2} />
+                            <small>U</small>
+                          </span>
+                          <span className="map-caption">
+                            {t(
+                              "Pilih penanda untuk melihat lokasi.",
+                              "Select a marker to explore a location.",
+                            )}
+                          </span>
+                        </div>
+                        <div className="map-bottom">
+                          <span>
+                            <span className="legend-dot green" />
+                            {t("Siap dijelajahi", "Ready to explore")}
+                          </span>
+                          <span>
+                            <span className="legend-dot pale" />
+                            {t(
+                              "Selesaikan lokasi sebelumnya",
+                              "Complete the previous location",
+                            )}
+                          </span>
+                          <span className="map-bottom-end">
+                            <Sprout size={14} />
+                            {t(
+                              "Petualanganmu dimulai di sini",
+                              "Your adventure starts here",
+                            )}
+                          </span>
+                        </div>
+                      </details>
                     </section>
                     <aside className="mission-panel">
                       <div className="mission-kicker">
@@ -775,8 +862,12 @@ export function NgraosApp() {
                               "Pick up your last conversation right where you left off.",
                             )
                           : t(
-                              player?.streak ? "Selesaikan satu latihan lagi untuk menambah XP." : "Selesaikan satu latihan untuk memulai streak harian.",
-                              player?.streak ? "Complete another lesson to earn more XP." : "Complete a lesson to start your daily streak.",
+                              player?.streak
+                                ? "Selesaikan satu latihan lagi untuk menambah XP."
+                                : "Selesaikan satu latihan untuk memulai streak harian.",
+                              player?.streak
+                                ? "Complete another lesson to earn more XP."
+                                : "Complete a lesson to start your daily streak.",
                             )}
                       </p>
                     </div>
@@ -948,6 +1039,35 @@ export function NgraosApp() {
             <ArrowUpRight size={12} />
           </button>
         </footer>
+        {!session ? (
+          <nav
+            className="mobile-dock"
+            aria-label={t("Navigasi cepat", "Quick navigation")}
+          >
+            {[
+              { id: "map" as const, label: t("Peta", "Map"), icon: Map },
+              {
+                id: "sources" as const,
+                label: t("Kosakata", "Vocabulary"),
+                icon: BookOpen,
+              },
+              {
+                id: "profile" as const,
+                label: t("Profil", "Profile"),
+                icon: Settings,
+              },
+            ].map((item) => (
+              <button
+                key={item.id}
+                aria-current={screen === item.id ? "page" : undefined}
+                onClick={() => navigate(item.id)}
+              >
+                <item.icon size={22} />
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </nav>
+        ) : null}
       </div>
       {toast ? (
         <div className="toast" role="status">
@@ -1252,11 +1372,27 @@ function Sources({ locale }: { locale: Locale }) {
         />
       </div>
       <p className="search-count" role="status">
-        {search.trim() ? t(`${filtered.length} kata ditemukan`, `${filtered.length} words found`) : t("Cari dalam bahasa Bali, Indonesia, atau Inggris.", "Search in Balinese, Indonesian, or English.")}
+        {search.trim()
+          ? t(
+              `${filtered.length} kata ditemukan`,
+              `${filtered.length} words found`,
+            )
+          : t(
+              "Cari dalam bahasa Bali, Indonesia, atau Inggris.",
+              "Search in Balinese, Indonesian, or English.",
+            )}
       </p>
       {!filtered.length ? (
-        <EmptyState title={t("Kata belum ditemukan", "No matching words")} description={t("Coba ejaan lain atau cari artinya dalam bahasa Indonesia.", "Try a different spelling or search for its meaning in English.")}>
-          <button className="btn subtle" onClick={() => setSearch("")}>{t("Lihat semua kata", "Show all words")}</button>
+        <EmptyState
+          title={t("Kata belum ditemukan", "No matching words")}
+          description={t(
+            "Coba ejaan lain atau cari artinya dalam bahasa Indonesia.",
+            "Try a different spelling or search for its meaning in English.",
+          )}
+        >
+          <button className="btn subtle" onClick={() => setSearch("")}>
+            {t("Lihat semua kata", "Show all words")}
+          </button>
         </EmptyState>
       ) : null}
       <div className="dictionary-grid">
@@ -1526,7 +1662,14 @@ function Setting({
         <strong id={labelId}>{title}</strong>
         <p id={detailId}>{detail}</p>
       </div>
-      <button className="setting-toggle" onClick={onClick} aria-labelledby={labelId} aria-describedby={detailId} role={checked === undefined ? undefined : "switch"} aria-checked={checked}>
+      <button
+        className="setting-toggle"
+        onClick={onClick}
+        aria-labelledby={labelId}
+        aria-describedby={detailId}
+        role={checked === undefined ? undefined : "switch"}
+        aria-checked={checked}
+      >
         {value}
       </button>
     </div>

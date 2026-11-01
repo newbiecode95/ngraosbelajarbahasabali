@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01T01:13:56.329Z",
+  "environment": "https://ngraos.docker.anatera.app",
+  "checks": {
+    "concurrentCanonicalHint": true,
+    "realConversationObjectives": true,
+    "uncheckedAnswersPrivate": true,
+    "firstAnswerRetainedAfterRetryAndResume": true,
+    "allAnswersSaved": true,
+    "checkedAnswerWav": true,
+    "concurrentCompletionIdempotent": true,
+    "nextLocationStarted": true
+  },
+  "notes": [
+    "One isolated sequential real-provider session, not a load benchmark.",
+    "Typed phrases and generated WAV, not physical microphone or language-accuracy certification."
+  ],
+  "result": {
+    "stars": 2,
+    "quizScore": 2,
+    "quizTotal": 5,
+    "xp": 120
+  },
+  "temporaryDemoDeleted": true
+}

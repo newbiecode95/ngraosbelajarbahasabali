@@ -15,11 +15,11 @@ test('welcome explains the game, transitions into the village, and refresh stays
   await expect(page.getByRole('button',{name:'Masuk ke desa…',exact:true})).toBeDisabled();
   await expect(page.locator('.welcome__entry-status')).toBeVisible();
   await expect(page).toHaveURL(/\/desa$/);
-  await expect(page.getByRole('heading',{name:'Ayo latihan Basa Bali.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:/^(Ayo latihan\s*Basa Bali\.|Tamiu)$/}).filter({visible:true}).first()).toBeVisible();
   await page.goBack();await expect(page.getByRole('heading',{name:'Dari Tamiu jadi Nyama.'})).toBeVisible();
   await expect(page.getByRole('button',{name:'Mulai',exact:true})).toBeEnabled();
   await page.getByRole('button',{name:'Mulai',exact:true}).click();await expect(page).toHaveURL(/\/desa$/);
-  await page.reload();await expect(page.getByRole('heading',{name:'Ayo latihan Basa Bali.'})).toBeVisible();
+  await page.reload();await expect(page.getByRole('heading',{name:/^(Ayo latihan\s*Basa Bali\.|Tamiu)$/}).filter({visible:true}).first()).toBeVisible();
 });
 
 test('welcome supports English, keyboard entry and reduced motion',async({page})=>{
@@ -30,7 +30,7 @@ test('welcome supports English, keyboard entry and reduced motion',async({page})
   expect(await page.locator('.welcome__picture').evaluate(el=>getComputedStyle(el).transform)).toBe('none');
   await page.getByRole('button',{name:'Begin',exact:true}).focus();await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/desa$/);
-  await expect(page.getByRole('heading',{name:'Let’s practise Balinese.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:/^(Let’s practise\s*Balinese\.|Tamiu)$/}).filter({visible:true}).first()).toBeVisible();
 });
 
 test('welcome fits small screens without horizontal overflow',async({page},info)=>{

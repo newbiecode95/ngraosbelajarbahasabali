@@ -1,3 +1,11 @@
+# Browser acceptance update — guided gameplay
+
+Release `20261101-v4-guided-gameplay`: local full regression **56 passed, 10 skipped, zero failed**. The additional two skips keep the deterministic mockup screenshot set in one project; four other skips avoid duplicate viewport matrices, and four cover absent Windows WebKit media APIs. All three engines exercise sourced hint persistence, checked quiz resume, next/replay, and Kos/Pasar/Boss continuation. The mockup fixture checks the visible stalled-goal notice and responsive result actions. **53 unit/PostgreSQL checks** and TypeScript passed. [Current verification and visual comparisons](../../docs/gameplay-guide/README.md).
+
+Focused production HTTPS regression: **25 passed, two duplicate capture skips, zero failures**. A separate isolated real-provider API probe passed all eight persistence, scoring, audio and continuation checks, then deleted its demo.
+
+The results below describe earlier releases.
+
 # Browser acceptance update — mobile conversation
 
 Release `20261101-v3.2-mobile-chat`: local full regression **40 passed, 8 skipped, 0 failed**. Focused HTTPS production regression **11 passed, 1 media skip, 0 failed**. The new photo-like fixture checks a completed conversation at 393 × 690, folded goals, history taking more than 55% of screen height, hidden malformed AI text and a repair that recovers after a failed attempt. All 48 unit/PostgreSQL tests passed. See [mobile correction notes](../../docs/mobile-fix/README.md).

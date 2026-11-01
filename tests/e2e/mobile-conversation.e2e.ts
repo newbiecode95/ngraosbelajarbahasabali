@@ -22,11 +22,11 @@ test('phone conversation gives history most of the screen and repairs a legacy b
   await expect(page.locator('.scene-panel')).not.toBeVisible();
   await expect(page.locator('.conversation-identity')).toContainText('Men Sari');
   await expect(page.locator('.topbar .xp')).not.toBeVisible();
-  await expect(page.locator('.mission-tracker')).not.toHaveAttribute('open', '');
+  await expect(page.locator('.mission-checklist')).not.toHaveAttribute('open', '');
   await expect(page.locator('.npc-message').filter({ hasText: '茶' })).toHaveCount(0);
   const history = await page.locator('.conversation-history').boundingBox();
   expect(history!.height).toBeGreaterThan(690 * .55);
-  const targets = page.locator('.mission-tracker summary');
+  const targets = page.locator('.mission-checklist summary');
   await targets.click(); await expect(page.getByText('Ucapkan terima kasih', { exact: true })).toBeVisible();
   await targets.click();
   await page.getByRole('button', { name: 'Perbaiki balasan', exact: true }).click();
@@ -36,6 +36,6 @@ test('phone conversation gives history most of the screen and repairs a legacy b
   await expect(page.getByText('Rahajeng semeng. Jagi ngopi napi teh?', { exact: true })).toBeVisible();
   expect(repairs).toBe(2);
   await expect(page.getByRole('button', { name: 'Buka kuis', exact: true })).toBeInViewport();
-  await expect(page.locator('.mission-tracker summary')).toContainText('3/3');
+  await expect(page.locator('.mission-checklist summary')).toContainText('3/3');
   await page.screenshot({ path: info.outputPath('mobile-conversation.png'), fullPage: false });
 });
