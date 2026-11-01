@@ -41,6 +41,7 @@ import { primeSpeechAudio } from "./use-audio";
 import { LessonPlayer } from "./lesson-player";
 import { useAmbience } from "./use-ambience";
 import { ProgressPath } from "./progress-path";
+import { useEntryJourney } from "./entry-journey";
 import { AdminPanel } from "./admin-panel";
 type Screen = "map" | "album" | "journey" | "sources" | "profile" | "admin";
 const iconByLevel = {
@@ -56,6 +57,7 @@ const artByLevel = {
   boss: "/images/wayan.webp",
 };
 export function NgraosApp() {
+  const { villageReady } = useEntryJourney();
   const [locale, setLocale] = useState<Locale>("id"),
     [player, setPlayer] = useState<Player | null>(null),
     [aiReady, setAiReady] = useState(true),
@@ -74,6 +76,9 @@ export function NgraosApp() {
   const [smallScreen, setSmallScreen] = useState(false);
   const [characterSpeaking, setCharacterSpeaking] = useState(false);
   const [preferencesLoaded, setPreferencesLoaded] = useState(false);
+  useEffect(() => {
+    if (ready) villageReady();
+  }, [ready, villageReady]);
   const locationChosen = useRef(false);
   const navigation = useRef<HTMLElement | null>(null);
   const menuButton = useRef<HTMLButtonElement | null>(null);

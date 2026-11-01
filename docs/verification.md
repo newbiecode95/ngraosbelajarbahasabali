@@ -1,3 +1,7 @@
+# Main welcome and Bali arrival — 20261101-v4.1-welcome-journey
+
+Current UI changes are limited to the main welcome screen and its arrival transition. TypeScript and **60 browser checks** passed locally; 12 cases have explicit skip reasons. See [current welcome verification](welcome-v2/README.md) for phone/desktop captures, geographic map attribution and production checks. The backend, language adapters and reward logic are unchanged by this release.
+
 # Guided gameplay — 20261101-v4-guided-gameplay
 
 The latest task adds persistent step instructions and optional sourced phrase examples, the mobile learning path, immediate saved quiz feedback, and direct next/replay. TypeScript and **53 unit/PostgreSQL checks** passed. Current browser, deployment and visual evidence is in [guided gameplay verification](gameplay-guide/README.md); the [visual QA report](../design-qa.md) compares all four supplied mockup screens. Results below are historical measurements, not fresh load or latency guarantees.

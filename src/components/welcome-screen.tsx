@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-  ArrowDown,
   ArrowRight,
   BookOpen,
   Compass,
@@ -14,16 +13,17 @@ import {
 } from "lucide-react";
 import { Brand } from "./ui";
 import { primeSpeechAudio } from "./use-audio";
+import { useEntryJourney } from "./entry-journey";
 import type { Locale } from "@/lib/types";
 
 export function WelcomeScreen() {
   const router = useRouter();
+  const { enter } = useEntryJourney();
   const [quiet, setQuiet] = useState(false);
   const [ready, setReady] = useState(false);
   const [locale, setLocale] = useState<Locale>("id"),
     [entering, setEntering] = useState(false);
   const scene = useRef<HTMLDivElement | null>(null),
-    timer = useRef<ReturnType<typeof setTimeout> | null>(null),
     started = useRef(false);
   const t = (id: string, en: string) => (locale === "id" ? id : en);
   useEffect(() => {
@@ -40,9 +40,6 @@ export function WelcomeScreen() {
       setQuiet(Boolean(preferences.reduced));
       if (preferences.locale === "en") setLocale("en");
     } catch {}
-    return () => {
-      if (timer.current) clearTimeout(timer.current);
-    };
   }, [router]);
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -74,37 +71,23 @@ export function WelcomeScreen() {
             .reduced,
         );
     } catch {}
-    scene.current?.style.setProperty(
-      "--entry-duration",
-      reduce ? "140ms" : "1400ms",
-    );
-    if (reduce) scene.current?.classList.add("welcome--reduced");
-    timer.current = setTimeout(() => router.push("/desa"), reduce ? 120 : 1300);
+    enter(locale, reduce);
   }
   const steps = [
     {
       icon: Compass,
       title: t("Pilih lokasi", "Pick a place"),
-      text: t(
-        "Temui warga di warung, kos, dan pasar.",
-        "Meet the neighbours at the warung, guesthouse, and market.",
-      ),
+      text: t("Warung, kos, dan pasar.", "Warung, home, market."),
     },
     {
       icon: Mic,
       title: t("Mulai ngobrol", "Start talking"),
-      text: t(
-        "Bicara atau ketik. Dengarkan balasan mereka.",
-        "Speak or type, then listen to their reply.",
-      ),
+      text: t("Bicara atau ketik.", "Speak or type."),
     },
     {
       icon: BookOpen,
       title: t("Selesaikan kuis", "Make it stick"),
-      text: t(
-        "Latih yang baru dipelajari, lalu buka lokasi berikutnya.",
-        "Practise what you learned and unlock the next location.",
-      ),
+      text: t("Kuis, lalu lanjut.", "Quiz, then explore."),
     },
   ];
   return (
@@ -135,6 +118,7 @@ export function WelcomeScreen() {
         e.currentTarget.style.setProperty("--drift-y", "0px");
       }}
     >
+      <link rel="preload" as="image" href="/images/bali-map.svg" />
       <picture className="welcome__picture">
         <source
           media="(max-width:760px)"
@@ -191,8 +175,8 @@ export function WelcomeScreen() {
           </h1>
           <p className="welcome__description">
             {t(
-              "Belajar Basa Bali lewat percakapan. Temui warga desa dan coba bahasa yang dipakai sehari-hari.",
-              "Learn Balinese through conversation. Meet the villagers and try the language of everyday life.",
+              "Belajar Basa Bali lewat percakapan. Sapa warga dan mulai cerita pertamamu.",
+              "Learn Balinese through conversation. Meet the neighbours and start your first story.",
             )}
           </p>
           <button
@@ -215,13 +199,6 @@ export function WelcomeScreen() {
             <span />
             3–5 {t("menit per latihan", "minutes per lesson")}
           </div>
-          <a
-            className="welcome__scroll"
-            href="#cara-bermain"
-            aria-label={t("Lihat cara bermain", "See how to play")}
-          >
-            <ArrowDown size={15} />
-          </a>
         </section>
         <section
           className="welcome__guide"
@@ -258,13 +235,6 @@ export function WelcomeScreen() {
           )}
         </span>
       </footer>
-      <div className="welcome__entry-light" aria-hidden="true" />
-      {entering ? (
-        <div className="welcome__entry-status" role="status">
-          <span />
-          {t("Membuka Desa Kenderan", "Opening Kenderan Village")}
-        </div>
-      ) : null}
     </div>
   );
 }

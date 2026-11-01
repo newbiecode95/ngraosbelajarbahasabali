@@ -1,3 +1,9 @@
+# Latest visual QA — one-screen welcome
+
+final result: passed
+
+The current change is limited to the main welcome screen and its Bali arrival transition, following the user's explicit “The main screen only” clarification. The current visual evidence, viewport checks, five fidelity surfaces, resolved issues and intentional changes from the user's phone photos are recorded in [welcome v2 QA](docs/welcome-v2/README.md). Phone and desktop captures were opened and inspected, and the actual map component's point movement was checked in Chromium and WebKit. The prior guided-gameplay comparison below is retained as historical evidence for the unchanged learning flow.
+
 # Guided gameplay — visual QA
 
 final result: passed

@@ -1,6 +1,6 @@
 # Visual and audio assets
 
-The original images were generated for Ngraos with the built-in OpenAI image-generation tool (`image_gen`), then copied into the project and encoded as WebP with Sharp. No stock-photo, Google Images, or third-party game assets are bundled. Runtime language AI and character speech use OpenRouter; artwork generation during development is separate from application runtime.
+The original illustrations were generated for Ngraos with the built-in OpenAI image-generation tool (`image_gen`), then copied into the project and encoded as WebP with Sharp. No stock-photo or third-party game artwork is bundled. The geographic map is credited separately below. Runtime language AI and character speech use OpenRouter; artwork generation during development is separate from application runtime.
 
 | Asset | Purpose | Published file |
 |---|---|---|
@@ -32,3 +32,9 @@ The quiet stream/wind atmosphere is synthesized locally with Web Audio noise and
 DM Sans Variable and Outfit Variable are bundled through `@fontsource-variable` packages with their included open-font license files. Lucide provides the interface icons under its ISC license. Learning-text attribution and share-alike terms are separate; see `src/content/README.md`.
 
 The welcome screen adds an illustrated gateway in `public/images/welcome-kenderan.webp` and a smaller mobile variant. Generation prompt and credits: [welcome/artwork.md](welcome/artwork.md).
+
+## Bali arrival map
+
+`public/images/bali-map.svg` uses the Bali and Nusa Penida coastline polygons from [Natural Earth 1:10m admin-0 country data](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_10m_admin_0_countries.geojson), cropped and projected into an 800 × 560 SVG. [Natural Earth data is public domain](https://www.naturalearthdata.com/about/terms-of-use/). Original data authors include Tom Patterson, Nathaniel Vaughn Kelso and contributors. This is geographic vector data, not a generated or hand-drawn island silhouette.
+
+The Kenderan marker uses longitude 115.28955, latitude -8.455958, published by the [Indonesian Ministry of Tourism's village profile](https://jadesta.kemenpar.go.id/desa/20864). The same projection places it at (514.43, 278.11). The dotted route is an illustrative arrival animation, not road directions or the player's actual location. No geolocation permission, mapping SDK or map service request is used at runtime.

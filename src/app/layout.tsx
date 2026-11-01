@@ -7,6 +7,7 @@ import "./globals.css";
 import "./refinements.css";
 import "./gameplay.css";
 import "./welcome.css";
+import { EntryJourneyProvider } from "@/components/entry-journey";
 export const metadata: Metadata = {
   title: "Ngraos! — Dari Tamiu jadi Nyama",
   description:
@@ -31,7 +32,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           Langsung ke konten
         </a>
-        {children}
+        <EntryJourneyProvider>{children}</EntryJourneyProvider>
       </body>
     </html>
   );

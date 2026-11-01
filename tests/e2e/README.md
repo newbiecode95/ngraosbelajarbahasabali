@@ -1,4 +1,10 @@
+# Browser acceptance update — one-screen welcome and Bali arrival
+
+Release `20261101-v4.1-welcome-journey`: **60 local passes, 12 explicit skips, zero failures**. Four skips concern unavailable Windows WebKit media APIs; eight avoid duplicate viewport/capture/recovery matrices. The welcome tests require the intro, CTA, three steps and footer to fit one screen at nine phone/tablet/desktop sizes, in both languages. They measure the moving map point, hold profile readiness to check the persistent overlay, verify reduced motion/focus, and recover from slow loads or back navigation during entry. [Current visual and release verification](../../docs/welcome-v2/README.md).
+
 # Browser acceptance update — guided gameplay
+
+The current welcome release also passed **11 HTTPS welcome checks**, with four duplicate matrix/recovery skips. Production build, container health and the pre-update backup checksum passed.
 
 Release `20261101-v4-guided-gameplay`: local full regression **56 passed, 10 skipped, zero failed**. The additional two skips keep the deterministic mockup screenshot set in one project; four other skips avoid duplicate viewport matrices, and four cover absent Windows WebKit media APIs. All three engines exercise sourced hint persistence, checked quiz resume, next/replay, and Kos/Pasar/Boss continuation. The mockup fixture checks the visible stalled-goal notice and responsive result actions. **53 unit/PostgreSQL checks** and TypeScript passed. [Current verification and visual comparisons](../../docs/gameplay-guide/README.md).
 

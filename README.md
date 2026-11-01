@@ -2,7 +2,7 @@
 
 An interactive Balinese language adventure in **Desa Kenderan**, deployed with Docker at **https://ngraos.docker.anatera.app**. Four connected encounters take the player from a first greeting to a complete conversation: Warung Men Sari, Kos Bu Komang, Pasar Pagi, and the chapter boss.
 
-The home page now opens with a cinematic welcome screen. Select **Mulai** to enter `/desa`; refreshing the village keeps you inside the app. See [welcome screen verification and art credits](docs/welcome/README.md).
+The home page opens with a cinematic welcome screen that fits the title, start action and three instructions in one viewport. Select **Mulai** to follow the animated Bali map into Desa Kenderan; refreshing the village keeps you inside the app. See [current welcome/arrival verification](docs/welcome-v2/README.md) and [original art credits](docs/welcome/README.md).
 
 ## Implemented experience
 
