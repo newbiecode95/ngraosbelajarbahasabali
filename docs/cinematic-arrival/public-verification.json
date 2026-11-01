@@ -20,7 +20,7 @@
   "assets": {
     "status": 200,
     "type": "image/svg+xml",
-    "bytes": 5679
+    "bytes": 5681
   },
   "health": {
     "status": "ok",
@@ -28,5 +28,9 @@
     "aiReady": true,
     "corpusEntries": 285,
     "version": "0.1.0"
+  },
+  "palette": {
+    "background": "rgb(245, 239, 223)",
+    "theme": "parchment with forest-green text and warm gold accents"
   }
 }

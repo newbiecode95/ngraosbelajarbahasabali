@@ -11,12 +11,12 @@
  <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.8"><feGaussianBlur stdDeviation="13"/></filter>
  <filter id="mountain-shadow" x="-.5" y="-.5" width="2" height="2"><feDropShadow dx="8" dy="12" stdDeviation="5" flood-color="#0b3d2e" flood-opacity=".45"/></filter>
 </defs>
-<g fill="none" stroke="#b7dfd0" opacity=".11" stroke-width="1">
+<g fill="none" stroke="#a68b50" opacity=".20" stroke-width="1">
  <ellipse cx="406" cy="335" rx="360" ry="170" transform="rotate(9 406 335)"/>
  <ellipse cx="406" cy="335" rx="390" ry="195" transform="rotate(9 406 335)"/>
  <path d="M10 355 Q175 280 330 402 T790 410 M10 390 Q175 315 330 437 T790 445 M30 55 Q160 12 300 60 T740 35"/>
 </g>
-<use href="#coast" transform="translate(4 40)" fill="#010f17" opacity=".7" filter="url(#shadow)"/>
+<use href="#coast" transform="translate(4 40)" fill="#4e5434" opacity=".3" filter="url(#shadow)"/>
 <use href="#coast" transform="translate(0 24)" fill="#123e34" stroke="#397061" stroke-width="2"/>
 <use href="#coast" transform="translate(0 18)" fill="url(#edge)" stroke="#73936b" stroke-width="1.2"/>
 <use href="#coast" transform="translate(0 10)" fill="#426b4b" stroke="#b5b783" stroke-width="1"/>

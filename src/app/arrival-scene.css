@@ -1,7 +1,7 @@
 .entry-journey,
 .village-loading {
-  background: #071f25;
-  color: #f8eed4;
+  background: #f5efdf;
+  color: #2b513b;
 }
 .bali-journey {
   position: relative;
@@ -20,7 +20,7 @@
   content: "";
   position: absolute;
   inset: 14px;
-  border: 1px solid #d9c08b20;
+  border: 1px solid #b99d6245;
   border-radius: 3px;
   pointer-events: none;
 }
@@ -33,12 +33,12 @@
   background:
     radial-gradient(
       ellipse at 62% 48%,
-      #24574c 0%,
-      #103b3a55 36%,
+      #fffdf4 0%,
+      #fff8e266 36%,
       transparent 65%
     ),
-    radial-gradient(ellipse at 15% 45%, #184253 0%, transparent 65%),
-    linear-gradient(135deg, #09262a, #0e3434 52%, #061b23);
+    radial-gradient(ellipse at 15% 45%, #e8d7a44d 0%, transparent 65%),
+    linear-gradient(135deg, #f5efdf, #f8f2e3 52%, #efe5cc);
 }
 .bali-journey__aurora {
   position: absolute;
@@ -46,9 +46,9 @@
   background: conic-gradient(
     from 120deg at 50% 50%,
     transparent 0deg,
-    #bcba7330 24deg,
+    #ddbd7526 24deg,
     transparent 47deg,
-    #4a8f6b20 75deg,
+    #92a57416 75deg,
     transparent 100deg
   );
   filter: blur(24px);
@@ -59,8 +59,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(#a3beac07 1px, transparent 1px),
-    linear-gradient(90deg, #a3beac07 1px, transparent 1px);
+    linear-gradient(#917d4b0a 1px, transparent 1px),
+    linear-gradient(90deg, #917d4b0a 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at center, #000, transparent 76%);
   transform: perspective(800px) rotateX(22deg) scale(1.15);
@@ -70,8 +70,8 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #f1d5a1;
-  box-shadow: 0 0 12px #ebca83;
+  background: #b68b37;
+  box-shadow: 0 0 12px #d5ad6255;
   animation: arrival-dust 7s ease-in-out infinite;
   opacity: 0;
 }
@@ -84,18 +84,18 @@
   padding: 0 8px;
 }
 .bali-journey__topline .brand {
-  color: #fff2d4;
+  color: #315841;
   font-size: 26px;
   letter-spacing: -1px;
 }
 .bali-journey__topline .brand-mark,
 .bali-journey__topline .brand-bang {
-  color: #e6c786;
+  color: #a67b32;
 }
 .bali-journey__topline > span {
   font-size: 9px;
   letter-spacing: 3px;
-  color: #d8d6b5a3;
+  color: #6b5e42;
 }
 .bali-journey__body {
   position: relative;
@@ -116,12 +116,12 @@
   gap: 12px;
   font-size: 9px;
   letter-spacing: 3px;
-  color: #d5cfaba3;
+  color: #75603b;
 }
 .bali-journey__chapter > span {
   width: 28px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #d8bb75);
+  background: linear-gradient(90deg, transparent, #ac8a49);
 }
 .bali-journey__chapter > span:last-child {
   transform: rotate(180deg);
@@ -130,10 +130,10 @@
   font:
     600 clamp(48px, 6.6vw, 82px) / 1.02 "Cormorant Garamond",
     serif;
-  color: #fff3da;
+  color: #2b513b;
   letter-spacing: -1.4px;
   margin: 20px 0 12px;
-  text-shadow: 0 3px 35px #0005;
+  text-shadow: 0 2px 24px #fffaf0b3;
 }
 .bali-journey__heading h1 > small {
   display: block;
@@ -143,11 +143,11 @@
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 9px;
-  color: #e3d7b9;
+  color: #5a674f;
 }
 .bali-journey__heading h1 em {
   font-weight: 600;
-  color: #f1d391;
+  color: #9d742c;
 }
 .bali-journey__heading p {
   display: flex;
@@ -155,13 +155,13 @@
   justify-content: center;
   gap: 10px;
   font-size: 12px;
-  color: #c1c8b7;
+  color: #58654f;
 }
 .bali-journey__heading p > span {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #cdb47c;
+  background: #ab8b49;
 }
 .bali-journey__map {
   width: min(860px, 100%, 72dvh);
@@ -179,13 +179,13 @@
   height: 100%;
   max-height: none;
   object-fit: contain;
-  filter: drop-shadow(0 28px 30px #0006);
+  filter: drop-shadow(0 20px 24px #5d583324);
 }
 .bali-journey__ocean-glow {
   position: absolute;
   inset: 17% 4% 4%;
   border-radius: 50%;
-  background: radial-gradient(ellipse, #44897b40, transparent 68%);
+  background: radial-gradient(ellipse, #c8b47e36, transparent 68%);
   filter: blur(24px);
   transform: rotate(10deg);
 }
@@ -236,8 +236,8 @@
   padding: 10px 14px;
   gap: 8px;
   box-shadow:
-    0 9px 28px #041b2180,
-    0 0 32px #e9c87b21;
+    0 9px 28px #4b512d29,
+    0 0 32px #c79b4b1a;
   transform: translate(-50%, -133%) rotate(4deg);
   text-align: left;
   color: #254a37;
@@ -255,7 +255,7 @@
     600 7px/1.2 "DM Sans Variable",
     sans-serif;
   letter-spacing: 1.4px;
-  color: #9c824f;
+  color: #74603a;
 }
 .bali-journey__pin span {
   font:
@@ -265,7 +265,7 @@
 .bali-journey__ocean {
   font-size: 8px;
   letter-spacing: 3px;
-  color: #b4c6bb78;
+  color: #7a755b;
   left: 12%;
   bottom: 13%;
   transform: rotate(4deg);
@@ -278,7 +278,7 @@
   justify-items: center;
   gap: 5px;
   transform: rotate(4deg);
-  color: #dcc38b80;
+  color: #927742cc;
 }
 .bali-journey__compass small {
   font-size: 8px;
@@ -294,25 +294,25 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: #e4c98b;
+  color: #a17d36;
   margin-bottom: 18px;
 }
 .bali-journey__journey-line i {
   display: block;
   width: 70px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #d3bb7d65);
+  background: linear-gradient(90deg, transparent, #b79a5c70);
 }
 .bali-journey__journey-line i:last-child {
   transform: rotate(180deg);
 }
 .bali-journey__status {
   font-size: 12px;
-  color: #e1dfc9;
+  color: #52634f;
   gap: 12px;
 }
 .bali-journey__dots i {
-  background: #dec183;
+  background: #b1893b;
 }
 .bali-journey__bottom-note {
   display: block;
@@ -321,7 +321,7 @@
     italic 18px "Cormorant Garamond",
     serif;
   letter-spacing: 0.3px;
-  color: #acb9a7;
+  color: #5c6a51;
 }
 .entry-journey__recovery {
   position: absolute;
@@ -331,17 +331,18 @@
   width: 100%;
   max-width: 450px;
   z-index: 5;
-  background: #0b2d31ed;
+  background: #fffaf0f5;
   padding: 16px;
-  border: 1px solid #e4d1a935;
+  border: 1px solid #ccb98680;
   border-radius: 18px;
-  color: #ece3cb;
+  color: #31513c;
+  box-shadow: 0 8px 40px #86734426;
 }
 .entry-journey__recovery a,
 .entry-journey__recovery button {
-  color: #f4e1ba;
-  background: #21463e;
-  border-color: #a6b18a40;
+  color: #31523e;
+  background: #ebe5d1;
+  border-color: #c5bc9b;
 }
 .entry-journey--arriving .bali-journey__map {
   animation: arrival-focus 0.62s ease-in both;
