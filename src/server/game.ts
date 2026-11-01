@@ -8,7 +8,9 @@ import { eligibleEntries, lessonById, levelOrder, retrieve } from './content';
 import { generateQuiz, repairReply, roleplay, type QuizDraft } from './openrouter';
 import { publicTurn, replyNeedsRepair } from '../lib/learning-text';
 import { currentMission, missionGuides } from '../content/guidance';
-import { answerCorrect, calculateStars, correctionIsSupported, nextStreak, normalize, objectiveMatches, phraseIn, witaDate } from './rules';
+import { resolveObjectives } from './objectives';
+import { choiceChallenge, choiceChallenges } from './quiz-choices';
+import { answerCorrect, calculateStars, correctionIsSupported, nextStreak, normalize, phraseIn, witaDate } from './rules';
 import { type ActorRow, playerView } from './actors';
 export interface PrivateQuestion extends QuizQuestion {answer:string;variants:string[]}
 export interface SessionRow {id:string;player_id:string;level_id:LevelId;status:GameSession['status'];turns:Turn[];completed_objectives:string[];hints_used:number;revealed_hints?:string[];quiz_answers?:Record<string,{answer:string;correct:boolean}>;quiz:PrivateQuestion[]|null;result:SessionResult|null}
@@ -21,6 +23,15 @@ export async function ownedSession(id:string,playerId:string,client?:PoolClient,
   const result=client?await client.query<SessionRow>(sql,[id,playerId]):await query<SessionRow>(sql,[id,playerId]);
   return requireValue(result.rows[0],'SESSION_NOT_FOUND');
 }
+async function syncObjectives(row:SessionRow,client:PoolClient):Promise<SessionRow> {
+  if(row.status!=='active'||!row.turns.length)return row;
+  const completed=[...new Set([...row.completed_objectives,...resolveObjectives(lessonById(row.level_id),row.turns)])];
+  if(completed.length===row.completed_objectives.length)return row;
+  return (await client.query<SessionRow>('UPDATE game_sessions SET completed_objectives=$2 WHERE id=$1 RETURNING *',[row.id,JSON.stringify(completed)])).rows[0];
+}
+export async function loadSession(actor:ActorRow,id:string) {
+  return transaction(async client=>sessionView(await syncObjectives(await ownedSession(id,actor.id,client,true),client)));
+}
 export function levelIsUnlocked(levelId:LevelId,stars:ActorRow['stars']) {
   const index=levelOrder.indexOf(levelId);return index===0 || (stars[levelOrder[index-1]]||0)>=1;
 }
@@ -29,8 +40,8 @@ export async function startSession(actor:ActorRow,levelId:LevelId) {
   return transaction(async client=>{
     const current=requireValue((await client.query<ActorRow>('SELECT * FROM players WHERE id=$1 FOR UPDATE',[actor.id])).rows[0]);
     if(!levelIsUnlocked(levelId,current.stars)) throw new AppError(403,'LEVEL_LOCKED','Selesaikan lokasi sebelumnya untuk membuka tempat ini.');
-    const existing=await client.query<SessionRow>('SELECT * FROM game_sessions WHERE player_id=$1 AND level_id=$2 AND status<>\'completed\' ORDER BY updated_at DESC LIMIT 1',[actor.id,levelId]);
-    if(existing.rows[0])return sessionView(existing.rows[0]);
+    const existing=await client.query<SessionRow>('SELECT * FROM game_sessions WHERE player_id=$1 AND level_id=$2 AND status<>\'completed\' ORDER BY updated_at DESC LIMIT 1 FOR UPDATE',[actor.id,levelId]);
+    if(existing.rows[0])return sessionView(await syncObjectives(existing.rows[0],client));
     const row=(await client.query<SessionRow>('INSERT INTO game_sessions(id,player_id,level_id) VALUES($1,$2,$3) RETURNING *',[randomUUID(),actor.id,levelId])).rows[0];
     return sessionView(row);
   });
@@ -52,9 +63,8 @@ export async function addTurn(actor:ActorRow,sessionId:string,input:z.infer<type
     const corrections:Correction[]=output.corrections.filter(c=>normalize(c.said)&&normalize(input.text).includes(normalize(c.said))).map(c=>({
       ...c,supported:correctionIsSupported(c,entryMap.get(c.sourceId)),
     }));
-    // Author-written evidence is the authority. Model-proposed objectives never grant completion alone.
-    const playerUtterances=[input.text,...session.turns.map(turn=>turn.playerText)];
-    const objectiveIds=lesson.objectives.map(o=>o.id).filter(id=>!session.completed_objectives.includes(id)&&output.objectiveEvidence.some(e=>e.objectiveId===id&&normalize(e.quote)&&playerUtterances.some(text=>phraseIn(text,e.quote))&&objectiveMatches(lesson,e.quote).includes(id)));
+    const demonstrated=resolveObjectives(lesson,[...session.turns,{playerText:input.text,reply:'',translation:{id:'',en:''}}],output.objectiveEvidence);
+    const objectiveIds=demonstrated.filter(id=>!session.completed_objectives.includes(id));
     const assessed=objectiveIds.length>0||corrections.some(c=>c.supported)||entries.some(e=>phraseIn(input.text,e.bali));
     const turn:Turn={id:input.id,playerText:input.text,rawTranscript:input.rawTranscript,reply:output.reply,translation:output.translation,corrections,objectiveIds,assessed,createdAt:new Date().toISOString()};
     const completed=[...new Set([...session.completed_objectives,...objectiveIds])];
@@ -80,7 +90,7 @@ export async function repairTurnReply(actor:ActorRow,sessionId:string,turnId:str
 }
 export async function useHint(actor:ActorRow,sessionId:string,objectiveId?:string) {
   return transaction(async client=>{
-    const session=await ownedSession(sessionId,actor.id,client,true);const lesson=lessonById(session.level_id);
+    const session=await syncObjectives(await ownedSession(sessionId,actor.id,client,true),client);const lesson=lessonById(session.level_id);
     if(session.level_id==='boss')throw new AppError(400,'NO_BOSS_HINTS','Tantangan ini tidak memakai petunjuk jawaban.');
     if(session.status!=='active')throw new AppError(409,'SESSION_NOT_ACTIVE','Percakapan sudah selesai.');
     const next=objectiveId?lesson.objectives.find(o=>o.id===objectiveId):currentMission(lesson,session.completed_objectives);
@@ -118,7 +128,7 @@ export function shuffleWords(text:string) {
 export function validateQuestions(drafts:QuizDraft[],entries:CorpusEntry[],mistakes:{id:string;correction:{correct:string;sourceId:string}}[]):PrivateQuestion[] {
   if(drafts.length!==5||new Set(drafts.map(q=>q.type)).size!==3)throw new AppError(502,'INVALID_QUIZ','Kuis belum dapat diperiksa. Silakan coba lagi.',true);
   const entryMap=new Map(entries.map(e=>[e.id,e]));const mistakeMap=new Map(mistakes.map(m=>[m.id,m]));
-  if(mistakes.length && drafts.filter(q=>q.mistakeId && mistakeMap.has(q.mistakeId)).length<4)throw new AppError(502,'INVALID_QUIZ','Kuis belum sesuai dengan latihan Anda. Silakan coba lagi.',true);
+  if(mistakes.length && drafts.filter(q=>q.mistakeId && mistakeMap.has(q.mistakeId)).length<requiredMistakeQuestions(entries,mistakes))throw new AppError(502,'INVALID_QUIZ','Kuis belum sesuai dengan latihan Anda. Silakan coba lagi.',true);
   return drafts.map(draft=>{
     const entry=entryMap.get(draft.sourceId);const mistake=draft.mistakeId?mistakeMap.get(draft.mistakeId):undefined;
     if(!entry || (draft.mistakeId && (!mistake||mistake.correction.sourceId!==draft.sourceId)))throw new AppError(502,'INVALID_QUIZ_SOURCE','Sumber kuis belum dapat diperiksa. Silakan coba lagi.',true);
@@ -126,13 +136,20 @@ export function validateQuestions(drafts:QuizDraft[],entries:CorpusEntry[],mista
     if(!acceptable.some(a=>normalize(a)===normalize(draft.answer)))throw new AppError(502,'INVALID_QUIZ_ANSWER','Jawaban kuis belum dapat diperiksa. Silakan coba lagi.',true);
     if(draft.type!=='repeat'&&(phraseIn(draft.prompt.id,draft.answer)||phraseIn(draft.prompt.en,draft.answer)))throw new AppError(502,'INVALID_QUIZ_ANSWER','Petunjuk kuis perlu diperbaiki. Silakan coba lagi.',true);
     if(draft.type==='choice'&&(draft.options.length!==4||new Set(draft.options.map(normalize)).size!==4||draft.options.filter(a=>normalize(a)===normalize(draft.answer)).length!==1))throw new AppError(502,'INVALID_QUIZ_CHOICES','Pilihan kuis belum dapat diperiksa. Silakan coba lagi.',true);
+    const contrast=draft.type==='choice'?choiceChallenge(entry,entries):undefined;
+    if(draft.type==='choice'&&(!contrast||normalize(contrast.answer)!==normalize(draft.answer)))throw new AppError(502,'INVALID_QUIZ_CHOICES','Pilihan kuis belum dapat diperiksa. Silakan coba lagi.',true);
     if(draft.type==='order'&&draft.answer.trim().split(/\s+/).length<2)throw new AppError(502,'INVALID_QUIZ_ORDER','Kalimat kuis belum dapat diperiksa. Silakan coba lagi.',true);
-    return {id:randomUUID(),type:draft.type,prompt:draft.prompt,sourceId:draft.sourceId,mistakeId:draft.mistakeId||undefined,reinforcement:!mistake,
-      ...(draft.type==='choice'?{options:shuffle(draft.options)}:{}),
+    return {id:randomUUID(),type:draft.type,prompt:contrast?.prompt||draft.prompt,sourceId:draft.sourceId,mistakeId:draft.mistakeId||undefined,reinforcement:!mistake,
+      ...(contrast?{options:shuffle(contrast.options)}:{}),
       ...(draft.type==='order'?{words:shuffleWords(draft.answer)}:{}),
       ...(draft.type==='repeat'?{target:draft.answer}:{}),answer:draft.answer,variants:acceptable,
     };
   });
+}
+function requiredMistakeQuestions(entries:CorpusEntry[],mistakes:{correction:{correct:string;sourceId:string}}[]) {
+  // A single cognate with no fair contrast cannot also become a word-order
+  // exercise. Use honestly labelled reinforcement rather than inventing errors.
+  return mistakes.some(m=>m.correction.correct.split(/\s+/).length>=2||entries.some(e=>e.id===m.correction.sourceId&&normalize(choiceChallenge(e,entries)?.answer||'')===normalize(m.correction.correct)))?4:3;
 }
 // A checked, source-derived exercise remains available if generated quiz JSON
 // fails validation twice. No learner error is invented and no answer is leaked.
@@ -140,21 +157,40 @@ export function buildPracticeQuiz(entries:CorpusEntry[],mistakes:{id:string;corr
   const usable=entries.filter(e=>!phraseIn(e.indonesia,e.bali)&&!phraseIn(e.english,e.bali));
   const order=usable.find(e=>e.bali.trim().split(/\s+/).length>=2);
   if(usable.length<4||!order)throw new AppError(503,'CONTENT_NOT_READY','Latihan sedang disiapkan. Coba lagi sebentar.',true);
-  const drafts:QuizDraft[]=Array.from({length:5},(_,index)=>{
-    const mistake=mistakes.length&&index<4?mistakes[index%mistakes.length]:undefined;
-    const entry=(mistake?entries.find(e=>e.id===mistake.correction.sourceId):index===4?order:usable[index%usable.length])!;
-    const answer=mistake?.correction.correct||entry.bali;
-    const type=index===4?'order':index%2===0?'choice':'repeat';
+  const contrasts=choiceChallenges(entries,entries.filter(e=>e.id.startsWith('phrase:')));
+  // Prefer contextual phrase contrasts to isolated dictionary definitions.
+  const best=contrasts.find(c=>c.sourceId.startsWith('phrase:'))||contrasts[0];
+  if(!best)throw new AppError(503,'CONTENT_NOT_READY','Latihan sedang disiapkan. Coba lagi sebentar.',true);
+  type Mistake=typeof mistakes[number];
+  function exercise(entry:CorpusEntry,type:QuizDraft['type'],mistake?:Mistake):QuizDraft {
+    const answer=mistake?.correction.correct||entry.bali,contrast=choiceChallenge(entry,entries);
     return {type,sourceId:entry.id,mistakeId:mistake?.id||null,answer,
-      prompt:type==='repeat'?{id:'Dengarkan lalu ulangi kalimatnya.',en:'Listen, then repeat the phrase.'}:type==='order'?{id:`Susun ungkapan dengan arti: ${entry.indonesia}`,en:`Arrange the phrase meaning: ${entry.english}`}:{id:`Pilih ungkapan dengan arti: ${entry.indonesia}`,en:`Choose the phrase meaning: ${entry.english}`},
-      options:type==='choice'?[answer,...usable.filter(e=>normalize(e.bali)!==normalize(answer)).map(e=>e.bali).filter((v,i,a)=>a.findIndex(x=>normalize(x)===normalize(v))===i).slice(0,3)]:[],
+      prompt:type==='repeat'?{id:'Dengarkan lalu ulangi kalimatnya.',en:'Listen, then repeat the phrase.'}:type==='order'?{id:`Susun ungkapan dengan arti: ${entry.indonesia}`,en:`Arrange the phrase meaning: ${entry.english}`}:contrast!.prompt,
+      options:type==='choice'?contrast!.options:[],
     };
-  });
+  }
+  const bestEntry=entries.find(e=>e.id===best.sourceId)!;
+  const choiceMistake=mistakes.find(m=>entries.some(e=>e.id===m.correction.sourceId&&normalize(choiceChallenge(e,entries)?.answer||'')===normalize(m.correction.correct)));
+  const orderMistake=mistakes.find(m=>m.correction.correct.trim().split(/\s+/).length>=2);
+  const drafts:QuizDraft[]=[];
+  if(mistakes.length){
+    const count=choiceMistake||orderMistake?4:3;
+    for(let i=0;i<count;i++){
+      const mistake=i===0&&choiceMistake?choiceMistake:i===1&&orderMistake?orderMistake:mistakes[i%mistakes.length];
+      const type=i===0&&choiceMistake?'choice':i===1&&orderMistake?'order':'repeat';
+      drafts.push(exercise(entries.find(e=>e.id===mistake.correction.sourceId)!,type,mistake));
+    }
+  }else{
+    drafts.push(exercise(bestEntry,'choice'),exercise(order,'order'),exercise(order,'repeat'),exercise(usable.find(e=>e.id.startsWith('phrase:')&&e.id!==order.id)||order,'repeat'));
+  }
+  if(!drafts.some(q=>q.type==='choice'))drafts.push(exercise(bestEntry,'choice'));
+  if(!drafts.some(q=>q.type==='order'))drafts.push(exercise(order,'order'));
+  if(drafts.length<5)drafts.push(exercise(bestEntry,'choice'));
   return validateQuestions(drafts,entries,mistakes);
 }
 export async function prepareQuiz(actor:ActorRow,sessionId:string) {
   return transaction(async client=>{
-    const session=await ownedSession(sessionId,actor.id,client,true);
+    const session=await syncObjectives(await ownedSession(sessionId,actor.id,client,true),client);
     if(session.quiz)return sessionView(session);
     const lesson=lessonById(session.level_id);
     if(!lesson.objectives.every(o=>session.completed_objectives.includes(o.id)))throw new AppError(409,'MISSION_INCOMPLETE','Selesaikan semua tujuan percakapan sebelum kuis.');
@@ -165,8 +201,8 @@ export async function prepareQuiz(actor:ActorRow,sessionId:string) {
     const selected=[...new Map([...entries.filter(e=>requiredSources.has(e.id)),...entries.filter(e=>lesson.phrases.includes(e.id)),...entries.filter(e=>e.bali.split(/\s+/).length>1)].map(e=>[e.id,e])).values()].slice(0,60);
     let quiz:PrivateQuestion[]|undefined;
     for(let attempt=0;attempt<2;attempt++) {
-      try {const output=await generateQuiz({lesson,entries:selected,mistakes:mistakeRows.rows,playerId:actor.id,db:client});quiz=validateQuestions(output.questions,selected,mistakeRows.rows);break;}
-      catch(error){if(!(error instanceof AppError)||!['AI_INVALID_OUTPUT','INVALID_QUIZ','INVALID_QUIZ_SOURCE','INVALID_QUIZ_ANSWER','INVALID_QUIZ_CHOICES','INVALID_QUIZ_ORDER'].includes(error.code))throw error;if(attempt===1)quiz=buildPracticeQuiz(selected,mistakeRows.rows);}
+      try {const output=await generateQuiz({lesson,entries:selected,contrasts:choiceChallenges(entries,entries.filter(e=>e.id.startsWith('phrase:')||requiredSources.has(e.id))),requiredMistakeQuestions:requiredMistakeQuestions(entries,mistakeRows.rows),mistakes:mistakeRows.rows,playerId:actor.id,db:client});quiz=validateQuestions(output.questions,entries,mistakeRows.rows);break;}
+      catch(error){if(!(error instanceof AppError)||!['AI_INVALID_OUTPUT','INVALID_QUIZ','INVALID_QUIZ_SOURCE','INVALID_QUIZ_ANSWER','INVALID_QUIZ_CHOICES','INVALID_QUIZ_ORDER'].includes(error.code))throw error;if(attempt===1)quiz=buildPracticeQuiz(entries,mistakeRows.rows);}
     }
     const result=await client.query<SessionRow>("UPDATE game_sessions SET status='quiz',quiz=$2,updated_at=now() WHERE id=$1 RETURNING *",[session.id,JSON.stringify(quiz)]);
     return sessionView(result.rows[0]);

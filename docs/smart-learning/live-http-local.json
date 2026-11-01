@@ -1,0 +1,253 @@
+{
+  "base": "http://localhost:3000",
+  "cases": [
+    {
+      "name": "natural-purchase",
+      "turns": [
+        {
+          "text": "Pak, harga pisang ini berapa?",
+          "elapsedMs": 3929,
+          "completed": [
+            "pasar:price"
+          ],
+          "reply": "Biu niki aji dua tali siki. Ragane jagi numbas kuda?",
+          "corrections": []
+        },
+        {
+          "text": "mau beli pisang dua buku",
+          "elapsedMs": 4748,
+          "completed": [
+            "pasar:price",
+            "pasar:quantity"
+          ],
+          "reply": "Inggih, biu kalih, aji patpat tali. Tiang bungkus nggih?",
+          "corrections": []
+        },
+        {
+          "text": "Kalau lima ribu boleh?",
+          "elapsedMs": 3916,
+          "completed": [
+            "pasar:price",
+            "pasar:quantity",
+            "pasar:bargain"
+          ],
+          "reply": "Inggih, dados, nanging biu kalih niki aji patpat tali manten. Dados bayar patpat tali.",
+          "corrections": []
+        }
+      ],
+      "quizMs": 6089,
+      "quiz": [
+        {
+          "id": "9530f5dd-a6a2-46a0-90fd-eda35577af5c",
+          "type": "choice",
+          "prompt": {
+            "en": "You already know the price of mangoes. Now ask the price of the bananas the seller is pointing to.",
+            "id": "Harga mangga sudah kamu tahu. Sekarang tanyakan harga pisang yang ditunjuk pedagang."
+          },
+          "options": [
+            "Aji kuda juwuk niki?",
+            "Aji kuda nyuh niki?",
+            "Aji kuda biu niki?",
+            "Aji kuda poh niki?"
+          ],
+          "sourceId": "phrase:pasar-03",
+          "reinforcement": true
+        },
+        {
+          "id": "681d8f28-5a1f-4efd-8397-c7d4e58d90e6",
+          "type": "choice",
+          "prompt": {
+            "en": "You and your friend each want one mango. Order enough for both of you.",
+            "id": "Kamu dan temanmu masing-masing ingin satu mangga. Pesan jumlah yang cukup untuk kalian berdua."
+          },
+          "options": [
+            "Tiang nunas juwuk siki.",
+            "Tiang nunas juwuk kalih.",
+            "Tiang nunas poh kalih.",
+            "Tiang nunas poh siki."
+          ],
+          "sourceId": "phrase:pasar-10",
+          "reinforcement": true
+        },
+        {
+          "id": "057eb729-17c7-4a3a-bb19-f9a4e86dc4a3",
+          "type": "order",
+          "words": [
+            "tali?",
+            "lima",
+            "Dados"
+          ],
+          "prompt": {
+            "en": "While bargaining at the market, offer a price of five thousand. Put these words in the correct order: tali / Dados / lima.",
+            "id": "Saat menawar di pasar, tawarkan harga lima ribu. Susun kata-kata ini menjadi kalimat yang tepat: tali / Dados / lima."
+          },
+          "sourceId": "phrase:pasar-16",
+          "reinforcement": true
+        },
+        {
+          "id": "938a32ca-2bd6-4ccb-87da-29e1e577043c",
+          "type": "repeat",
+          "prompt": {
+            "en": "You want to politely ask for a lower price. Listen and repeat: “Dados kirang, nggih?”",
+            "id": "Kamu ingin meminta potongan harga dengan sopan. Dengarkan lalu ulangi: “Dados kirang, nggih?”"
+          },
+          "target": "Dados kirang, nggih?",
+          "sourceId": "phrase:pasar-14",
+          "reinforcement": true
+        },
+        {
+          "id": "7854a5a8-0ade-4eac-95d1-a116fa5c2203",
+          "type": "choice",
+          "prompt": {
+            "en": "Your friend is not buying anything. Order one orange for yourself.",
+            "id": "Temanmu tidak ikut membeli. Pesan satu jeruk untuk dirimu."
+          },
+          "options": [
+            "Tiang nunas biu kalih.",
+            "Tiang nunas juwuk kalih.",
+            "Tiang nunas biu siki.",
+            "Tiang nunas juwuk siki."
+          ],
+          "sourceId": "phrase:pasar-11",
+          "reinforcement": true
+        }
+      ],
+      "result": {
+        "stars": 3,
+        "xp": 180,
+        "quizScore": 5,
+        "quizTotal": 5,
+        "mistakesPracticed": 0,
+        "mistakesMastered": 0,
+        "newAlbum": true,
+        "unlockedLevel": "boss"
+      },
+      "retrySafe": true,
+      "oneRewardEvent": true
+    },
+    {
+      "name": "context-and-semantics",
+      "turns": [
+        {
+          "text": "Berapa harga pisang ini, Pak?",
+          "elapsedMs": 4563,
+          "completed": [
+            "pasar:price"
+          ],
+          "reply": "Biu niki ajiné dua tali siki. Pacang numbas kuda?",
+          "corrections": []
+        },
+        {
+          "text": "Yang pisang itu sepasang buat bekal kami, Pak.",
+          "elapsedMs": 4018,
+          "completed": [
+            "pasar:price",
+            "pasar:quantity"
+          ],
+          "reply": "Inggih, biu kalih anggén bekal. Ajiné patpat tali.",
+          "corrections": []
+        },
+        {
+          "text": "Boleh lebih murah sedikit?",
+          "elapsedMs": 3671,
+          "completed": [
+            "pasar:price",
+            "pasar:quantity",
+            "pasar:bargain"
+          ],
+          "reply": "Inggih, dados telung tali manten biu kalih niki.",
+          "corrections": []
+        }
+      ],
+      "quizMs": 5015,
+      "quiz": [
+        {
+          "id": "3a84f19d-64ee-4ac4-a37c-6a9ab21ad235",
+          "type": "choice",
+          "prompt": {
+            "en": "You already know the price of mangoes. Now ask the price of the bananas the seller is pointing to.",
+            "id": "Harga mangga sudah kamu tahu. Sekarang tanyakan harga pisang yang ditunjuk pedagang."
+          },
+          "options": [
+            "Aji kuda nyuh niki?",
+            "Aji kuda poh niki?",
+            "Aji kuda juwuk niki?",
+            "Aji kuda biu niki?"
+          ],
+          "sourceId": "phrase:pasar-03",
+          "reinforcement": true
+        },
+        {
+          "id": "2de6cc0c-c1a8-4b1f-a517-a4ebe170b1b2",
+          "type": "choice",
+          "prompt": {
+            "en": "You and your friend each want one mango. Order enough for both of you.",
+            "id": "Kamu dan temanmu masing-masing ingin satu mangga. Pesan jumlah yang cukup untuk kalian berdua."
+          },
+          "options": [
+            "Tiang nunas juwuk siki.",
+            "Tiang nunas juwuk kalih.",
+            "Tiang nunas poh siki.",
+            "Tiang nunas poh kalih."
+          ],
+          "sourceId": "phrase:pasar-10",
+          "reinforcement": true
+        },
+        {
+          "id": "257c6884-f546-4143-b2e9-9b5722570a68",
+          "type": "order",
+          "words": [
+            "tali?",
+            "lima",
+            "Dados"
+          ],
+          "prompt": {
+            "en": "While bargaining at the market, arrange the sentence meaning: “Could it be five thousand?”",
+            "id": "Saat menawar di pasar, susun kalimat yang berarti: “Boleh lima ribu?”"
+          },
+          "sourceId": "phrase:pasar-16",
+          "reinforcement": true
+        },
+        {
+          "id": "240e8e70-a25b-46fd-98e8-b6e50cdce4ad",
+          "type": "repeat",
+          "prompt": {
+            "en": "You want to politely ask for a lower price. Listen and repeat the expression meaning “Could you lower the price, please?”",
+            "id": "Kamu ingin meminta penurunan harga dengan sopan. Dengarkan dan ulangi ungkapan yang berarti “Boleh kurang, ya?”"
+          },
+          "target": "Dados kirang, nggih?",
+          "sourceId": "phrase:pasar-14",
+          "reinforcement": true
+        },
+        {
+          "id": "e6a3eb8a-ab3f-4f3c-9d00-570ee55a0e28",
+          "type": "choice",
+          "prompt": {
+            "en": "Your friend is not buying anything. Order one orange for yourself.",
+            "id": "Temanmu tidak ikut membeli. Pesan satu jeruk untuk dirimu."
+          },
+          "options": [
+            "Tiang nunas biu kalih.",
+            "Tiang nunas biu siki.",
+            "Tiang nunas juwuk siki.",
+            "Tiang nunas juwuk kalih."
+          ],
+          "sourceId": "phrase:pasar-11",
+          "reinforcement": true
+        }
+      ],
+      "result": {
+        "stars": 3,
+        "xp": 130,
+        "quizScore": 5,
+        "quizTotal": 5,
+        "mistakesPracticed": 0,
+        "mistakesMastered": 0,
+        "newAlbum": false
+      },
+      "retrySafe": true,
+      "oneRewardEvent": true
+    }
+  ],
+  "note": "Real OpenRouter HTTP integration and source consistency checks; not native-speaker language validation."
+}

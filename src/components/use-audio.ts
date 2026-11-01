@@ -13,6 +13,7 @@ export function useRecorder(
     [error, setError] = useState(""),
     [failures, setFailures] = useState(0),
     [seconds, setSeconds] = useState(0);
+  const [automaticStop,setAutomaticStop]=useState(false);
   const callback = useRef(onTranscript);
   callback.current = onTranscript;
   const capture = useRef<AudioContext | null>(null),
@@ -50,6 +51,7 @@ export function useRecorder(
     if (pending.current || recording || transcribing) return;
     pending.current = true;
     setError("");
+    setAutomaticStop(false);
     if (!navigator.mediaDevices?.getUserMedia) {
       setError(
         "Mikrofon memerlukan HTTPS dan browser yang mendukung. Gunakan mode ketik.",
@@ -129,6 +131,7 @@ export function useRecorder(
           const analyser = ac.createAnalyser();
           analyser.fftSize = 1024;
           ac.createMediaStreamSource(media).connect(analyser);
+          setAutomaticStop(true);
           const data = new Float32Array(analyser.fftSize),
             activity = createVoiceActivity(),
             began = performance.now();
@@ -185,6 +188,7 @@ export function useRecorder(
     error,
     failures,
     seconds,
+    automaticStop,
     start,
     stop,
     clearError: () => setError(""),

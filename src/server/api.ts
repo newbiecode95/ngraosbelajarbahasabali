@@ -6,7 +6,7 @@ import { corpusEntries } from './schema';
 import { cookieValue, createDemo, demoCookie, DEMO_COOKIE, findActor, playerView, requireActor, requireAdmin, type ActorRow } from './actors';
 import { boundedFormData, jsonBody, ok, rateLimit, requestIdentity, route } from './http';
 import { AppError, requireValue } from './errors';
-import { addTurn, checkQuizAnswer, completeSession, ownedSession, prepareQuiz, repairTurnReply, sessionView, startSession, turnInput, useHint } from './game';
+import { addTurn, checkQuizAnswer, completeSession, loadSession, ownedSession, prepareQuiz, repairTurnReply, startSession, turnInput, useHint } from './game';
 import { eligibleEntries, lessonById } from './content';
 import { cachedSpeech, normalizeRecording } from './audio';
 import { transcribe } from './openrouter';
@@ -48,7 +48,7 @@ async function handle(request:Request) {
   const sessionMatch=/^sessions\/([^/]+)(?:\/(turns|hint|quiz|complete|repair-reply|answer))?$/.exec(path);
   if(sessionMatch) {
     const actor=await requireActor(request);const id=idSchema.parse(sessionMatch[1]);const action=sessionMatch[2];
-    if(!action&&method==='GET')return ok({session:sessionView(await ownedSession(id,actor.id))});
+    if(!action&&method==='GET')return ok({session:await loadSession(actor,id)});
     if(method!=='POST')throw new AppError(405,'METHOD_NOT_ALLOWED','Metode tidak tersedia.');
     if(action==='turns'){const body=turnInput.parse(await jsonBody(request));await rateLimit(`turn:${actor.id}`,20);return ok(await addTurn(actor,id,body));}
     if(action==='repair-reply'){const body=z.object({turnId:idSchema}).parse(await jsonBody(request));await rateLimit(`repair:${actor.id}`,8);return ok(await repairTurnReply(actor,id,body.turnId));}

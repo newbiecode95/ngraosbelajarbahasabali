@@ -51,8 +51,10 @@ export function PracticeQuiz({
   const q = questions[index],
     feedback = session.quizResponses?.[q.id];
   const speech = useSpeech(muted),
-    recorder = useRecorder(session.levelId, (_raw, normalized) =>
-      setTyped(normalized),
+    recorder = useRecorder(
+      session.levelId,
+      (_raw, normalized) => setTyped(normalized),
+      true,
     );
   const heading = useRef<HTMLHeadingElement>(null),
     body = useRef<HTMLDivElement>(null);
@@ -296,7 +298,7 @@ export function PracticeQuiz({
               </button>
               <input
                 value={feedback?.answer || typed}
-                disabled={busy || Boolean(feedback)}
+                disabled={busy || Boolean(feedback) || recorder.recording || recorder.transcribing}
                 onChange={(e) => setTyped(e.target.value)}
                 aria-label={t("Jawaban ulang-ucap", "Repeat answer")}
                 placeholder={t(
@@ -305,6 +307,19 @@ export function PracticeQuiz({
                 )}
               />
             </div>
+            {!feedback ? (
+              <p className="note quiz-recording-status" role="status">
+                {recorder.transcribing
+                  ? t('Menyalin ucapan…', 'Transcribing your speech…')
+                  : recorder.recording
+                    ? `${t('Merekam', 'Recording')} · ${recorder.seconds}s. ${
+                        recorder.automaticStop
+                          ? t('Beri jeda setelah selesai; rekaman berhenti otomatis.', 'Pause when finished; recording stops automatically.')
+                          : t('Tekan mikrofon lagi untuk selesai.', 'Tap the microphone again to stop.')
+                      }`
+                    : t('Tekan mikrofon, ucapkan kalimat, lalu beri jeda.', 'Tap the microphone, say the phrase, then pause.')}
+              </p>
+            ) : null}
             <p className="note">
               {t(
                 "Pelafalan tidak dinilai. Periksa transkrip sebelum melanjutkan.",

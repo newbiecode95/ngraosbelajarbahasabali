@@ -9,7 +9,7 @@ vi.mock('../src/server/openrouter',async importOriginal=>{
   }),generateQuiz:vi.fn(),repairReply:vi.fn()};
 });
 import { query,getPool,transaction } from '../src/server/db';
-import { addTurn,checkQuizAnswer,completeSession,ownedSession,repairTurnReply,sessionView,startSession,useHint } from '../src/server/game';
+import { addTurn,checkQuizAnswer,completeSession,loadSession,ownedSession,repairTurnReply,sessionView,startSession,useHint } from '../src/server/game';
 import { roleplay,recordUsage,repairReply } from '../src/server/openrouter';
 import type { ActorRow } from '../src/server/actors';
 import { lessonById } from '../src/server/content';
@@ -80,12 +80,12 @@ describe.skipIf(!enabled)('database concurrency and ownership',()=>{
   it('reveals a complete sourced hint only once, even across concurrent requests and refresh',async()=>{
     const session=await startSession(actor,'warung');
     const before=await ownedSession(session.id,actor.id);
-    await expect(useHint(other,session.id,'warung:thank')).rejects.toMatchObject({status:404});
-    const [a,b]=await Promise.all([useHint(actor,session.id,'warung:thank'),useHint(actor,session.id,'warung:thank')]);
-    expect(a.hint).toBe('Suksma.');expect(b.hint).toBe('Suksma.');
+    await expect(useHint(other,session.id,'warung:farewell')).rejects.toMatchObject({status:404});
+    const [a,b]=await Promise.all([useHint(actor,session.id,'warung:farewell'),useHint(actor,session.id,'warung:farewell')]);
+    expect(a.hint).toBe('Tiang pamit.');expect(b.hint).toBe('Tiang pamit.');
     const after=await ownedSession(session.id,actor.id);
-    expect(after.hints_used).toBe(before.hints_used+1);expect(after.revealed_hints).toContain('warung:thank');
-    expect(sessionView(after).revealedHints).toContain('warung:thank');
+    expect(after.hints_used).toBe(before.hints_used+1);expect(after.revealed_hints).toContain('warung:farewell');
+    expect(sessionView(after).revealedHints).toContain('warung:farewell');
     await expect(useHint(actor,session.id,'invalid')).rejects.toMatchObject({code:'INVALID_OBJECTIVE'});
   });
   it('saves immediate quiz feedback once, hides unchecked answers, and scores the first saved answer',async()=>{
@@ -121,5 +121,26 @@ describe.skipIf(!enabled)('database concurrency and ownership',()=>{
     expect(result.result.quizScore).toBe(4);
     expect(result.result.mistakesPracticed).toBe(2);
     expect(result.result.mistakesMastered).toBe(1);
+  });
+  it('records a natural market purchase even if the model omits evidence, once across retries',async()=>{
+    const id=randomUUID();await query("INSERT INTO game_sessions(id,player_id,level_id) VALUES($1,$2,'pasar')",[id,actor.id]);
+    vi.mocked(roleplay).mockResolvedValueOnce({reply:'Nggih.',translation:{id:'Baik.',en:'Okay.'},corrections:[],objectiveEvidence:[]});
+    const input={id:randomUUID(),text:'mau beli pisang dua buku'};
+    const a=await addTurn(actor,id,input),b=await addTurn(actor,id,input);
+    expect(a.session.completedObjectives).toContain('pasar:quantity');
+    expect(b.session.turns).toHaveLength(1);
+    expect(b.session.completedObjectives).toEqual(a.session.completedObjectives);
+  });
+  it('recovers an existing missed market act on owned resume without another turn, hint or reward',async()=>{
+    const id=randomUUID(),old={id:randomUUID(),playerText:'mau beli pisang dua buku',reply:'Dados kirang?',translation:{id:'Bisa kurang?',en:'Can it be cheaper?'},corrections:[],objectiveIds:[],assessed:false,createdAt:new Date().toISOString()};
+    await query("INSERT INTO game_sessions(id,player_id,level_id,turns) VALUES($1,$2,'pasar',$3)",[id,actor.id,JSON.stringify([old])]);
+    const calls=vi.mocked(roleplay).mock.calls.length;
+    await expect(loadSession(other,id)).rejects.toMatchObject({status:404});
+    const [a,b]=await Promise.all([loadSession(actor,id),loadSession(actor,id)]);
+    expect(a.completedObjectives).toEqual(['pasar:quantity']);expect(b.completedObjectives).toEqual(a.completedObjectives);
+    const after=await ownedSession(id,actor.id);
+    expect(after.turns).toEqual([old]);expect(after.hints_used).toBe(0);
+    expect(vi.mocked(roleplay).mock.calls.length).toBe(calls);
+    expect((await query('SELECT count(*)::int AS n FROM reward_events WHERE session_id=$1',[id])).rows[0].n).toBe(0);
   });
 });
