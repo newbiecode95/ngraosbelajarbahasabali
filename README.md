@@ -54,3 +54,4 @@ See [operations](docs/operations.md) for source deployment, TLS routing, model c
 
 No public registration of a third-party hosting service is required. Everything runs in the dedicated `/opt/ngraos` Docker stack on the home server. Future scope (later chapters, spaced repetition and social features) is intentionally outside this release.
 Current UI audit and responsive fixes: [docs/ui-review/README.md](docs/ui-review/README.md).
+Latest phone conversation and unexpected-script correction: [docs/mobile-fix/README.md](docs/mobile-fix/README.md).

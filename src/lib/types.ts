@@ -50,6 +50,7 @@ export interface Turn {
   playerText: string;
   rawTranscript?: string;
   reply: string;
+  replyUnavailable?: boolean;
   translation: Localized;
   corrections: Correction[];
   objectiveIds: string[];

@@ -41,7 +41,7 @@ test('conversation controls fit short phones and a reduced viewport for the keyb
   await page.getByRole('button', { name: 'Ketik', exact: true }).click();
   for (const [width, height] of [[320, 568], [390, 667], [390, 844], [390, 380]]) {
     await page.setViewportSize({ width, height });
-    await expect.poll(() => page.locator('.lesson-flow').evaluate(el => Math.round(el.getBoundingClientRect().height))).toBe(height - 88);
+    await expect.poll(() => page.locator('.lesson-flow').evaluate(el => Math.round(el.getBoundingClientRect().height))).toBe(height - 64);
     const bounds = await page.locator('.composer').evaluate(el => {
       const box = el.getBoundingClientRect();
       return { top: box.top, bottom: box.bottom, width: document.documentElement.scrollWidth, viewport: document.documentElement.clientWidth };

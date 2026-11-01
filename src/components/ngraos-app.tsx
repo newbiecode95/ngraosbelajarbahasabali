@@ -7,6 +7,7 @@ import {
   Settings,
   ArrowUpRight,
   ArrowRight,
+  ArrowLeft,
   Flame,
   Sparkles,
   Sprout,
@@ -70,6 +71,7 @@ export function NgraosApp() {
     [error, setError] = useState(""),
     [toast, setToast] = useState("");
   const [smallScreen, setSmallScreen] = useState(false);
+  const [characterSpeaking, setCharacterSpeaking] = useState(false);
   const [preferencesLoaded, setPreferencesLoaded] = useState(false);
   const navigation = useRef<HTMLElement | null>(null);
   const menuButton = useRef<HTMLButtonElement | null>(null);
@@ -375,16 +377,23 @@ export function NgraosApp() {
             <button
               ref={menuButton}
               className="icon-btn mobile-only"
-              onClick={() => setMobileMenu(true)}
-              aria-expanded={mobileMenu}
-              aria-controls="village-navigation"
-              aria-label={t("Buka menu", "Open menu")}
+              onClick={() => session ? navigate("map") : setMobileMenu(true)}
+              aria-expanded={session ? undefined : mobileMenu}
+              aria-controls={session ? undefined : "village-navigation"}
+              aria-label={session ? t("Kembali ke desa", "Back to village") : t("Buka menu", "Open menu")}
             >
-              <Menu />
+              {session ? <ArrowLeft /> : <Menu />}
             </button>
-            <button className="mobile-brand mobile-only unstyled" onClick={() => navigate("map")} aria-label={t("Ngraos beranda", "Ngraos home")}>
-              <Brand small />
-            </button>
+            {session ? (
+              <div className={`conversation-identity mobile-only ${characterSpeaking ? "speaking" : ""}`}>
+                <img src={artByLevel[session.levelId]} alt="" />
+                <div><strong>{lessons.find(l=>l.id===session.levelId)?.npc}{characterSpeaking ? <span className="speaking-indicator" role="status">{t("Berbicara", "Speaking")}</span> : null}</strong><h1>{lessons.find(l=>l.id===session.levelId)?.title}</h1></div>
+              </div>
+            ) : (
+              <button className="mobile-brand mobile-only unstyled" onClick={() => navigate("map")} aria-label={t("Ngraos beranda", "Ngraos home")}>
+                <Brand small />
+              </button>
+            )}
             <span className="breadcrumb">
               {t("Desa Kenderan", "Kenderan Village")}
               <ChevronRight size={14} />
@@ -474,6 +483,7 @@ export function NgraosApp() {
               onSession={setSession}
               locale={locale}
               muted={muted}
+              onSpeaking={setCharacterSpeaking}
               onDone={async () => {
                 setSession(null);
                 await refresh();

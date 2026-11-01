@@ -7,6 +7,7 @@ import { promisify } from 'node:util';
 import { AppError } from './errors';
 import { models } from './config';
 import { synthesize } from './openrouter';
+import { hasUnexpectedLearningScript } from '../lib/learning-text';
 const exec=promisify(execFile);
 export async function normalizeRecording(file:File) {
   if(file.size<100||file.size>8*1024*1024) throw new AppError(400,'INVALID_AUDIO_SIZE','Rekaman harus berisi suara dan berukuran maksimal 8 MB.');
@@ -24,6 +25,7 @@ export async function normalizeRecording(file:File) {
 }
 const pendingAudio=new Map<string,Promise<Buffer>>();
 export async function cachedSpeech(text:string,voice:string,playerId?:string,safeToCache=true) {
+  if(hasUnexpectedLearningScript(text))throw new AppError(409,'REPLY_NEEDS_REPAIR','Balasan ini perlu diperbaiki sebelum dibacakan.',true);
   if(!safeToCache) {
     try{return await synthesize(text,voice,playerId);}
     catch(error){if(process.env.AI_TTS_FALLBACK_ENABLED!=='true')throw error;return synthesize(text,voice,playerId,models().ttsFallback);}

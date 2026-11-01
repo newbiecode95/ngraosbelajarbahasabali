@@ -6,11 +6,11 @@ vi.mock('../src/server/openrouter',async importOriginal=>{
   return {...actual,embed:vi.fn(async()=>{throw new Error('embedding unavailable');}),roleplay:vi.fn(async(input:Parameters<typeof actual.roleplay>[0])=>{
     await actual.recordUsage({playerId:input.playerId,stage:'integration_fixture',db:input.db},'fixture',Date.now());
     return {reply:'Rahajeng rauh.',translation:{id:'Selamat datang.',en:'Welcome.'},objectiveEvidence:[{objectiveId:'warung:greet',quote:'Rahajeng semeng'}],corrections:[]};
-  }),generateQuiz:vi.fn()};
+  }),generateQuiz:vi.fn(),repairReply:vi.fn()};
 });
 import { query,getPool,transaction } from '../src/server/db';
-import { addTurn,completeSession,ownedSession,sessionView,startSession } from '../src/server/game';
-import { roleplay,recordUsage } from '../src/server/openrouter';
+import { addTurn,completeSession,ownedSession,repairTurnReply,sessionView,startSession } from '../src/server/game';
+import { roleplay,recordUsage,repairReply } from '../src/server/openrouter';
 import type { ActorRow } from '../src/server/actors';
 import { lessonById } from '../src/server/content';
 const enabled=process.env.RUN_DB_TESTS==='1';
@@ -62,6 +62,20 @@ describe.skipIf(!enabled)('database concurrency and ownership',()=>{
     const usage=await query('SELECT metadata FROM ai_usage WHERE player_id=$1 AND stage=$2',[actor.id,'rollback_fixture']);
     expect(usage.rows).toHaveLength(1);expect(usage.rows[0].metadata.costUsd).toBe(0.01);
     expect((await query('SELECT name FROM players WHERE id=$1',[actor.id])).rows[0].name).toBe('Integration test');
+  });
+  it('repairs a legacy reply once across concurrent requests without reassessing or rewarding it',async()=>{
+    const session=await startSession(actor,'warung');
+    const old={id:randomUUID(),playerText:'Suksma.',reply:'Jagi ngopi napi 茶?',translation:{id:'Mau kopi atau teh?',en:'Coffee or tea?'},corrections:[],objectiveIds:['warung:thank'],assessed:true,createdAt:new Date().toISOString()};
+    await query('UPDATE game_sessions SET turns=$2 WHERE id=$1',[session.id,JSON.stringify([old])]);
+    const before=await ownedSession(session.id,actor.id);
+    vi.mocked(repairReply).mockResolvedValueOnce({reply:'Jagi ngopi napi teh?',translation:old.translation});
+    await expect(repairTurnReply(other,session.id,old.id)).rejects.toMatchObject({status:404});
+    const [a,b]=await Promise.all([repairTurnReply(actor,session.id,old.id),repairTurnReply(actor,session.id,old.id)]);
+    expect(repairReply).toHaveBeenCalledTimes(1);expect(a.turn.reply).toBe(b.turn.reply);
+    const after=await ownedSession(session.id,actor.id);
+    expect(after.turns[0]).toEqual({...old,reply:'Jagi ngopi napi teh?'});
+    for(const key of ['status','completed_objectives','hints_used','quiz','result'] as const)expect(after[key]).toEqual(before[key]);
+    expect((await query('SELECT count(*)::int AS n FROM reward_events WHERE session_id=$1',[session.id])).rows[0].n).toBe(0);
   });
   it('recovers a valid greeting missed in an older turn, while excluding NPC-only evidence',async()=>{
     const session=await startSession(other,'warung');

@@ -35,6 +35,7 @@ import type {
 import { api, json } from "@/lib/client-api";
 import { Modal, Spinner, Stars } from "./ui";
 import { useRecorder, useSpeech } from "./use-audio";
+import { correctionIsReadable, replyNeedsRepair } from "@/lib/learning-text";
 const portraits = {
   warung: "/images/sari.webp",
   kos: "/images/komang.webp",
@@ -49,6 +50,7 @@ export function LessonPlayer({
   onDone,
   onExit,
   onPlayer,
+  onSpeaking,
 }: {
   session: GameSession;
   onSession: (s: GameSession) => void;
@@ -57,6 +59,7 @@ export function LessonPlayer({
   onDone: () => void;
   onExit: () => void;
   onPlayer: (p: Player) => void;
+  onSpeaking?: (speaking: boolean) => void;
 }) {
   const lesson = lessons.find((l) => l.id === session.levelId)!;
   const t = (a: string, b: string) => (locale === "id" ? a : b);
@@ -72,6 +75,7 @@ export function LessonPlayer({
     [reportDone, setReportDone] = useState(false),
     [reportBusy, setReportBusy] = useState(false),
     [reviewVoice, setReviewVoice] = useState(false);
+  const [repairingTurn, setRepairingTurn] = useState<string | null>(null);
   const sending = useRef(false);
   const speech = useSpeech(muted);
   const recorder = useRecorder(
@@ -91,6 +95,10 @@ export function LessonPlayer({
     session.completedObjectives.includes(o.id),
   );
   const isConversation = session.status !== "completed" && !session.quiz?.length;
+  useEffect(() => {
+    onSpeaking?.(speech.speaking);
+    return () => onSpeaking?.(false);
+  }, [speech.speaking, onSpeaking]);
 
   useEffect(() => {
     const history = bottom.current?.parentElement;
@@ -195,6 +203,22 @@ export function LessonPlayer({
       setError(e instanceof Error ? e.message : "Petunjuk tidak tersedia.");
     } finally {
       setBusy(false);
+    }
+  }
+  async function repairReply(turnId: string) {
+    if (busy) return;
+    setBusy(true);
+    setRepairingTurn(turnId);
+    setError("");
+    speech.stop();
+    try {
+      const data = await api<{ session: GameSession }>(`/api/sessions/${session.id}/repair-reply`, json({ turnId }));
+      onSession(data.session);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : t("Balasan belum dapat diperbaiki. Coba lagi.", "Reply repair is unavailable. Try again."));
+    } finally {
+      setBusy(false);
+      setRepairingTurn(null);
     }
   }
   async function submitReport(e: React.FormEvent) {
@@ -428,15 +452,16 @@ export function LessonPlayer({
           ) : null}
         </section>
         <section className="conversation-panel">
-          <div className="mission-tracker">
-            <div>
+          <details className="mission-tracker">
+            <summary>
               <span className="eyebrow">
-                {t("TARGET PERCAKAPAN", "CONVERSATION GOALS")}
+                {completed ? t("Semua target tercapai", "All goals completed") : t("Target percakapan", "Conversation goals")}
               </span>
               <strong>
                 {session.completedObjectives.length}/{lesson.objectives.length}
               </strong>
-            </div>
+              <ChevronDown size={16} />
+            </summary>
             <div className="mission-track-items">
               {lesson.objectives.map((o) => (
                 <span
@@ -461,7 +486,7 @@ export function LessonPlayer({
                 }}
               />
             </div>
-          </div>
+          </details>
           <div className="conversation-history" role="log" aria-live="polite">
             <div className="message npc-message">
               <div className="message-avatar">{lesson.npc.slice(0, 1)}</div>
@@ -488,7 +513,10 @@ export function LessonPlayer({
                 </div>
               </div>
             </div>
-            {session.turns.map((turn) => (
+            {session.turns.map((turn) => {
+              const unavailable = replyNeedsRepair(turn);
+              const readableCorrections = turn.corrections.filter(correctionIsReadable);
+              return (
               <div className="turn-group" key={turn.id}>
                 <div className="message player-message">
                   <div>
@@ -502,7 +530,18 @@ export function LessonPlayer({
                   <div className="message-avatar">{lesson.npc.slice(0, 1)}</div>
                   <div>
                     <span className="speaker-name">{lesson.npc}</span>
-                    <div className="message-bubble">
+                    <div className={`message-bubble ${unavailable ? "reply-recovery" : ""}`}>
+                      {unavailable ? (
+                        <>
+                          <p>{t("Balasan ini perlu diperbaiki.", "This reply needs a correction.")}</p>
+                          <span className="translation">{t("Ada tulisan yang tidak sesuai. Perbaiki balasan untuk membacanya.", "Unexpected writing was found. Repair the reply to read it.")}</span>
+                          <button className="btn subtle" onClick={() => void repairReply(turn.id)} disabled={busy}>
+                            {repairingTurn === turn.id ? <Spinner /> : <RotateCcw size={16} />}
+                            {t("Perbaiki balasan", "Repair reply")}
+                          </button>
+                        </>
+                      ) : (
+                        <>
                       <p>{turn.reply}</p>
                       <span className="translation">
                         {turn.translation[locale]}
@@ -532,16 +571,18 @@ export function LessonPlayer({
                           <Flag size={12} />
                         </button>
                       </div>
+                        </>
+                      )}
                     </div>
-                    {turn.corrections.length ? (
+                    {readableCorrections.length ? (
                       <details className="correction-card">
                         <summary>
                           <Lightbulb size={15} />
                           {t("Catatan bahasa", "Language note")}
-                          <span>{turn.corrections.length}</span>
+                          <span>{readableCorrections.length}</span>
                           <ChevronDown size={14} />
                         </summary>
-                        {turn.corrections.map((c, i) => {
+                        {readableCorrections.map((c, i) => {
                           const source = corpus.find(
                             (e) => e.id === c.sourceId,
                           );
@@ -582,8 +623,9 @@ export function LessonPlayer({
                   </div>
                 </div>
               </div>
-            ))}
-            {busy && draft ? (
+              );
+            })}
+            {busy && draft && !repairingTurn ? (
               <div className="message player-message pending-message">
                 <div className="message-bubble">
                   <p>{draft}</p>
@@ -597,7 +639,7 @@ export function LessonPlayer({
                 <span />
                 <span />
                 <small>
-                  {completed
+                  {repairingTurn ? t("Memperbaiki balasan…", "Repairing reply…") : completed
                     ? t(
                         "Menyiapkan kuis dari percakapanmu…",
                         "Preparing a quiz from your conversation…",
@@ -631,8 +673,8 @@ export function LessonPlayer({
                 <Check size={21} />
                 <span>
                   {t(
-                    "Misi selesai. Lanjutkan ke kuis saat siap.",
-                    "Mission complete. Continue to the quiz when ready.",
+                    "Percakapan selesai.",
+                    "Conversation complete.",
                   )}
                 </span>
                 <button
@@ -808,8 +850,8 @@ export function LessonPlayer({
             <div className="composer-disclosure">
               <ShieldSmall />
               {t(
-                "Suara & koreksi dibantu AI. Kamu selalu bisa mencoba lagi.",
-                "AI-assisted voices & corrections. You can always try again.",
+                "Balasan dan suara dibantu AI.",
+                "AI-assisted replies and voices.",
               )}
             </div>
           </div>

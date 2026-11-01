@@ -5,13 +5,14 @@ import type { Correction, CorpusEntry, GameSession, LevelId, QuizQuestion, Sessi
 import { query, transaction } from './db';
 import { AppError, requireValue } from './errors';
 import { eligibleEntries, lessonById, levelOrder, retrieve } from './content';
-import { generateQuiz, roleplay, type QuizDraft } from './openrouter';
+import { generateQuiz, repairReply, roleplay, type QuizDraft } from './openrouter';
+import { publicTurn, replyNeedsRepair } from '../lib/learning-text';
 import { answerCorrect, calculateStars, correctionIsSupported, nextStreak, normalize, objectiveMatches, phraseIn, witaDate } from './rules';
 import { type ActorRow, playerView } from './actors';
 export interface PrivateQuestion extends QuizQuestion {answer:string;variants:string[]}
 export interface SessionRow {id:string;player_id:string;level_id:LevelId;status:GameSession['status'];turns:Turn[];completed_objectives:string[];hints_used:number;quiz:PrivateQuestion[]|null;result:SessionResult|null}
 export function sessionView(row:SessionRow):GameSession {
-  return {id:row.id,levelId:row.level_id,status:row.status,turns:row.turns,completedObjectives:row.completed_objectives,hintsUsed:row.hints_used,quiz:row.quiz?.map(({answer,variants,...q})=>q),result:row.result||undefined};
+  return {id:row.id,levelId:row.level_id,status:row.status,turns:row.turns.map(publicTurn),completedObjectives:row.completed_objectives,hintsUsed:row.hints_used,quiz:row.quiz?.map(({answer,variants,...q})=>q),result:row.result||undefined};
 }
 export async function ownedSession(id:string,playerId:string,client?:PoolClient,lock=false):Promise<SessionRow> {
   const sql=`SELECT * FROM game_sessions WHERE id=$1 AND player_id=$2${lock?' FOR UPDATE':''}`;
@@ -39,7 +40,7 @@ export async function addTurn(actor:ActorRow,sessionId:string,input:z.infer<type
     const prior=session.turns.find(t=>t.id===input.id);
     if(prior) {
       if(prior.playerText!==input.text) throw new AppError(409,'IDEMPOTENCY_CONFLICT','Giliran ini sudah digunakan. Silakan kirim sebagai giliran baru.');
-      return {session:sessionView(session),turn:prior};
+      return {session:sessionView(session),turn:publicTurn(prior)};
     }
     if(session.status!=='active')throw new AppError(409,'SESSION_NOT_ACTIVE','Percakapan sudah selesai. Lanjutkan kuis atau mulai sesi baru.');
     if(session.turns.length>=30)throw new AppError(422,'TURN_LIMIT','Sesi sudah mencapai batas giliran. Gunakan petunjuk untuk menyelesaikan tujuan.');
@@ -58,6 +59,21 @@ export async function addTurn(actor:ActorRow,sessionId:string,input:z.infer<type
     for(let i=0;i<corrections.length;i++)if(corrections[i].supported)await client.query('INSERT INTO mistakes(id,player_id,session_id,turn_id,correction,source_id) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT DO NOTHING',[`${input.id}:${i}`,actor.id,session.id,input.id,JSON.stringify(corrections[i]),corrections[i].sourceId]);
     const result=await client.query<SessionRow>('UPDATE game_sessions SET turns=$2,completed_objectives=$3,updated_at=now() WHERE id=$1 RETURNING *',[session.id,JSON.stringify([...session.turns,turn]),JSON.stringify(completed)]);
     return {session:sessionView(result.rows[0]),turn};
+  });
+}
+export async function repairTurnReply(actor:ActorRow,sessionId:string,turnId:string) {
+  return transaction(async client=>{
+    const session=await ownedSession(sessionId,actor.id,client,true);
+    const turn=requireValue(session.turns.find(item=>item.id===turnId),'TURN_NOT_FOUND');
+    if(!replyNeedsRepair(turn))return {session:sessionView(session),turn:publicTurn(turn)};
+    const repaired=await repairReply({lesson:lessonById(session.level_id),turn,playerId:actor.id,db:client});
+    const updated={...turn,...repaired};
+    delete updated.replyUnavailable;
+    // Repair presentation only. Never reassess words, change mission evidence,
+    // consume a hint, or issue another reward for an existing turn.
+    const turns=session.turns.map(item=>item.id===turnId?updated:item);
+    const row=(await client.query<SessionRow>('UPDATE game_sessions SET turns=$2 WHERE id=$1 RETURNING *',[session.id,JSON.stringify(turns)])).rows[0];
+    return {session:sessionView(row),turn:publicTurn(updated)};
   });
 }
 export async function useHint(actor:ActorRow,sessionId:string) {

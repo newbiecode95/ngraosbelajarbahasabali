@@ -1,4 +1,8 @@
-# Browser acceptance update — responsive UI and welcome
+# Browser acceptance update — mobile conversation
+
+Release `20261101-v3.2-mobile-chat`: local full regression **40 passed, 8 skipped, 0 failed**. Focused HTTPS production regression **11 passed, 1 media skip, 0 failed**. The new photo-like fixture checks a completed conversation at 393 × 690, folded goals, history taking more than 55% of screen height, hidden malformed AI text and a repair that recovers after a failed attempt. All 48 unit/PostgreSQL tests passed. See [mobile correction notes](../../docs/mobile-fix/README.md).
+
+# Responsive UI and welcome
 
 Release `20261031-v3.1-responsive`: **37 passed, 8 skipped, 0 failed** against public HTTPS. The new checks cover menu background isolation and focus return, accessible setting states, preserved preferences, dictionary empty-state recovery, and composer visibility at 320 × 568, 390 × 667, 390 × 844 and a 390 × 380 reduced viewport. Four skips concern absent Windows WebKit media APIs; four avoid duplicate viewport matrices. All 39 unit/PostgreSQL tests and the production Docker build passed. See [the current audit](../../docs/ui-review/README.md) and [welcome notes](../../docs/welcome/README.md).
 
