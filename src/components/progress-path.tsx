@@ -71,6 +71,7 @@ export function ProgressPath({
           className="path-resume"
           aria-label={t("Lanjutkan", "Continue")}
           onClick={onResume}
+          data-music-action="game"
           disabled={busy}
         >
           <strong>
@@ -134,6 +135,7 @@ export function ProgressPath({
                       className="btn primary full"
                       disabled={!available || busy}
                       onClick={() => onStart(lesson)}
+                      data-music-action="game"
                     >
                       {!available
                         ? t(

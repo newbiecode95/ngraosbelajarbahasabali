@@ -10,15 +10,19 @@ import {
   MapPin,
   Mic,
   Sparkles,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { Brand } from "./ui";
 import { primeSpeechAudio } from "./use-audio";
 import { useEntryJourney } from "./entry-journey";
+import { useBackgroundMusic } from "./background-music";
 import type { Locale } from "@/lib/types";
 
 export function WelcomeScreen() {
   const router = useRouter();
   const { enter } = useEntryJourney();
+  const { muted, setMuted } = useBackgroundMusic();
   const [quiet, setQuiet] = useState(false);
   const [ready, setReady] = useState(false);
   const [locale, setLocale] = useState<Locale>("id"),
@@ -151,15 +155,27 @@ export function WelcomeScreen() {
           <MapPin size={14} />
           Desa Kenderan, Bali
         </span>
-        <button
-          className="welcome__language"
-          onClick={language}
-          disabled={entering || !ready}
-          aria-label={t("Switch to English", "Ganti ke Bahasa Indonesia")}
-        >
-          <Globe2 size={16} />
-          {locale.toUpperCase()}
-        </button>
+        <div className="welcome__controls">
+          <button
+            className="welcome__language welcome__sound"
+            data-music-action="mute"
+            disabled={entering || !ready}
+            aria-label={muted ? t("Aktifkan suara", "Enable sound") : t("Matikan suara", "Mute sound")}
+            aria-pressed={!muted}
+            onClick={() => setMuted(!muted)}
+          >
+            {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+          </button>
+          <button
+            className="welcome__language"
+            onClick={language}
+            disabled={entering || !ready}
+            aria-label={t("Switch to English", "Ganti ke Bahasa Indonesia")}
+          >
+            <Globe2 size={16} />
+            {locale.toUpperCase()}
+          </button>
+        </div>
       </header>
       <main id="main-content" className="welcome__main" tabIndex={-1}>
         <section className="welcome__intro" aria-labelledby="welcome-title">

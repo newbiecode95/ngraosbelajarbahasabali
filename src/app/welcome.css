@@ -90,6 +90,17 @@
 .welcome__language:hover {
   background: #f7e6bf22;
 }
+.welcome__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.welcome__controls .welcome__sound {
+  min-width: 44px;
+  width: 44px;
+  padding: 0;
+}
 .welcome__main {
   overflow-y: auto;
   display: grid;

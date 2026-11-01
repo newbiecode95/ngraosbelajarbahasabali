@@ -1,0 +1,30 @@
+{
+  "source": {
+    "name": "VILLAGE - Cinematic Backsound Bali.mp3",
+    "providedBy": "user",
+    "bytes": 5433815,
+    "durationSeconds": 226.377143,
+    "sha256": "ca96bea157210b5f0d3409ec4a58efc3008285946271f82b3a1235f285a40aa2"
+  },
+  "assets": [
+    {
+      "path": "/audio/village-bali-v1.ogg",
+      "codec": "Opus",
+      "targetBitrateKbps": 40,
+      "bytes": 1323584,
+      "durationSeconds": 226.354625,
+      "sha256": "6ea1338c7dbf328a67a917f64ceb1b4b99023da9e97e4d5e4509fcfd577f4e21"
+    },
+    {
+      "path": "/audio/village-bali-v1.mp3",
+      "codec": "MP3",
+      "bitrateKbps": 64,
+      "sampleRate": 32000,
+      "bytes": 1811565,
+      "durationSeconds": 226.404,
+      "sha256": "ee9fb45654cc9b7311bdf226b4f3700b3900ef5497e6c53b206eb9364061acc0"
+    }
+  ],
+  "processing": "FFmpeg; stereo retained; metadata removed; loudnorm I=-20 TP=-2 LRA=11; 0.7-second track intro fade and 2-second outro fade. Runtime gain fades handle navigation separately.",
+  "originalPublished": false
+}

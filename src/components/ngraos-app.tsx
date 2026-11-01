@@ -39,7 +39,7 @@ import { api, json } from "@/lib/client-api";
 import { Brand, EmptyState, Modal, Spinner, Stars } from "./ui";
 import { primeSpeechAudio } from "./use-audio";
 import { LessonPlayer } from "./lesson-player";
-import { useAmbience } from "./use-ambience";
+import { useBackgroundMusic, useMusicScene } from "./background-music";
 import { ProgressPath } from "./progress-path";
 import { useEntryJourney } from "./entry-journey";
 import { AdminPanel } from "./admin-panel";
@@ -68,7 +68,6 @@ export function NgraosApp() {
     [auth, setAuth] = useState(false),
     [help, setHelp] = useState(false),
     [mobileMenu, setMobileMenu] = useState(false),
-    [muted, setMuted] = useState(false),
     [reduced, setReduced] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -76,6 +75,8 @@ export function NgraosApp() {
   const [smallScreen, setSmallScreen] = useState(false);
   const [characterSpeaking, setCharacterSpeaking] = useState(false);
   const [preferencesLoaded, setPreferencesLoaded] = useState(false);
+  const { muted, setMuted, setGameActive } = useBackgroundMusic();
+  useMusicScene(Boolean(session));
   useEffect(() => {
     if (ready) villageReady();
   }, [ready, villageReady]);
@@ -121,7 +122,6 @@ export function NgraosApp() {
         }),
       );
   }
-  useAmbience(!preferencesLoaded || muted, Boolean(session));
   const t = (id: string, en: string) => (locale === "id" ? id : en);
   const refresh = useCallback(async () => {
     try {
@@ -149,7 +149,6 @@ export function NgraosApp() {
       const stored = localStorage.getItem("ngraos-preferences");
       if (stored) {
         const value = JSON.parse(stored);
-        setMuted(Boolean(value.muted));
         setReduced(Boolean(value.reduced));
         if (value.locale === "en") setLocale("en");
       }
@@ -212,6 +211,7 @@ export function NgraosApp() {
       return;
     }
     setBusy(true);
+    setGameActive(true);
     setError("");
     try {
       const result = await api<{ session: GameSession }>(
@@ -221,6 +221,7 @@ export function NgraosApp() {
       setSession(result.session);
       setSelected(l.id);
     } catch (e) {
+      setGameActive(Boolean(session));
       setError(e instanceof Error ? e.message : "Gagal memulai.");
     } finally {
       setBusy(false);
@@ -230,6 +231,7 @@ export function NgraosApp() {
     primeSpeechAudio();
     if (!player?.activeSessionId) return;
     setBusy(true);
+    setGameActive(true);
     try {
       const data = await api<{ session: GameSession }>(
         `/api/sessions/${player.activeSessionId}`,
@@ -237,6 +239,7 @@ export function NgraosApp() {
       setSession(data.session);
       setSelected(data.session.levelId);
     } catch (e) {
+      setGameActive(Boolean(session));
       setError(e instanceof Error ? e.message : "Sesi tidak tersedia.");
     } finally {
       setBusy(false);
@@ -479,6 +482,7 @@ export function NgraosApp() {
             <button
               className="icon-btn sound-btn"
               onClick={() => setMuted(!muted)}
+              data-music-action="mute"
               aria-pressed={!muted}
               aria-label={
                 muted
@@ -772,6 +776,7 @@ export function NgraosApp() {
                             (!unlocked(lesson.id) && Boolean(player))
                           }
                           onClick={() => begin(lesson)}
+                          data-music-action="game"
                         >
                           {busy ? (
                             <Spinner />
@@ -878,6 +883,7 @@ export function NgraosApp() {
                     </div>
                     <button
                       className="btn subtle"
+                      data-music-action="game"
                       onClick={() =>
                         player?.activeSessionId ? resume() : begin(nextLesson)
                       }
@@ -990,6 +996,7 @@ export function NgraosApp() {
                           className="btn subtle"
                           disabled={!unlocked(l.id)}
                           onClick={() => begin(l)}
+                          data-music-action="game"
                         >
                           {player?.stars[l.id]
                             ? t("Main lagi", "Play again")
@@ -1573,10 +1580,10 @@ function Profile({
             value={locale.toUpperCase()}
           />
           <Setting
-            title={t("Suara & suasana desa", "Voice & village ambience")}
+            title={t("Suara & musik latar", "Voice & background music")}
             detail={t(
-              "Suara dan ekspresi saat mengobrol",
-              "Voice and expression during conversations",
+              "Musik di desa, suara karakter saat mengobrol",
+              "Village music and character voices during conversations",
             )}
             onClick={onMute}
             value={muted ? t("Mati", "Off") : t("Aktif", "On")}

@@ -1,0 +1,28 @@
+{
+  "base": "https://ngraos.docker.anatera.app",
+  "assets": [
+    {
+      "path": "/audio/village-bali-v1.ogg",
+      "bytes": 1323584,
+      "sha256": "6ea1338c7dbf328a67a917f64ceb1b4b99023da9e97e4d5e4509fcfd577f4e21",
+      "contentType": "audio/ogg",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "rangeStatus": 206
+    },
+    {
+      "path": "/audio/village-bali-v1.mp3",
+      "bytes": 1811565,
+      "sha256": "ee9fb45654cc9b7311bdf226b4f3700b3900ef5497e6c53b206eb9364061acc0",
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "rangeStatus": 206
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "aiReady": true,
+    "corpusEntries": 285,
+    "version": "0.1.0"
+  }
+}
