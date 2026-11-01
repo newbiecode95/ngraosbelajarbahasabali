@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { afterAll,describe,it,expect } from 'vitest';
+import { afterAll,beforeAll,describe,it,expect,vi } from 'vitest';
 import { randomBytes } from 'node:crypto';
 import { getAuth } from '../src/server/auth';
 import { query,getPool } from '../src/server/db';
@@ -7,7 +7,8 @@ import { findActor,isAdmin } from '../src/server/actors';
 const enabled=process.env.RUN_DB_TESTS==='1';
 describe.skipIf(!enabled)('Better Auth PostgreSQL integration',()=>{
   let userId:string|undefined;
-  afterAll(async()=>{if(userId)await query('DELETE FROM "user" WHERE id=$1',[userId]);await getPool().end();});
+  beforeAll(()=>vi.stubEnv('DEMO_ONLY','false'));
+  afterAll(async()=>{vi.unstubAllEnvs();if(userId)await query('DELETE FROM "user" WHERE id=$1',[userId]);await getPool().end();});
   it('signs up, authenticates a cookie, and isolates account data from demo',async()=>{
     const random=randomBytes(12).toString('hex');
     const response=await getAuth().api.signUpEmail({body:{name:'Auth integration',email:`test-${random}@ngraos.invalid`,password:randomBytes(24).toString('base64url')},asResponse:true});

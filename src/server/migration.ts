@@ -53,4 +53,9 @@ CREATE TABLE IF NOT EXISTS reports (
 CREATE TABLE IF NOT EXISTS app_settings (key text PRIMARY KEY, value jsonb NOT NULL, updated_at timestamptz NOT NULL DEFAULT now());
 CREATE TABLE IF NOT EXISTS schema_migrations (id text PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now());
 INSERT INTO schema_migrations(id) VALUES ('0001_initial') ON CONFLICT DO NOTHING;
+ALTER TABLE players ADD COLUMN IF NOT EXISTS demo_name_set boolean NOT NULL DEFAULT false;
+UPDATE players SET demo_name_set=true
+ WHERE (auth_user_id IS NOT NULL OR name<>'Tamiu')
+ AND NOT EXISTS (SELECT 1 FROM schema_migrations WHERE id='0002_demo_name');
+INSERT INTO schema_migrations(id) VALUES ('0002_demo_name') ON CONFLICT DO NOTHING;
 `;

@@ -43,6 +43,8 @@ import { useBackgroundMusic, useMusicScene } from "./background-music";
 import { ProgressPath } from "./progress-path";
 import { useEntryJourney } from "./entry-journey";
 import { AdminPanel } from "./admin-panel";
+import { DemoEntry } from "./demo-entry";
+import { VillageTravel, villageStops, type VillageVisit } from "./village-travel";
 type Screen = "map" | "album" | "journey" | "sources" | "profile" | "admin";
 const iconByLevel = {
   warung: Coffee,
@@ -75,6 +77,8 @@ export function NgraosApp() {
   const [smallScreen, setSmallScreen] = useState(false);
   const [characterSpeaking, setCharacterSpeaking] = useState(false);
   const [preferencesLoaded, setPreferencesLoaded] = useState(false);
+  const [demoOnly,setDemoOnly]=useState(true),[visit,setVisit]=useState<VillageVisit|null>(null);
+  const shownResults=useRef(new Set<string>());
   const { muted, setMuted, setGameActive } = useBackgroundMusic();
   useMusicScene(Boolean(session));
   useEffect(() => {
@@ -125,11 +129,12 @@ export function NgraosApp() {
   const t = (id: string, en: string) => (locale === "id" ? id : en);
   const refresh = useCallback(async () => {
     try {
-      const data = await api<{ player: Player | null; aiReady: boolean }>(
+      const data = await api<{ player: Player | null; aiReady: boolean; demoOnly?:boolean }>(
         "/api/player",
       );
       setPlayer(data.player);
       setAiReady(data.aiReady);
+      setDemoOnly(Boolean(data.demoOnly));
       if (data.player) {
         setLocale(data.player.locale);
         if (!locationChosen.current)
@@ -177,6 +182,24 @@ export function NgraosApp() {
     return index === 0 || Boolean(player?.stars[lessons[index - 1]?.id]);
   }
   const nextLesson = lessons.find((l) => !player?.stars[l.id]) || lessons[0];
+  function acceptSession(next:GameSession){
+    if(!demoOnly||next.status!=='completed'||!next.result){setSession(next);return;}
+    const index=lessons.findIndex(l=>l.id===next.levelId),destination=lessons[index+1]||lessons[index];
+    const key=`ngraos-map-results:${player?.id}`,seen=shownResults.current;
+    try{for(const id of JSON.parse(localStorage.getItem(key)||'[]'))seen.add(id);}catch{}
+    if(!seen.has(next.id)){
+      seen.add(next.id);
+      try{localStorage.setItem(key,JSON.stringify([...seen].slice(-100)));}catch{}
+      setVisit({id:next.id,from:next.levelId,to:destination.id,result:next.result});
+    }
+    setSession(null);setScreen('map');setSelected(destination.id);locationChosen.current=true;
+  }
+  function enterDemo(named:Player){
+    const destination=lessons.find(l=>!named.stars[l.id])||lessons[3];
+    const index=lessons.indexOf(destination);
+    setPlayer(named);setError('');setSelected(destination.id);setScreen('map');locationChosen.current=true;
+    setVisit({id:`arrival:${named.id}`,to:destination.id,...(index>0?{from:lessons[index-1].id}:{})});
+  }
   async function changeLocale() {
     const next = locale === "id" ? "en" : "id";
     setLocale(next);
@@ -218,7 +241,7 @@ export function NgraosApp() {
         "/api/sessions",
         json({ levelId: l.id }),
       );
-      setSession(result.session);
+      acceptSession(result.session);
       setSelected(l.id);
     } catch (e) {
       setGameActive(Boolean(session));
@@ -236,7 +259,7 @@ export function NgraosApp() {
       const data = await api<{ session: GameSession }>(
         `/api/sessions/${player.activeSessionId}`,
       );
-      setSession(data.session);
+      acceptSession(data.session);
       setSelected(data.session.levelId);
     } catch (e) {
       setGameActive(Boolean(session));
@@ -287,6 +310,9 @@ export function NgraosApp() {
       label: t("Sumber belajar", "Learning sources"),
     },
   ];
+  if(!ready&&demoOnly)return <main id="main-content" className="demo-entry" tabIndex={-1}><Spinner/><p role="status">{t('Menyiapkan desa…','Preparing the village…')}</p></main>;
+  if(demoOnly&&(!player?.isDemo||player.needsName))return <DemoEntry locale={locale} initialName={player?.needsName&&player.name!=='Tamiu'?player.name:''} notice={error} onReady={enterDemo}/>;
+  const villageLocation=lessons.find(l=>!player?.stars[l.id])||lessons[3];
   return (
     <div
       className={`app-shell ${session ? "in-lesson" : ""} ${session?.status === "quiz" ? "in-quiz" : ""} ${session?.status === "completed" ? "in-results" : ""} ${!session && screen === "map" ? "on-map" : ""} ${reduced ? "reduce-motion" : ""}`}
@@ -502,10 +528,10 @@ export function NgraosApp() {
                 <span />
               </button>
             ) : (
-              <button className="btn login-btn" onClick={() => setAuth(true)}>
+              !demoOnly?<button className="btn login-btn" onClick={() => setAuth(true)}>
                 {t("Masuk", "Sign in")}
                 <ArrowUpRight size={15} />
-              </button>
+              </button>:null
             )}
           </div>
         </header>
@@ -532,21 +558,21 @@ export function NgraosApp() {
               <span>
                 <Sparkles size={14} />
                 {t(
-                  "Mode demo • Progres terpisah dari akun pribadi",
-                  "Demo mode • Progress is separate from your account",
+                  "Mode demo · Progres tersimpan di browser ini",
+                  "Demo mode · Progress stays in this browser",
                 )}
               </span>
-              <button onClick={() => setAuth(true)}>
+              {!demoOnly?<button onClick={() => setAuth(true)}>
                 {t("Simpan dengan akun", "Create your account")}
                 <ArrowRight size={13} />
-              </button>
+              </button>:null}
             </div>
           ) : null}
           {session ? (
             <LessonPlayer
               key={session.id}
               session={session}
-              onSession={setSession}
+              onSession={acceptSession}
               locale={locale}
               muted={muted}
               onSpeaking={setCharacterSpeaking}
@@ -651,6 +677,7 @@ export function NgraosApp() {
                           />
                           <div className="map-cloud cloud-one" />
                           <div className="map-cloud cloud-two" />
+                          {demoOnly&&player?<span className="village-player" data-caption={t('Kamu di sini','You are here')} style={{left:`${villageStops[villageLocation.id][0]/10}%`,top:`${villageStops[villageLocation.id][1]/6.25}%`}} aria-label={t(`Kamu di ${villageLocation.title}`,`You are at ${villageLocation.title}`)}>{player.name.slice(0,1).toLocaleUpperCase(locale)}</span>:null}
                           {lessons.map((l, i) => (
                             <button
                               key={l.id}
@@ -1019,6 +1046,7 @@ export function NgraosApp() {
               {screen === "sources" ? <Sources locale={locale} /> : null}
               {screen === "profile" ? (
                 <Profile
+                  demoOnly={demoOnly}
                   player={player}
                   locale={locale}
                   muted={muted}
@@ -1094,7 +1122,8 @@ export function NgraosApp() {
           </button>
         </div>
       ) : null}
-      {auth ? (
+      {demoOnly&&visit&&player?<VillageTravel key={visit.id} visit={visit} player={player} locale={locale} reduced={reduced} onDismiss={()=>setVisit(null)} onStart={id=>{setVisit(null);void begin(lessons.find(l=>l.id===id)!);}}/>:null}
+      {auth&&!demoOnly ? (
         <AuthModal
           locale={locale}
           onClose={() => setAuth(false)}
@@ -1461,6 +1490,7 @@ function Sources({ locale }: { locale: Locale }) {
   );
 }
 function Profile({
+  demoOnly=false,
   player,
   locale,
   muted,
@@ -1473,6 +1503,7 @@ function Profile({
   onLogout,
   setToast,
 }: {
+  demoOnly?:boolean;
   player: Player | null;
   locale: Locale;
   muted: boolean;
@@ -1614,10 +1645,10 @@ function Profile({
       ) : null}
       {player ? (
         <div className="account-actions">
-          <button className="btn subtle" onClick={onLogout}>
+          {!demoOnly?<button className="btn subtle" onClick={onLogout}>
             <LogOut size={16} />
             {t("Keluar", "Sign out")}
-          </button>
+          </button>:null}
           <button className="text-link danger" onClick={() => setConfirm(true)}>
             {player.isDemo
               ? t("Reset demo", "Reset demo")

@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
-import { aiReady, models } from './config';
+import { aiReady, demoOnly, models } from './config';
 import { getDb, query, transaction } from './db';
 import { corpusEntries } from './schema';
 import { cookieValue, createDemo, demoCookie, DEMO_COOKIE, findActor, playerView, requireActor, requireAdmin, type ActorRow } from './actors';
@@ -20,19 +20,19 @@ async function handle(request:Request) {
     return ok({status:'ok',database:'ready',aiReady:aiReady(),corpusEntries:Number(counts.rows[0].entries),version:'0.1.0'});
   }
   if(path==='player' && method==='GET') {
-    const actor=await findActor(request);return ok({player:actor?await playerView(actor):null,aiReady:aiReady()});
+    const actor=await findActor(request);return ok({player:actor?await playerView(actor):null,aiReady:aiReady(),demoOnly:demoOnly()});
   }
   if(path==='demo' && (method==='POST'||method==='DELETE')) {
     await rateLimit(`demo:${requestIdentity(request)}`,12,3600);
     const profile=method==='POST'&&request.body?z.object({name:z.string().trim().min(1).max(60).optional(),locale:z.enum(['id','en']).optional()}).parse(await jsonBody(request)):{};
     const previous=cookieValue(request,DEMO_COOKIE);
-    if(method==='POST'&&previous) {const actor=await findActor(request);if(actor&&!actor.auth_user_id){const updated=(await query<ActorRow>('UPDATE players SET name=COALESCE($2,name),locale=COALESCE($3,locale) WHERE id=$1 RETURNING *',[actor.id,profile.name||null,profile.locale||null])).rows[0];return ok({player:await playerView(updated)});}}
+    if(method==='POST'&&previous) {const actor=await findActor(request);if(actor&&!actor.auth_user_id){const updated=(await query<ActorRow>('UPDATE players SET name=COALESCE($2,name),locale=COALESCE($3,locale),demo_name_set=demo_name_set OR ($2::text IS NOT NULL) WHERE id=$1 RETURNING *',[actor.id,profile.name||null,profile.locale||null])).rows[0];return ok({player:await playerView(updated)});}}
     const {actor,token}=await createDemo(previous,profile);return ok({player:await playerView(actor)},201,{'Set-Cookie':demoCookie(token)});
   }
   if(path==='demo/exit'&&method==='POST')return ok({ok:true},200,{'Set-Cookie':demoCookie('',true)});
   if(path==='player' && method==='PATCH') {
     const actor=await requireActor(request);const body=z.object({name:z.string().trim().min(1).max(60).optional(),locale:z.enum(['id','en']).optional()}).parse(await jsonBody(request));
-    const updated=(await query<ActorRow>('UPDATE players SET name=COALESCE($2,name),locale=COALESCE($3,locale) WHERE id=$1 RETURNING *',[actor.id,body.name||null,body.locale||null])).rows[0];
+    const updated=(await query<ActorRow>('UPDATE players SET name=COALESCE($2,name),locale=COALESCE($3,locale),demo_name_set=demo_name_set OR ($2::text IS NOT NULL) WHERE id=$1 RETURNING *',[actor.id,body.name||null,body.locale||null])).rows[0];
     return ok({player:await playerView({...updated,email:actor.email,emailVerified:actor.emailVerified})});
   }
   if(path==='player' && method==='DELETE') {

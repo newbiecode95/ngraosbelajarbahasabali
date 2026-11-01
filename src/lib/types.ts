@@ -99,6 +99,7 @@ export interface Player {
   xp: number;
   streak: number;
   isDemo: boolean;
+  needsName?: boolean;
   isAdmin: boolean;
   stars: Partial<Record<LevelId, number>>;
   albums: LevelId[];

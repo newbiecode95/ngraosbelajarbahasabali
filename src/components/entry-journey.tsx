@@ -16,6 +16,7 @@ import type { Locale } from "@/lib/types";
 const JourneyContext = createContext({
   enter: (_locale: Locale, _reduced: boolean) => {},
   villageReady: () => {},
+  isTraveling: false,
 });
 export const useEntryJourney = () => useContext(JourneyContext);
 
@@ -141,7 +142,7 @@ export function EntryJourneyProvider({ children }: { children: ReactNode }) {
   const villageReady = useCallback(() => setReady(true), []);
   useEffect(() => {
     if (!journey && departed.current)
-      document.getElementById("main-content")?.focus({ preventScroll: true });
+      (document.querySelector<HTMLElement>('[data-entry-focus]')||document.getElementById("main-content"))?.focus({ preventScroll: true });
   }, [journey]);
   const enter = useCallback(
     (locale: Locale, reduced: boolean) => {
@@ -186,7 +187,7 @@ export function EntryJourneyProvider({ children }: { children: ReactNode }) {
   }, [journey, ready, elapsed, pathname]);
   const t = (id: string, en: string) => (journey?.locale === "en" ? en : id);
   return (
-    <JourneyContext.Provider value={{ enter, villageReady }}>
+    <JourneyContext.Provider value={{ enter, villageReady, isTraveling:Boolean(journey) }}>
       <div className="journey-content" inert={Boolean(journey)}>
         {children}
       </div>

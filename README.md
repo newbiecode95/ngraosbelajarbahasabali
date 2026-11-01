@@ -2,12 +2,12 @@
 
 An interactive Balinese language adventure in **Desa Kenderan**, deployed with Docker at **https://ngraos.docker.anatera.app**. Four connected encounters take the player from a first greeting to a complete conversation: Warung Men Sari, Kos Bu Komang, Pasar Pagi, and the chapter boss.
 
-The home page opens with a cinematic welcome screen that fits the title, start action and three instructions in one viewport. Select **Mulai** to follow the animated Bali map into Desa Kenderan; refreshing the village keeps you inside the app. See [current welcome/arrival verification](docs/welcome-v2/README.md) and [original art credits](docs/welcome/README.md).
+The home page opens with a cinematic welcome screen. Select **Mulai** to follow the Bali map, enter your name, and watch your marker arrive at Level 1 on the village map. After a completed quiz, the map shows your rewards and animates the journey to the next unlocked level. See [demo flow verification](docs/demo-journey/verification.md).
 
 ## Implemented experience
 
 - Illustrated 2.5D village with interactive locations, four character portraits, ambient sound, audio-reactive speaking indicators, keyboard navigation and reduced motion.
-- Indonesian/English interface, email/password accounts, isolated resettable guest demos, saved sessions, and account deletion.
+- Indonesian/English interface and isolated named guest demos with saved progress. Public demo mode is enabled by default; `DEMO_ONLY=false` restores email/password accounts. Existing account data is retained.
 - Tap-to-record audio that ends after a speech pause, sends automatically, and plays NPC replies. Transcript review is optional; typing is always available. Browser recordings are normalized with FFmpeg and deleted after processing. No pronunciation score is invented.
 - OpenRouter roleplay, source-grounded corrections, three authored objectives per location, five-question quizzes with traceable mistake/reinforcement origins, and server-controlled scoring.
 - Visible task directions, optional saved phrase examples, a mobile learning path, immediate saved quiz feedback, and direct next/replay actions. See [guided gameplay and mockup comparisons](docs/gameplay-guide/README.md).
@@ -51,7 +51,7 @@ The database is authoritative for turns, objective evidence, errors, quizzes and
 
 ## Deployment and verification
 
-See [operations](docs/operations.md) for source deployment, TLS routing, model checks, daily backups, restore verification, administrator access and rollback. See [verification](docs/verification.md) for measured results and limitations. Images and procedural ambience are documented in [asset credits](docs/assets.md).
+See [operations](docs/operations.md) for source deployment, TLS routing, model checks, daily backups, restore verification, administrator access and rollback. See [verification](docs/verification.md) for measured results and limitations. Images are documented in [asset credits](docs/assets.md), and the compressed user-supplied music in [music verification](docs/background-music/verification.md).
 
 No public registration of a third-party hosting service is required. Everything runs in the dedicated `/opt/ngraos` Docker stack on the home server. Future scope (later chapters, spaced repetition and social features) is intentionally outside this release.
 Current UI audit and responsive fixes: [docs/ui-review/README.md](docs/ui-review/README.md).

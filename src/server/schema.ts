@@ -4,6 +4,7 @@ const vector = customType<{ data: number[]; driverData: string }>({dataType: () 
 export const players = pgTable('players', {
   id: text('id').primaryKey(), authUserId: uuid('auth_user_id').unique(), name: text('name').notNull(), locale: text('locale').notNull().default('id'),
   demoTokenHash: text('demo_token_hash').unique(), expiresAt: timestamp('expires_at',{withTimezone:true}), xp: integer('xp').notNull().default(0), streak: integer('streak').notNull().default(0), lastActiveDate: text('last_active_date'),
+  demoNameSet: boolean('demo_name_set').notNull().default(false),
   stars: jsonb('stars').$type<Partial<Record<LevelId,number>>>().notNull().default({}), albums: jsonb('albums').$type<LevelId[]>().notNull().default([]), createdAt: timestamp('created_at',{withTimezone:true}).notNull().defaultNow(),
 });
 export const gameSessions = pgTable('game_sessions', {
