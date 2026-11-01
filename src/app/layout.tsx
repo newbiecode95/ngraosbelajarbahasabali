@@ -8,6 +8,7 @@ import "./refinements.css";
 import "./gameplay.css";
 import "./welcome.css";
 import "./demo-journey.css";
+import "./arrival-scene.css";
 import { EntryJourneyProvider } from "@/components/entry-journey";
 import { BackgroundMusicProvider } from "@/components/background-music";
 export const metadata: Metadata = {

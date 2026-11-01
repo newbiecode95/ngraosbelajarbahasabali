@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+<title>Bali, peta perjalanan</title><desc>Stylized relief using the existing public-domain Natural Earth coastline. Decorative contours and mountains are illustrative, not elevation data.</desc>
+<defs>
+ <path id="coast" d="M653.41,387.90L665.65,390.92L674.21,403.29L678.80,415.33L688.39,426.25L692.91,441.54L683.70,450.76L674.07,461.59L659.09,457.26L629.54,437.37L620.68,426.79L613.13,424.66L609.75,422.20L611.39,417.99L630.40,394.57L636.05,389.98L645.36,391.81L653.41,387.90ZM690.21,190.79L708.01,206.30L728.58,219.86L740.91,235.93L733.83,258.87L728.36,264.27L711.18,277.87L701.28,283.48L688.26,297.17L682.57,301.67L644.64,304.52L638.91,307.03L635.18,319.05L626.02,326.40L554.15,351.73L532.05,365.76L515.08,384.03L503.36,405.11L495.42,413.19L483.57,416.42L473.29,420.41L468.34,430.10L469.51,441.83L477.63,452.03L481.62,448.46L479.19,446.29L474.33,437.84L483.96,433.76L486.92,443.28L485.61,468.10L482.14,473.58L473.72,478.63L464.04,482.37L456.49,484.16L443.95,484.84L431.75,484.29L420.51,481.48L410.66,475.36L410.27,467.42L421.29,459.55L444.90,448.46L451.02,441.45L457.01,429.76L459.35,417.22L454.36,407.32L451.93,403.75L443.25,385.73L439.30,383.69L434.57,382.25L430.32,380.46L415.13,368.82L408.05,361.08L405.19,353.52L400.89,345.57L391.00,338.05L372.07,326.66L335.01,293.34L321.07,284.12L251.54,251.74L229.80,247.70L167.47,248.17L149.07,241.83L132.92,229.30L119.51,214.55L76.50,154.12L65.56,103.63L67.95,89.69L83.44,86.76L95.86,87.22L102.84,92.07L107.92,99.29L114.52,106.86L122.85,109.92L131.19,107.62L145.29,97.76L153.36,103.63L164.82,106.43L185.66,108.43L195.42,110.51L284.05,140.86L302.89,134.14L351.67,134.23L372.07,130.15L393.73,114.80L432.49,78.04L452.19,68.91L463.00,68.78L474.94,71.07L485.96,75.49L494.38,81.53L503.36,86.71L540.21,94.19L627.97,130.15L645.51,141.62L661.39,155.73L690.21,190.79Z"/>
+ <clipPath id="island"><use href="#coast"/></clipPath>
+ <linearGradient id="land" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#c9d6a0"/><stop offset=".3" stop-color="#8eb58b"/><stop offset=".65" stop-color="#498773"/><stop offset="1" stop-color="#286657"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bda976"/><stop offset=".35" stop-color="#657951"/><stop offset="1" stop-color="#133f36"/></linearGradient>
+ <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8dca7"/><stop offset="1" stop-color="#397968"/></linearGradient>
+ <linearGradient id="peak" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fcf0c1"/><stop offset=".5" stop-color="#9dbf8c"/><stop offset="1" stop-color="#3c7665"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#fff2b7" stop-opacity=".28"/><stop offset="1" stop-color="#fff2b7" stop-opacity="0"/></radialGradient>
+ <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.8"><feGaussianBlur stdDeviation="13"/></filter>
+ <filter id="mountain-shadow" x="-.5" y="-.5" width="2" height="2"><feDropShadow dx="8" dy="12" stdDeviation="5" flood-color="#0b3d2e" flood-opacity=".45"/></filter>
+</defs>
+<g fill="none" stroke="#b7dfd0" opacity=".11" stroke-width="1">
+ <ellipse cx="406" cy="335" rx="360" ry="170" transform="rotate(9 406 335)"/>
+ <ellipse cx="406" cy="335" rx="390" ry="195" transform="rotate(9 406 335)"/>
+ <path d="M10 355 Q175 280 330 402 T790 410 M10 390 Q175 315 330 437 T790 445 M30 55 Q160 12 300 60 T740 35"/>
+</g>
+<use href="#coast" transform="translate(4 40)" fill="#010f17" opacity=".7" filter="url(#shadow)"/>
+<use href="#coast" transform="translate(0 24)" fill="#123e34" stroke="#397061" stroke-width="2"/>
+<use href="#coast" transform="translate(0 18)" fill="url(#edge)" stroke="#73936b" stroke-width="1.2"/>
+<use href="#coast" transform="translate(0 10)" fill="#426b4b" stroke="#b5b783" stroke-width="1"/>
+<use href="#coast" fill="url(#land)" stroke="#e4d6a3" stroke-width="2.1" stroke-linejoin="round"/>
+<g clip-path="url(#island)" fill="none" stroke="#dce1ac" stroke-width="1.3" opacity=".36">
+ <path d="M-20 100 Q120 55 220 150 T430 150 T800 260 M-20 112 Q120 67 220 162 T430 162 T800 272 M-20 124 Q120 79 220 174 T430 174 T800 284 M-20 136 Q120 91 220 186 T430 186 T800 296 M-20 148 Q120 103 220 198 T430 198 T800 308 M-20 160 Q120 115 220 210 T430 210 T800 320 M-20 172 Q120 127 220 222 T430 222 T800 332 M-20 184 Q120 139 220 234 T430 234 T800 344"/>
+ <path d="M320 290 Q430 205 510 280 T710 305 M325 302 Q430 217 510 292 T710 317 M330 314 Q430 229 510 304 T710 329 M335 326 Q430 241 510 316 T710 341 M340 338 Q430 253 510 328 T710 353 M345 350 Q430 265 510 340 T710 365 M350 362 Q430 277 510 352 T710 377 M355 374 Q430 289 510 364 T710 389 M360 386 Q430 301 510 376 T710 401 M365 398 Q430 313 510 388 T710 413"/>
+</g>
+<g clip-path="url(#island)"><ellipse cx="370" cy="135" rx="330" ry="180" fill="url(#light)"/></g>
+<g filter="url(#mountain-shadow)">
+ <path d="M318 159 L351 113 L387 173 Q355 184 318 159Z" fill="url(#ridge)"/><path d="M351 113 L358 153 L387 173" fill="#2d6a57" opacity=".65"/>
+ <path d="M385 170 L437 100 L490 189 Q446 209 385 170Z" fill="url(#peak)"/><path d="M437 100 L445 162 L490 189" fill="#376f59"/><path d="M427 113 L437 100 L450 118 L438 113Z" fill="#fff2ca"/>
+ <path d="M506 205 L544 152 L585 225 Q546 240 506 205Z" fill="url(#peak)"/><path d="M544 152 L552 206 L585 225" fill="#376f59" opacity=".8"/>
+</g>
+<g fill="#173e36" opacity=".7"><path d="M223 180l5-13 5 13h-3v7h-4v-7z M241 192l5-13 5 13h-3v7h-4v-7z M260 198l5-13 5 13h-3v7h-4v-7z M595 258l5-13 5 13h-3v7h-4v-7z M614 263l5-13 5 13h-3v7h-4v-7z"/></g>
+<use href="#coast" fill="none" stroke="#fff1bc" stroke-opacity=".5" stroke-width=".8"/>
+</svg>

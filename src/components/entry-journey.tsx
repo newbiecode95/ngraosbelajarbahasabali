@@ -10,7 +10,8 @@ import {
   type ReactNode,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { MapPin, RotateCcw, X } from "lucide-react";
+import { MapPin, RotateCcw, X, Compass, Sparkles } from "lucide-react";
+import { Brand } from "./ui";
 import type { Locale } from "@/lib/types";
 
 const JourneyContext = createContext({
@@ -61,67 +62,136 @@ export function BaliJourney({
     <div
       className={`bali-journey ${reduced ? "bali-journey--quiet" : ""} ${arriving ? "bali-journey--arriving" : ""}`}
     >
-      <div className="bali-journey__heading">
-        <span>{t("BALI · INDONESIA", "BALI · INDONESIA")}</span>
-        <h1>{t("Menuju Desa Kenderan", "On our way to Kenderan")}</h1>
-        <p>{t("Tegallalang, Gianyar", "Tegallalang, Gianyar")}</p>
+      <div className="bali-journey__atmosphere" aria-hidden="true">
+        <div className="bali-journey__aurora" />
+        <div className="bali-journey__chart-grid" />
+        {Array.from({ length: 12 }, (_, i) => (
+          <i
+            key={i}
+            style={{
+              left: `${6 + ((i * 19) % 89)}%`,
+              top: `${9 + ((i * 31) % 78)}%`,
+              animationDelay: `${i * -0.7}s`,
+            }}
+          />
+        ))}
       </div>
-      <div className="bali-journey__map" aria-hidden="true">
-        <img src="/images/bali-map.svg" alt="" width="800" height="560" />
-        <svg viewBox="0 0 800 560" className="bali-journey__route">
-          <text x="415" y="180" className="bali-journey__island">
-            BALI
-          </text>
-          <path
-            ref={trail}
-            className="bali-journey__trail"
-            d="M 100 126 C 170 130 194 190 255 202 S 375 215 420 248 S 480 300 514.43 278.11"
-            fill="none"
-            strokeLinecap="round"
-            strokeDasharray="1 17"
-          />
-          {!reduced ? (
-            <circle
-              ref={traveler}
-              cx="100"
-              cy="126"
-              r="6"
-              className="bali-journey__traveler"
-            />
-          ) : null}
-          <circle
-            cx="514.43"
-            cy="278.11"
-            r="22"
-            className="bali-journey__ring"
-          />
-          <circle
-            cx="514.43"
-            cy="278.11"
-            r="8"
-            className="bali-journey__destination"
-          />
-        </svg>
-        <div className="bali-journey__pin">
-          <MapPin size={17} />
-          <span>Desa Kenderan</span>
+      <div className="bali-journey__topline">
+        <Brand />
+        <span>BALI · INDONESIA</span>
+      </div>
+      <div className="bali-journey__body">
+        <div className="bali-journey__heading">
+          <span className="bali-journey__chapter">
+            <span /> {t("PERJALANAN PERTAMAMU", "YOUR FIRST JOURNEY")} <span />
+          </span>
+          <h1 aria-label={t("Menuju Desa Kenderan", "On our way to Kenderan")}>
+            <small>{t("Menuju", "On our way to")}</small>
+            <span>
+              Desa <em>Kenderan</em>
+            </span>
+          </h1>
+          <p>
+            <span />
+            {t("Tegallalang, Gianyar", "Tegallalang, Gianyar")}
+            <span />
+          </p>
         </div>
-        <span className="bali-journey__ocean">
-          {t("SAMUDRA HINDIA", "INDIAN OCEAN")}
+        <div className="bali-journey__map" aria-hidden="true">
+          <span className="bali-journey__ocean-glow" />
+          <img
+            src="/images/bali-map-relief.svg"
+            alt=""
+            width="800"
+            height="560"
+          />
+          <svg viewBox="0 0 800 560" className="bali-journey__route">
+            <text x="415" y="240" className="bali-journey__island">
+              BALI
+            </text>
+            <path
+              className="bali-journey__trail-shadow"
+              d="M 100 126 C 170 130 194 190 255 202 S 375 215 420 248 S 480 300 514.43 278.11"
+            />
+            <path
+              ref={trail}
+              className="bali-journey__trail"
+              d="M 100 126 C 170 130 194 190 255 202 S 375 215 420 248 S 480 300 514.43 278.11"
+              fill="none"
+              strokeLinecap="round"
+              strokeDasharray="1 17"
+            />
+            {!reduced ? (
+              <circle
+                ref={traveler}
+                cx="100"
+                cy="126"
+                r="6"
+                className="bali-journey__traveler"
+              />
+            ) : null}
+            <circle
+              cx="514.43"
+              cy="278.11"
+              r="22"
+              className="bali-journey__ring"
+            />
+            <circle
+              cx="514.43"
+              cy="278.11"
+              r="8"
+              className="bali-journey__destination"
+            />
+          </svg>
+          <div className="bali-journey__pin">
+            <MapPin size={17} />
+            <div>
+              <small>{t("TUJUANMU", "YOUR DESTINATION")}</small>
+              <span>Desa Kenderan</span>
+            </div>
+          </div>
+          <span className="bali-journey__ocean">
+            {t("SAMUDRA HINDIA", "INDIAN OCEAN")}
+          </span>
+          <span className="bali-journey__compass">
+            <Compass size={32} />
+            <small>{t("U", "N")}</small>
+          </span>
+        </div>
+      </div>
+      <div className="bali-journey__bottom">
+        <div className="bali-journey__journey-line" aria-hidden="true">
+          <i />
+          <Sparkles size={16} />
+          <i />
+        </div>
+        <p className="bali-journey__status">
+          {arriving
+            ? t("Rahajeng rauh!", "Rahajeng rauh!")
+            : waiting
+              ? t("Desanya masih disiapkan…", "Getting the village ready…")
+              : t("Perjalananmu dimulai di sini.", "Your journey starts here.")}
+          <span className="bali-journey__dots" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
+        </p>
+        <span className="bali-journey__bottom-note">
+          Dari Tamiu jadi Nyama.
         </span>
       </div>
-      <p className="bali-journey__status">
-        {arriving
-          ? t("Rahajeng rauh!", "Rahajeng rauh!")
-          : waiting
-            ? t("Desanya masih disiapkan…", "Getting the village ready…")
-            : t("Perjalananmu dimulai di sini.", "Your journey starts here.")}
-        <span className="bali-journey__dots" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </span>
-      </p>
+    </div>
+  );
+}
+
+// The route fallback must not mount a second animated scene behind the entry overlay.
+export function VillageLoading() {
+  const { isTraveling } = useEntryJourney();
+  if (isTraveling) return null;
+  return (
+    <div className="village-loading" role="status">
+      <BaliJourney waiting />
     </div>
   );
 }
@@ -142,7 +212,10 @@ export function EntryJourneyProvider({ children }: { children: ReactNode }) {
   const villageReady = useCallback(() => setReady(true), []);
   useEffect(() => {
     if (!journey && departed.current)
-      (document.querySelector<HTMLElement>('[data-entry-focus]')||document.getElementById("main-content"))?.focus({ preventScroll: true });
+      (
+        document.querySelector<HTMLElement>("[data-entry-focus]") ||
+        document.getElementById("main-content")
+      )?.focus({ preventScroll: true });
   }, [journey]);
   const enter = useCallback(
     (locale: Locale, reduced: boolean) => {
@@ -187,7 +260,9 @@ export function EntryJourneyProvider({ children }: { children: ReactNode }) {
   }, [journey, ready, elapsed, pathname]);
   const t = (id: string, en: string) => (journey?.locale === "en" ? en : id);
   return (
-    <JourneyContext.Provider value={{ enter, villageReady, isTraveling:Boolean(journey) }}>
+    <JourneyContext.Provider
+      value={{ enter, villageReady, isTraveling: Boolean(journey) }}
+    >
       <div className="journey-content" inert={Boolean(journey)}>
         {children}
       </div>

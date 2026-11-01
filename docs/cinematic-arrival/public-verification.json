@@ -1,0 +1,32 @@
+{
+  "origin": "https://ngraos.docker.anatera.app",
+  "screenshots": "Real public assets; player response deferred only for still captures.",
+  "normalEntries": [
+    {
+      "engine": "chromium",
+      "realPlayerResponse": true,
+      "journeyFinished": true,
+      "nameFormFocused": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "realPlayerResponse": true,
+      "journeyFinished": true,
+      "nameFormFocused": true,
+      "errors": []
+    }
+  ],
+  "assets": {
+    "status": 200,
+    "type": "image/svg+xml",
+    "bytes": 5679
+  },
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "aiReady": true,
+    "corpusEntries": 285,
+    "version": "0.1.0"
+  }
+}
