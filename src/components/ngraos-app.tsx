@@ -1636,6 +1636,14 @@ function Profile({
               "Daily streaks follow Bali time (UTC+8).",
             )}
           </p>
+          <section className="music-credit" aria-labelledby="music-credit-title">
+            <h3 id="music-credit-title">{t("Kredit musik", "Music credit")}</h3>
+            <p className="music-credit__track"><strong>VILLAGE</strong> — Cinematic Backsound Bali</p>
+            <p>{t("Musik oleh Sugi Art.", "Music by Sugi Art.")}</p>
+            <a className="text-link" href="https://www.youtube.com/watch?v=XvUbSTLZXJo" target="_blank" rel="noopener noreferrer">
+              {t("Dengarkan di YouTube", "Listen on YouTube")} <ExternalLink size={16} aria-hidden="true" />
+            </a>
+          </section>
         </section>
       </div>
       {error ? (

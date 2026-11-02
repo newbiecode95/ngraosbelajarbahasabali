@@ -131,9 +131,14 @@ test('locked locations, English settings, reload and responsive navigation work'
   await expect(page.getByRole('button',{name:/^Selesaikan (lokasi sebelumnya|Warung Men Sari)$/}).filter({visible:true})).toBeDisabled();
   await page.getByRole('button',{name:'Buka profil',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Pengaturan'})).toBeVisible();
+  const credit=page.getByRole('region',{name:'Kredit musik',exact:true});
+  await expect(credit).toContainText('VILLAGE');
+  await expect(credit).toContainText('Musik oleh Sugi Art.');
+  await expect(credit.getByRole('link',{name:'Dengarkan di YouTube'})).toHaveAttribute('href','https://www.youtube.com/watch?v=XvUbSTLZXJo');
   await page.getByRole('button',{name:'Bahasa antarmuka',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Settings'})).toBeVisible();
   await expect(page.getByRole('heading',{name:'Learning experience'})).toBeVisible();
+  await expect(page.getByRole('region',{name:'Music credit',exact:true})).toContainText('Music by Sugi Art.');
   await expect(page.locator('html')).toHaveAttribute('lang','en');
   await noOverflow(page);
   await screenshot(page,testInfo,'english-settings');

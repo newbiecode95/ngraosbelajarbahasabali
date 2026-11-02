@@ -83,6 +83,31 @@ button:disabled {
 .setting-row p {
   line-height: 1.65;
 }
+.music-credit {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.music-credit h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.music-credit p {
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.music-credit .music-credit__track {
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.music-credit .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 8px;
+  margin-top: 10px;
+}
 .setting-toggle {
   min-height: 44px;
   min-width: 56px;

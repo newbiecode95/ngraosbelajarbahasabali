@@ -29,6 +29,8 @@ Final Pak Wayan prompt:
 
 The quiet stream/wind atmosphere is synthesized locally with Web Audio noise and a low-pass filter. It starts after a user interaction, fades while in a conversation, and follows mute and document visibility. It contains no recorded player speech. NPC voices are explicitly disclosed as AI generated.
 
+The current village soundtrack is **VILLAGE – Cinematic Backsound Bali**, credited to **Sugi Art**, whose [official YouTube upload](https://www.youtube.com/watch?v=XvUbSTLZXJo) and YouTube oEmbed metadata identify that title and artist. The supplied MP3 was already integrated as the Opus/MP3 assets documented in [background-music/assets.json](background-music/assets.json). Settings displays this credit and a direct source link in Indonesian and English. The attribution is not a claim that the music is public domain or covered by a particular reuse license.
+
 DM Sans Variable and Outfit Variable are bundled through `@fontsource-variable` packages with their included open-font license files. Lucide provides the interface icons under its ISC license. Learning-text attribution and share-alike terms are separate; see `src/content/README.md`.
 
 The welcome screen adds an illustrated gateway in `public/images/welcome-kenderan.webp` and a smaller mobile variant. Generation prompt and credits: [welcome/artwork.md](welcome/artwork.md).

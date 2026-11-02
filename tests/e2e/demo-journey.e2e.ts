@@ -56,6 +56,8 @@ test('map arrival → named demo → Level 1 → quiz → animated Level 2 unloc
   await expect(page.getByRole('button',{name:'Masuk',exact:true})).toHaveCount(0);await expect(page.getByLabel('Email',{exact:true})).toHaveCount(0);
   await page.getByLabel('Nama panggilan').fill('Ayu');await page.getByRole('button',{name:'Masuk desa',exact:true}).click();
   const travel=page.getByRole('dialog');await expect(travel).toBeVisible();expect(fixture.names).toBe(1);
+  const entrance=await travel.locator('.village-travel__route').evaluate((path:SVGPathElement)=>{const point=path.getPointAtLength(0);return {x:point.x,y:point.y};});
+  expect(entrance).toEqual({x:100,y:470});
   await expect(travel.getByRole('heading',{name:'Rahajeng rauh, Ayu!',exact:true})).toBeVisible();
   const marker=travel.locator('[data-player-marker]');const start=await marker.getAttribute('transform');
   await expect.poll(()=>marker.getAttribute('transform')).not.toBe(start);

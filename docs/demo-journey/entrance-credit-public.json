@@ -1,0 +1,12 @@
+{
+  "origin": "https://ngraos.docker.anatera.app",
+  "api": "Isolated browser fixture; public JS/CSS/images; no paid AI or learner writes",
+  "entrance": {
+    "x": 100,
+    "y": 470
+  },
+  "credit": "VILLAGE – Cinematic Backsound Bali · Sugi Art",
+  "source": "https://www.youtube.com/watch?v=XvUbSTLZXJo",
+  "smallPhoneOverflow": false,
+  "errors": []
+}

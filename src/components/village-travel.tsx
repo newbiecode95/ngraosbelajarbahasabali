@@ -6,9 +6,10 @@ import type { LevelId, Locale, Player, SessionResult } from '@/lib/types';
 import { Stars } from './ui';
 
 export const villageStops:Record<LevelId,[number,number]>={warung:[220,312],kos:[790,269],pasar:[480,144],boss:[400,488]};
+const villageEntrance:[number,number]=[100,470];
 export type VillageVisit={id:string;from?:LevelId;to:LevelId;result?:SessionResult};
 function routeFor(visit:VillageVisit){
-  if(!visit.from)return 'M 400 610 C 400 510 315 460 270 410 S 220 355 220 312';
+  if(!visit.from)return `M ${villageEntrance.join(' ')} C 130 458 175 451 205 437 S 239 423 234 400 S 220 355 220 312`;
   if(visit.from==='warung'&&visit.to==='kos')return 'M 220 312 C 260 400 365 430 465 400 S 555 370 590 325 S 700 320 790 269';
   if(visit.from==='kos'&&visit.to==='pasar')return 'M 790 269 C 735 310 680 270 625 225 S 555 175 480 144';
   if(visit.from==='pasar'&&visit.to==='boss')return 'M 480 144 C 580 180 610 235 575 300 S 495 405 400 488';
@@ -35,7 +36,7 @@ export function VillageTravel({visit,player,locale,reduced,onStart,onDismiss}:{v
     };
     frame=requestAnimationFrame(move);return ()=>cancelAnimationFrame(frame);
   },[visit,reduced]);
-  const start=visit.from?villageStops[visit.from]:[400,610];
+  const start=visit.from?villageStops[visit.from]:villageEntrance;
   return <dialog ref={dialog} className={`village-travel ${reduced?'village-travel--quiet':''}`} aria-labelledby="village-travel-title" onCancel={e=>{e.preventDefault();onDismiss();}}>
     <div className="village-travel__paper">
       <header>
